@@ -1,0 +1,15 @@
+public import gobject.generated.*;
+
+// These are some macros that are not translated by clay-bindgen.
+// More will be added as needed.
+g_signal_connect(instance_, detailed_signal, c_handler, data) =
+    g_signal_connect_data(instance_, detailed_signal, c_handler, data,
+        GClosureNotify(0), GConnectFlags(0));
+
+g_signal_connect_after(instance_, detailed_signal, c_handler, data) =
+    g_signal_connect_data(instance_, detailed_signal, c_handler, data,
+        GClosureNotify(0), G_CONNECT_AFTER);
+
+g_signal_connect_swapped(instance_, detailed_signal, c_handler, data) =
+    g_signal_connect_data(instance_, detailed_signal, c_handler, data,
+        GClosureNotify(0), G_CONNECT_SWAPPED);
