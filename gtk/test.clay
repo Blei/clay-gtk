@@ -1,11 +1,11 @@
 import gtk.*;
-import gobject.*;
+import gobject.(gSignalConnect);
 
-private hello(widget: Pointer[GtkWidget], data: Pointer[Int8]) {
+private external hello(widget: Pointer[GtkWidget], data: Pointer[Int8]) {
     println("hello");
 }
 
-private destroying(widget: Pointer[GtkWidget], data: Pointer[Int8]) {
+private external destroying(widget: Pointer[GtkWidget], data: Pointer[Int8]) {
     gtk_main_quit();
 }
 
@@ -13,16 +13,16 @@ main() {
     gtk_init(null(Int32), null(Pointer[Pointer[CChar]]));
 
     var window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    g_signal_connect(Pointer[Int8](&window), cstring("destroy"),
+    gSignalConnect(window, cstring("destroy"),
         GCallback(destroying), null(UInt8));
 
-    gtk_container_set_border_width(window, 10);
+    gtk_container_set_border_width(Pointer[GtkContainer](window), 10u);
 
     var button = gtk_button_new_with_label(cstring("hello, gtk"));
-    g_signal_connect(Pointer[Int8](&button), cstring("clicked"),
-        GCallback(hello), null(Int));
+    gSignalConnect(button, cstring("clicked"),
+        GCallback(hello), null(UInt8));
 
-    gtk_container_add(window, button);
+    gtk_container_add(Pointer[GtkContainer](window), button);
 
     gtk_widget_show(button);
     gtk_widget_show(window);
