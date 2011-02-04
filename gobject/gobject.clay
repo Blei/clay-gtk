@@ -14,8 +14,8 @@ gSignalConnectSwapped(instance_, detailed_signal, c_handler, data) =
     gSignalConnectData(instance_, detailed_signal, c_handler, data,
         GClosureNotify(0), G_CONNECT_SWAPPED);
 
-[T]
+[T, U]
 gSignalConnectData(instance_: Pointer[T],
-    detailed_signal, c_handler, data, destroy_data, connect_flags) =
-    g_signal_connect_data(Pointer[UInt8](instance_),
-        detailed_signal, c_handler, data, destroy_data, connect_flags);
+    detailed_signal, c_handler, data: Pointer[U], destroy_data, connect_flags) =
+    g_signal_connect_data(Pointer[UInt8](instance_), detailed_signal,
+        c_handler, Pointer[UInt8](data), destroy_data, connect_flags);

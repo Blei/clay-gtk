@@ -1,8 +1,7 @@
 # TODO: add other platforms
 
-BINDGEN_OPTS = -match gtk `pkg-config --cflags-only-I gtk+-2.0` \
-	       -import glib.generated -import gobject.generated \
-	       -import pango.generated
+BINDGEN_OPTS = -match pango `pkg-config --cflags-only-I pango` \
+	       -import glib.generated
 
 help:
 	@echo "Usage: make linux64"

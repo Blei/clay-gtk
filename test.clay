@@ -1,5 +1,5 @@
 import gtk.*;
-import gobject.(gSignalConnect);
+import gobject.*;
 
 private external hello(widget: Pointer[GtkWidget], data: Pointer[Int8]) {
     println("hello");

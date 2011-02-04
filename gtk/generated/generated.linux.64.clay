@@ -3,6 +3,7 @@
 
 import glib.generated.*;
 import gobject.generated.*;
+import pango.generated.*;
 
 private alias OpaquePointer = RawPointer;
 private alias UnknownType = Int;
