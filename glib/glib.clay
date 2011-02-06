@@ -1,1 +1,4 @@
 public import glib.generated.*;
+
+alias FALSE = gboolean(0);
+alias TRUE = gboolean(1);

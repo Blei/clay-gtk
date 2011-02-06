@@ -14,6 +14,7 @@ gSignalConnectSwapped(instance_, detailed_signal, c_handler, data) =
     gSignalConnectData(instance_, detailed_signal, c_handler, data,
         GClosureNotify(0), G_CONNECT_SWAPPED);
 
+// convenience methods
 [T, U]
 gSignalConnectData(instance_: Pointer[T],
     detailed_signal, c_handler, data: Pointer[U], destroy_data, connect_flags) =
