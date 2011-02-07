@@ -2,7 +2,7 @@
 
 BINDGEN_OPTS = -match gtk `pkg-config --cflags-only-I gtk+-2.0` \
 	       -import glib.generated -import gobject.generated \
-	       -import pango.generated
+	       -import pango.generated -import cairo.generated
 
 help:
 	@echo "Usage: make linux64"
