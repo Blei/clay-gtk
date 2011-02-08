@@ -5,6 +5,7 @@ import glib.generated.*;
 import gobject.generated.*;
 import pango.generated.*;
 import cairo.generated.*;
+import gdkpixbuf.generated.*;
 
 private alias OpaquePointer = RawPointer;
 private alias UnknownType = Int;
