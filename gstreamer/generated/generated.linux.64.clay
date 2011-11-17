@@ -20,7 +20,7 @@ record Struct__GString (
 );
 
 external g_string_chunk_new(
-    size : CULong) Pointer[GStringChunk];
+    size : CULong) : Pointer[GStringChunk];
 
 external g_string_chunk_free(
     chunk : Pointer[GStringChunk]);
@@ -30,126 +30,126 @@ external g_string_chunk_clear(
 
 external g_string_chunk_insert(
     chunk : Pointer[GStringChunk],
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_string_chunk_insert_len(
     chunk : Pointer[GStringChunk],
     string : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_string_chunk_insert_const(
     chunk : Pointer[GStringChunk],
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_string_new(
-    init : Pointer[CChar]) Pointer[GString];
+    init : Pointer[CChar]) : Pointer[GString];
 
 external g_string_new_len(
     init : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_sized_new(
-    dfl_size : CULong) Pointer[GString];
+    dfl_size : CULong) : Pointer[GString];
 
 external g_string_free(
     string : Pointer[GString],
-    free_segment : Int) Pointer[CChar];
+    free_segment : Int) : Pointer[CChar];
 
 external g_string_equal(
     v : Pointer[GString],
-    v2 : Pointer[GString]) Int;
+    v2 : Pointer[GString]) : Int;
 
 external g_string_hash(
-    str : Pointer[GString]) UInt;
+    str : Pointer[GString]) : UInt;
 
 external g_string_assign(
     string : Pointer[GString],
-    rval : Pointer[CChar]) Pointer[GString];
+    rval : Pointer[CChar]) : Pointer[GString];
 
 external g_string_truncate(
     string : Pointer[GString],
-    len : CULong) Pointer[GString];
+    len : CULong) : Pointer[GString];
 
 external g_string_set_size(
     string : Pointer[GString],
-    len : CULong) Pointer[GString];
+    len : CULong) : Pointer[GString];
 
 external g_string_insert_len(
     string : Pointer[GString],
     pos : CLong,
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_append(
     string : Pointer[GString],
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_append_len(
     string : Pointer[GString],
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_append_c(
     string : Pointer[GString],
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_append_unichar(
     string : Pointer[GString],
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_prepend(
     string : Pointer[GString],
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_prepend_c(
     string : Pointer[GString],
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_prepend_unichar(
     string : Pointer[GString],
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_prepend_len(
     string : Pointer[GString],
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_insert(
     string : Pointer[GString],
     pos : CLong,
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_insert_c(
     string : Pointer[GString],
     pos : CLong,
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_insert_unichar(
     string : Pointer[GString],
     pos : CLong,
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_overwrite(
     string : Pointer[GString],
     pos : CULong,
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_overwrite_len(
     string : Pointer[GString],
     pos : CULong,
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_erase(
     string : Pointer[GString],
     pos : CLong,
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_ascii_down(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_ascii_up(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_vprintf(
     string : Pointer[GString],
@@ -159,7 +159,7 @@ external g_string_vprintf(
 external g_string_printf(
     string : Pointer[GString],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_string_append_vprintf(
     string : Pointer[GString],
@@ -169,19 +169,19 @@ external g_string_append_vprintf(
 external g_string_append_printf(
     string : Pointer[GString],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_string_append_uri_escaped(
     string : Pointer[GString],
     unescaped : Pointer[CChar],
     reserved_chars_allowed : Pointer[CChar],
-    allow_utf8 : Int) Pointer[GString];
+    allow_utf8 : Int) : Pointer[GString];
 
 external g_string_down(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_up(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 alias G_ASCII_ALNUM = 1;
 alias G_ASCII_ALPHA = 2;
@@ -200,356 +200,356 @@ alias GAsciiType = Int;
 external g_ascii_table : Pointer[UShort];
 
 external g_ascii_tolower(
-    c : CChar) CChar;
+    c : CChar) : CChar;
 
 external g_ascii_toupper(
-    c : CChar) CChar;
+    c : CChar) : CChar;
 
 external g_ascii_digit_value(
-    c : CChar) Int;
+    c : CChar) : Int;
 
 external g_ascii_xdigit_value(
-    c : CChar) Int;
+    c : CChar) : Int;
 
 external g_strdelimit(
     string : Pointer[CChar],
     delimiters : Pointer[CChar],
-    new_delimiter : CChar) Pointer[CChar];
+    new_delimiter : CChar) : Pointer[CChar];
 
 external g_strcanon(
     string : Pointer[CChar],
     valid_chars : Pointer[CChar],
-    substitutor : CChar) Pointer[CChar];
+    substitutor : CChar) : Pointer[CChar];
 
 external g_strerror(
-    errnum : Int) Pointer[CChar];
+    errnum : Int) : Pointer[CChar];
 
 external g_strsignal(
-    signum : Int) Pointer[CChar];
+    signum : Int) : Pointer[CChar];
 
 external g_strreverse(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strlcpy(
     dest : Pointer[CChar],
     src : Pointer[CChar],
-    dest_size : CULong) CULong;
+    dest_size : CULong) : CULong;
 
 external g_strlcat(
     dest : Pointer[CChar],
     src : Pointer[CChar],
-    dest_size : CULong) CULong;
+    dest_size : CULong) : CULong;
 
 external g_strstr_len(
     haystack : Pointer[CChar],
     haystack_len : CLong,
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_strrstr(
     haystack : Pointer[CChar],
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_strrstr_len(
     haystack : Pointer[CChar],
     haystack_len : CLong,
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_str_has_suffix(
     str : Pointer[CChar],
-    suffix : Pointer[CChar]) Int;
+    suffix : Pointer[CChar]) : Int;
 
 external g_str_has_prefix(
     str : Pointer[CChar],
-    prefix : Pointer[CChar]) Int;
+    prefix : Pointer[CChar]) : Int;
 
 external g_strtod(
     nptr : Pointer[CChar],
-    endptr : Pointer[Pointer[CChar]]) Double;
+    endptr : Pointer[Pointer[CChar]]) : Double;
 
 external g_ascii_strtod(
     nptr : Pointer[CChar],
-    endptr : Pointer[Pointer[CChar]]) Double;
+    endptr : Pointer[Pointer[CChar]]) : Double;
 
 external g_ascii_strtoull(
     nptr : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    base : UInt) CULong;
+    base : UInt) : CULong;
 
 external g_ascii_strtoll(
     nptr : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    base : UInt) CLong;
+    base : UInt) : CLong;
 
 external g_ascii_dtostr(
     buffer : Pointer[CChar],
     buf_len : Int,
-    d : Double) Pointer[CChar];
+    d : Double) : Pointer[CChar];
 
 external g_ascii_formatd(
     buffer : Pointer[CChar],
     buf_len : Int,
     format : Pointer[CChar],
-    d : Double) Pointer[CChar];
+    d : Double) : Pointer[CChar];
 
 external g_strchug(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strchomp(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_ascii_strcasecmp(
     s1 : Pointer[CChar],
-    s2 : Pointer[CChar]) Int;
+    s2 : Pointer[CChar]) : Int;
 
 external g_ascii_strncasecmp(
     s1 : Pointer[CChar],
     s2 : Pointer[CChar],
-    n : CULong) Int;
+    n : CULong) : Int;
 
 external g_ascii_strdown(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_ascii_strup(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_strcasecmp(
     s1 : Pointer[CChar],
-    s2 : Pointer[CChar]) Int;
+    s2 : Pointer[CChar]) : Int;
 
 external g_strncasecmp(
     s1 : Pointer[CChar],
     s2 : Pointer[CChar],
-    n : UInt) Int;
+    n : UInt) : Int;
 
 external g_strdown(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strup(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strdup(
-    str : Pointer[CChar]) Pointer[CChar];
+    str : Pointer[CChar]) : Pointer[CChar];
 
 external g_strdup_printf(
     format : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strdup_vprintf(
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Pointer[CChar];
+    args : Pointer[__va_list_tag]) : Pointer[CChar];
 
 external g_strndup(
     str : Pointer[CChar],
-    n : CULong) Pointer[CChar];
+    n : CULong) : Pointer[CChar];
 
 external g_strnfill(
     length : CULong,
-    fill_char : CChar) Pointer[CChar];
+    fill_char : CChar) : Pointer[CChar];
 
 external g_strconcat(
     string1 : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strjoin(
     separator : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strcompress(
-    source : Pointer[CChar]) Pointer[CChar];
+    source : Pointer[CChar]) : Pointer[CChar];
 
 external g_strescape(
     source : Pointer[CChar],
-    exceptions : Pointer[CChar]) Pointer[CChar];
+    exceptions : Pointer[CChar]) : Pointer[CChar];
 
 external g_memdup(
     mem : gconstpointer,
-    byte_size : UInt) gpointer;
+    byte_size : UInt) : gpointer;
 
 external g_strsplit(
     string : Pointer[CChar],
     delimiter : Pointer[CChar],
-    max_tokens : Int) Pointer[Pointer[CChar]];
+    max_tokens : Int) : Pointer[Pointer[CChar]];
 
 external g_strsplit_set(
     string : Pointer[CChar],
     delimiters : Pointer[CChar],
-    max_tokens : Int) Pointer[Pointer[CChar]];
+    max_tokens : Int) : Pointer[Pointer[CChar]];
 
 external g_strjoinv(
     separator : Pointer[CChar],
-    str_array : Pointer[Pointer[CChar]]) Pointer[CChar];
+    str_array : Pointer[Pointer[CChar]]) : Pointer[CChar];
 
 external g_strfreev(
     str_array : Pointer[Pointer[CChar]]);
 
 external g_strdupv(
-    str_array : Pointer[Pointer[CChar]]) Pointer[Pointer[CChar]];
+    str_array : Pointer[Pointer[CChar]]) : Pointer[Pointer[CChar]];
 
 external g_strv_length(
-    str_array : Pointer[Pointer[CChar]]) UInt;
+    str_array : Pointer[Pointer[CChar]]) : UInt;
 
 external g_stpcpy(
     dest : Pointer[CChar],
-    src : Pointer[CChar]) Pointer[CChar];
+    src : Pointer[CChar]) : Pointer[CChar];
 
 external g_strip_context(
     msgid : Pointer[CChar],
-    msgval : Pointer[CChar]) Pointer[CChar];
+    msgval : Pointer[CChar]) : Pointer[CChar];
 
 external g_dgettext(
     domain : Pointer[CChar],
-    msgid : Pointer[CChar]) Pointer[CChar];
+    msgid : Pointer[CChar]) : Pointer[CChar];
 
 external g_dcgettext(
     domain : Pointer[CChar],
     msgid : Pointer[CChar],
-    category : Int) Pointer[CChar];
+    category : Int) : Pointer[CChar];
 
 external g_dngettext(
     domain : Pointer[CChar],
     msgid : Pointer[CChar],
     msgid_plural : Pointer[CChar],
-    n : CULong) Pointer[CChar];
+    n : CULong) : Pointer[CChar];
 
 external g_dpgettext(
     domain : Pointer[CChar],
     msgctxtid : Pointer[CChar],
-    msgidoffset : CULong) Pointer[CChar];
+    msgidoffset : CULong) : Pointer[CChar];
 
 external g_dpgettext2(
     domain : Pointer[CChar],
     context : Pointer[CChar],
-    msgid : Pointer[CChar]) Pointer[CChar];
+    msgid : Pointer[CChar]) : Pointer[CChar];
 
-external gst_object_flags_get_type() CULong;
+external gst_object_flags_get_type() : CULong;
 
-external gst_bin_flags_get_type() CULong;
+external gst_bin_flags_get_type() : CULong;
 
-external gst_buffer_flag_get_type() CULong;
+external gst_buffer_flag_get_type() : CULong;
 
-external gst_buffer_copy_flags_get_type() CULong;
+external gst_buffer_copy_flags_get_type() : CULong;
 
-external gst_buffer_list_item_get_type() CULong;
+external gst_buffer_list_item_get_type() : CULong;
 
-external gst_bus_flags_get_type() CULong;
+external gst_bus_flags_get_type() : CULong;
 
-external gst_bus_sync_reply_get_type() CULong;
+external gst_bus_sync_reply_get_type() : CULong;
 
-external gst_caps_flags_get_type() CULong;
+external gst_caps_flags_get_type() : CULong;
 
-external gst_clock_return_get_type() CULong;
+external gst_clock_return_get_type() : CULong;
 
-external gst_clock_entry_type_get_type() CULong;
+external gst_clock_entry_type_get_type() : CULong;
 
-external gst_clock_flags_get_type() CULong;
+external gst_clock_flags_get_type() : CULong;
 
-external gst_debug_graph_details_get_type() CULong;
+external gst_debug_graph_details_get_type() : CULong;
 
-external gst_state_get_type() CULong;
+external gst_state_get_type() : CULong;
 
-external gst_state_change_return_get_type() CULong;
+external gst_state_change_return_get_type() : CULong;
 
-external gst_state_change_get_type() CULong;
+external gst_state_change_get_type() : CULong;
 
-external gst_element_flags_get_type() CULong;
+external gst_element_flags_get_type() : CULong;
 
-external gst_core_error_get_type() CULong;
+external gst_core_error_get_type() : CULong;
 
-external gst_library_error_get_type() CULong;
+external gst_library_error_get_type() : CULong;
 
-external gst_resource_error_get_type() CULong;
+external gst_resource_error_get_type() : CULong;
 
-external gst_stream_error_get_type() CULong;
+external gst_stream_error_get_type() : CULong;
 
-external gst_event_type_flags_get_type() CULong;
+external gst_event_type_flags_get_type() : CULong;
 
-external gst_event_type_get_type() CULong;
+external gst_event_type_get_type() : CULong;
 
-external gst_seek_type_get_type() CULong;
+external gst_seek_type_get_type() : CULong;
 
-external gst_seek_flags_get_type() CULong;
+external gst_seek_flags_get_type() : CULong;
 
-external gst_format_get_type() CULong;
+external gst_format_get_type() : CULong;
 
-external gst_index_certainty_get_type() CULong;
+external gst_index_certainty_get_type() : CULong;
 
-external gst_index_entry_type_get_type() CULong;
+external gst_index_entry_type_get_type() : CULong;
 
-external gst_index_lookup_method_get_type() CULong;
+external gst_index_lookup_method_get_type() : CULong;
 
-external gst_assoc_flags_get_type() CULong;
+external gst_assoc_flags_get_type() : CULong;
 
-external gst_index_resolver_method_get_type() CULong;
+external gst_index_resolver_method_get_type() : CULong;
 
-external gst_index_flags_get_type() CULong;
+external gst_index_flags_get_type() : CULong;
 
-external gst_debug_level_get_type() CULong;
+external gst_debug_level_get_type() : CULong;
 
-external gst_debug_color_flags_get_type() CULong;
+external gst_debug_color_flags_get_type() : CULong;
 
-external gst_iterator_result_get_type() CULong;
+external gst_iterator_result_get_type() : CULong;
 
-external gst_iterator_item_get_type() CULong;
+external gst_iterator_item_get_type() : CULong;
 
-external gst_message_type_get_type() CULong;
+external gst_message_type_get_type() : CULong;
 
-external gst_structure_change_type_get_type() CULong;
+external gst_structure_change_type_get_type() : CULong;
 
-external gst_stream_status_type_get_type() CULong;
+external gst_stream_status_type_get_type() : CULong;
 
-external gst_mini_object_flags_get_type() CULong;
+external gst_mini_object_flags_get_type() : CULong;
 
-external gst_pad_link_return_get_type() CULong;
+external gst_pad_link_return_get_type() : CULong;
 
-external gst_flow_return_get_type() CULong;
+external gst_flow_return_get_type() : CULong;
 
-external gst_pad_link_check_get_type() CULong;
+external gst_pad_link_check_get_type() : CULong;
 
-external gst_activate_mode_get_type() CULong;
+external gst_activate_mode_get_type() : CULong;
 
-external gst_pad_direction_get_type() CULong;
+external gst_pad_direction_get_type() : CULong;
 
-external gst_pad_flags_get_type() CULong;
+external gst_pad_flags_get_type() : CULong;
 
-external gst_pad_presence_get_type() CULong;
+external gst_pad_presence_get_type() : CULong;
 
-external gst_pad_template_flags_get_type() CULong;
+external gst_pad_template_flags_get_type() : CULong;
 
-external gst_pipeline_flags_get_type() CULong;
+external gst_pipeline_flags_get_type() : CULong;
 
-external gst_plugin_error_get_type() CULong;
+external gst_plugin_error_get_type() : CULong;
 
-external gst_plugin_flags_get_type() CULong;
+external gst_plugin_flags_get_type() : CULong;
 
-external gst_plugin_dependency_flags_get_type() CULong;
+external gst_plugin_dependency_flags_get_type() : CULong;
 
-external gst_rank_get_type() CULong;
+external gst_rank_get_type() : CULong;
 
-external gst_query_type_get_type() CULong;
+external gst_query_type_get_type() : CULong;
 
-external gst_buffering_mode_get_type() CULong;
+external gst_buffering_mode_get_type() : CULong;
 
-external gst_clock_type_get_type() CULong;
+external gst_clock_type_get_type() : CULong;
 
-external gst_tag_merge_mode_get_type() CULong;
+external gst_tag_merge_mode_get_type() : CULong;
 
-external gst_tag_flag_get_type() CULong;
+external gst_tag_flag_get_type() : CULong;
 
-external gst_task_state_get_type() CULong;
+external gst_task_state_get_type() : CULong;
 
-external gst_alloc_trace_flags_get_type() CULong;
+external gst_alloc_trace_flags_get_type() : CULong;
 
-external gst_type_find_probability_get_type() CULong;
+external gst_type_find_probability_get_type() : CULong;
 
-external gst_uri_type_get_type() CULong;
+external gst_uri_type_get_type() : CULong;
 
-external gst_search_mode_get_type() CULong;
+external gst_search_mode_get_type() : CULong;
 
-external gst_parse_error_get_type() CULong;
+external gst_parse_error_get_type() : CULong;
 
-external gst_parse_flags_get_type() CULong;
+external gst_parse_flags_get_type() : CULong;
 
 alias GstElement = Struct__GstElement;
 
@@ -589,44 +589,44 @@ record Struct__GstObjectClass (
     path_string_separator : Pointer[CChar],
     signal_object : Pointer[GObject],
     lock : Pointer[GStaticRecMutex],
-    parent_set : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__GstObject]),()],
-    parent_unset : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__GstObject]),()],
-    object_saved : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__xmlNode]),()],
-    deep_notify : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__GstObject],Pointer[Struct__GParamSpec]),()],
-    save_thyself : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__xmlNode]),(Pointer[Struct__xmlNode])],
-    restore_thyself : CCodePointer[(Pointer[Struct__GstObject],Pointer[Struct__xmlNode]),()],
+    parent_set : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__GstObject]],[]],
+    parent_unset : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__GstObject]],[]],
+    object_saved : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__xmlNode]],[]],
+    deep_notify : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__GstObject],Pointer[Struct__GParamSpec]],[]],
+    save_thyself : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__xmlNode]],[Pointer[Struct__xmlNode]]],
+    restore_thyself : CCodePointer[[Pointer[Struct__GstObject],Pointer[Struct__xmlNode]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_object_get_type() CULong;
+external gst_object_get_type() : CULong;
 
 external gst_object_set_name(
     object : Pointer[GstObject],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_object_get_name(
-    object : Pointer[GstObject]) Pointer[CChar];
+    object : Pointer[GstObject]) : Pointer[CChar];
 
 external gst_object_set_name_prefix(
     object : Pointer[GstObject],
     name_prefix : Pointer[CChar]);
 
 external gst_object_get_name_prefix(
-    object : Pointer[GstObject]) Pointer[CChar];
+    object : Pointer[GstObject]) : Pointer[CChar];
 
 external gst_object_set_parent(
     object : Pointer[GstObject],
-    parent : Pointer[GstObject]) Int;
+    parent : Pointer[GstObject]) : Int;
 
 external gst_object_get_parent(
-    object : Pointer[GstObject]) Pointer[GstObject];
+    object : Pointer[GstObject]) : Pointer[GstObject];
 
 external gst_object_unparent(
     object : Pointer[GstObject]);
 
 external gst_object_has_ancestor(
     object : Pointer[GstObject],
-    ancestor : Pointer[GstObject]) Int;
+    ancestor : Pointer[GstObject]) : Int;
 
 external gst_object_default_deep_notify(
     object : Pointer[GObject],
@@ -635,7 +635,7 @@ external gst_object_default_deep_notify(
     excluded_props : Pointer[Pointer[CChar]]);
 
 external gst_object_ref(
-    object : gpointer) gpointer;
+    object : gpointer) : gpointer;
 
 external gst_object_unref(
     object : gpointer);
@@ -651,15 +651,15 @@ external gst_object_replace(
     newobj : Pointer[GstObject]);
 
 external gst_object_get_path_string(
-    object : Pointer[GstObject]) Pointer[CChar];
+    object : Pointer[GstObject]) : Pointer[CChar];
 
 external gst_object_check_uniqueness(
     list : Pointer[GList],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_object_save_thyself(
     object : Pointer[GstObject],
-    parent : xmlNodePtr) xmlNodePtr;
+    parent : xmlNodePtr) : xmlNodePtr;
 
 external gst_object_restore_thyself(
     object : Pointer[GstObject],
@@ -669,7 +669,7 @@ external gst_class_signal_connect(
     klass : Pointer[GstObjectClass],
     name : Pointer[CChar],
     func : gpointer,
-    func_data : gpointer) UInt;
+    func_data : gpointer) : UInt;
 
 external gst_class_signal_emit_by_name(
     object : Pointer[GstObject],
@@ -680,9 +680,9 @@ alias GstMiniObject = Struct__GstMiniObject;
 
 alias GstMiniObjectClass = Struct__GstMiniObjectClass;
 
-alias GstMiniObjectCopyFunction = CCodePointer[(Pointer[Struct__GstMiniObject]),(Pointer[Struct__GstMiniObject])];
+alias GstMiniObjectCopyFunction = CCodePointer[[Pointer[Struct__GstMiniObject]],[Pointer[Struct__GstMiniObject]]];
 
-alias GstMiniObjectFinalizeFunction = CCodePointer[(Pointer[Struct__GstMiniObject]),()];
+alias GstMiniObjectFinalizeFunction = CCodePointer[[Pointer[Struct__GstMiniObject]],[]];
 
 alias GST_MINI_OBJECT_FLAG_READONLY = 1;
 alias GST_MINI_OBJECT_FLAG_LAST = 16;
@@ -703,22 +703,22 @@ record Struct__GstMiniObjectClass (
     _gst_reserved : gpointer,
 );
 
-external gst_mini_object_get_type() CULong;
+external gst_mini_object_get_type() : CULong;
 
 external gst_mini_object_new(
-    type : CULong) Pointer[GstMiniObject];
+    type : CULong) : Pointer[GstMiniObject];
 
 external gst_mini_object_copy(
-    mini_object : Pointer[GstMiniObject]) Pointer[GstMiniObject];
+    mini_object : Pointer[GstMiniObject]) : Pointer[GstMiniObject];
 
 external gst_mini_object_is_writable(
-    mini_object : Pointer[GstMiniObject]) Int;
+    mini_object : Pointer[GstMiniObject]) : Int;
 
 external gst_mini_object_make_writable(
-    mini_object : Pointer[GstMiniObject]) Pointer[GstMiniObject];
+    mini_object : Pointer[GstMiniObject]) : Pointer[GstMiniObject];
 
 external gst_mini_object_ref(
-    mini_object : Pointer[GstMiniObject]) Pointer[GstMiniObject];
+    mini_object : Pointer[GstMiniObject]) : Pointer[GstMiniObject];
 
 external gst_mini_object_unref(
     mini_object : Pointer[GstMiniObject]);
@@ -733,14 +733,14 @@ record Struct__GstParamSpecMiniObject (
     parent_instance : GParamSpec,
 );
 
-external gst_param_spec_mini_object_get_type() CULong;
+external gst_param_spec_mini_object_get_type() : CULong;
 
 external gst_param_spec_mini_object(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     object_type : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external gst_value_set_mini_object(
     value : Pointer[GValue],
@@ -751,10 +751,10 @@ external gst_value_take_mini_object(
     mini_object : Pointer[GstMiniObject]);
 
 external gst_value_get_mini_object(
-    value : Pointer[GValue]) Pointer[GstMiniObject];
+    value : Pointer[GValue]) : Pointer[GstMiniObject];
 
 external gst_value_dup_mini_object(
-    value : Pointer[GValue]) Pointer[GstMiniObject];
+    value : Pointer[GValue]) : Pointer[GstMiniObject];
 
 alias GstClockTime = CULong;
 
@@ -770,7 +770,7 @@ alias GstClockClass = Struct__GstClockClass;
 
 alias GstClockPrivate = Opaque;
 
-alias GstClockCallback = CCodePointer[(Pointer[Struct__GstClock],CULong,RawPointer,RawPointer),(Int)];
+alias GstClockCallback = CCodePointer[[Pointer[Struct__GstClock],CULong,RawPointer,RawPointer],[Int]];
 
 alias GST_CLOCK_OK = 0;
 alias GST_CLOCK_EARLY = 1;
@@ -837,27 +837,27 @@ record Struct__GstClock (
 
 record Struct__GstClockClass (
     parent_class : GstObjectClass,
-    change_resolution : CCodePointer[(Pointer[Struct__GstClock],CULong,CULong),(CULong)],
-    get_resolution : CCodePointer[(Pointer[Struct__GstClock]),(CULong)],
-    get_internal_time : CCodePointer[(Pointer[Struct__GstClock]),(CULong)],
-    wait : CCodePointer[(Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]),(Int)],
-    wait_async : CCodePointer[(Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]),(Int)],
-    unschedule : CCodePointer[(Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]),()],
-    wait_jitter : CCodePointer[(Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry],Pointer[CLong]),(Int)],
+    change_resolution : CCodePointer[[Pointer[Struct__GstClock],CULong,CULong],[CULong]],
+    get_resolution : CCodePointer[[Pointer[Struct__GstClock]],[CULong]],
+    get_internal_time : CCodePointer[[Pointer[Struct__GstClock]],[CULong]],
+    wait : CCodePointer[[Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]],[Int]],
+    wait_async : CCodePointer[[Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]],[Int]],
+    unschedule : CCodePointer[[Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry]],[]],
+    wait_jitter : CCodePointer[[Pointer[Struct__GstClock],Pointer[Struct__GstClockEntry],Pointer[CLong]],[Int]],
     _gst_reserved : Array[gpointer,3],
 );
 
-external gst_clock_get_type() CULong;
+external gst_clock_get_type() : CULong;
 
 external gst_clock_set_resolution(
     clock : Pointer[GstClock],
-    resolution : CULong) CULong;
+    resolution : CULong) : CULong;
 
 external gst_clock_get_resolution(
-    clock : Pointer[GstClock]) CULong;
+    clock : Pointer[GstClock]) : CULong;
 
 external gst_clock_get_time(
-    clock : Pointer[GstClock]) CULong;
+    clock : Pointer[GstClock]) : CULong;
 
 external gst_clock_set_calibration(
     clock : Pointer[GstClock],
@@ -875,64 +875,64 @@ external gst_clock_get_calibration(
 
 external gst_clock_set_master(
     clock : Pointer[GstClock],
-    master : Pointer[GstClock]) Int;
+    master : Pointer[GstClock]) : Int;
 
 external gst_clock_get_master(
-    clock : Pointer[GstClock]) Pointer[GstClock];
+    clock : Pointer[GstClock]) : Pointer[GstClock];
 
 external gst_clock_add_observation(
     clock : Pointer[GstClock],
     slave : CULong,
     master : CULong,
-    r_squared : Pointer[Double]) Int;
+    r_squared : Pointer[Double]) : Int;
 
 external gst_clock_get_internal_time(
-    clock : Pointer[GstClock]) CULong;
+    clock : Pointer[GstClock]) : CULong;
 
 external gst_clock_adjust_unlocked(
     clock : Pointer[GstClock],
-    internal : CULong) CULong;
+    internal : CULong) : CULong;
 
 external gst_clock_unadjust_unlocked(
     clock : Pointer[GstClock],
-    external_ : CULong) CULong;
+    external_ : CULong) : CULong;
 
 external gst_clock_new_single_shot_id(
     clock : Pointer[GstClock],
-    time : CULong) GstClockID;
+    time : CULong) : GstClockID;
 
 external gst_clock_new_periodic_id(
     clock : Pointer[GstClock],
     start_time : CULong,
-    interval : CULong) GstClockID;
+    interval : CULong) : GstClockID;
 
 external gst_clock_id_ref(
-    id : GstClockID) GstClockID;
+    id : GstClockID) : GstClockID;
 
 external gst_clock_id_unref(
     id : GstClockID);
 
 external gst_clock_id_compare_func(
     id1 : gconstpointer,
-    id2 : gconstpointer) Int;
+    id2 : gconstpointer) : Int;
 
 external gst_clock_id_get_time(
-    id : GstClockID) CULong;
+    id : GstClockID) : CULong;
 
 external gst_clock_id_wait(
     id : GstClockID,
-    jitter : Pointer[CLong]) GstClockReturn;
+    jitter : Pointer[CLong]) : GstClockReturn;
 
 external gst_clock_id_wait_async(
     id : GstClockID,
     func : GstClockCallback,
-    user_data : gpointer) GstClockReturn;
+    user_data : gpointer) : GstClockReturn;
 
 external gst_clock_id_wait_async_full(
     id : GstClockID,
     func : GstClockCallback,
     user_data : gpointer,
-    destroy_data : GDestroyNotify) GstClockReturn;
+    destroy_data : GDestroyNotify) : GstClockReturn;
 
 external gst_clock_id_unschedule(
     id : GstClockID);
@@ -940,39 +940,39 @@ external gst_clock_id_unschedule(
 external gst_clock_single_shot_id_reinit(
     clock : Pointer[GstClock],
     id : GstClockID,
-    time : CULong) Int;
+    time : CULong) : Int;
 
 alias GstDateTime = Opaque;
 
 external gst_date_time_get_year(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_month(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_day(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_hour(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_minute(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_second(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_microsecond(
-    datetime : Pointer[GstDateTime]) Int;
+    datetime : Pointer[GstDateTime]) : Int;
 
 external gst_date_time_get_time_zone_offset(
-    datetime : Pointer[GstDateTime]) Float;
+    datetime : Pointer[GstDateTime]) : Float;
 
 external gst_date_time_new_from_unix_epoch_local_time(
-    secs : CLong) Pointer[GstDateTime];
+    secs : CLong) : Pointer[GstDateTime];
 
 external gst_date_time_new_from_unix_epoch_utc(
-    secs : CLong) Pointer[GstDateTime];
+    secs : CLong) : Pointer[GstDateTime];
 
 external gst_date_time_new_local_time(
     year : Int,
@@ -980,7 +980,7 @@ external gst_date_time_new_local_time(
     day : Int,
     hour : Int,
     minute : Int,
-    seconds : Double) Pointer[GstDateTime];
+    seconds : Double) : Pointer[GstDateTime];
 
 external gst_date_time_new(
     tzoffset : Float,
@@ -989,23 +989,23 @@ external gst_date_time_new(
     day : Int,
     hour : Int,
     minute : Int,
-    seconds : Double) Pointer[GstDateTime];
+    seconds : Double) : Pointer[GstDateTime];
 
-external gst_date_time_new_now_local_time() Pointer[GstDateTime];
+external gst_date_time_new_now_local_time() : Pointer[GstDateTime];
 
-external gst_date_time_new_now_utc() Pointer[GstDateTime];
+external gst_date_time_new_now_utc() : Pointer[GstDateTime];
 
 external gst_date_time_ref(
-    datetime : Pointer[GstDateTime]) Pointer[GstDateTime];
+    datetime : Pointer[GstDateTime]) : Pointer[GstDateTime];
 
 external gst_date_time_unref(
     datetime : Pointer[GstDateTime]);
 
 alias GstStructure = Struct__GstStructure;
 
-alias GstStructureForeachFunc = CCodePointer[(UInt,Pointer[Struct__GValue],RawPointer),(Int)];
+alias GstStructureForeachFunc = CCodePointer[[UInt,Pointer[Struct__GValue],RawPointer],[Int]];
 
-alias GstStructureMapFunc = CCodePointer[(UInt,Pointer[Struct__GValue],RawPointer),(Int)];
+alias GstStructureMapFunc = CCodePointer[[UInt,Pointer[Struct__GValue],RawPointer],[Int]];
 
 record Struct__GstStructure (
     type : CULong,
@@ -1015,31 +1015,31 @@ record Struct__GstStructure (
     _gst_reserved : gpointer,
 );
 
-external gst_structure_get_type() CULong;
+external gst_structure_get_type() : CULong;
 
 external gst_structure_empty_new(
-    name : Pointer[CChar]) Pointer[GstStructure];
+    name : Pointer[CChar]) : Pointer[GstStructure];
 
 external gst_structure_id_empty_new(
-    quark : UInt) Pointer[GstStructure];
+    quark : UInt) : Pointer[GstStructure];
 
 external gst_structure_new(
     name : Pointer[CChar],
     firstfield : Pointer[CChar],
-    ...) Pointer[GstStructure];
+    ..) : Pointer[GstStructure];
 
 external gst_structure_new_valist(
     name : Pointer[CChar],
     firstfield : Pointer[CChar],
-    varargs : Pointer[__va_list_tag]) Pointer[GstStructure];
+    varargs : Pointer[__va_list_tag]) : Pointer[GstStructure];
 
 external gst_structure_id_new(
     name_quark : UInt,
     field_quark : UInt,
-    ...) Pointer[GstStructure];
+    ..) : Pointer[GstStructure];
 
 external gst_structure_copy(
-    structure : Pointer[GstStructure]) Pointer[GstStructure];
+    structure : Pointer[GstStructure]) : Pointer[GstStructure];
 
 external gst_structure_set_parent_refcount(
     structure : Pointer[GstStructure],
@@ -1049,14 +1049,14 @@ external gst_structure_free(
     structure : Pointer[GstStructure]);
 
 external gst_structure_get_name(
-    structure : Pointer[GstStructure]) Pointer[CChar];
+    structure : Pointer[GstStructure]) : Pointer[CChar];
 
 external gst_structure_get_name_id(
-    structure : Pointer[GstStructure]) UInt;
+    structure : Pointer[GstStructure]) : UInt;
 
 external gst_structure_has_name(
     structure : Pointer[GstStructure],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_structure_set_name(
     structure : Pointer[GstStructure],
@@ -1085,7 +1085,7 @@ external gst_structure_take_value(
 external gst_structure_set(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_structure_set_valist(
     structure : Pointer[GstStructure],
@@ -1095,7 +1095,7 @@ external gst_structure_set_valist(
 external gst_structure_id_set(
     structure : Pointer[GstStructure],
     fieldname : UInt,
-    ...);
+    ..);
 
 external gst_structure_id_set_valist(
     structure : Pointer[GstStructure],
@@ -1105,30 +1105,30 @@ external gst_structure_id_set_valist(
 external gst_structure_get_valist(
     structure : Pointer[GstStructure],
     first_fieldname : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Int;
+    args : Pointer[__va_list_tag]) : Int;
 
 external gst_structure_get(
     structure : Pointer[GstStructure],
     first_fieldname : Pointer[CChar],
-    ...) Int;
+    ..) : Int;
 
 external gst_structure_id_get_valist(
     structure : Pointer[GstStructure],
     first_field_id : UInt,
-    args : Pointer[__va_list_tag]) Int;
+    args : Pointer[__va_list_tag]) : Int;
 
 external gst_structure_id_get(
     structure : Pointer[GstStructure],
     first_field_id : UInt,
-    ...) Int;
+    ..) : Int;
 
 external gst_structure_id_get_value(
     structure : Pointer[GstStructure],
-    field : UInt) Pointer[GValue];
+    field : UInt) : Pointer[GValue];
 
 external gst_structure_get_value(
     structure : Pointer[GstStructure],
-    fieldname : Pointer[CChar]) Pointer[GValue];
+    fieldname : Pointer[CChar]) : Pointer[GValue];
 
 external gst_structure_remove_field(
     structure : Pointer[GstStructure],
@@ -1137,7 +1137,7 @@ external gst_structure_remove_field(
 external gst_structure_remove_fields(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_structure_remove_fields_valist(
     structure : Pointer[GstStructure],
@@ -1149,131 +1149,131 @@ external gst_structure_remove_all_fields(
 
 external gst_structure_get_field_type(
     structure : Pointer[GstStructure],
-    fieldname : Pointer[CChar]) CULong;
+    fieldname : Pointer[CChar]) : CULong;
 
 external gst_structure_foreach(
     structure : Pointer[GstStructure],
     func : GstStructureForeachFunc,
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external gst_structure_map_in_place(
     structure : Pointer[GstStructure],
     func : GstStructureMapFunc,
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external gst_structure_n_fields(
-    structure : Pointer[GstStructure]) Int;
+    structure : Pointer[GstStructure]) : Int;
 
 external gst_structure_nth_field_name(
     structure : Pointer[GstStructure],
-    index : UInt) Pointer[CChar];
+    index : UInt) : Pointer[CChar];
 
 external gst_structure_id_has_field(
     structure : Pointer[GstStructure],
-    field : UInt) Int;
+    field : UInt) : Int;
 
 external gst_structure_id_has_field_typed(
     structure : Pointer[GstStructure],
     field : UInt,
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external gst_structure_has_field(
     structure : Pointer[GstStructure],
-    fieldname : Pointer[CChar]) Int;
+    fieldname : Pointer[CChar]) : Int;
 
 external gst_structure_has_field_typed(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external gst_structure_get_boolean(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_structure_get_int(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_structure_get_uint(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[UInt]) Int;
+    value : Pointer[UInt]) : Int;
 
 external gst_structure_get_fourcc(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[UInt]) Int;
+    value : Pointer[UInt]) : Int;
 
 external gst_structure_get_double(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[Double]) Int;
+    value : Pointer[Double]) : Int;
 
 external gst_structure_get_date(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[Pointer[GDate]]) Int;
+    value : Pointer[Pointer[GDate]]) : Int;
 
 external gst_structure_get_date_time(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[Pointer[GstDateTime]]) Int;
+    value : Pointer[Pointer[GstDateTime]]) : Int;
 
 external gst_structure_get_clock_time(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
-    value : Pointer[CULong]) Int;
+    value : Pointer[CULong]) : Int;
 
 external gst_structure_get_string(
     structure : Pointer[GstStructure],
-    fieldname : Pointer[CChar]) Pointer[CChar];
+    fieldname : Pointer[CChar]) : Pointer[CChar];
 
 external gst_structure_get_enum(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
     enumtype : CULong,
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_structure_get_fraction(
     structure : Pointer[GstStructure],
     fieldname : Pointer[CChar],
     value_numerator : Pointer[Int],
-    value_denominator : Pointer[Int]) Int;
+    value_denominator : Pointer[Int]) : Int;
 
 external gst_structure_to_string(
-    structure : Pointer[GstStructure]) Pointer[CChar];
+    structure : Pointer[GstStructure]) : Pointer[CChar];
 
 external gst_structure_from_string(
     string : Pointer[CChar],
-    end : Pointer[Pointer[CChar]]) Pointer[GstStructure];
+    end : Pointer[Pointer[CChar]]) : Pointer[GstStructure];
 
 external gst_structure_fixate_field_nearest_int(
     structure : Pointer[GstStructure],
     field_name : Pointer[CChar],
-    target : Int) Int;
+    target : Int) : Int;
 
 external gst_structure_fixate_field_nearest_double(
     structure : Pointer[GstStructure],
     field_name : Pointer[CChar],
-    target : Double) Int;
+    target : Double) : Int;
 
 external gst_structure_fixate_field_boolean(
     structure : Pointer[GstStructure],
     field_name : Pointer[CChar],
-    target : Int) Int;
+    target : Int) : Int;
 
 external gst_structure_fixate_field_string(
     structure : Pointer[GstStructure],
     field_name : Pointer[CChar],
-    target : Pointer[CChar]) Int;
+    target : Pointer[CChar]) : Int;
 
 external gst_structure_fixate_field_nearest_fraction(
     structure : Pointer[GstStructure],
     field_name : Pointer[CChar],
     target_numerator : Int,
-    target_denominator : Int) Int;
+    target_denominator : Int) : Int;
 
 alias GST_CAPS_FLAGS_ANY = 1;
 
@@ -1297,41 +1297,41 @@ record Struct__GstStaticCaps (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_caps_get_type() CULong;
+external gst_caps_get_type() : CULong;
 
-external gst_caps_new_empty() Pointer[GstCaps];
+external gst_caps_new_empty() : Pointer[GstCaps];
 
-external gst_caps_new_any() Pointer[GstCaps];
+external gst_caps_new_any() : Pointer[GstCaps];
 
 external gst_caps_new_simple(
     media_type : Pointer[CChar],
     fieldname : Pointer[CChar],
-    ...) Pointer[GstCaps];
+    ..) : Pointer[GstCaps];
 
 external gst_caps_new_full(
     struct1 : Pointer[GstStructure],
-    ...) Pointer[GstCaps];
+    ..) : Pointer[GstCaps];
 
 external gst_caps_new_full_valist(
     structure : Pointer[GstStructure],
-    var_args : Pointer[__va_list_tag]) Pointer[GstCaps];
+    var_args : Pointer[__va_list_tag]) : Pointer[GstCaps];
 
 external gst_caps_ref(
-    caps : Pointer[GstCaps]) Pointer[GstCaps];
+    caps : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_copy(
-    caps : Pointer[GstCaps]) Pointer[GstCaps];
+    caps : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_make_writable(
-    caps : Pointer[GstCaps]) Pointer[GstCaps];
+    caps : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_unref(
     caps : Pointer[GstCaps]);
 
-external gst_static_caps_get_type() CULong;
+external gst_static_caps_get_type() : CULong;
 
 external gst_static_caps_get(
-    static_caps : Pointer[GstStaticCaps]) Pointer[GstCaps];
+    static_caps : Pointer[GstStaticCaps]) : Pointer[GstCaps];
 
 external gst_caps_append(
     caps1 : Pointer[GstCaps],
@@ -1354,19 +1354,19 @@ external gst_caps_merge_structure(
     structure : Pointer[GstStructure]);
 
 external gst_caps_get_size(
-    caps : Pointer[GstCaps]) UInt;
+    caps : Pointer[GstCaps]) : UInt;
 
 external gst_caps_get_structure(
     caps : Pointer[GstCaps],
-    index : UInt) Pointer[GstStructure];
+    index : UInt) : Pointer[GstStructure];
 
 external gst_caps_steal_structure(
     caps : Pointer[GstCaps],
-    index : UInt) Pointer[GstStructure];
+    index : UInt) : Pointer[GstStructure];
 
 external gst_caps_copy_nth(
     caps : Pointer[GstCaps],
-    nth : UInt) Pointer[GstCaps];
+    nth : UInt) : Pointer[GstCaps];
 
 external gst_caps_truncate(
     caps : Pointer[GstCaps]);
@@ -1379,7 +1379,7 @@ external gst_caps_set_value(
 external gst_caps_set_simple(
     caps : Pointer[GstCaps],
     field : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_caps_set_simple_valist(
     caps : Pointer[GstCaps],
@@ -1387,68 +1387,68 @@ external gst_caps_set_simple_valist(
     varargs : Pointer[__va_list_tag]);
 
 external gst_caps_is_any(
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_empty(
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_fixed(
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_always_compatible(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Int;
+    caps2 : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_subset(
     subset : Pointer[GstCaps],
-    superset : Pointer[GstCaps]) Int;
+    superset : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_equal(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Int;
+    caps2 : Pointer[GstCaps]) : Int;
 
 external gst_caps_is_equal_fixed(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Int;
+    caps2 : Pointer[GstCaps]) : Int;
 
 external gst_caps_can_intersect(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Int;
+    caps2 : Pointer[GstCaps]) : Int;
 
 external gst_caps_intersect(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Pointer[GstCaps];
+    caps2 : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_subtract(
     minuend : Pointer[GstCaps],
-    subtrahend : Pointer[GstCaps]) Pointer[GstCaps];
+    subtrahend : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_union(
     caps1 : Pointer[GstCaps],
-    caps2 : Pointer[GstCaps]) Pointer[GstCaps];
+    caps2 : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_normalize(
-    caps : Pointer[GstCaps]) Pointer[GstCaps];
+    caps : Pointer[GstCaps]) : Pointer[GstCaps];
 
 external gst_caps_do_simplify(
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_caps_save_thyself(
     caps : Pointer[GstCaps],
-    parent : xmlNodePtr) xmlNodePtr;
+    parent : xmlNodePtr) : xmlNodePtr;
 
 external gst_caps_load_thyself(
-    parent : xmlNodePtr) Pointer[GstCaps];
+    parent : xmlNodePtr) : Pointer[GstCaps];
 
 external gst_caps_replace(
     caps : Pointer[Pointer[GstCaps]],
     newcaps : Pointer[GstCaps]);
 
 external gst_caps_to_string(
-    caps : Pointer[GstCaps]) Pointer[CChar];
+    caps : Pointer[GstCaps]) : Pointer[CChar];
 
 external gst_caps_from_string(
-    string : Pointer[CChar]) Pointer[GstCaps];
+    string : Pointer[CChar]) : Pointer[GstCaps];
 
 alias GstBuffer = Struct__GstBuffer;
 
@@ -1486,15 +1486,15 @@ record Struct__GstBufferClass (
     mini_object_class : GstMiniObjectClass,
 );
 
-external gst_buffer_get_type() CULong;
+external gst_buffer_get_type() : CULong;
 
-external gst_buffer_new() Pointer[GstBuffer];
+external gst_buffer_new() : Pointer[GstBuffer];
 
 external gst_buffer_new_and_alloc(
-    size : UInt) Pointer[GstBuffer];
+    size : UInt) : Pointer[GstBuffer];
 
 external gst_buffer_try_new_and_alloc(
-    size : UInt) Pointer[GstBuffer];
+    size : UInt) : Pointer[GstBuffer];
 
 alias GST_BUFFER_COPY_FLAGS = 1;
 alias GST_BUFFER_COPY_TIMESTAMPS = 2;
@@ -1508,13 +1508,13 @@ external gst_buffer_copy_metadata(
     flags : GstBufferCopyFlags);
 
 external gst_buffer_is_metadata_writable(
-    buf : Pointer[GstBuffer]) Int;
+    buf : Pointer[GstBuffer]) : Int;
 
 external gst_buffer_make_metadata_writable(
-    buf : Pointer[GstBuffer]) Pointer[GstBuffer];
+    buf : Pointer[GstBuffer]) : Pointer[GstBuffer];
 
 external gst_buffer_get_caps(
-    buffer : Pointer[GstBuffer]) Pointer[GstCaps];
+    buffer : Pointer[GstBuffer]) : Pointer[GstCaps];
 
 external gst_buffer_set_caps(
     buffer : Pointer[GstBuffer],
@@ -1523,17 +1523,17 @@ external gst_buffer_set_caps(
 external gst_buffer_create_sub(
     parent : Pointer[GstBuffer],
     offset : UInt,
-    size : UInt) Pointer[GstBuffer];
+    size : UInt) : Pointer[GstBuffer];
 
 external gst_buffer_is_span_fast(
     buf1 : Pointer[GstBuffer],
-    buf2 : Pointer[GstBuffer]) Int;
+    buf2 : Pointer[GstBuffer]) : Int;
 
 external gst_buffer_span(
     buf1 : Pointer[GstBuffer],
     offset : UInt,
     buf2 : Pointer[GstBuffer],
-    len : UInt) Pointer[GstBuffer];
+    len : UInt) : Pointer[GstBuffer];
 
 alias GstBufferList = Opaque;
 
@@ -1541,7 +1541,7 @@ alias GstBufferListClass = Opaque;
 
 alias GstBufferListIterator = Opaque;
 
-alias GstBufferListDoFunction = CCodePointer[(Pointer[Struct__GstBuffer],RawPointer),(Pointer[Struct__GstBuffer])];
+alias GstBufferListDoFunction = CCodePointer[[Pointer[Struct__GstBuffer],RawPointer],[Pointer[Struct__GstBuffer]]];
 
 alias GST_BUFFER_LIST_CONTINUE = 0;
 alias GST_BUFFER_LIST_SKIP_GROUP = 1;
@@ -1549,14 +1549,14 @@ alias GST_BUFFER_LIST_END = 2;
 
 alias GstBufferListItem = Int;
 
-alias GstBufferListFunc = CCodePointer[(Pointer[Pointer[Struct__GstBuffer]],UInt,UInt,RawPointer),(Int)];
+alias GstBufferListFunc = CCodePointer[[Pointer[Pointer[Struct__GstBuffer]],UInt,UInt,RawPointer],[Int]];
 
-external gst_buffer_list_get_type() CULong;
+external gst_buffer_list_get_type() : CULong;
 
-external gst_buffer_list_new() Pointer[GstBufferList];
+external gst_buffer_list_new() : Pointer[GstBufferList];
 
 external gst_buffer_list_n_groups(
-    list : Pointer[GstBufferList]) UInt;
+    list : Pointer[GstBufferList]) : UInt;
 
 external gst_buffer_list_foreach(
     list : Pointer[GstBufferList],
@@ -1566,22 +1566,22 @@ external gst_buffer_list_foreach(
 external gst_buffer_list_get(
     list : Pointer[GstBufferList],
     group : UInt,
-    idx : UInt) Pointer[GstBuffer];
+    idx : UInt) : Pointer[GstBuffer];
 
 external gst_buffer_list_iterate(
-    list : Pointer[GstBufferList]) Pointer[GstBufferListIterator];
+    list : Pointer[GstBufferList]) : Pointer[GstBufferListIterator];
 
 external gst_buffer_list_iterator_free(
     it : Pointer[GstBufferListIterator]);
 
 external gst_buffer_list_iterator_n_buffers(
-    it : Pointer[GstBufferListIterator]) UInt;
+    it : Pointer[GstBufferListIterator]) : UInt;
 
 external gst_buffer_list_iterator_next(
-    it : Pointer[GstBufferListIterator]) Pointer[GstBuffer];
+    it : Pointer[GstBufferListIterator]) : Pointer[GstBuffer];
 
 external gst_buffer_list_iterator_next_group(
-    it : Pointer[GstBufferListIterator]) Int;
+    it : Pointer[GstBufferListIterator]) : Int;
 
 external gst_buffer_list_iterator_add(
     it : Pointer[GstBufferListIterator],
@@ -1598,7 +1598,7 @@ external gst_buffer_list_iterator_remove(
     it : Pointer[GstBufferListIterator]);
 
 external gst_buffer_list_iterator_steal(
-    it : Pointer[GstBufferListIterator]) Pointer[GstBuffer];
+    it : Pointer[GstBufferListIterator]) : Pointer[GstBuffer];
 
 external gst_buffer_list_iterator_take(
     it : Pointer[GstBufferListIterator],
@@ -1607,10 +1607,10 @@ external gst_buffer_list_iterator_take(
 external gst_buffer_list_iterator_do(
     it : Pointer[GstBufferListIterator],
     do_func : GstBufferListDoFunction,
-    user_data : gpointer) Pointer[GstBuffer];
+    user_data : gpointer) : Pointer[GstBuffer];
 
 external gst_buffer_list_iterator_merge_group(
-    it : Pointer[GstBufferListIterator]) Pointer[GstBuffer];
+    it : Pointer[GstBufferListIterator]) : Pointer[GstBuffer];
 
 alias GST_ITERATOR_DONE = 0;
 alias GST_ITERATOR_OK = 1;
@@ -1627,19 +1627,19 @@ alias GST_ITERATOR_ITEM_END = 2;
 
 alias GstIteratorItem = Int;
 
-alias GstIteratorDisposeFunction = CCodePointer[(RawPointer),()];
+alias GstIteratorDisposeFunction = CCodePointer[[RawPointer],[]];
 
-alias GstIteratorNextFunction = CCodePointer[(Pointer[Struct__GstIterator],Pointer[RawPointer]),(Int)];
+alias GstIteratorNextFunction = CCodePointer[[Pointer[Struct__GstIterator],Pointer[RawPointer]],[Int]];
 
-alias GstIteratorItemFunction = CCodePointer[(Pointer[Struct__GstIterator],RawPointer),(Int)];
+alias GstIteratorItemFunction = CCodePointer[[Pointer[Struct__GstIterator],RawPointer],[Int]];
 
-alias GstIteratorResyncFunction = CCodePointer[(Pointer[Struct__GstIterator]),()];
+alias GstIteratorResyncFunction = CCodePointer[[Pointer[Struct__GstIterator]],[]];
 
-alias GstIteratorFreeFunction = CCodePointer[(Pointer[Struct__GstIterator]),()];
+alias GstIteratorFreeFunction = CCodePointer[[Pointer[Struct__GstIterator]],[]];
 
-alias GstIteratorFoldFunction = CCodePointer[(RawPointer,Pointer[Struct__GValue],RawPointer),(Int)];
+alias GstIteratorFoldFunction = CCodePointer[[RawPointer,Pointer[Struct__GValue],RawPointer],[Int]];
 
-alias GstCopyFunction = CCodePointer[(RawPointer),(RawPointer)];
+alias GstCopyFunction = CCodePointer[[RawPointer],[RawPointer]];
 
 record Struct__GstIterator (
     next : GstIteratorNextFunction,
@@ -1662,7 +1662,7 @@ external gst_iterator_new(
     next : GstIteratorNextFunction,
     item : GstIteratorItemFunction,
     resync : GstIteratorResyncFunction,
-    free : GstIteratorFreeFunction) Pointer[GstIterator];
+    free : GstIteratorFreeFunction) : Pointer[GstIterator];
 
 external gst_iterator_new_list(
     type : CULong,
@@ -1671,17 +1671,17 @@ external gst_iterator_new_list(
     list : Pointer[Pointer[GList]],
     owner : gpointer,
     item : GstIteratorItemFunction,
-    free : GstIteratorDisposeFunction) Pointer[GstIterator];
+    free : GstIteratorDisposeFunction) : Pointer[GstIterator];
 
 external gst_iterator_new_single(
     type : CULong,
     object : gpointer,
     copy : GstCopyFunction,
-    free : GFreeFunc) Pointer[GstIterator];
+    free : GFreeFunc) : Pointer[GstIterator];
 
 external gst_iterator_next(
     it : Pointer[GstIterator],
-    elem : Pointer[gpointer]) GstIteratorResult;
+    elem : Pointer[gpointer]) : GstIteratorResult;
 
 external gst_iterator_resync(
     it : Pointer[GstIterator]);
@@ -1696,23 +1696,23 @@ external gst_iterator_push(
 external gst_iterator_filter(
     it : Pointer[GstIterator],
     func : GCompareFunc,
-    user_data : gpointer) Pointer[GstIterator];
+    user_data : gpointer) : Pointer[GstIterator];
 
 external gst_iterator_fold(
     it : Pointer[GstIterator],
     func : GstIteratorFoldFunction,
     ret : Pointer[GValue],
-    user_data : gpointer) GstIteratorResult;
+    user_data : gpointer) : GstIteratorResult;
 
 external gst_iterator_foreach(
     it : Pointer[GstIterator],
     func : GFunc,
-    user_data : gpointer) GstIteratorResult;
+    user_data : gpointer) : GstIteratorResult;
 
 external gst_iterator_find_custom(
     it : Pointer[GstIterator],
     func : GCompareFunc,
-    user_data : gpointer) gpointer;
+    user_data : gpointer) : gpointer;
 
 alias GST_FORMAT_UNDEFINED = 0;
 alias GST_FORMAT_DEFAULT = 1;
@@ -1733,26 +1733,26 @@ record Struct__GstFormatDefinition (
 );
 
 external gst_format_get_name(
-    format : GstFormat) Pointer[CChar];
+    format : GstFormat) : Pointer[CChar];
 
 external gst_format_to_quark(
-    format : GstFormat) UInt;
+    format : GstFormat) : UInt;
 
 external gst_format_register(
     nick : Pointer[CChar],
-    description : Pointer[CChar]) GstFormat;
+    description : Pointer[CChar]) : GstFormat;
 
 external gst_format_get_by_nick(
-    nick : Pointer[CChar]) GstFormat;
+    nick : Pointer[CChar]) : GstFormat;
 
 external gst_formats_contains(
     formats : Pointer[GstFormat],
-    format : GstFormat) Int;
+    format : GstFormat) : Int;
 
 external gst_format_get_details(
-    format : GstFormat) Pointer[GstFormatDefinition];
+    format : GstFormat) : Pointer[GstFormatDefinition];
 
-external gst_format_iterate_definitions() Pointer[GstIterator];
+external gst_format_iterate_definitions() : Pointer[GstIterator];
 
 alias GST_TAG_MERGE_UNDEFINED = 0;
 alias GST_TAG_MERGE_REPLACE_ALL = 1;
@@ -1775,11 +1775,11 @@ alias GstTagFlag = Int;
 
 alias GstTagList = GstStructure;
 
-alias GstTagForeachFunc = CCodePointer[(Pointer[Struct__GstStructure],Pointer[CChar],RawPointer),()];
+alias GstTagForeachFunc = CCodePointer[[Pointer[Struct__GstStructure],Pointer[CChar],RawPointer],[]];
 
-alias GstTagMergeFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue]),()];
+alias GstTagMergeFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue]],[]];
 
-external gst_tag_list_get_type() CULong;
+external gst_tag_list_get_type() : CULong;
 
 external gst_tag_register(
     name : Pointer[CChar],
@@ -1798,40 +1798,40 @@ external gst_tag_merge_strings_with_comma(
     src : Pointer[GValue]);
 
 external gst_tag_exists(
-    tag : Pointer[CChar]) Int;
+    tag : Pointer[CChar]) : Int;
 
 external gst_tag_get_type(
-    tag : Pointer[CChar]) CULong;
+    tag : Pointer[CChar]) : CULong;
 
 external gst_tag_get_nick(
-    tag : Pointer[CChar]) Pointer[CChar];
+    tag : Pointer[CChar]) : Pointer[CChar];
 
 external gst_tag_get_description(
-    tag : Pointer[CChar]) Pointer[CChar];
+    tag : Pointer[CChar]) : Pointer[CChar];
 
 external gst_tag_get_flag(
-    tag : Pointer[CChar]) GstTagFlag;
+    tag : Pointer[CChar]) : GstTagFlag;
 
 external gst_tag_is_fixed(
-    tag : Pointer[CChar]) Int;
+    tag : Pointer[CChar]) : Int;
 
-external gst_tag_list_new() Pointer[GstTagList];
+external gst_tag_list_new() : Pointer[GstTagList];
 
 external gst_tag_list_new_full(
     tag : Pointer[CChar],
-    ...) Pointer[GstTagList];
+    ..) : Pointer[GstTagList];
 
 external gst_tag_list_new_full_valist(
-    var_args : Pointer[__va_list_tag]) Pointer[GstTagList];
+    var_args : Pointer[__va_list_tag]) : Pointer[GstTagList];
 
 external gst_is_tag_list(
-    p : gconstpointer) Int;
+    p : gconstpointer) : Int;
 
 external gst_tag_list_copy(
-    list : Pointer[GstTagList]) Pointer[GstTagList];
+    list : Pointer[GstTagList]) : Pointer[GstTagList];
 
 external gst_tag_list_is_empty(
-    list : Pointer[GstTagList]) Int;
+    list : Pointer[GstTagList]) : Int;
 
 external gst_tag_list_insert(
     into : Pointer[GstTagList],
@@ -1841,26 +1841,26 @@ external gst_tag_list_insert(
 external gst_tag_list_merge(
     list1 : Pointer[GstTagList],
     list2 : Pointer[GstTagList],
-    mode : GstTagMergeMode) Pointer[GstTagList];
+    mode : GstTagMergeMode) : Pointer[GstTagList];
 
 external gst_tag_list_free(
     list : Pointer[GstTagList]);
 
 external gst_tag_list_get_tag_size(
     list : Pointer[GstTagList],
-    tag : Pointer[CChar]) UInt;
+    tag : Pointer[CChar]) : UInt;
 
 external gst_tag_list_add(
     list : Pointer[GstTagList],
     mode : GstTagMergeMode,
     tag : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_tag_list_add_values(
     list : Pointer[GstTagList],
     mode : GstTagMergeMode,
     tag : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_tag_list_add_valist(
     list : Pointer[GstTagList],
@@ -1892,194 +1892,194 @@ external gst_tag_list_foreach(
 external gst_tag_list_get_value_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    index : UInt) Pointer[GValue];
+    index : UInt) : Pointer[GValue];
 
 external gst_tag_list_copy_value(
     dest : Pointer[GValue],
     list : Pointer[GstTagList],
-    tag : Pointer[CChar]) Int;
+    tag : Pointer[CChar]) : Int;
 
 external gst_tag_list_get_char(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CChar]) Int;
+    value : Pointer[CChar]) : Int;
 
 external gst_tag_list_get_char_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CChar]) Int;
+    value : Pointer[CChar]) : Int;
 
 external gst_tag_list_get_uchar(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CUChar]) Int;
+    value : Pointer[CUChar]) : Int;
 
 external gst_tag_list_get_uchar_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CUChar]) Int;
+    value : Pointer[CUChar]) : Int;
 
 external gst_tag_list_get_boolean(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_tag_list_get_boolean_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_tag_list_get_int(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_tag_list_get_int_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Int]) Int;
+    value : Pointer[Int]) : Int;
 
 external gst_tag_list_get_uint(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[UInt]) Int;
+    value : Pointer[UInt]) : Int;
 
 external gst_tag_list_get_uint_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[UInt]) Int;
+    value : Pointer[UInt]) : Int;
 
 external gst_tag_list_get_long(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CLong]) Int;
+    value : Pointer[CLong]) : Int;
 
 external gst_tag_list_get_long_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CLong]) Int;
+    value : Pointer[CLong]) : Int;
 
 external gst_tag_list_get_ulong(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CULong]) Int;
+    value : Pointer[CULong]) : Int;
 
 external gst_tag_list_get_ulong_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CULong]) Int;
+    value : Pointer[CULong]) : Int;
 
 external gst_tag_list_get_int64(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CLong]) Int;
+    value : Pointer[CLong]) : Int;
 
 external gst_tag_list_get_int64_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CLong]) Int;
+    value : Pointer[CLong]) : Int;
 
 external gst_tag_list_get_uint64(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[CULong]) Int;
+    value : Pointer[CULong]) : Int;
 
 external gst_tag_list_get_uint64_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[CULong]) Int;
+    value : Pointer[CULong]) : Int;
 
 external gst_tag_list_get_float(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Float]) Int;
+    value : Pointer[Float]) : Int;
 
 external gst_tag_list_get_float_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Float]) Int;
+    value : Pointer[Float]) : Int;
 
 external gst_tag_list_get_double(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Double]) Int;
+    value : Pointer[Double]) : Int;
 
 external gst_tag_list_get_double_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Double]) Int;
+    value : Pointer[Double]) : Int;
 
 external gst_tag_list_get_string(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Pointer[CChar]]) Int;
+    value : Pointer[Pointer[CChar]]) : Int;
 
 external gst_tag_list_get_string_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Pointer[CChar]]) Int;
+    value : Pointer[Pointer[CChar]]) : Int;
 
 external gst_tag_list_peek_string_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Pointer[CChar]]) Int;
+    value : Pointer[Pointer[CChar]]) : Int;
 
 external gst_tag_list_get_pointer(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[gpointer]) Int;
+    value : Pointer[gpointer]) : Int;
 
 external gst_tag_list_get_pointer_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[gpointer]) Int;
+    value : Pointer[gpointer]) : Int;
 
 external gst_tag_list_get_date(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Pointer[GDate]]) Int;
+    value : Pointer[Pointer[GDate]]) : Int;
 
 external gst_tag_list_get_date_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Pointer[GDate]]) Int;
+    value : Pointer[Pointer[GDate]]) : Int;
 
 external gst_tag_list_get_date_time(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Pointer[GstDateTime]]) Int;
+    value : Pointer[Pointer[GstDateTime]]) : Int;
 
 external gst_tag_list_get_date_time_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Pointer[GstDateTime]]) Int;
+    value : Pointer[Pointer[GstDateTime]]) : Int;
 
 external gst_tag_list_get_buffer(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
-    value : Pointer[Pointer[GstBuffer]]) Int;
+    value : Pointer[Pointer[GstBuffer]]) : Int;
 
 external gst_tag_list_get_buffer_index(
     list : Pointer[GstTagList],
     tag : Pointer[CChar],
     index : UInt,
-    value : Pointer[Pointer[GstBuffer]]) Int;
+    value : Pointer[Pointer[GstBuffer]]) : Int;
 
 alias GST_EVENT_TYPE_UPSTREAM = 1;
 alias GST_EVENT_TYPE_DOWNSTREAM = 2;
@@ -2143,39 +2143,39 @@ record Struct__GstEventClass (
 );
 
 external gst_event_type_get_name(
-    type : GstEventType) Pointer[CChar];
+    type : GstEventType) : Pointer[CChar];
 
 external gst_event_type_to_quark(
-    type : GstEventType) UInt;
+    type : GstEventType) : UInt;
 
 external gst_event_type_get_flags(
-    type : GstEventType) GstEventTypeFlags;
+    type : GstEventType) : GstEventTypeFlags;
 
-external gst_event_get_type() CULong;
+external gst_event_get_type() : CULong;
 
 external gst_event_new_custom(
     type : GstEventType,
-    structure : Pointer[GstStructure]) Pointer[GstEvent];
+    structure : Pointer[GstStructure]) : Pointer[GstEvent];
 
 external gst_event_get_structure(
-    event : Pointer[GstEvent]) Pointer[GstStructure];
+    event : Pointer[GstEvent]) : Pointer[GstStructure];
 
 external gst_event_has_name(
     event : Pointer[GstEvent],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_event_get_seqnum(
-    event : Pointer[GstEvent]) UInt;
+    event : Pointer[GstEvent]) : UInt;
 
 external gst_event_set_seqnum(
     event : Pointer[GstEvent],
     seqnum : UInt);
 
-external gst_event_new_flush_start() Pointer[GstEvent];
+external gst_event_new_flush_start() : Pointer[GstEvent];
 
-external gst_event_new_flush_stop() Pointer[GstEvent];
+external gst_event_new_flush_stop() : Pointer[GstEvent];
 
-external gst_event_new_eos() Pointer[GstEvent];
+external gst_event_new_eos() : Pointer[GstEvent];
 
 external gst_event_new_new_segment(
     update : Int,
@@ -2183,7 +2183,7 @@ external gst_event_new_new_segment(
     format : GstFormat,
     start : CLong,
     stop : CLong,
-    position : CLong) Pointer[GstEvent];
+    position : CLong) : Pointer[GstEvent];
 
 external gst_event_new_new_segment_full(
     update : Int,
@@ -2192,7 +2192,7 @@ external gst_event_new_new_segment_full(
     format : GstFormat,
     start : CLong,
     stop : CLong,
-    position : CLong) Pointer[GstEvent];
+    position : CLong) : Pointer[GstEvent];
 
 external gst_event_parse_new_segment(
     event : Pointer[GstEvent],
@@ -2214,7 +2214,7 @@ external gst_event_parse_new_segment_full(
     position : Pointer[CLong]);
 
 external gst_event_new_tag(
-    taglist : Pointer[GstTagList]) Pointer[GstEvent];
+    taglist : Pointer[GstTagList]) : Pointer[GstEvent];
 
 external gst_event_parse_tag(
     event : Pointer[GstEvent],
@@ -2224,7 +2224,7 @@ external gst_event_new_buffer_size(
     format : GstFormat,
     minsize : CLong,
     maxsize : CLong,
-    async : Int) Pointer[GstEvent];
+    async : Int) : Pointer[GstEvent];
 
 external gst_event_parse_buffer_size(
     event : Pointer[GstEvent],
@@ -2236,7 +2236,7 @@ external gst_event_parse_buffer_size(
 external gst_event_new_qos(
     proportion : Double,
     diff : CLong,
-    timestamp : CULong) Pointer[GstEvent];
+    timestamp : CULong) : Pointer[GstEvent];
 
 external gst_event_parse_qos(
     event : Pointer[GstEvent],
@@ -2251,7 +2251,7 @@ external gst_event_new_seek(
     start_type : GstSeekType,
     start : CLong,
     stop_type : GstSeekType,
-    stop : CLong) Pointer[GstEvent];
+    stop : CLong) : Pointer[GstEvent];
 
 external gst_event_parse_seek(
     event : Pointer[GstEvent],
@@ -2264,10 +2264,10 @@ external gst_event_parse_seek(
     stop : Pointer[CLong]);
 
 external gst_event_new_navigation(
-    structure : Pointer[GstStructure]) Pointer[GstEvent];
+    structure : Pointer[GstStructure]) : Pointer[GstEvent];
 
 external gst_event_new_latency(
-    latency : CULong) Pointer[GstEvent];
+    latency : CULong) : Pointer[GstEvent];
 
 external gst_event_parse_latency(
     event : Pointer[GstEvent],
@@ -2278,7 +2278,7 @@ external gst_event_new_step(
     amount : CULong,
     rate : Double,
     flush : Int,
-    intermediate : Int) Pointer[GstEvent];
+    intermediate : Int) : Pointer[GstEvent];
 
 external gst_event_parse_step(
     event : Pointer[GstEvent],
@@ -2337,31 +2337,31 @@ record Struct__GstQueryClass (
 );
 
 external gst_query_type_get_name(
-    query : GstQueryType) Pointer[CChar];
+    query : GstQueryType) : Pointer[CChar];
 
 external gst_query_type_to_quark(
-    query : GstQueryType) UInt;
+    query : GstQueryType) : UInt;
 
-external gst_query_get_type() CULong;
+external gst_query_get_type() : CULong;
 
 external gst_query_type_register(
     nick : Pointer[CChar],
-    description : Pointer[CChar]) GstQueryType;
+    description : Pointer[CChar]) : GstQueryType;
 
 external gst_query_type_get_by_nick(
-    nick : Pointer[CChar]) GstQueryType;
+    nick : Pointer[CChar]) : GstQueryType;
 
 external gst_query_types_contains(
     types : Pointer[GstQueryType],
-    type : GstQueryType) Int;
+    type : GstQueryType) : Int;
 
 external gst_query_type_get_details(
-    type : GstQueryType) Pointer[GstQueryTypeDefinition];
+    type : GstQueryType) : Pointer[GstQueryTypeDefinition];
 
-external gst_query_type_iterate_definitions() Pointer[GstIterator];
+external gst_query_type_iterate_definitions() : Pointer[GstIterator];
 
 external gst_query_new_position(
-    format : GstFormat) Pointer[GstQuery];
+    format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_position(
     query : Pointer[GstQuery],
@@ -2374,7 +2374,7 @@ external gst_query_parse_position(
     cur : Pointer[CLong]);
 
 external gst_query_new_duration(
-    format : GstFormat) Pointer[GstQuery];
+    format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_duration(
     query : Pointer[GstQuery],
@@ -2386,7 +2386,7 @@ external gst_query_parse_duration(
     format : Pointer[GstFormat],
     duration : Pointer[CLong]);
 
-external gst_query_new_latency() Pointer[GstQuery];
+external gst_query_new_latency() : Pointer[GstQuery];
 
 external gst_query_set_latency(
     query : Pointer[GstQuery],
@@ -2403,7 +2403,7 @@ external gst_query_parse_latency(
 external gst_query_new_convert(
     src_format : GstFormat,
     value : CLong,
-    dest_format : GstFormat) Pointer[GstQuery];
+    dest_format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_convert(
     query : Pointer[GstQuery],
@@ -2420,7 +2420,7 @@ external gst_query_parse_convert(
     dest_value : Pointer[CLong]);
 
 external gst_query_new_segment(
-    format : GstFormat) Pointer[GstQuery];
+    format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_segment(
     query : Pointer[GstQuery],
@@ -2438,13 +2438,13 @@ external gst_query_parse_segment(
 
 external gst_query_new_application(
     type : GstQueryType,
-    structure : Pointer[GstStructure]) Pointer[GstQuery];
+    structure : Pointer[GstStructure]) : Pointer[GstQuery];
 
 external gst_query_get_structure(
-    query : Pointer[GstQuery]) Pointer[GstStructure];
+    query : Pointer[GstQuery]) : Pointer[GstStructure];
 
 external gst_query_new_seeking(
-    format : GstFormat) Pointer[GstQuery];
+    format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_seeking(
     query : Pointer[GstQuery],
@@ -2460,12 +2460,12 @@ external gst_query_parse_seeking(
     segment_start : Pointer[CLong],
     segment_end : Pointer[CLong]);
 
-external gst_query_new_formats() Pointer[GstQuery];
+external gst_query_new_formats() : Pointer[GstQuery];
 
 external gst_query_set_formats(
     query : Pointer[GstQuery],
     n_formats : Int,
-    ...);
+    ..);
 
 external gst_query_set_formatsv(
     query : Pointer[GstQuery],
@@ -2482,7 +2482,7 @@ external gst_query_parse_formats_nth(
     format : Pointer[GstFormat]);
 
 external gst_query_new_buffering(
-    format : GstFormat) Pointer[GstQuery];
+    format : GstFormat) : Pointer[GstQuery];
 
 external gst_query_set_buffering_percent(
     query : Pointer[GstQuery],
@@ -2525,18 +2525,18 @@ external gst_query_parse_buffering_range(
 external gst_query_add_buffering_range(
     query : Pointer[GstQuery],
     start : CLong,
-    stop : CLong) Int;
+    stop : CLong) : Int;
 
 external gst_query_get_n_buffering_ranges(
-    query : Pointer[GstQuery]) UInt;
+    query : Pointer[GstQuery]) : UInt;
 
 external gst_query_parse_nth_buffering_range(
     query : Pointer[GstQuery],
     index : UInt,
     start : Pointer[CLong],
-    stop : Pointer[CLong]) Int;
+    stop : Pointer[CLong]) : Int;
 
-external gst_query_new_uri() Pointer[GstQuery];
+external gst_query_new_uri() : Pointer[GstQuery];
 
 external gst_query_parse_uri(
     query : Pointer[GstQuery],
@@ -2550,7 +2550,7 @@ alias GstTaskPool = Struct__GstTaskPool;
 
 alias GstTaskPoolClass = Struct__GstTaskPoolClass;
 
-alias GstTaskPoolFunction = CCodePointer[(RawPointer),()];
+alias GstTaskPoolFunction = CCodePointer[[RawPointer],[]];
 
 record Struct__GstTaskPool (
     object : GstObject,
@@ -2560,16 +2560,16 @@ record Struct__GstTaskPool (
 
 record Struct__GstTaskPoolClass (
     parent_class : GstObjectClass,
-    prepare : CCodePointer[(Pointer[Struct__GstTaskPool],Pointer[Pointer[Struct__GError]]),()],
-    cleanup : CCodePointer[(Pointer[Struct__GstTaskPool]),()],
-    push : CCodePointer[(Pointer[Struct__GstTaskPool],CCodePointer[(RawPointer),()],RawPointer,Pointer[Pointer[Struct__GError]]),(RawPointer)],
-    join : CCodePointer[(Pointer[Struct__GstTaskPool],RawPointer),()],
+    prepare : CCodePointer[[Pointer[Struct__GstTaskPool],Pointer[Pointer[Struct__GError]]],[]],
+    cleanup : CCodePointer[[Pointer[Struct__GstTaskPool]],[]],
+    push : CCodePointer[[Pointer[Struct__GstTaskPool],CCodePointer[[RawPointer],[]],RawPointer,Pointer[Pointer[Struct__GError]]],[RawPointer]],
+    join : CCodePointer[[Pointer[Struct__GstTaskPool],RawPointer],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_task_pool_get_type() CULong;
+external gst_task_pool_get_type() : CULong;
 
-external gst_task_pool_new() Pointer[GstTaskPool];
+external gst_task_pool_new() : Pointer[GstTaskPool];
 
 external gst_task_pool_prepare(
     pool : Pointer[GstTaskPool],
@@ -2579,7 +2579,7 @@ external gst_task_pool_push(
     pool : Pointer[GstTaskPool],
     func : GstTaskPoolFunction,
     user_data : gpointer,
-    error : Pointer[Pointer[GError]]) gpointer;
+    error : Pointer[Pointer[GError]]) : gpointer;
 
 external gst_task_pool_join(
     pool : Pointer[GstTaskPool],
@@ -2588,7 +2588,7 @@ external gst_task_pool_join(
 external gst_task_pool_cleanup(
     pool : Pointer[GstTaskPool]);
 
-alias GstTaskFunction = CCodePointer[(RawPointer),()];
+alias GstTaskFunction = CCodePointer[[RawPointer],[]];
 
 alias GstTask = Struct__GstTask;
 
@@ -2603,8 +2603,8 @@ alias GST_TASK_PAUSED = 2;
 alias GstTaskState = Int;
 
 record UnnamedStruct12 (
-    enter_thread : CCodePointer[(Pointer[Struct__GstTask],Pointer[Struct__GThread],RawPointer),()],
-    leave_thread : CCodePointer[(Pointer[Struct__GstTask],Pointer[Struct__GThread],RawPointer),()],
+    enter_thread : CCodePointer[[Pointer[Struct__GstTask],Pointer[Struct__GThread],RawPointer],[]],
+    leave_thread : CCodePointer[[Pointer[Struct__GstTask],Pointer[Struct__GThread],RawPointer],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
@@ -2630,11 +2630,11 @@ record Struct__GstTaskClass (
 
 external gst_task_cleanup_all();
 
-external gst_task_get_type() CULong;
+external gst_task_get_type() : CULong;
 
 external gst_task_create(
     func : GstTaskFunction,
-    data : gpointer) Pointer[GstTask];
+    data : gpointer) : Pointer[GstTask];
 
 external gst_task_set_lock(
     task : Pointer[GstTask],
@@ -2645,7 +2645,7 @@ external gst_task_set_priority(
     priority : GThreadPriority);
 
 external gst_task_get_pool(
-    task : Pointer[GstTask]) Pointer[GstTaskPool];
+    task : Pointer[GstTask]) : Pointer[GstTaskPool];
 
 external gst_task_set_pool(
     task : Pointer[GstTask],
@@ -2658,23 +2658,23 @@ external gst_task_set_thread_callbacks(
     notify : GDestroyNotify);
 
 external gst_task_get_state(
-    task : Pointer[GstTask]) GstTaskState;
+    task : Pointer[GstTask]) : GstTaskState;
 
 external gst_task_set_state(
     task : Pointer[GstTask],
-    state : GstTaskState) Int;
+    state : GstTaskState) : Int;
 
 external gst_task_start(
-    task : Pointer[GstTask]) Int;
+    task : Pointer[GstTask]) : Int;
 
 external gst_task_stop(
-    task : Pointer[GstTask]) Int;
+    task : Pointer[GstTask]) : Int;
 
 external gst_task_pause(
-    task : Pointer[GstTask]) Int;
+    task : Pointer[GstTask]) : Int;
 
 external gst_task_join(
-    task : Pointer[GstTask]) Int;
+    task : Pointer[GstTask]) : Int;
 
 alias GstPad = Struct__GstPad;
 
@@ -2710,10 +2710,10 @@ alias GST_FLOW_CUSTOM_ERROR_2 = 4294967194;
 alias GstFlowReturn = Int;
 
 external gst_flow_get_name(
-    ret : GstFlowReturn) Pointer[CChar];
+    ret : GstFlowReturn) : Pointer[CChar];
 
 external gst_flow_to_quark(
-    ret : GstFlowReturn) UInt;
+    ret : GstFlowReturn) : UInt;
 
 alias GST_PAD_LINK_CHECK_NOTHING = 0;
 alias GST_PAD_LINK_CHECK_HIERARCHY = 1;
@@ -2728,45 +2728,45 @@ alias GST_ACTIVATE_PULL = 2;
 
 alias GstActivateMode = Int;
 
-alias GstPadActivateFunction = CCodePointer[(Pointer[Struct__GstPad]),(Int)];
+alias GstPadActivateFunction = CCodePointer[[Pointer[Struct__GstPad]],[Int]];
 
-alias GstPadActivateModeFunction = CCodePointer[(Pointer[Struct__GstPad],Int),(Int)];
+alias GstPadActivateModeFunction = CCodePointer[[Pointer[Struct__GstPad],Int],[Int]];
 
-alias GstPadChainFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstBuffer]),(Int)];
+alias GstPadChainFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstBuffer]],[Int]];
 
-alias GstPadChainListFunction = CCodePointer[(Pointer[Struct__GstPad],OpaquePointer),(Int)];
+alias GstPadChainListFunction = CCodePointer[[Pointer[Struct__GstPad],OpaquePointer],[Int]];
 
-alias GstPadGetRangeFunction = CCodePointer[(Pointer[Struct__GstPad],CULong,UInt,Pointer[Pointer[Struct__GstBuffer]]),(Int)];
+alias GstPadGetRangeFunction = CCodePointer[[Pointer[Struct__GstPad],CULong,UInt,Pointer[Pointer[Struct__GstBuffer]]],[Int]];
 
-alias GstPadEventFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstEvent]),(Int)];
+alias GstPadEventFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstEvent]],[Int]];
 
-alias GstPadCheckGetRangeFunction = CCodePointer[(Pointer[Struct__GstPad]),(Int)];
+alias GstPadCheckGetRangeFunction = CCodePointer[[Pointer[Struct__GstPad]],[Int]];
 
-alias GstPadIntLinkFunction = CCodePointer[(Pointer[Struct__GstPad]),(Pointer[Struct__GList])];
+alias GstPadIntLinkFunction = CCodePointer[[Pointer[Struct__GstPad]],[Pointer[Struct__GList]]];
 
-alias GstPadIterIntLinkFunction = CCodePointer[(Pointer[Struct__GstPad]),(Pointer[Struct__GstIterator])];
+alias GstPadIterIntLinkFunction = CCodePointer[[Pointer[Struct__GstPad]],[Pointer[Struct__GstIterator]]];
 
-alias GstPadQueryTypeFunction = CCodePointer[(Pointer[Struct__GstPad]),(Pointer[Int])];
+alias GstPadQueryTypeFunction = CCodePointer[[Pointer[Struct__GstPad]],[Pointer[Int]]];
 
-alias GstPadQueryFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstQuery]),(Int)];
+alias GstPadQueryFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstQuery]],[Int]];
 
-alias GstPadLinkFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstPad]),(Int)];
+alias GstPadLinkFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstPad]],[Int]];
 
-alias GstPadUnlinkFunction = CCodePointer[(Pointer[Struct__GstPad]),()];
+alias GstPadUnlinkFunction = CCodePointer[[Pointer[Struct__GstPad]],[]];
 
-alias GstPadGetCapsFunction = CCodePointer[(Pointer[Struct__GstPad]),(Pointer[Struct__GstCaps])];
+alias GstPadGetCapsFunction = CCodePointer[[Pointer[Struct__GstPad]],[Pointer[Struct__GstCaps]]];
 
-alias GstPadSetCapsFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstCaps]),(Int)];
+alias GstPadSetCapsFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstCaps]],[Int]];
 
-alias GstPadAcceptCapsFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstCaps]),(Int)];
+alias GstPadAcceptCapsFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstCaps]],[Int]];
 
-alias GstPadFixateCapsFunction = CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstCaps]),()];
+alias GstPadFixateCapsFunction = CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstCaps]],[]];
 
-alias GstPadBufferAllocFunction = CCodePointer[(Pointer[Struct__GstPad],CULong,UInt,Pointer[Struct__GstCaps],Pointer[Pointer[Struct__GstBuffer]]),(Int)];
+alias GstPadBufferAllocFunction = CCodePointer[[Pointer[Struct__GstPad],CULong,UInt,Pointer[Struct__GstCaps],Pointer[Pointer[Struct__GstBuffer]]],[Int]];
 
-alias GstPadDispatcherFunction = CCodePointer[(Pointer[Struct__GstPad],RawPointer),(Int)];
+alias GstPadDispatcherFunction = CCodePointer[[Pointer[Struct__GstPad],RawPointer],[Int]];
 
-alias GstPadBlockCallback = CCodePointer[(Pointer[Struct__GstPad],Int,RawPointer),()];
+alias GstPadBlockCallback = CCodePointer[[Pointer[Struct__GstPad],Int,RawPointer],[]];
 
 alias GST_PAD_UNKNOWN = 0;
 alias GST_PAD_SRC = 1;
@@ -2827,10 +2827,10 @@ record Struct__GstPad (
 
 record Struct__GstPadClass (
     parent_class : GstObjectClass,
-    linked : CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstPad]),()],
-    unlinked : CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstPad]),()],
-    request_link : CCodePointer[(Pointer[Struct__GstPad]),()],
-    have_data : CCodePointer[(Pointer[Struct__GstPad],Pointer[Struct__GstMiniObject]),(Int)],
+    linked : CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstPad]],[]],
+    unlinked : CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstPad]],[]],
+    request_link : CCodePointer[[Pointer[Struct__GstPad]],[]],
+    have_data : CCodePointer[[Pointer[Struct__GstPad],Pointer[Struct__GstMiniObject]],[Int]],
     _gst_reserved : Array[gpointer,4],
 );
 
@@ -2860,7 +2860,7 @@ record Struct__GstPadTemplate (
 
 record Struct__GstPadTemplateClass (
     parent_class : GstObjectClass,
-    pad_created : CCodePointer[(Pointer[Struct__GstPadTemplate],Pointer[Struct__GstPad]),()],
+    pad_created : CCodePointer[[Pointer[Struct__GstPadTemplate],Pointer[Struct__GstPad]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
@@ -2871,93 +2871,93 @@ record Struct__GstStaticPadTemplate (
     static_caps : GstStaticCaps,
 );
 
-external gst_pad_template_get_type() CULong;
+external gst_pad_template_get_type() : CULong;
 
-external gst_static_pad_template_get_type() CULong;
+external gst_static_pad_template_get_type() : CULong;
 
 external gst_pad_template_new(
     name_template : Pointer[CChar],
     direction : GstPadDirection,
     presence : GstPadPresence,
-    caps : Pointer[GstCaps]) Pointer[GstPadTemplate];
+    caps : Pointer[GstCaps]) : Pointer[GstPadTemplate];
 
 external gst_static_pad_template_get(
-    pad_template : Pointer[GstStaticPadTemplate]) Pointer[GstPadTemplate];
+    pad_template : Pointer[GstStaticPadTemplate]) : Pointer[GstPadTemplate];
 
 external gst_static_pad_template_get_caps(
-    templ : Pointer[GstStaticPadTemplate]) Pointer[GstCaps];
+    templ : Pointer[GstStaticPadTemplate]) : Pointer[GstCaps];
 
 external gst_pad_template_get_caps(
-    templ : Pointer[GstPadTemplate]) Pointer[GstCaps];
+    templ : Pointer[GstPadTemplate]) : Pointer[GstCaps];
 
 external gst_pad_template_pad_created(
     templ : Pointer[GstPadTemplate],
     pad : Pointer[GstPad]);
 
-external gst_pad_get_type() CULong;
+external gst_pad_get_type() : CULong;
 
 external gst_pad_new(
     name : Pointer[CChar],
-    direction : GstPadDirection) Pointer[GstPad];
+    direction : GstPadDirection) : Pointer[GstPad];
 
 external gst_pad_new_from_template(
     templ : Pointer[GstPadTemplate],
-    name : Pointer[CChar]) Pointer[GstPad];
+    name : Pointer[CChar]) : Pointer[GstPad];
 
 external gst_pad_new_from_static_template(
     templ : Pointer[GstStaticPadTemplate],
-    name : Pointer[CChar]) Pointer[GstPad];
+    name : Pointer[CChar]) : Pointer[GstPad];
 
 external gst_pad_get_direction(
-    pad : Pointer[GstPad]) GstPadDirection;
+    pad : Pointer[GstPad]) : GstPadDirection;
 
 external gst_pad_set_active(
     pad : Pointer[GstPad],
-    active : Int) Int;
+    active : Int) : Int;
 
 external gst_pad_is_active(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_activate_pull(
     pad : Pointer[GstPad],
-    active : Int) Int;
+    active : Int) : Int;
 
 external gst_pad_activate_push(
     pad : Pointer[GstPad],
-    active : Int) Int;
+    active : Int) : Int;
 
 external gst_pad_set_blocked(
     pad : Pointer[GstPad],
-    blocked : Int) Int;
+    blocked : Int) : Int;
 
 external gst_pad_set_blocked_async(
     pad : Pointer[GstPad],
     blocked : Int,
     callback : GstPadBlockCallback,
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external gst_pad_set_blocked_async_full(
     pad : Pointer[GstPad],
     blocked : Int,
     callback : GstPadBlockCallback,
     user_data : gpointer,
-    destroy_data : GDestroyNotify) Int;
+    destroy_data : GDestroyNotify) : Int;
 
 external gst_pad_is_blocked(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_is_blocking(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_set_element_private(
     pad : Pointer[GstPad],
     priv : gpointer);
 
 external gst_pad_get_element_private(
-    pad : Pointer[GstPad]) gpointer;
+    pad : Pointer[GstPad]) : gpointer;
 
 external gst_pad_get_pad_template(
-    pad : Pointer[GstPad]) Pointer[GstPadTemplate];
+    pad : Pointer[GstPad]) : Pointer[GstPadTemplate];
 
 external gst_pad_set_bufferalloc_function(
     pad : Pointer[GstPad],
@@ -2968,14 +2968,14 @@ external gst_pad_alloc_buffer(
     offset : CULong,
     size : Int,
     caps : Pointer[GstCaps],
-    buf : Pointer[Pointer[GstBuffer]]) GstFlowReturn;
+    buf : Pointer[Pointer[GstBuffer]]) : GstFlowReturn;
 
 external gst_pad_alloc_buffer_and_set_caps(
     pad : Pointer[GstPad],
     offset : CULong,
     size : Int,
     caps : Pointer[GstCaps],
-    buf : Pointer[Pointer[GstBuffer]]) GstFlowReturn;
+    buf : Pointer[Pointer[GstBuffer]]) : GstFlowReturn;
 
 external gst_pad_set_activate_function(
     pad : Pointer[GstPad],
@@ -3019,26 +3019,26 @@ external gst_pad_set_unlink_function(
 
 external gst_pad_can_link(
     srcpad : Pointer[GstPad],
-    sinkpad : Pointer[GstPad]) Int;
+    sinkpad : Pointer[GstPad]) : Int;
 
 external gst_pad_link(
     srcpad : Pointer[GstPad],
-    sinkpad : Pointer[GstPad]) GstPadLinkReturn;
+    sinkpad : Pointer[GstPad]) : GstPadLinkReturn;
 
 external gst_pad_link_full(
     srcpad : Pointer[GstPad],
     sinkpad : Pointer[GstPad],
-    flags : GstPadLinkCheck) GstPadLinkReturn;
+    flags : GstPadLinkCheck) : GstPadLinkReturn;
 
 external gst_pad_unlink(
     srcpad : Pointer[GstPad],
-    sinkpad : Pointer[GstPad]) Int;
+    sinkpad : Pointer[GstPad]) : Int;
 
 external gst_pad_is_linked(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_get_peer(
-    pad : Pointer[GstPad]) Pointer[GstPad];
+    pad : Pointer[GstPad]) : Pointer[GstPad];
 
 external gst_pad_set_getcaps_function(
     pad : Pointer[GstPad],
@@ -3057,13 +3057,13 @@ external gst_pad_set_setcaps_function(
     setcaps : GstPadSetCapsFunction);
 
 external gst_pad_get_pad_template_caps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_get_caps_reffed(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_get_caps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_fixate_caps(
     pad : Pointer[GstPad],
@@ -3071,119 +3071,119 @@ external gst_pad_fixate_caps(
 
 external gst_pad_accept_caps(
     pad : Pointer[GstPad],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_pad_set_caps(
     pad : Pointer[GstPad],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_pad_peer_get_caps_reffed(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_peer_get_caps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_peer_accept_caps(
     pad : Pointer[GstPad],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_pad_get_allowed_caps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_get_negotiated_caps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_push(
     pad : Pointer[GstPad],
-    buffer : Pointer[GstBuffer]) GstFlowReturn;
+    buffer : Pointer[GstBuffer]) : GstFlowReturn;
 
 external gst_pad_push_list(
     pad : Pointer[GstPad],
-    list : Pointer[GstBufferList]) GstFlowReturn;
+    list : Pointer[GstBufferList]) : GstFlowReturn;
 
 external gst_pad_check_pull_range(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_pull_range(
     pad : Pointer[GstPad],
     offset : CULong,
     size : UInt,
-    buffer : Pointer[Pointer[GstBuffer]]) GstFlowReturn;
+    buffer : Pointer[Pointer[GstBuffer]]) : GstFlowReturn;
 
 external gst_pad_push_event(
     pad : Pointer[GstPad],
-    event : Pointer[GstEvent]) Int;
+    event : Pointer[GstEvent]) : Int;
 
 external gst_pad_event_default(
     pad : Pointer[GstPad],
-    event : Pointer[GstEvent]) Int;
+    event : Pointer[GstEvent]) : Int;
 
 external gst_pad_chain(
     pad : Pointer[GstPad],
-    buffer : Pointer[GstBuffer]) GstFlowReturn;
+    buffer : Pointer[GstBuffer]) : GstFlowReturn;
 
 external gst_pad_chain_list(
     pad : Pointer[GstPad],
-    list : Pointer[GstBufferList]) GstFlowReturn;
+    list : Pointer[GstBufferList]) : GstFlowReturn;
 
 external gst_pad_get_range(
     pad : Pointer[GstPad],
     offset : CULong,
     size : UInt,
-    buffer : Pointer[Pointer[GstBuffer]]) GstFlowReturn;
+    buffer : Pointer[Pointer[GstBuffer]]) : GstFlowReturn;
 
 external gst_pad_send_event(
     pad : Pointer[GstPad],
-    event : Pointer[GstEvent]) Int;
+    event : Pointer[GstEvent]) : Int;
 
 external gst_pad_start_task(
     pad : Pointer[GstPad],
     func : GstTaskFunction,
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external gst_pad_pause_task(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_stop_task(
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_pad_set_internal_link_function(
     pad : Pointer[GstPad],
     intlink : GstPadIntLinkFunction);
 
 external gst_pad_get_internal_links(
-    pad : Pointer[GstPad]) Pointer[GList];
+    pad : Pointer[GstPad]) : Pointer[GList];
 
 external gst_pad_get_internal_links_default(
-    pad : Pointer[GstPad]) Pointer[GList];
+    pad : Pointer[GstPad]) : Pointer[GList];
 
 external gst_pad_set_iterate_internal_links_function(
     pad : Pointer[GstPad],
     iterintlink : GstPadIterIntLinkFunction);
 
 external gst_pad_iterate_internal_links(
-    pad : Pointer[GstPad]) Pointer[GstIterator];
+    pad : Pointer[GstPad]) : Pointer[GstIterator];
 
 external gst_pad_iterate_internal_links_default(
-    pad : Pointer[GstPad]) Pointer[GstIterator];
+    pad : Pointer[GstPad]) : Pointer[GstIterator];
 
 external gst_pad_set_query_type_function(
     pad : Pointer[GstPad],
     type_func : GstPadQueryTypeFunction);
 
 external gst_pad_get_query_types(
-    pad : Pointer[GstPad]) Pointer[GstQueryType];
+    pad : Pointer[GstPad]) : Pointer[GstQueryType];
 
 external gst_pad_get_query_types_default(
-    pad : Pointer[GstPad]) Pointer[GstQueryType];
+    pad : Pointer[GstPad]) : Pointer[GstQueryType];
 
 external gst_pad_query(
     pad : Pointer[GstPad],
-    query : Pointer[GstQuery]) Int;
+    query : Pointer[GstQuery]) : Int;
 
 external gst_pad_peer_query(
     pad : Pointer[GstPad],
-    query : Pointer[GstQuery]) Int;
+    query : Pointer[GstQuery]) : Int;
 
 external gst_pad_set_query_function(
     pad : Pointer[GstPad],
@@ -3191,12 +3191,12 @@ external gst_pad_set_query_function(
 
 external gst_pad_query_default(
     pad : Pointer[GstPad],
-    query : Pointer[GstQuery]) Int;
+    query : Pointer[GstQuery]) : Int;
 
 external gst_pad_dispatcher(
     pad : Pointer[GstPad],
     dispatch : GstPadDispatcherFunction,
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external gst_pad_load_and_link(
     self : xmlNodePtr,
@@ -3273,28 +3273,28 @@ record Struct__GstMessageClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_message_get_type() CULong;
+external gst_message_get_type() : CULong;
 
 external gst_message_type_get_name(
-    type : GstMessageType) Pointer[CChar];
+    type : GstMessageType) : Pointer[CChar];
 
 external gst_message_type_to_quark(
-    type : GstMessageType) UInt;
+    type : GstMessageType) : UInt;
 
 external gst_message_get_seqnum(
-    message : Pointer[GstMessage]) UInt;
+    message : Pointer[GstMessage]) : UInt;
 
 external gst_message_set_seqnum(
     message : Pointer[GstMessage],
     seqnum : UInt);
 
 external gst_message_new_eos(
-    src : Pointer[GstObject]) Pointer[GstMessage];
+    src : Pointer[GstObject]) : Pointer[GstMessage];
 
 external gst_message_new_error(
     src : Pointer[GstObject],
     error : Pointer[GError],
-    debug : Pointer[CChar]) Pointer[GstMessage];
+    debug : Pointer[CChar]) : Pointer[GstMessage];
 
 external gst_message_parse_error(
     message : Pointer[GstMessage],
@@ -3304,7 +3304,7 @@ external gst_message_parse_error(
 external gst_message_new_warning(
     src : Pointer[GstObject],
     error : Pointer[GError],
-    debug : Pointer[CChar]) Pointer[GstMessage];
+    debug : Pointer[CChar]) : Pointer[GstMessage];
 
 external gst_message_parse_warning(
     message : Pointer[GstMessage],
@@ -3314,7 +3314,7 @@ external gst_message_parse_warning(
 external gst_message_new_info(
     src : Pointer[GstObject],
     error : Pointer[GError],
-    debug : Pointer[CChar]) Pointer[GstMessage];
+    debug : Pointer[CChar]) : Pointer[GstMessage];
 
 external gst_message_parse_info(
     message : Pointer[GstMessage],
@@ -3323,12 +3323,12 @@ external gst_message_parse_info(
 
 external gst_message_new_tag(
     src : Pointer[GstObject],
-    tag_list : Pointer[GstTagList]) Pointer[GstMessage];
+    tag_list : Pointer[GstTagList]) : Pointer[GstMessage];
 
 external gst_message_new_tag_full(
     src : Pointer[GstObject],
     pad : Pointer[GstPad],
-    tag_list : Pointer[GstTagList]) Pointer[GstMessage];
+    tag_list : Pointer[GstTagList]) : Pointer[GstMessage];
 
 external gst_message_parse_tag(
     message : Pointer[GstMessage],
@@ -3341,7 +3341,7 @@ external gst_message_parse_tag_full(
 
 external gst_message_new_buffering(
     src : Pointer[GstObject],
-    percent : Int) Pointer[GstMessage];
+    percent : Int) : Pointer[GstMessage];
 
 external gst_message_parse_buffering(
     message : Pointer[GstMessage],
@@ -3365,7 +3365,7 @@ external gst_message_new_state_changed(
     src : Pointer[GstObject],
     oldstate : GstState,
     newstate : GstState,
-    pending : GstState) Pointer[GstMessage];
+    pending : GstState) : Pointer[GstMessage];
 
 external gst_message_parse_state_changed(
     message : Pointer[GstMessage],
@@ -3374,7 +3374,7 @@ external gst_message_parse_state_changed(
     pending : Pointer[GstState]);
 
 external gst_message_new_state_dirty(
-    src : Pointer[GstObject]) Pointer[GstMessage];
+    src : Pointer[GstObject]) : Pointer[GstMessage];
 
 external gst_message_new_step_done(
     src : Pointer[GstObject],
@@ -3384,7 +3384,7 @@ external gst_message_new_step_done(
     flush : Int,
     intermediate : Int,
     duration : CULong,
-    eos : Int) Pointer[GstMessage];
+    eos : Int) : Pointer[GstMessage];
 
 external gst_message_parse_step_done(
     message : Pointer[GstMessage],
@@ -3399,7 +3399,7 @@ external gst_message_parse_step_done(
 external gst_message_new_clock_provide(
     src : Pointer[GstObject],
     clock : Pointer[GstClock],
-    ready : Int) Pointer[GstMessage];
+    ready : Int) : Pointer[GstMessage];
 
 external gst_message_parse_clock_provide(
     message : Pointer[GstMessage],
@@ -3408,7 +3408,7 @@ external gst_message_parse_clock_provide(
 
 external gst_message_new_clock_lost(
     src : Pointer[GstObject],
-    clock : Pointer[GstClock]) Pointer[GstMessage];
+    clock : Pointer[GstClock]) : Pointer[GstMessage];
 
 external gst_message_parse_clock_lost(
     message : Pointer[GstMessage],
@@ -3416,7 +3416,7 @@ external gst_message_parse_clock_lost(
 
 external gst_message_new_new_clock(
     src : Pointer[GstObject],
-    clock : Pointer[GstClock]) Pointer[GstMessage];
+    clock : Pointer[GstClock]) : Pointer[GstMessage];
 
 external gst_message_parse_new_clock(
     message : Pointer[GstMessage],
@@ -3424,16 +3424,16 @@ external gst_message_parse_new_clock(
 
 external gst_message_new_application(
     src : Pointer[GstObject],
-    structure : Pointer[GstStructure]) Pointer[GstMessage];
+    structure : Pointer[GstStructure]) : Pointer[GstMessage];
 
 external gst_message_new_element(
     src : Pointer[GstObject],
-    structure : Pointer[GstStructure]) Pointer[GstMessage];
+    structure : Pointer[GstStructure]) : Pointer[GstMessage];
 
 external gst_message_new_segment_start(
     src : Pointer[GstObject],
     format : GstFormat,
-    position : CLong) Pointer[GstMessage];
+    position : CLong) : Pointer[GstMessage];
 
 external gst_message_parse_segment_start(
     message : Pointer[GstMessage],
@@ -3443,7 +3443,7 @@ external gst_message_parse_segment_start(
 external gst_message_new_segment_done(
     src : Pointer[GstObject],
     format : GstFormat,
-    position : CLong) Pointer[GstMessage];
+    position : CLong) : Pointer[GstMessage];
 
 external gst_message_parse_segment_done(
     message : Pointer[GstMessage],
@@ -3453,7 +3453,7 @@ external gst_message_parse_segment_done(
 external gst_message_new_duration(
     src : Pointer[GstObject],
     format : GstFormat,
-    duration : CLong) Pointer[GstMessage];
+    duration : CLong) : Pointer[GstMessage];
 
 external gst_message_parse_duration(
     message : Pointer[GstMessage],
@@ -3461,24 +3461,24 @@ external gst_message_parse_duration(
     duration : Pointer[CLong]);
 
 external gst_message_new_latency(
-    src : Pointer[GstObject]) Pointer[GstMessage];
+    src : Pointer[GstObject]) : Pointer[GstMessage];
 
 external gst_message_new_async_start(
     src : Pointer[GstObject],
-    new_base_time : Int) Pointer[GstMessage];
+    new_base_time : Int) : Pointer[GstMessage];
 
 external gst_message_parse_async_start(
     message : Pointer[GstMessage],
     new_base_time : Pointer[Int]);
 
 external gst_message_new_async_done(
-    src : Pointer[GstObject]) Pointer[GstMessage];
+    src : Pointer[GstObject]) : Pointer[GstMessage];
 
 external gst_message_new_structure_change(
     src : Pointer[GstObject],
     type : GstStructureChangeType,
     owner : Pointer[GstElement],
-    busy : Int) Pointer[GstMessage];
+    busy : Int) : Pointer[GstMessage];
 
 external gst_message_parse_structure_change(
     message : Pointer[GstMessage],
@@ -3489,7 +3489,7 @@ external gst_message_parse_structure_change(
 external gst_message_new_stream_status(
     src : Pointer[GstObject],
     type : GstStreamStatusType,
-    owner : Pointer[GstElement]) Pointer[GstMessage];
+    owner : Pointer[GstElement]) : Pointer[GstMessage];
 
 external gst_message_parse_stream_status(
     message : Pointer[GstMessage],
@@ -3501,11 +3501,11 @@ external gst_message_set_stream_status_object(
     object : Pointer[GValue]);
 
 external gst_message_get_stream_status_object(
-    message : Pointer[GstMessage]) Pointer[GValue];
+    message : Pointer[GstMessage]) : Pointer[GValue];
 
 external gst_message_new_request_state(
     src : Pointer[GstObject],
-    state : GstState) Pointer[GstMessage];
+    state : GstState) : Pointer[GstMessage];
 
 external gst_message_parse_request_state(
     message : Pointer[GstMessage],
@@ -3518,7 +3518,7 @@ external gst_message_new_step_start(
     amount : CULong,
     rate : Double,
     flush : Int,
-    intermediate : Int) Pointer[GstMessage];
+    intermediate : Int) : Pointer[GstMessage];
 
 external gst_message_parse_step_start(
     message : Pointer[GstMessage],
@@ -3535,7 +3535,7 @@ external gst_message_new_qos(
     running_time : CULong,
     stream_time : CULong,
     timestamp : CULong,
-    duration : CULong) Pointer[GstMessage];
+    duration : CULong) : Pointer[GstMessage];
 
 external gst_message_set_qos_values(
     message : Pointer[GstMessage],
@@ -3572,10 +3572,10 @@ external gst_message_parse_qos_stats(
 external gst_message_new_custom(
     type : GstMessageType,
     src : Pointer[GstObject],
-    structure : Pointer[GstStructure]) Pointer[GstMessage];
+    structure : Pointer[GstStructure]) : Pointer[GstMessage];
 
 external gst_message_get_structure(
-    message : Pointer[GstMessage]) Pointer[GstStructure];
+    message : Pointer[GstMessage]) : Pointer[GstStructure];
 
 alias GST_BUS_FLUSHING = 16;
 alias GST_BUS_FLAG_LAST = 32;
@@ -3588,9 +3588,9 @@ alias GST_BUS_ASYNC = 2;
 
 alias GstBusSyncReply = Int;
 
-alias GstBusSyncHandler = CCodePointer[(Pointer[Struct__GstBus],Pointer[Struct__GstMessage],RawPointer),(Int)];
+alias GstBusSyncHandler = CCodePointer[[Pointer[Struct__GstBus],Pointer[Struct__GstMessage],RawPointer],[Int]];
 
-alias GstBusFunc = CCodePointer[(Pointer[Struct__GstBus],Pointer[Struct__GstMessage],RawPointer),(Int)];
+alias GstBusFunc = CCodePointer[[Pointer[Struct__GstBus],Pointer[Struct__GstMessage],RawPointer],[Int]];
 
 record Struct__GstBus (
     object : GstObject,
@@ -3606,40 +3606,40 @@ record Struct__GstBus (
 
 record Struct__GstBusClass (
     parent_class : GstObjectClass,
-    message : CCodePointer[(Pointer[Struct__GstBus],Pointer[Struct__GstMessage]),()],
-    sync_message : CCodePointer[(Pointer[Struct__GstBus],Pointer[Struct__GstMessage]),()],
+    message : CCodePointer[[Pointer[Struct__GstBus],Pointer[Struct__GstMessage]],[]],
+    sync_message : CCodePointer[[Pointer[Struct__GstBus],Pointer[Struct__GstMessage]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_bus_get_type() CULong;
+external gst_bus_get_type() : CULong;
 
-external gst_bus_new() Pointer[GstBus];
+external gst_bus_new() : Pointer[GstBus];
 
 external gst_bus_post(
     bus : Pointer[GstBus],
-    message : Pointer[GstMessage]) Int;
+    message : Pointer[GstMessage]) : Int;
 
 external gst_bus_have_pending(
-    bus : Pointer[GstBus]) Int;
+    bus : Pointer[GstBus]) : Int;
 
 external gst_bus_peek(
-    bus : Pointer[GstBus]) Pointer[GstMessage];
+    bus : Pointer[GstBus]) : Pointer[GstMessage];
 
 external gst_bus_pop(
-    bus : Pointer[GstBus]) Pointer[GstMessage];
+    bus : Pointer[GstBus]) : Pointer[GstMessage];
 
 external gst_bus_pop_filtered(
     bus : Pointer[GstBus],
-    types : GstMessageType) Pointer[GstMessage];
+    types : GstMessageType) : Pointer[GstMessage];
 
 external gst_bus_timed_pop(
     bus : Pointer[GstBus],
-    timeout : CULong) Pointer[GstMessage];
+    timeout : CULong) : Pointer[GstMessage];
 
 external gst_bus_timed_pop_filtered(
     bus : Pointer[GstBus],
     timeout : CULong,
-    types : GstMessageType) Pointer[GstMessage];
+    types : GstMessageType) : Pointer[GstMessage];
 
 external gst_bus_set_flushing(
     bus : Pointer[GstBus],
@@ -3651,34 +3651,34 @@ external gst_bus_set_sync_handler(
     data : gpointer);
 
 external gst_bus_create_watch(
-    bus : Pointer[GstBus]) Pointer[GSource];
+    bus : Pointer[GstBus]) : Pointer[GSource];
 
 external gst_bus_add_watch_full(
     bus : Pointer[GstBus],
     priority : Int,
     func : GstBusFunc,
     user_data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external gst_bus_add_watch(
     bus : Pointer[GstBus],
     func : GstBusFunc,
-    user_data : gpointer) UInt;
+    user_data : gpointer) : UInt;
 
 external gst_bus_poll(
     bus : Pointer[GstBus],
     events : GstMessageType,
-    timeout : CLong) Pointer[GstMessage];
+    timeout : CLong) : Pointer[GstMessage];
 
 external gst_bus_async_signal_func(
     bus : Pointer[GstBus],
     message : Pointer[GstMessage],
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external gst_bus_sync_signal_handler(
     bus : Pointer[GstBus],
     message : Pointer[GstMessage],
-    data : gpointer) GstBusSyncReply;
+    data : gpointer) : GstBusSyncReply;
 
 external gst_bus_add_signal_watch(
     bus : Pointer[GstBus]);
@@ -3708,7 +3708,7 @@ alias GstPluginPrivate = Opaque;
 
 alias GstPluginDesc = Struct__GstPluginDesc;
 
-external gst_plugin_error_quark() UInt;
+external gst_plugin_error_quark() : UInt;
 
 alias GST_PLUGIN_ERROR_MODULE = 0;
 alias GST_PLUGIN_ERROR_DEPENDENCIES = 1;
@@ -3728,9 +3728,9 @@ alias GST_PLUGIN_DEPENDENCY_FLAG_FILE_NAME_IS_SUFFIX = 4;
 
 alias GstPluginDependencyFlags = Int;
 
-alias GstPluginInitFunc = CCodePointer[(Pointer[Struct__GstPlugin]),(Int)];
+alias GstPluginInitFunc = CCodePointer[[Pointer[Struct__GstPlugin]],[Int]];
 
-alias GstPluginInitFullFunc = CCodePointer[(Pointer[Struct__GstPlugin],RawPointer),(Int)];
+alias GstPluginInitFullFunc = CCodePointer[[Pointer[Struct__GstPlugin],RawPointer],[Int]];
 
 record Struct__GstPluginDesc (
     major_version : Int,
@@ -3767,9 +3767,9 @@ record Struct__GstPluginClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-alias GstPluginFilter = CCodePointer[(Pointer[Struct__GstPlugin],RawPointer),(Int)];
+alias GstPluginFilter = CCodePointer[[Pointer[Struct__GstPlugin],RawPointer],[Int]];
 
-external gst_plugin_get_type() CULong;
+external gst_plugin_get_type() : CULong;
 
 external _gst_plugin_register_static(
     desc : Pointer[GstPluginDesc]);
@@ -3784,7 +3784,7 @@ external gst_plugin_register_static(
     license : Pointer[CChar],
     source : Pointer[CChar],
     package : Pointer[CChar],
-    origin : Pointer[CChar]) Int;
+    origin : Pointer[CChar]) : Int;
 
 external gst_plugin_register_static_full(
     major_version : Int,
@@ -3797,58 +3797,58 @@ external gst_plugin_register_static_full(
     source : Pointer[CChar],
     package : Pointer[CChar],
     origin : Pointer[CChar],
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external gst_plugin_get_name(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_description(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_filename(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_version(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_license(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_source(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_package(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_origin(
-    plugin : Pointer[GstPlugin]) Pointer[CChar];
+    plugin : Pointer[GstPlugin]) : Pointer[CChar];
 
 external gst_plugin_get_cache_data(
-    plugin : Pointer[GstPlugin]) Pointer[GstStructure];
+    plugin : Pointer[GstPlugin]) : Pointer[GstStructure];
 
 external gst_plugin_set_cache_data(
     plugin : Pointer[GstPlugin],
     cache_data : Pointer[GstStructure]);
 
 external gst_plugin_get_module(
-    plugin : Pointer[GstPlugin]) Pointer[GModule];
+    plugin : Pointer[GstPlugin]) : Pointer[GModule];
 
 external gst_plugin_is_loaded(
-    plugin : Pointer[GstPlugin]) Int;
+    plugin : Pointer[GstPlugin]) : Int;
 
 external gst_plugin_name_filter(
     plugin : Pointer[GstPlugin],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_plugin_load_file(
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GstPlugin];
+    error : Pointer[Pointer[GError]]) : Pointer[GstPlugin];
 
 external gst_plugin_load(
-    plugin : Pointer[GstPlugin]) Pointer[GstPlugin];
+    plugin : Pointer[GstPlugin]) : Pointer[GstPlugin];
 
 external gst_plugin_load_by_name(
-    name : Pointer[CChar]) Pointer[GstPlugin];
+    name : Pointer[CChar]) : Pointer[GstPlugin];
 
 external gst_plugin_add_dependency(
     plugin : Pointer[GstPlugin],
@@ -3899,16 +3899,16 @@ record UnnamedStruct13 (
 
 alias GstTypeNameData = UnnamedStruct13;
 
-alias GstPluginFeatureFilter = CCodePointer[(Pointer[Struct__GstPluginFeature],RawPointer),(Int)];
+alias GstPluginFeatureFilter = CCodePointer[[Pointer[Struct__GstPluginFeature],RawPointer],[Int]];
 
-external gst_plugin_feature_get_type() CULong;
+external gst_plugin_feature_get_type() : CULong;
 
 external gst_plugin_feature_load(
-    feature : Pointer[GstPluginFeature]) Pointer[GstPluginFeature];
+    feature : Pointer[GstPluginFeature]) : Pointer[GstPluginFeature];
 
 external gst_plugin_feature_type_name_filter(
     feature : Pointer[GstPluginFeature],
-    data : Pointer[GstTypeNameData]) Int;
+    data : Pointer[GstTypeNameData]) : Int;
 
 external gst_plugin_feature_set_rank(
     feature : Pointer[GstPluginFeature],
@@ -3919,16 +3919,16 @@ external gst_plugin_feature_set_name(
     name : Pointer[CChar]);
 
 external gst_plugin_feature_get_rank(
-    feature : Pointer[GstPluginFeature]) UInt;
+    feature : Pointer[GstPluginFeature]) : UInt;
 
 external gst_plugin_feature_get_name(
-    feature : Pointer[GstPluginFeature]) Pointer[CChar];
+    feature : Pointer[GstPluginFeature]) : Pointer[CChar];
 
 external gst_plugin_feature_list_free(
     list : Pointer[GList]);
 
 external gst_plugin_feature_list_copy(
-    list : Pointer[GList]) Pointer[GList];
+    list : Pointer[GList]) : Pointer[GList];
 
 external gst_plugin_feature_list_debug(
     list : Pointer[GList]);
@@ -3937,11 +3937,11 @@ external gst_plugin_feature_check_version(
     feature : Pointer[GstPluginFeature],
     min_major : UInt,
     min_minor : UInt,
-    min_micro : UInt) Int;
+    min_micro : UInt) : Int;
 
 external gst_plugin_feature_rank_compare_func(
     p1 : gconstpointer,
-    p2 : gconstpointer) Int;
+    p2 : gconstpointer) : Int;
 
 alias GstElementDetails = Struct__GstElementDetails;
 
@@ -3971,55 +3971,55 @@ record Struct__GstElementFactoryClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_element_factory_get_type() CULong;
+external gst_element_factory_get_type() : CULong;
 
 external gst_element_factory_find(
-    name : Pointer[CChar]) Pointer[GstElementFactory];
+    name : Pointer[CChar]) : Pointer[GstElementFactory];
 
 external gst_element_factory_get_element_type(
-    factory : Pointer[GstElementFactory]) CULong;
+    factory : Pointer[GstElementFactory]) : CULong;
 
 external gst_element_factory_get_longname(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_klass(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_description(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_author(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_documentation_uri(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_icon_name(
-    factory : Pointer[GstElementFactory]) Pointer[CChar];
+    factory : Pointer[GstElementFactory]) : Pointer[CChar];
 
 external gst_element_factory_get_num_pad_templates(
-    factory : Pointer[GstElementFactory]) UInt;
+    factory : Pointer[GstElementFactory]) : UInt;
 
 external gst_element_factory_get_static_pad_templates(
-    factory : Pointer[GstElementFactory]) Pointer[GList];
+    factory : Pointer[GstElementFactory]) : Pointer[GList];
 
 external gst_element_factory_get_uri_type(
-    factory : Pointer[GstElementFactory]) Int;
+    factory : Pointer[GstElementFactory]) : Int;
 
 external gst_element_factory_get_uri_protocols(
-    factory : Pointer[GstElementFactory]) Pointer[Pointer[CChar]];
+    factory : Pointer[GstElementFactory]) : Pointer[Pointer[CChar]];
 
 external gst_element_factory_has_interface(
     factory : Pointer[GstElementFactory],
-    interfacename : Pointer[CChar]) Int;
+    interfacename : Pointer[CChar]) : Int;
 
 external gst_element_factory_create(
     factory : Pointer[GstElementFactory],
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external gst_element_factory_make(
     factoryname : Pointer[CChar],
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external __gst_element_factory_add_static_pad_template(
     elementfactory : Pointer[GstElementFactory],
@@ -4033,23 +4033,23 @@ external gst_element_register(
     plugin : Pointer[GstPlugin],
     name : Pointer[CChar],
     rank : UInt,
-    type : CULong) Int;
+    type : CULong) : Int;
 
 alias GstElementFactoryListType = CULong;
 
 external gst_element_factory_list_is_type(
     factory : Pointer[GstElementFactory],
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external gst_element_factory_list_get_elements(
     type : CULong,
-    minrank : GstRank) Pointer[GList];
+    minrank : GstRank) : Pointer[GList];
 
 external gst_element_factory_list_filter(
     list : Pointer[GList],
     caps : Pointer[GstCaps],
     direction : GstPadDirection,
-    subsetonly : Int) Pointer[GList];
+    subsetonly : Int) : Pointer[GList];
 
 alias GstIndexEntry = Struct__GstIndexEntry;
 
@@ -4105,7 +4105,7 @@ record Struct__GstIndexGroup (
     peergroup : Int,
 );
 
-alias GstIndexFilter = CCodePointer[(Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry],RawPointer),(Int)];
+alias GstIndexFilter = CCodePointer[[Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry],RawPointer],[Int]];
 
 alias GST_INDEX_RESOLVER_CUSTOM = 0;
 alias GST_INDEX_RESOLVER_GTYPE = 1;
@@ -4113,7 +4113,7 @@ alias GST_INDEX_RESOLVER_PATH = 2;
 
 alias GstIndexResolverMethod = Int;
 
-alias GstIndexResolver = CCodePointer[(Pointer[Struct__GstIndex],Pointer[Struct__GstObject],Pointer[Pointer[CChar]],RawPointer),(Int)];
+alias GstIndexResolver = CCodePointer[[Pointer[Struct__GstIndex],Pointer[Struct__GstObject],Pointer[Pointer[CChar]],RawPointer],[Int]];
 
 alias GST_INDEX_WRITABLE = 16;
 alias GST_INDEX_READABLE = 32;
@@ -4140,38 +4140,38 @@ record Struct__GstIndex (
 
 record Struct__GstIndexClass (
     parent_class : GstObjectClass,
-    get_writer_id : CCodePointer[(Pointer[Struct__GstIndex],Pointer[Int],Pointer[CChar]),(Int)],
-    commit : CCodePointer[(Pointer[Struct__GstIndex],Int),()],
-    add_entry : CCodePointer[(Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry]),()],
-    get_assoc_entry : CCodePointer[(Pointer[Struct__GstIndex],Int,Int,Int,Int,CLong,CCodePointer[(RawPointer,RawPointer,RawPointer),(Int)],RawPointer),(Pointer[Struct__GstIndexEntry])],
-    entry_added : CCodePointer[(Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry]),()],
+    get_writer_id : CCodePointer[[Pointer[Struct__GstIndex],Pointer[Int],Pointer[CChar]],[Int]],
+    commit : CCodePointer[[Pointer[Struct__GstIndex],Int],[]],
+    add_entry : CCodePointer[[Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry]],[]],
+    get_assoc_entry : CCodePointer[[Pointer[Struct__GstIndex],Int,Int,Int,Int,CLong,CCodePointer[[RawPointer,RawPointer,RawPointer],[Int]],RawPointer],[Pointer[Struct__GstIndexEntry]]],
+    entry_added : CCodePointer[[Pointer[Struct__GstIndex],Pointer[Struct__GstIndexEntry]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_index_get_type() CULong;
+external gst_index_get_type() : CULong;
 
-external gst_index_new() Pointer[GstIndex];
+external gst_index_new() : Pointer[GstIndex];
 
 external gst_index_commit(
     index : Pointer[GstIndex],
     id : Int);
 
 external gst_index_get_group(
-    index : Pointer[GstIndex]) Int;
+    index : Pointer[GstIndex]) : Int;
 
 external gst_index_new_group(
-    index : Pointer[GstIndex]) Int;
+    index : Pointer[GstIndex]) : Int;
 
 external gst_index_set_group(
     index : Pointer[GstIndex],
-    groupnum : Int) Int;
+    groupnum : Int) : Int;
 
 external gst_index_set_certainty(
     index : Pointer[GstIndex],
     certainty : GstIndexCertainty);
 
 external gst_index_get_certainty(
-    index : Pointer[GstIndex]) GstIndexCertainty;
+    index : Pointer[GstIndex]) : GstIndexCertainty;
 
 external gst_index_set_filter(
     index : Pointer[GstIndex],
@@ -4198,19 +4198,19 @@ external gst_index_set_resolver_full(
 external gst_index_get_writer_id(
     index : Pointer[GstIndex],
     writer : Pointer[GstObject],
-    id : Pointer[Int]) Int;
+    id : Pointer[Int]) : Int;
 
 external gst_index_add_format(
     index : Pointer[GstIndex],
     id : Int,
-    format : GstFormat) Pointer[GstIndexEntry];
+    format : GstFormat) : Pointer[GstIndexEntry];
 
 external gst_index_add_associationv(
     index : Pointer[GstIndex],
     id : Int,
     flags : GstAssocFlags,
     n : Int,
-    list : Pointer[GstIndexAssociation]) Pointer[GstIndexEntry];
+    list : Pointer[GstIndexAssociation]) : Pointer[GstIndexEntry];
 
 external gst_index_add_association(
     index : Pointer[GstIndex],
@@ -4218,19 +4218,19 @@ external gst_index_add_association(
     flags : GstAssocFlags,
     format : GstFormat,
     value : CLong,
-    ...) Pointer[GstIndexEntry];
+    ..) : Pointer[GstIndexEntry];
 
 external gst_index_add_object(
     index : Pointer[GstIndex],
     id : Int,
     key : Pointer[CChar],
     type : CULong,
-    object : gpointer) Pointer[GstIndexEntry];
+    object : gpointer) : Pointer[GstIndexEntry];
 
 external gst_index_add_id(
     index : Pointer[GstIndex],
     id : Int,
-    description : Pointer[CChar]) Pointer[GstIndexEntry];
+    description : Pointer[CChar]) : Pointer[GstIndexEntry];
 
 external gst_index_get_assoc_entry(
     index : Pointer[GstIndex],
@@ -4238,7 +4238,7 @@ external gst_index_get_assoc_entry(
     method : GstIndexLookupMethod,
     flags : GstAssocFlags,
     format : GstFormat,
-    value : CLong) Pointer[GstIndexEntry];
+    value : CLong) : Pointer[GstIndexEntry];
 
 external gst_index_get_assoc_entry_full(
     index : Pointer[GstIndex],
@@ -4248,12 +4248,12 @@ external gst_index_get_assoc_entry_full(
     format : GstFormat,
     value : CLong,
     func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GstIndexEntry];
+    user_data : gpointer) : Pointer[GstIndexEntry];
 
-external gst_index_entry_get_type() CULong;
+external gst_index_entry_get_type() : CULong;
 
 external gst_index_entry_copy(
-    entry : Pointer[GstIndexEntry]) Pointer[GstIndexEntry];
+    entry : Pointer[GstIndexEntry]) : Pointer[GstIndexEntry];
 
 external gst_index_entry_free(
     entry : Pointer[GstIndexEntry]);
@@ -4261,7 +4261,7 @@ external gst_index_entry_free(
 external gst_index_entry_assoc_map(
     entry : Pointer[GstIndexEntry],
     format : GstFormat,
-    value : Pointer[CLong]) Int;
+    value : Pointer[CLong]) : Int;
 
 alias GstIndexFactory = Struct__GstIndexFactory;
 
@@ -4279,24 +4279,24 @@ record Struct__GstIndexFactoryClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_index_factory_get_type() CULong;
+external gst_index_factory_get_type() : CULong;
 
 external gst_index_factory_new(
     name : Pointer[CChar],
     longdesc : Pointer[CChar],
-    type : CULong) Pointer[GstIndexFactory];
+    type : CULong) : Pointer[GstIndexFactory];
 
 external gst_index_factory_destroy(
     factory : Pointer[GstIndexFactory]);
 
 external gst_index_factory_find(
-    name : Pointer[CChar]) Pointer[GstIndexFactory];
+    name : Pointer[CChar]) : Pointer[GstIndexFactory];
 
 external gst_index_factory_create(
-    factory : Pointer[GstIndexFactory]) Pointer[GstIndex];
+    factory : Pointer[GstIndexFactory]) : Pointer[GstIndex];
 
 external gst_index_factory_make(
-    name : Pointer[CChar]) Pointer[GstIndex];
+    name : Pointer[CChar]) : Pointer[GstIndex];
 
 alias GST_STATE_CHANGE_FAILURE = 0;
 alias GST_STATE_CHANGE_SUCCESS = 1;
@@ -4351,24 +4351,24 @@ record Struct__GstElementClass (
     padtemplates : Pointer[GList],
     numpadtemplates : Int,
     pad_templ_cookie : UInt,
-    pad_added : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstPad]),()],
-    pad_removed : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstPad]),()],
-    no_more_pads : CCodePointer[(Pointer[Struct__GstElement]),()],
-    request_new_pad : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstPadTemplate],Pointer[CChar]),(Pointer[Struct__GstPad])],
-    release_pad : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstPad]),()],
-    get_state : CCodePointer[(Pointer[Struct__GstElement],Pointer[Int],Pointer[Int],CULong),(Int)],
-    set_state : CCodePointer[(Pointer[Struct__GstElement],Int),(Int)],
-    change_state : CCodePointer[(Pointer[Struct__GstElement],Int),(Int)],
-    set_bus : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstBus]),()],
-    provide_clock : CCodePointer[(Pointer[Struct__GstElement]),(Pointer[Struct__GstClock])],
-    set_clock : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstClock]),(Int)],
-    get_index : CCodePointer[(Pointer[Struct__GstElement]),(Pointer[Struct__GstIndex])],
-    set_index : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstIndex]),()],
-    send_event : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstEvent]),(Int)],
-    get_query_types : CCodePointer[(Pointer[Struct__GstElement]),(Pointer[Int])],
-    query : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstQuery]),(Int)],
+    pad_added : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstPad]],[]],
+    pad_removed : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstPad]],[]],
+    no_more_pads : CCodePointer[[Pointer[Struct__GstElement]],[]],
+    request_new_pad : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstPadTemplate],Pointer[CChar]],[Pointer[Struct__GstPad]]],
+    release_pad : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstPad]],[]],
+    get_state : CCodePointer[[Pointer[Struct__GstElement],Pointer[Int],Pointer[Int],CULong],[Int]],
+    set_state : CCodePointer[[Pointer[Struct__GstElement],Int],[Int]],
+    change_state : CCodePointer[[Pointer[Struct__GstElement],Int],[Int]],
+    set_bus : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstBus]],[]],
+    provide_clock : CCodePointer[[Pointer[Struct__GstElement]],[Pointer[Struct__GstClock]]],
+    set_clock : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstClock]],[Int]],
+    get_index : CCodePointer[[Pointer[Struct__GstElement]],[Pointer[Struct__GstIndex]]],
+    set_index : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstIndex]],[]],
+    send_event : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstEvent]],[Int]],
+    get_query_types : CCodePointer[[Pointer[Struct__GstElement]],[Pointer[Int]]],
+    query : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstQuery]],[Int]],
     meta_data : gpointer,
-    request_new_pad_full : CCodePointer[(Pointer[Struct__GstElement],Pointer[Struct__GstPadTemplate],Pointer[CChar],Pointer[Struct__GstCaps]),(Pointer[Struct__GstPad])],
+    request_new_pad_full : CCodePointer[[Pointer[Struct__GstElement],Pointer[Struct__GstPadTemplate],Pointer[CChar],Pointer[Struct__GstCaps]],[Pointer[Struct__GstPad]]],
     _gst_reserved : Array[gpointer,2],
 );
 
@@ -4378,10 +4378,10 @@ external gst_element_class_add_pad_template(
 
 external gst_element_class_get_pad_template(
     element_class : Pointer[GstElementClass],
-    name : Pointer[CChar]) Pointer[GstPadTemplate];
+    name : Pointer[CChar]) : Pointer[GstPadTemplate];
 
 external gst_element_class_get_pad_template_list(
-    element_class : Pointer[GstElementClass]) Pointer[GList];
+    element_class : Pointer[GstElementClass]) : Pointer[GList];
 
 external gst_element_class_set_documentation_uri(
     klass : Pointer[GstElementClass],
@@ -4402,100 +4402,100 @@ external gst_element_class_set_details_simple(
     description : Pointer[CChar],
     author : Pointer[CChar]);
 
-external gst_element_get_type() CULong;
+external gst_element_get_type() : CULong;
 
 external gst_element_requires_clock(
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_element_provides_clock(
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_element_provide_clock(
-    element : Pointer[GstElement]) Pointer[GstClock];
+    element : Pointer[GstElement]) : Pointer[GstClock];
 
 external gst_element_get_clock(
-    element : Pointer[GstElement]) Pointer[GstClock];
+    element : Pointer[GstElement]) : Pointer[GstClock];
 
 external gst_element_set_clock(
     element : Pointer[GstElement],
-    clock : Pointer[GstClock]) Int;
+    clock : Pointer[GstClock]) : Int;
 
 external gst_element_set_base_time(
     element : Pointer[GstElement],
     time : CULong);
 
 external gst_element_get_base_time(
-    element : Pointer[GstElement]) CULong;
+    element : Pointer[GstElement]) : CULong;
 
 external gst_element_set_start_time(
     element : Pointer[GstElement],
     time : CULong);
 
 external gst_element_get_start_time(
-    element : Pointer[GstElement]) CULong;
+    element : Pointer[GstElement]) : CULong;
 
 external gst_element_is_indexable(
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_element_set_index(
     element : Pointer[GstElement],
     index : Pointer[GstIndex]);
 
 external gst_element_get_index(
-    element : Pointer[GstElement]) Pointer[GstIndex];
+    element : Pointer[GstElement]) : Pointer[GstIndex];
 
 external gst_element_set_bus(
     element : Pointer[GstElement],
     bus : Pointer[GstBus]);
 
 external gst_element_get_bus(
-    element : Pointer[GstElement]) Pointer[GstBus];
+    element : Pointer[GstElement]) : Pointer[GstBus];
 
 external gst_element_add_pad(
     element : Pointer[GstElement],
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_element_remove_pad(
     element : Pointer[GstElement],
-    pad : Pointer[GstPad]) Int;
+    pad : Pointer[GstPad]) : Int;
 
 external gst_element_no_more_pads(
     element : Pointer[GstElement]);
 
 external gst_element_get_pad(
     element : Pointer[GstElement],
-    name : Pointer[CChar]) Pointer[GstPad];
+    name : Pointer[CChar]) : Pointer[GstPad];
 
 external gst_element_get_static_pad(
     element : Pointer[GstElement],
-    name : Pointer[CChar]) Pointer[GstPad];
+    name : Pointer[CChar]) : Pointer[GstPad];
 
 external gst_element_get_request_pad(
     element : Pointer[GstElement],
-    name : Pointer[CChar]) Pointer[GstPad];
+    name : Pointer[CChar]) : Pointer[GstPad];
 
 external gst_element_request_pad(
     element : Pointer[GstElement],
     templ : Pointer[GstPadTemplate],
     name : Pointer[CChar],
-    caps : Pointer[GstCaps]) Pointer[GstPad];
+    caps : Pointer[GstCaps]) : Pointer[GstPad];
 
 external gst_element_release_request_pad(
     element : Pointer[GstElement],
     pad : Pointer[GstPad]);
 
 external gst_element_iterate_pads(
-    element : Pointer[GstElement]) Pointer[GstIterator];
+    element : Pointer[GstElement]) : Pointer[GstIterator];
 
 external gst_element_iterate_src_pads(
-    element : Pointer[GstElement]) Pointer[GstIterator];
+    element : Pointer[GstElement]) : Pointer[GstIterator];
 
 external gst_element_iterate_sink_pads(
-    element : Pointer[GstElement]) Pointer[GstIterator];
+    element : Pointer[GstElement]) : Pointer[GstIterator];
 
 external gst_element_send_event(
     element : Pointer[GstElement],
-    event : Pointer[GstEvent]) Int;
+    event : Pointer[GstEvent]) : Int;
 
 external gst_element_seek(
     element : Pointer[GstElement],
@@ -4505,22 +4505,22 @@ external gst_element_seek(
     cur_type : GstSeekType,
     cur : CLong,
     stop_type : GstSeekType,
-    stop : CLong) Int;
+    stop : CLong) : Int;
 
 external gst_element_get_query_types(
-    element : Pointer[GstElement]) Pointer[GstQueryType];
+    element : Pointer[GstElement]) : Pointer[GstQueryType];
 
 external gst_element_query(
     element : Pointer[GstElement],
-    query : Pointer[GstQuery]) Int;
+    query : Pointer[GstQuery]) : Int;
 
 external gst_element_post_message(
     element : Pointer[GstElement],
-    message : Pointer[GstMessage]) Int;
+    message : Pointer[GstMessage]) : Int;
 
 external _gst_element_error_printf(
     format : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external gst_element_message_full(
     element : Pointer[GstElement],
@@ -4534,35 +4534,35 @@ external gst_element_message_full(
     line : Int);
 
 external gst_element_is_locked_state(
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_element_set_locked_state(
     element : Pointer[GstElement],
-    locked_state : Int) Int;
+    locked_state : Int) : Int;
 
 external gst_element_sync_state_with_parent(
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_element_get_state(
     element : Pointer[GstElement],
     state : Pointer[GstState],
     pending : Pointer[GstState],
-    timeout : CULong) GstStateChangeReturn;
+    timeout : CULong) : GstStateChangeReturn;
 
 external gst_element_set_state(
     element : Pointer[GstElement],
-    state : GstState) GstStateChangeReturn;
+    state : GstState) : GstStateChangeReturn;
 
 external gst_element_abort_state(
     element : Pointer[GstElement]);
 
 external gst_element_change_state(
     element : Pointer[GstElement],
-    transition : GstStateChange) GstStateChangeReturn;
+    transition : GstStateChange) : GstStateChangeReturn;
 
 external gst_element_continue_state(
     element : Pointer[GstElement],
-    ret : GstStateChangeReturn) GstStateChangeReturn;
+    ret : GstStateChangeReturn) : GstStateChangeReturn;
 
 external gst_element_lost_state(
     element : Pointer[GstElement]);
@@ -4572,7 +4572,7 @@ external gst_element_lost_state_full(
     new_base_time : Int);
 
 external gst_element_get_factory(
-    element : Pointer[GstElement]) Pointer[GstElementFactory];
+    element : Pointer[GstElement]) : Pointer[GstElementFactory];
 
 alias GST_BIN_FLAG_LAST = 33554432;
 
@@ -4603,61 +4603,61 @@ record Struct__GstBin (
 record Struct__GstBinClass (
     parent_class : GstElementClass,
     pool : Pointer[GThreadPool],
-    element_added : CCodePointer[(Pointer[Struct__GstBin],Pointer[Struct__GstElement]),()],
-    element_removed : CCodePointer[(Pointer[Struct__GstBin],Pointer[Struct__GstElement]),()],
-    add_element : CCodePointer[(Pointer[Struct__GstBin],Pointer[Struct__GstElement]),(Int)],
-    remove_element : CCodePointer[(Pointer[Struct__GstBin],Pointer[Struct__GstElement]),(Int)],
-    handle_message : CCodePointer[(Pointer[Struct__GstBin],Pointer[Struct__GstMessage]),()],
-    do_latency : CCodePointer[(Pointer[Struct__GstBin]),(Int)],
+    element_added : CCodePointer[[Pointer[Struct__GstBin],Pointer[Struct__GstElement]],[]],
+    element_removed : CCodePointer[[Pointer[Struct__GstBin],Pointer[Struct__GstElement]],[]],
+    add_element : CCodePointer[[Pointer[Struct__GstBin],Pointer[Struct__GstElement]],[Int]],
+    remove_element : CCodePointer[[Pointer[Struct__GstBin],Pointer[Struct__GstElement]],[Int]],
+    handle_message : CCodePointer[[Pointer[Struct__GstBin],Pointer[Struct__GstMessage]],[]],
+    do_latency : CCodePointer[[Pointer[Struct__GstBin]],[Int]],
     _gst_reserved : Array[gpointer,3],
 );
 
-external gst_bin_get_type() CULong;
+external gst_bin_get_type() : CULong;
 
 external gst_bin_new(
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external gst_bin_add(
     bin : Pointer[GstBin],
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_bin_remove(
     bin : Pointer[GstBin],
-    element : Pointer[GstElement]) Int;
+    element : Pointer[GstElement]) : Int;
 
 external gst_bin_get_by_name(
     bin : Pointer[GstBin],
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external gst_bin_get_by_name_recurse_up(
     bin : Pointer[GstBin],
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external gst_bin_get_by_interface(
     bin : Pointer[GstBin],
-    iface : CULong) Pointer[GstElement];
+    iface : CULong) : Pointer[GstElement];
 
 external gst_bin_iterate_elements(
-    bin : Pointer[GstBin]) Pointer[GstIterator];
+    bin : Pointer[GstBin]) : Pointer[GstIterator];
 
 external gst_bin_iterate_sorted(
-    bin : Pointer[GstBin]) Pointer[GstIterator];
+    bin : Pointer[GstBin]) : Pointer[GstIterator];
 
 external gst_bin_iterate_recurse(
-    bin : Pointer[GstBin]) Pointer[GstIterator];
+    bin : Pointer[GstBin]) : Pointer[GstIterator];
 
 external gst_bin_iterate_sinks(
-    bin : Pointer[GstBin]) Pointer[GstIterator];
+    bin : Pointer[GstBin]) : Pointer[GstIterator];
 
 external gst_bin_iterate_sources(
-    bin : Pointer[GstBin]) Pointer[GstIterator];
+    bin : Pointer[GstBin]) : Pointer[GstIterator];
 
 external gst_bin_iterate_all_by_interface(
     bin : Pointer[GstBin],
-    iface : CULong) Pointer[GstIterator];
+    iface : CULong) : Pointer[GstIterator];
 
 external gst_bin_recalculate_latency(
-    bin : Pointer[GstBin]) Int;
+    bin : Pointer[GstBin]) : Int;
 
 alias GstChildProxy = Opaque;
 
@@ -4665,31 +4665,31 @@ alias GstChildProxyInterface = Struct__GstChildProxyInterface;
 
 record Struct__GstChildProxyInterface (
     parent : GTypeInterface,
-    get_child_by_index : CCodePointer[(OpaquePointer,UInt),(Pointer[Struct__GstObject])],
-    get_children_count : CCodePointer[(OpaquePointer),(UInt)],
-    child_added : CCodePointer[(OpaquePointer,Pointer[Struct__GstObject]),()],
-    child_removed : CCodePointer[(OpaquePointer,Pointer[Struct__GstObject]),()],
+    get_child_by_index : CCodePointer[[OpaquePointer,UInt],[Pointer[Struct__GstObject]]],
+    get_children_count : CCodePointer[[OpaquePointer],[UInt]],
+    child_added : CCodePointer[[OpaquePointer,Pointer[Struct__GstObject]],[]],
+    child_removed : CCodePointer[[OpaquePointer,Pointer[Struct__GstObject]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_child_proxy_get_type() CULong;
+external gst_child_proxy_get_type() : CULong;
 
 external gst_child_proxy_get_child_by_name(
     parent : Pointer[GstChildProxy],
-    name : Pointer[CChar]) Pointer[GstObject];
+    name : Pointer[CChar]) : Pointer[GstObject];
 
 external gst_child_proxy_get_child_by_index(
     parent : Pointer[GstChildProxy],
-    index : UInt) Pointer[GstObject];
+    index : UInt) : Pointer[GstObject];
 
 external gst_child_proxy_get_children_count(
-    parent : Pointer[GstChildProxy]) UInt;
+    parent : Pointer[GstChildProxy]) : UInt;
 
 external gst_child_proxy_lookup(
     object : Pointer[GstObject],
     name : Pointer[CChar],
     target : Pointer[Pointer[GstObject]],
-    pspec : Pointer[Pointer[GParamSpec]]) Int;
+    pspec : Pointer[Pointer[GParamSpec]]) : Int;
 
 external gst_child_proxy_get_property(
     object : Pointer[GstObject],
@@ -4704,7 +4704,7 @@ external gst_child_proxy_get_valist(
 external gst_child_proxy_get(
     object : Pointer[GstObject],
     first_property_name : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_child_proxy_set_property(
     object : Pointer[GstObject],
@@ -4719,7 +4719,7 @@ external gst_child_proxy_set_valist(
 external gst_child_proxy_set(
     object : Pointer[GstObject],
     first_property_name : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_child_proxy_child_added(
     object : Pointer[GstObject],
@@ -4810,19 +4810,19 @@ alias GST_STREAM_ERROR_NUM_ERRORS = 14;
 
 alias GstStreamError = Int;
 
-external gst_g_error_get_type() CULong;
+external gst_g_error_get_type() : CULong;
 
 external gst_error_get_message(
     domain : UInt,
-    code : Int) Pointer[CChar];
+    code : Int) : Pointer[CChar];
 
-external gst_stream_error_quark() UInt;
+external gst_stream_error_quark() : UInt;
 
-external gst_core_error_quark() UInt;
+external gst_core_error_quark() : UInt;
 
-external gst_resource_error_quark() UInt;
+external gst_resource_error_quark() : UInt;
 
-external gst_library_error_quark() UInt;
+external gst_library_error_quark() : UInt;
 
 alias GstProxyPad = Struct__GstProxyPad;
 
@@ -4840,7 +4840,7 @@ record Struct__GstProxyPadClass (
     _gst_reserved : Array[gpointer,1],
 );
 
-external gst_proxy_pad_get_type() CULong;
+external gst_proxy_pad_get_type() : CULong;
 
 alias GstGhostPad = Struct__GstGhostPad;
 
@@ -4858,34 +4858,34 @@ record Struct__GstGhostPadClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_ghost_pad_get_type() CULong;
+external gst_ghost_pad_get_type() : CULong;
 
 external gst_ghost_pad_new(
     name : Pointer[CChar],
-    target : Pointer[GstPad]) Pointer[GstPad];
+    target : Pointer[GstPad]) : Pointer[GstPad];
 
 external gst_ghost_pad_new_no_target(
     name : Pointer[CChar],
-    dir : GstPadDirection) Pointer[GstPad];
+    dir : GstPadDirection) : Pointer[GstPad];
 
 external gst_ghost_pad_new_from_template(
     name : Pointer[CChar],
     target : Pointer[GstPad],
-    templ : Pointer[GstPadTemplate]) Pointer[GstPad];
+    templ : Pointer[GstPadTemplate]) : Pointer[GstPad];
 
 external gst_ghost_pad_new_no_target_from_template(
     name : Pointer[CChar],
-    templ : Pointer[GstPadTemplate]) Pointer[GstPad];
+    templ : Pointer[GstPadTemplate]) : Pointer[GstPad];
 
 external gst_ghost_pad_get_target(
-    gpad : Pointer[GstGhostPad]) Pointer[GstPad];
+    gpad : Pointer[GstGhostPad]) : Pointer[GstPad];
 
 external gst_ghost_pad_set_target(
     gpad : Pointer[GstGhostPad],
-    newtarget : Pointer[GstPad]) Int;
+    newtarget : Pointer[GstPad]) : Int;
 
 external gst_ghost_pad_construct(
-    gpad : Pointer[GstGhostPad]) Int;
+    gpad : Pointer[GstGhostPad]) : Int;
 
 alias GST_LEVEL_NONE = 0;
 alias GST_LEVEL_ERROR = 1;
@@ -4932,7 +4932,7 @@ record Struct__GstDebugCategory (
 
 alias GstDebugMessage = Opaque;
 
-alias GstLogFunction = CCodePointer[(Pointer[Struct__GstDebugCategory],Int,Pointer[CChar],Pointer[CChar],Int,Pointer[Struct__GObject],OpaquePointer,RawPointer),()];
+alias GstLogFunction = CCodePointer[[Pointer[Struct__GstDebugCategory],Int,Pointer[CChar],Pointer[CChar],Int,Pointer[Struct__GObject],OpaquePointer,RawPointer],[]];
 
 external _gst_debug_init();
 
@@ -4944,7 +4944,7 @@ external gst_debug_log(
     line : Int,
     object : Pointer[GObject],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_debug_log_valist(
     category : Pointer[GstDebugCategory],
@@ -4959,10 +4959,10 @@ external gst_debug_log_valist(
 external _gst_debug_category_new(
     name : Pointer[CChar],
     color : UInt,
-    description : Pointer[CChar]) Pointer[GstDebugCategory];
+    description : Pointer[CChar]) : Pointer[GstDebugCategory];
 
 external _gst_debug_get_category(
-    name : Pointer[CChar]) Pointer[GstDebugCategory];
+    name : Pointer[CChar]) : Pointer[GstDebugCategory];
 
 external _gst_debug_dump_mem(
     cat : Pointer[GstDebugCategory],
@@ -4974,17 +4974,17 @@ external _gst_debug_dump_mem(
     data : Pointer[CUChar],
     length : UInt);
 
-alias GstDebugFuncPtr = CCodePointer[(),()];
+alias GstDebugFuncPtr = CCodePointer[[],[]];
 
 external _gst_debug_register_funcptr(
     func : GstDebugFuncPtr,
     ptrname : Pointer[CChar]);
 
 external _gst_debug_nameof_funcptr(
-    func : GstDebugFuncPtr) Pointer[CChar];
+    func : GstDebugFuncPtr) : Pointer[CChar];
 
 external gst_debug_message_get(
-    message : Pointer[GstDebugMessage]) Pointer[CChar];
+    message : Pointer[GstDebugMessage]) : Pointer[CChar];
 
 external gst_debug_log_default(
     category : Pointer[GstDebugCategory],
@@ -4997,32 +4997,32 @@ external gst_debug_log_default(
     unused : gpointer);
 
 external gst_debug_level_get_name(
-    level : GstDebugLevel) Pointer[CChar];
+    level : GstDebugLevel) : Pointer[CChar];
 
 external gst_debug_add_log_function(
     func : GstLogFunction,
     data : gpointer);
 
 external gst_debug_remove_log_function(
-    func : GstLogFunction) UInt;
+    func : GstLogFunction) : UInt;
 
 external gst_debug_remove_log_function_by_data(
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external gst_debug_set_active(
     active : Int);
 
-external gst_debug_is_active() Int;
+external gst_debug_is_active() : Int;
 
 external gst_debug_set_colored(
     colored : Int);
 
-external gst_debug_is_colored() Int;
+external gst_debug_is_colored() : Int;
 
 external gst_debug_set_default_threshold(
     level : GstDebugLevel);
 
-external gst_debug_get_default_threshold() GstDebugLevel;
+external gst_debug_get_default_threshold() : GstDebugLevel;
 
 external gst_debug_set_threshold_for_name(
     name : Pointer[CChar],
@@ -5042,24 +5042,24 @@ external gst_debug_category_reset_threshold(
     category : Pointer[GstDebugCategory]);
 
 external gst_debug_category_get_threshold(
-    category : Pointer[GstDebugCategory]) GstDebugLevel;
+    category : Pointer[GstDebugCategory]) : GstDebugLevel;
 
 external gst_debug_category_get_name(
-    category : Pointer[GstDebugCategory]) Pointer[CChar];
+    category : Pointer[GstDebugCategory]) : Pointer[CChar];
 
 external gst_debug_category_get_color(
-    category : Pointer[GstDebugCategory]) UInt;
+    category : Pointer[GstDebugCategory]) : UInt;
 
 external gst_debug_category_get_description(
-    category : Pointer[GstDebugCategory]) Pointer[CChar];
+    category : Pointer[GstDebugCategory]) : Pointer[CChar];
 
-external gst_debug_get_all_categories() Pointer[GSList];
+external gst_debug_get_all_categories() : Pointer[GSList];
 
 external gst_debug_construct_term_color(
-    colorinfo : UInt) Pointer[CChar];
+    colorinfo : UInt) : Pointer[CChar];
 
 external gst_debug_construct_win_color(
-    colorinfo : UInt) Int;
+    colorinfo : UInt) : Int;
 
 external GST_CAT_DEFAULT : Pointer[GstDebugCategory];
 
@@ -5075,23 +5075,23 @@ alias GstImplementsInterfaceClass = Struct__GstImplementsInterfaceClass;
 
 record Struct__GstImplementsInterfaceClass (
     parent : GTypeInterface,
-    supported : CCodePointer[(OpaquePointer,CULong),(Int)],
+    supported : CCodePointer[[OpaquePointer,CULong],[Int]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_implements_interface_get_type() CULong;
+external gst_implements_interface_get_type() : CULong;
 
 external gst_element_implements_interface(
     element : Pointer[GstElement],
-    iface_type : CULong) Int;
+    iface_type : CULong) : Int;
 
 external gst_implements_interface_cast(
     from : gpointer,
-    type : CULong) gpointer;
+    type : CULong) : gpointer;
 
 external gst_implements_interface_check(
     from : gpointer,
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external gst_marshal_VOID__BOXED_OBJECT(
     closure : Pointer[GClosure],
@@ -5221,17 +5221,17 @@ external gst_marshal_BOXED__BOXED(
     invocation_hint : gpointer,
     marshal_data : gpointer);
 
-alias GstValueCompareFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)];
+alias GstValueCompareFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]];
 
-alias GstValueSerializeFunc = CCodePointer[(Pointer[Struct__GValue]),(Pointer[CChar])];
+alias GstValueSerializeFunc = CCodePointer[[Pointer[Struct__GValue]],[Pointer[CChar]]];
 
-alias GstValueDeserializeFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[CChar]),(Int)];
+alias GstValueDeserializeFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[CChar]],[Int]];
 
-alias GstValueUnionFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)];
+alias GstValueUnionFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]];
 
-alias GstValueIntersectFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)];
+alias GstValueIntersectFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]];
 
-alias GstValueSubtractFunc = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)];
+alias GstValueSubtractFunc = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]];
 
 alias GstValueTable = Struct__GstValueTable;
 
@@ -5243,25 +5243,25 @@ record Struct__GstValueTable (
     _gst_reserved : Array[RawPointer,4],
 );
 
-external gst_int_range_get_type() CULong;
+external gst_int_range_get_type() : CULong;
 
-external gst_int64_range_get_type() CULong;
+external gst_int64_range_get_type() : CULong;
 
-external gst_double_range_get_type() CULong;
+external gst_double_range_get_type() : CULong;
 
-external gst_fraction_range_get_type() CULong;
+external gst_fraction_range_get_type() : CULong;
 
-external gst_fourcc_get_type() CULong;
+external gst_fourcc_get_type() : CULong;
 
-external gst_fraction_get_type() CULong;
+external gst_fraction_get_type() : CULong;
 
-external gst_value_list_get_type() CULong;
+external gst_value_list_get_type() : CULong;
 
-external gst_value_array_get_type() CULong;
+external gst_value_array_get_type() : CULong;
 
-external gst_date_get_type() CULong;
+external gst_date_get_type() : CULong;
 
-external gst_date_time_get_type() CULong;
+external gst_date_time_get_type() : CULong;
 
 external gst_value_register(
     table : Pointer[GstValueTable]);
@@ -5271,11 +5271,11 @@ external gst_value_init_and_copy(
     src : Pointer[GValue]);
 
 external gst_value_serialize(
-    value : Pointer[GValue]) Pointer[CChar];
+    value : Pointer[GValue]) : Pointer[CChar];
 
 external gst_value_deserialize(
     dest : Pointer[GValue],
-    src : Pointer[CChar]) Int;
+    src : Pointer[CChar]) : Int;
 
 external gst_value_list_append_value(
     value : Pointer[GValue],
@@ -5296,11 +5296,11 @@ external gst_value_list_merge(
     value2 : Pointer[GValue]);
 
 external gst_value_list_get_size(
-    value : Pointer[GValue]) UInt;
+    value : Pointer[GValue]) : UInt;
 
 external gst_value_list_get_value(
     value : Pointer[GValue],
-    index : UInt) Pointer[GValue];
+    index : UInt) : Pointer[GValue];
 
 external gst_value_array_append_value(
     value : Pointer[GValue],
@@ -5311,18 +5311,18 @@ external gst_value_array_prepend_value(
     prepend_value : Pointer[GValue]);
 
 external gst_value_array_get_size(
-    value : Pointer[GValue]) UInt;
+    value : Pointer[GValue]) : UInt;
 
 external gst_value_array_get_value(
     value : Pointer[GValue],
-    index : UInt) Pointer[GValue];
+    index : UInt) : Pointer[GValue];
 
 external gst_value_set_fourcc(
     value : Pointer[GValue],
     fourcc : UInt);
 
 external gst_value_get_fourcc(
-    value : Pointer[GValue]) UInt;
+    value : Pointer[GValue]) : UInt;
 
 external gst_value_set_int_range(
     value : Pointer[GValue],
@@ -5330,10 +5330,10 @@ external gst_value_set_int_range(
     end : Int);
 
 external gst_value_get_int_range_min(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external gst_value_get_int_range_max(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external gst_value_set_int64_range(
     value : Pointer[GValue],
@@ -5341,10 +5341,10 @@ external gst_value_set_int64_range(
     end : CLong);
 
 external gst_value_get_int64_range_min(
-    value : Pointer[GValue]) CLong;
+    value : Pointer[GValue]) : CLong;
 
 external gst_value_get_int64_range_max(
-    value : Pointer[GValue]) CLong;
+    value : Pointer[GValue]) : CLong;
 
 external gst_value_set_double_range(
     value : Pointer[GValue],
@@ -5352,20 +5352,20 @@ external gst_value_set_double_range(
     end : Double);
 
 external gst_value_get_double_range_min(
-    value : Pointer[GValue]) Double;
+    value : Pointer[GValue]) : Double;
 
 external gst_value_get_double_range_max(
-    value : Pointer[GValue]) Double;
+    value : Pointer[GValue]) : Double;
 
 external gst_value_get_caps(
-    value : Pointer[GValue]) Pointer[GstCaps];
+    value : Pointer[GValue]) : Pointer[GstCaps];
 
 external gst_value_set_caps(
     value : Pointer[GValue],
     caps : Pointer[GstCaps]);
 
 external gst_value_get_structure(
-    value : Pointer[GValue]) Pointer[GstStructure];
+    value : Pointer[GValue]) : Pointer[GstStructure];
 
 external gst_value_set_structure(
     value : Pointer[GValue],
@@ -5377,20 +5377,20 @@ external gst_value_set_fraction(
     denominator : Int);
 
 external gst_value_get_fraction_numerator(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external gst_value_get_fraction_denominator(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external gst_value_fraction_multiply(
     product : Pointer[GValue],
     factor1 : Pointer[GValue],
-    factor2 : Pointer[GValue]) Int;
+    factor2 : Pointer[GValue]) : Int;
 
 external gst_value_fraction_subtract(
     dest : Pointer[GValue],
     minuend : Pointer[GValue],
-    subtrahend : Pointer[GValue]) Int;
+    subtrahend : Pointer[GValue]) : Int;
 
 external gst_value_set_fraction_range(
     value : Pointer[GValue],
@@ -5405,13 +5405,13 @@ external gst_value_set_fraction_range_full(
     denominator_end : Int);
 
 external gst_value_get_fraction_range_min(
-    value : Pointer[GValue]) Pointer[GValue];
+    value : Pointer[GValue]) : Pointer[GValue];
 
 external gst_value_get_fraction_range_max(
-    value : Pointer[GValue]) Pointer[GValue];
+    value : Pointer[GValue]) : Pointer[GValue];
 
 external gst_value_get_date(
-    value : Pointer[GValue]) Pointer[GDate];
+    value : Pointer[GValue]) : Pointer[GDate];
 
 external gst_value_set_date(
     value : Pointer[GValue],
@@ -5419,20 +5419,20 @@ external gst_value_set_date(
 
 external gst_value_compare(
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_can_compare(
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_union(
     dest : Pointer[GValue],
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_can_union(
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_register_union_func(
     type1 : CULong,
@@ -5442,11 +5442,11 @@ external gst_value_register_union_func(
 external gst_value_intersect(
     dest : Pointer[GValue],
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_can_intersect(
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external gst_value_register_intersect_func(
     type1 : CULong,
@@ -5456,11 +5456,11 @@ external gst_value_register_intersect_func(
 external gst_value_subtract(
     dest : Pointer[GValue],
     minuend : Pointer[GValue],
-    subtrahend : Pointer[GValue]) Int;
+    subtrahend : Pointer[GValue]) : Int;
 
 external gst_value_can_subtract(
     minuend : Pointer[GValue],
-    subtrahend : Pointer[GValue]) Int;
+    subtrahend : Pointer[GValue]) : Int;
 
 external gst_value_register_subtract_func(
     minuend_type : CULong,
@@ -5468,9 +5468,9 @@ external gst_value_register_subtract_func(
     func : GstValueSubtractFunc);
 
 external gst_value_is_fixed(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
-external gst_param_spec_fraction_get_type() CULong;
+external gst_param_spec_fraction_get_type() : CULong;
 
 alias GstParamSpecFraction = Struct__GstParamSpecFraction;
 
@@ -5494,7 +5494,7 @@ external gst_param_spec_fraction(
     max_denom : Int,
     default_num : Int,
     default_denom : Int,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 alias GstPipeline = Struct__GstPipeline;
 
@@ -5521,20 +5521,20 @@ record Struct__GstPipelineClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_pipeline_get_type() CULong;
+external gst_pipeline_get_type() : CULong;
 
 external gst_pipeline_new(
-    name : Pointer[CChar]) Pointer[GstElement];
+    name : Pointer[CChar]) : Pointer[GstElement];
 
 external gst_pipeline_get_bus(
-    pipeline : Pointer[GstPipeline]) Pointer[GstBus];
+    pipeline : Pointer[GstPipeline]) : Pointer[GstBus];
 
 external gst_pipeline_set_new_stream_time(
     pipeline : Pointer[GstPipeline],
     time : CULong);
 
 external gst_pipeline_get_last_stream_time(
-    pipeline : Pointer[GstPipeline]) CULong;
+    pipeline : Pointer[GstPipeline]) : CULong;
 
 external gst_pipeline_use_clock(
     pipeline : Pointer[GstPipeline],
@@ -5542,10 +5542,10 @@ external gst_pipeline_use_clock(
 
 external gst_pipeline_set_clock(
     pipeline : Pointer[GstPipeline],
-    clock : Pointer[GstClock]) Int;
+    clock : Pointer[GstClock]) : Int;
 
 external gst_pipeline_get_clock(
-    pipeline : Pointer[GstPipeline]) Pointer[GstClock];
+    pipeline : Pointer[GstPipeline]) : Pointer[GstClock];
 
 external gst_pipeline_auto_clock(
     pipeline : Pointer[GstPipeline]);
@@ -5555,14 +5555,14 @@ external gst_pipeline_set_delay(
     delay : CULong);
 
 external gst_pipeline_get_delay(
-    pipeline : Pointer[GstPipeline]) CULong;
+    pipeline : Pointer[GstPipeline]) : CULong;
 
 external gst_pipeline_set_auto_flush_bus(
     pipeline : Pointer[GstPipeline],
     auto_flush : Int);
 
 external gst_pipeline_get_auto_flush_bus(
-    pipeline : Pointer[GstPipeline]) Int;
+    pipeline : Pointer[GstPipeline]) : Int;
 
 alias GstPoll = Opaque;
 
@@ -5574,9 +5574,9 @@ record UnnamedStruct14 (
 alias GstPollFD = UnnamedStruct14;
 
 external gst_poll_new(
-    controllable : Int) Pointer[GstPoll];
+    controllable : Int) : Pointer[GstPoll];
 
-external gst_poll_new_timer() Pointer[GstPoll];
+external gst_poll_new_timer() : Pointer[GstPoll];
 
 external gst_poll_free(
     set : Pointer[GstPoll]);
@@ -5590,21 +5590,21 @@ external gst_poll_fd_init(
 
 external gst_poll_add_fd(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_remove_fd(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_fd_ctl_write(
     set : Pointer[GstPoll],
     fd : Pointer[GstPollFD],
-    active : Int) Int;
+    active : Int) : Int;
 
 external gst_poll_fd_ctl_read(
     set : Pointer[GstPoll],
     fd : Pointer[GstPollFD],
-    active : Int) Int;
+    active : Int) : Int;
 
 external gst_poll_fd_ignored(
     set : Pointer[GstPoll],
@@ -5612,27 +5612,27 @@ external gst_poll_fd_ignored(
 
 external gst_poll_fd_has_closed(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_fd_has_error(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_fd_can_read(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_fd_can_write(
     set : Pointer[GstPoll],
-    fd : Pointer[GstPollFD]) Int;
+    fd : Pointer[GstPollFD]) : Int;
 
 external gst_poll_wait(
     set : Pointer[GstPoll],
-    timeout : CULong) Int;
+    timeout : CULong) : Int;
 
 external gst_poll_set_controllable(
     set : Pointer[GstPoll],
-    controllable : Int) Int;
+    controllable : Int) : Int;
 
 external gst_poll_restart(
     set : Pointer[GstPoll]);
@@ -5642,10 +5642,10 @@ external gst_poll_set_flushing(
     flushing : Int);
 
 external gst_poll_write_control(
-    set : Pointer[GstPoll]) Int;
+    set : Pointer[GstPoll]) : Int;
 
 external gst_poll_read_control(
-    set : Pointer[GstPoll]) Int;
+    set : Pointer[GstPoll]) : Int;
 
 alias GstPreset = Opaque;
 
@@ -5653,53 +5653,53 @@ alias GstPresetInterface = Struct__GstPresetInterface;
 
 record Struct__GstPresetInterface (
     parent : GTypeInterface,
-    get_preset_names : CCodePointer[(OpaquePointer),(Pointer[Pointer[CChar]])],
-    get_property_names : CCodePointer[(OpaquePointer),(Pointer[Pointer[CChar]])],
-    load_preset : CCodePointer[(OpaquePointer,Pointer[CChar]),(Int)],
-    save_preset : CCodePointer[(OpaquePointer,Pointer[CChar]),(Int)],
-    rename_preset : CCodePointer[(OpaquePointer,Pointer[CChar],Pointer[CChar]),(Int)],
-    delete_preset : CCodePointer[(OpaquePointer,Pointer[CChar]),(Int)],
-    set_meta : CCodePointer[(OpaquePointer,Pointer[CChar],Pointer[CChar],Pointer[CChar]),(Int)],
-    get_meta : CCodePointer[(OpaquePointer,Pointer[CChar],Pointer[CChar],Pointer[Pointer[CChar]]),(Int)],
+    get_preset_names : CCodePointer[[OpaquePointer],[Pointer[Pointer[CChar]]]],
+    get_property_names : CCodePointer[[OpaquePointer],[Pointer[Pointer[CChar]]]],
+    load_preset : CCodePointer[[OpaquePointer,Pointer[CChar]],[Int]],
+    save_preset : CCodePointer[[OpaquePointer,Pointer[CChar]],[Int]],
+    rename_preset : CCodePointer[[OpaquePointer,Pointer[CChar],Pointer[CChar]],[Int]],
+    delete_preset : CCodePointer[[OpaquePointer,Pointer[CChar]],[Int]],
+    set_meta : CCodePointer[[OpaquePointer,Pointer[CChar],Pointer[CChar],Pointer[CChar]],[Int]],
+    get_meta : CCodePointer[[OpaquePointer,Pointer[CChar],Pointer[CChar],Pointer[Pointer[CChar]]],[Int]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_preset_get_type() CULong;
+external gst_preset_get_type() : CULong;
 
 external gst_preset_get_preset_names(
-    preset : Pointer[GstPreset]) Pointer[Pointer[CChar]];
+    preset : Pointer[GstPreset]) : Pointer[Pointer[CChar]];
 
 external gst_preset_get_property_names(
-    preset : Pointer[GstPreset]) Pointer[Pointer[CChar]];
+    preset : Pointer[GstPreset]) : Pointer[Pointer[CChar]];
 
 external gst_preset_load_preset(
     preset : Pointer[GstPreset],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_preset_save_preset(
     preset : Pointer[GstPreset],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_preset_rename_preset(
     preset : Pointer[GstPreset],
     old_name : Pointer[CChar],
-    new_name : Pointer[CChar]) Int;
+    new_name : Pointer[CChar]) : Int;
 
 external gst_preset_delete_preset(
     preset : Pointer[GstPreset],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external gst_preset_set_meta(
     preset : Pointer[GstPreset],
     name : Pointer[CChar],
     tag : Pointer[CChar],
-    value : Pointer[CChar]) Int;
+    value : Pointer[CChar]) : Int;
 
 external gst_preset_get_meta(
     preset : Pointer[GstPreset],
     name : Pointer[CChar],
     tag : Pointer[CChar],
-    value : Pointer[Pointer[CChar]]) Int;
+    value : Pointer[Pointer[CChar]]) : Int;
 
 alias GstRegistry = Struct__GstRegistry;
 
@@ -5721,29 +5721,29 @@ record Struct__GstRegistry (
 
 record Struct__GstRegistryClass (
     parent_class : GstObjectClass,
-    plugin_added : CCodePointer[(Pointer[Struct__GstRegistry],Pointer[Struct__GstPlugin]),()],
-    feature_added : CCodePointer[(Pointer[Struct__GstRegistry],Pointer[Struct__GstPluginFeature]),()],
+    plugin_added : CCodePointer[[Pointer[Struct__GstRegistry],Pointer[Struct__GstPlugin]],[]],
+    feature_added : CCodePointer[[Pointer[Struct__GstRegistry],Pointer[Struct__GstPluginFeature]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_registry_get_type() CULong;
+external gst_registry_get_type() : CULong;
 
-external gst_registry_get_default() Pointer[GstRegistry];
+external gst_registry_get_default() : Pointer[GstRegistry];
 
 external gst_registry_scan_path(
     registry : Pointer[GstRegistry],
-    path : Pointer[CChar]) Int;
+    path : Pointer[CChar]) : Int;
 
 external gst_registry_add_path(
     registry : Pointer[GstRegistry],
     path : Pointer[CChar]);
 
 external gst_registry_get_path_list(
-    registry : Pointer[GstRegistry]) Pointer[GList];
+    registry : Pointer[GstRegistry]) : Pointer[GList];
 
 external gst_registry_add_plugin(
     registry : Pointer[GstRegistry],
-    plugin : Pointer[GstPlugin]) Int;
+    plugin : Pointer[GstPlugin]) : Int;
 
 external gst_registry_remove_plugin(
     registry : Pointer[GstRegistry],
@@ -5751,68 +5751,68 @@ external gst_registry_remove_plugin(
 
 external gst_registry_add_feature(
     registry : Pointer[GstRegistry],
-    feature : Pointer[GstPluginFeature]) Int;
+    feature : Pointer[GstPluginFeature]) : Int;
 
 external gst_registry_remove_feature(
     registry : Pointer[GstRegistry],
     feature : Pointer[GstPluginFeature]);
 
 external gst_registry_get_plugin_list(
-    registry : Pointer[GstRegistry]) Pointer[GList];
+    registry : Pointer[GstRegistry]) : Pointer[GList];
 
 external gst_registry_plugin_filter(
     registry : Pointer[GstRegistry],
     filter : GstPluginFilter,
     first : Int,
-    user_data : gpointer) Pointer[GList];
+    user_data : gpointer) : Pointer[GList];
 
 external gst_registry_feature_filter(
     registry : Pointer[GstRegistry],
     filter : GstPluginFeatureFilter,
     first : Int,
-    user_data : gpointer) Pointer[GList];
+    user_data : gpointer) : Pointer[GList];
 
 external gst_registry_get_feature_list(
     registry : Pointer[GstRegistry],
-    type : CULong) Pointer[GList];
+    type : CULong) : Pointer[GList];
 
 external gst_registry_get_feature_list_by_plugin(
     registry : Pointer[GstRegistry],
-    name : Pointer[CChar]) Pointer[GList];
+    name : Pointer[CChar]) : Pointer[GList];
 
 external gst_registry_get_feature_list_cookie(
-    registry : Pointer[GstRegistry]) UInt;
+    registry : Pointer[GstRegistry]) : UInt;
 
 external gst_registry_find_plugin(
     registry : Pointer[GstRegistry],
-    name : Pointer[CChar]) Pointer[GstPlugin];
+    name : Pointer[CChar]) : Pointer[GstPlugin];
 
 external gst_registry_find_feature(
     registry : Pointer[GstRegistry],
     name : Pointer[CChar],
-    type : CULong) Pointer[GstPluginFeature];
+    type : CULong) : Pointer[GstPluginFeature];
 
 external gst_registry_lookup(
     registry : Pointer[GstRegistry],
-    filename : Pointer[CChar]) Pointer[GstPlugin];
+    filename : Pointer[CChar]) : Pointer[GstPlugin];
 
 external gst_registry_lookup_feature(
     registry : Pointer[GstRegistry],
-    name : Pointer[CChar]) Pointer[GstPluginFeature];
+    name : Pointer[CChar]) : Pointer[GstPluginFeature];
 
 external gst_registry_xml_read_cache(
     registry : Pointer[GstRegistry],
-    location : Pointer[CChar]) Int;
+    location : Pointer[CChar]) : Int;
 
 external gst_registry_xml_write_cache(
     registry : Pointer[GstRegistry],
-    location : Pointer[CChar]) Int;
+    location : Pointer[CChar]) : Int;
 
 external gst_default_registry_check_feature_version(
     feature_name : Pointer[CChar],
     min_major : UInt,
     min_minor : UInt,
-    min_micro : UInt) Int;
+    min_micro : UInt) : Int;
 
 alias GstSegment = Struct__GstSegment;
 
@@ -5831,12 +5831,12 @@ record Struct__GstSegment (
     _gst_reserved : Array[CUChar,24],
 );
 
-external gst_segment_get_type() CULong;
+external gst_segment_get_type() : CULong;
 
-external gst_segment_new() Pointer[GstSegment];
+external gst_segment_new() : Pointer[GstSegment];
 
 external gst_segment_copy(
-    segment : Pointer[GstSegment]) Pointer[GstSegment];
+    segment : Pointer[GstSegment]) : Pointer[GstSegment];
 
 external gst_segment_free(
     segment : Pointer[GstSegment]);
@@ -5888,17 +5888,17 @@ external gst_segment_set_newsegment_full(
 external gst_segment_to_stream_time(
     segment : Pointer[GstSegment],
     format : GstFormat,
-    position : CLong) CLong;
+    position : CLong) : CLong;
 
 external gst_segment_to_running_time(
     segment : Pointer[GstSegment],
     format : GstFormat,
-    position : CLong) CLong;
+    position : CLong) : CLong;
 
 external gst_segment_to_position(
     segment : Pointer[GstSegment],
     format : GstFormat,
-    running_time : CLong) CLong;
+    running_time : CLong) : CLong;
 
 external gst_segment_clip(
     segment : Pointer[GstSegment],
@@ -5906,12 +5906,12 @@ external gst_segment_clip(
     start : CLong,
     stop : CLong,
     clip_start : Pointer[CLong],
-    clip_stop : Pointer[CLong]) Int;
+    clip_stop : Pointer[CLong]) : Int;
 
 external gst_segment_set_running_time(
     segment : Pointer[GstSegment],
     format : GstFormat,
-    running_time : CLong) Int;
+    running_time : CLong) : Int;
 
 alias GstSystemClock = Struct__GstSystemClock;
 
@@ -5937,9 +5937,9 @@ record Struct__GstSystemClockClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_system_clock_get_type() CULong;
+external gst_system_clock_get_type() : CULong;
 
-external gst_system_clock_obtain() Pointer[GstClock];
+external gst_system_clock_obtain() : Pointer[GstClock];
 
 alias GstTagSetter = Opaque;
 
@@ -5949,7 +5949,7 @@ record Struct__GstTagSetterIFace (
     g_iface : GTypeInterface,
 );
 
-external gst_tag_setter_get_type() CULong;
+external gst_tag_setter_get_type() : CULong;
 
 external gst_tag_setter_reset_tags(
     setter : Pointer[GstTagSetter]);
@@ -5963,13 +5963,13 @@ external gst_tag_setter_add_tags(
     setter : Pointer[GstTagSetter],
     mode : GstTagMergeMode,
     tag : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_tag_setter_add_tag_values(
     setter : Pointer[GstTagSetter],
     mode : GstTagMergeMode,
     tag : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_tag_setter_add_tag_valist(
     setter : Pointer[GstTagSetter],
@@ -5990,14 +5990,14 @@ external gst_tag_setter_add_tag_value(
     value : Pointer[GValue]);
 
 external gst_tag_setter_get_tag_list(
-    setter : Pointer[GstTagSetter]) Pointer[GstTagList];
+    setter : Pointer[GstTagSetter]) : Pointer[GstTagList];
 
 external gst_tag_setter_set_tag_merge_mode(
     setter : Pointer[GstTagSetter],
     mode : GstTagMergeMode);
 
 external gst_tag_setter_get_tag_merge_mode(
-    setter : Pointer[GstTagSetter]) GstTagMergeMode;
+    setter : Pointer[GstTagSetter]) : GstTagMergeMode;
 
 alias GST_ALLOC_TRACE_LIVE = 1;
 alias GST_ALLOC_TRACE_MEM_LIVE = 2;
@@ -6034,7 +6034,7 @@ record Struct__GstTraceEntry (
 
 external gst_trace_new(
     filename : Pointer[CChar],
-    size : Int) Pointer[GstTrace];
+    size : Int) : Pointer[GstTrace];
 
 external gst_trace_destroy(
     trace : Pointer[GstTrace]);
@@ -6059,14 +6059,14 @@ external gst_trace_read_tsc(
 
 external _gst_trace_mutex : GStaticMutex;
 
-external gst_alloc_trace_available() Int;
+external gst_alloc_trace_available() : Int;
 
-external gst_alloc_trace_list() Pointer[GList];
+external gst_alloc_trace_list() : Pointer[GList];
 
 external _gst_alloc_trace_register(
-    name : Pointer[CChar]) Pointer[GstAllocTrace];
+    name : Pointer[CChar]) : Pointer[GstAllocTrace];
 
-external gst_alloc_trace_live_all() Int;
+external gst_alloc_trace_live_all() : Int;
 
 external gst_alloc_trace_print_all();
 
@@ -6076,7 +6076,7 @@ external gst_alloc_trace_set_flags_all(
     flags : GstAllocTraceFlags);
 
 external gst_alloc_trace_get(
-    name : Pointer[CChar]) Pointer[GstAllocTrace];
+    name : Pointer[CChar]) : Pointer[GstAllocTrace];
 
 external gst_alloc_trace_print(
     trace : Pointer[GstAllocTrace]);
@@ -6089,7 +6089,7 @@ external _gst_trace_on : Int;
 
 alias GstTypeFind = Struct__GstTypeFind;
 
-alias GstTypeFindFunction = CCodePointer[(Pointer[Struct__GstTypeFind],RawPointer),()];
+alias GstTypeFindFunction = CCodePointer[[Pointer[Struct__GstTypeFind],RawPointer],[]];
 
 alias GST_TYPE_FIND_MINIMUM = 1;
 alias GST_TYPE_FIND_POSSIBLE = 50;
@@ -6100,19 +6100,19 @@ alias GST_TYPE_FIND_MAXIMUM = 100;
 alias GstTypeFindProbability = Int;
 
 record Struct__GstTypeFind (
-    peek : CCodePointer[(RawPointer,CLong,UInt),(Pointer[CUChar])],
-    suggest : CCodePointer[(RawPointer,UInt,Pointer[Struct__GstCaps]),()],
+    peek : CCodePointer[[RawPointer,CLong,UInt],[Pointer[CUChar]]],
+    suggest : CCodePointer[[RawPointer,UInt,Pointer[Struct__GstCaps]],[]],
     data : gpointer,
-    get_length : CCodePointer[(RawPointer),(CULong)],
+    get_length : CCodePointer[[RawPointer],[CULong]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_type_find_get_type() CULong;
+external gst_type_find_get_type() : CULong;
 
 external gst_type_find_peek(
     find : Pointer[GstTypeFind],
     offset : CLong,
-    size : UInt) Pointer[CUChar];
+    size : UInt) : Pointer[CUChar];
 
 external gst_type_find_suggest(
     find : Pointer[GstTypeFind],
@@ -6124,10 +6124,10 @@ external gst_type_find_suggest_simple(
     probability : UInt,
     media_type : Pointer[CChar],
     fieldname : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_type_find_get_length(
-    find : Pointer[GstTypeFind]) CULong;
+    find : Pointer[GstTypeFind]) : CULong;
 
 external gst_type_find_register(
     plugin : Pointer[GstPlugin],
@@ -6137,7 +6137,7 @@ external gst_type_find_register(
     extensions : Pointer[Pointer[CChar]],
     possible_caps : Pointer[GstCaps],
     data : gpointer,
-    data_notify : GDestroyNotify) Int;
+    data_notify : GDestroyNotify) : Int;
 
 alias GstTypeFindFactory = Struct__GstTypeFindFactory;
 
@@ -6158,15 +6158,15 @@ record Struct__GstTypeFindFactoryClass (
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_type_find_factory_get_type() CULong;
+external gst_type_find_factory_get_type() : CULong;
 
-external gst_type_find_factory_get_list() Pointer[GList];
+external gst_type_find_factory_get_list() : Pointer[GList];
 
 external gst_type_find_factory_get_extensions(
-    factory : Pointer[GstTypeFindFactory]) Pointer[Pointer[CChar]];
+    factory : Pointer[GstTypeFindFactory]) : Pointer[Pointer[CChar]];
 
 external gst_type_find_factory_get_caps(
-    factory : Pointer[GstTypeFindFactory]) Pointer[GstCaps];
+    factory : Pointer[GstTypeFindFactory]) : Pointer[GstCaps];
 
 external gst_type_find_factory_call_function(
     factory : Pointer[GstTypeFindFactory],
@@ -6184,65 +6184,65 @@ alias GstURIHandlerInterface = Struct__GstURIHandlerInterface;
 
 record Struct__GstURIHandlerInterface (
     parent : GTypeInterface,
-    new_uri : CCodePointer[(OpaquePointer,Pointer[CChar]),()],
-    get_type : CCodePointer[(),(Int)],
-    get_protocols : CCodePointer[(),(Pointer[Pointer[CChar]])],
-    get_uri : CCodePointer[(OpaquePointer),(Pointer[CChar])],
-    set_uri : CCodePointer[(OpaquePointer,Pointer[CChar]),(Int)],
-    get_type_full : CCodePointer[(CULong),(Int)],
-    get_protocols_full : CCodePointer[(CULong),(Pointer[Pointer[CChar]])],
+    new_uri : CCodePointer[[OpaquePointer,Pointer[CChar]],[]],
+    get_type : CCodePointer[[],[Int]],
+    get_protocols : CCodePointer[[],[Pointer[Pointer[CChar]]]],
+    get_uri : CCodePointer[[OpaquePointer],[Pointer[CChar]]],
+    set_uri : CCodePointer[[OpaquePointer,Pointer[CChar]],[Int]],
+    get_type_full : CCodePointer[[CULong],[Int]],
+    get_protocols_full : CCodePointer[[CULong],[Pointer[Pointer[CChar]]]],
     _gst_reserved : Array[gpointer,2],
 );
 
 external gst_uri_protocol_is_valid(
-    protocol : Pointer[CChar]) Int;
+    protocol : Pointer[CChar]) : Int;
 
 external gst_uri_protocol_is_supported(
     type : GstURIType,
-    protocol : Pointer[CChar]) Int;
+    protocol : Pointer[CChar]) : Int;
 
 external gst_uri_is_valid(
-    uri : Pointer[CChar]) Int;
+    uri : Pointer[CChar]) : Int;
 
 external gst_uri_get_protocol(
-    uri : Pointer[CChar]) Pointer[CChar];
+    uri : Pointer[CChar]) : Pointer[CChar];
 
 external gst_uri_has_protocol(
     uri : Pointer[CChar],
-    protocol : Pointer[CChar]) Int;
+    protocol : Pointer[CChar]) : Int;
 
 external gst_uri_get_location(
-    uri : Pointer[CChar]) Pointer[CChar];
+    uri : Pointer[CChar]) : Pointer[CChar];
 
 external gst_uri_construct(
     protocol : Pointer[CChar],
-    location : Pointer[CChar]) Pointer[CChar];
+    location : Pointer[CChar]) : Pointer[CChar];
 
 external gst_element_make_from_uri(
     type : GstURIType,
     uri : Pointer[CChar],
-    elementname : Pointer[CChar]) Pointer[GstElement];
+    elementname : Pointer[CChar]) : Pointer[GstElement];
 
-external gst_uri_handler_get_type() CULong;
+external gst_uri_handler_get_type() : CULong;
 
 external gst_uri_handler_get_uri_type(
-    handler : Pointer[GstURIHandler]) UInt;
+    handler : Pointer[GstURIHandler]) : UInt;
 
 external gst_uri_handler_get_protocols(
-    handler : Pointer[GstURIHandler]) Pointer[Pointer[CChar]];
+    handler : Pointer[GstURIHandler]) : Pointer[Pointer[CChar]];
 
 external gst_uri_handler_get_uri(
-    handler : Pointer[GstURIHandler]) Pointer[CChar];
+    handler : Pointer[GstURIHandler]) : Pointer[CChar];
 
 external gst_uri_handler_set_uri(
     handler : Pointer[GstURIHandler],
-    uri : Pointer[CChar]) Int;
+    uri : Pointer[CChar]) : Int;
 
 external gst_uri_handler_new_uri(
     handler : Pointer[GstURIHandler],
     uri : Pointer[CChar]);
 
-external gst_parse_error_quark() UInt;
+external gst_parse_error_quark() : UInt;
 
 alias GST_PARSE_ERROR_SYNTAX = 0;
 alias GST_PARSE_ERROR_NO_SUCH_ELEMENT = 1;
@@ -6261,33 +6261,33 @@ alias GstParseFlags = Int;
 
 alias GstParseContext = Opaque;
 
-external gst_parse_context_new() Pointer[GstParseContext];
+external gst_parse_context_new() : Pointer[GstParseContext];
 
 external gst_parse_context_get_missing_elements(
-    context : Pointer[GstParseContext]) Pointer[Pointer[CChar]];
+    context : Pointer[GstParseContext]) : Pointer[Pointer[CChar]];
 
 external gst_parse_context_free(
     context : Pointer[GstParseContext]);
 
 external gst_parse_launch(
     pipeline_description : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GstElement];
+    error : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
 external gst_parse_launchv(
     argv : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Pointer[GstElement];
+    error : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
 external gst_parse_launch_full(
     pipeline_description : Pointer[CChar],
     context : Pointer[GstParseContext],
     flags : GstParseFlags,
-    error : Pointer[Pointer[GError]]) Pointer[GstElement];
+    error : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
 external gst_parse_launchv_full(
     argv : Pointer[Pointer[CChar]],
     context : Pointer[GstParseContext],
     flags : GstParseFlags,
-    error : Pointer[Pointer[GError]]) Pointer[GstElement];
+    error : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
 external gst_util_set_value_from_string(
     value : Pointer[GValue],
@@ -6303,46 +6303,46 @@ external gst_util_dump_mem(
     size : UInt);
 
 external gst_util_gdouble_to_guint64(
-    value : Double) CULong;
+    value : Double) : CULong;
 
 external gst_util_guint64_to_gdouble(
-    value : CULong) Double;
+    value : CULong) : Double;
 
 external gst_util_uint64_scale(
     val : CULong,
     num : CULong,
-    denom : CULong) CULong;
+    denom : CULong) : CULong;
 
 external gst_util_uint64_scale_round(
     val : CULong,
     num : CULong,
-    denom : CULong) CULong;
+    denom : CULong) : CULong;
 
 external gst_util_uint64_scale_ceil(
     val : CULong,
     num : CULong,
-    denom : CULong) CULong;
+    denom : CULong) : CULong;
 
 external gst_util_uint64_scale_int(
     val : CULong,
     num : Int,
-    denom : Int) CULong;
+    denom : Int) : CULong;
 
 external gst_util_uint64_scale_int_round(
     val : CULong,
     num : Int,
-    denom : Int) CULong;
+    denom : Int) : CULong;
 
 external gst_util_uint64_scale_int_ceil(
     val : CULong,
     num : Int,
-    denom : Int) CULong;
+    denom : Int) : CULong;
 
-external gst_util_seqnum_next() UInt;
+external gst_util_seqnum_next() : UInt;
 
 external gst_util_seqnum_compare(
     s1 : UInt,
-    s2 : UInt) Int;
+    s2 : UInt) : Int;
 
 external gst_print_pad_caps(
     buf : Pointer[GString],
@@ -6367,7 +6367,7 @@ external gst_type_register_static_full(
     n_preallocs : UShort,
     instance_init : GInstanceInitFunc,
     value_table : Pointer[GTypeValueTable],
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external gst_object_default_error(
     source : Pointer[GstObject],
@@ -6380,31 +6380,31 @@ external gst_element_create_all_pads(
 external gst_element_get_compatible_pad(
     element : Pointer[GstElement],
     pad : Pointer[GstPad],
-    caps : Pointer[GstCaps]) Pointer[GstPad];
+    caps : Pointer[GstCaps]) : Pointer[GstPad];
 
 external gst_element_get_compatible_pad_template(
     element : Pointer[GstElement],
-    compattempl : Pointer[GstPadTemplate]) Pointer[GstPadTemplate];
+    compattempl : Pointer[GstPadTemplate]) : Pointer[GstPadTemplate];
 
 external gst_element_state_get_name(
-    state : GstState) Pointer[CChar];
+    state : GstState) : Pointer[CChar];
 
 external gst_element_state_change_return_get_name(
-    state_ret : GstStateChangeReturn) Pointer[CChar];
+    state_ret : GstStateChangeReturn) : Pointer[CChar];
 
 external gst_element_link(
     src : Pointer[GstElement],
-    dest : Pointer[GstElement]) Int;
+    dest : Pointer[GstElement]) : Int;
 
 external gst_element_link_many(
     element_1 : Pointer[GstElement],
     element_2 : Pointer[GstElement],
-    ...) Int;
+    ..) : Int;
 
 external gst_element_link_filtered(
     src : Pointer[GstElement],
     dest : Pointer[GstElement],
-    filter : Pointer[GstCaps]) Int;
+    filter : Pointer[GstCaps]) : Int;
 
 external gst_element_unlink(
     src : Pointer[GstElement],
@@ -6413,20 +6413,20 @@ external gst_element_unlink(
 external gst_element_unlink_many(
     element_1 : Pointer[GstElement],
     element_2 : Pointer[GstElement],
-    ...);
+    ..);
 
 external gst_element_link_pads(
     src : Pointer[GstElement],
     srcpadname : Pointer[CChar],
     dest : Pointer[GstElement],
-    destpadname : Pointer[CChar]) Int;
+    destpadname : Pointer[CChar]) : Int;
 
 external gst_element_link_pads_full(
     src : Pointer[GstElement],
     srcpadname : Pointer[CChar],
     dest : Pointer[GstElement],
     destpadname : Pointer[CChar],
-    flags : GstPadLinkCheck) Int;
+    flags : GstPadLinkCheck) : Int;
 
 external gst_element_unlink_pads(
     src : Pointer[GstElement],
@@ -6439,119 +6439,119 @@ external gst_element_link_pads_filtered(
     srcpadname : Pointer[CChar],
     dest : Pointer[GstElement],
     destpadname : Pointer[CChar],
-    filter : Pointer[GstCaps]) Int;
+    filter : Pointer[GstCaps]) : Int;
 
 external gst_element_seek_simple(
     element : Pointer[GstElement],
     format : GstFormat,
     seek_flags : GstSeekFlags,
-    seek_pos : CLong) Int;
+    seek_pos : CLong) : Int;
 
 external gst_element_factory_can_src_caps(
     factory : Pointer[GstElementFactory],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_element_factory_can_sink_caps(
     factory : Pointer[GstElementFactory],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_element_query_position(
     element : Pointer[GstElement],
     format : Pointer[GstFormat],
-    cur : Pointer[CLong]) Int;
+    cur : Pointer[CLong]) : Int;
 
 external gst_element_query_duration(
     element : Pointer[GstElement],
     format : Pointer[GstFormat],
-    duration : Pointer[CLong]) Int;
+    duration : Pointer[CLong]) : Int;
 
 external gst_element_query_convert(
     element : Pointer[GstElement],
     src_format : GstFormat,
     src_val : CLong,
     dest_format : Pointer[GstFormat],
-    dest_val : Pointer[CLong]) Int;
+    dest_val : Pointer[CLong]) : Int;
 
 external gst_element_class_install_std_props(
     klass : Pointer[GstElementClass],
     first_name : Pointer[CChar],
-    ...);
+    ..);
 
 external gst_pad_use_fixed_caps(
     pad : Pointer[GstPad]);
 
 external gst_pad_get_fixed_caps_func(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_proxy_getcaps(
-    pad : Pointer[GstPad]) Pointer[GstCaps];
+    pad : Pointer[GstPad]) : Pointer[GstCaps];
 
 external gst_pad_proxy_setcaps(
     pad : Pointer[GstPad],
-    caps : Pointer[GstCaps]) Int;
+    caps : Pointer[GstCaps]) : Int;
 
 external gst_pad_get_parent_element(
-    pad : Pointer[GstPad]) Pointer[GstElement];
+    pad : Pointer[GstPad]) : Pointer[GstElement];
 
 external gst_pad_query_position(
     pad : Pointer[GstPad],
     format : Pointer[GstFormat],
-    cur : Pointer[CLong]) Int;
+    cur : Pointer[CLong]) : Int;
 
 external gst_pad_query_duration(
     pad : Pointer[GstPad],
     format : Pointer[GstFormat],
-    duration : Pointer[CLong]) Int;
+    duration : Pointer[CLong]) : Int;
 
 external gst_pad_query_convert(
     pad : Pointer[GstPad],
     src_format : GstFormat,
     src_val : CLong,
     dest_format : Pointer[GstFormat],
-    dest_val : Pointer[CLong]) Int;
+    dest_val : Pointer[CLong]) : Int;
 
 external gst_pad_query_peer_position(
     pad : Pointer[GstPad],
     format : Pointer[GstFormat],
-    cur : Pointer[CLong]) Int;
+    cur : Pointer[CLong]) : Int;
 
 external gst_pad_query_peer_duration(
     pad : Pointer[GstPad],
     format : Pointer[GstFormat],
-    duration : Pointer[CLong]) Int;
+    duration : Pointer[CLong]) : Int;
 
 external gst_pad_query_peer_convert(
     pad : Pointer[GstPad],
     src_format : GstFormat,
     src_val : CLong,
     dest_format : Pointer[GstFormat],
-    dest_val : Pointer[CLong]) Int;
+    dest_val : Pointer[CLong]) : Int;
 
 external gst_bin_add_many(
     bin : Pointer[GstBin],
     element_1 : Pointer[GstElement],
-    ...);
+    ..);
 
 external gst_bin_remove_many(
     bin : Pointer[GstBin],
     element_1 : Pointer[GstElement],
-    ...);
+    ..);
 
 external gst_bin_find_unlinked_pad(
     bin : Pointer[GstBin],
-    direction : GstPadDirection) Pointer[GstPad];
+    direction : GstPadDirection) : Pointer[GstPad];
 
 external gst_bin_find_unconnected_pad(
     bin : Pointer[GstBin],
-    direction : GstPadDirection) Pointer[GstPad];
+    direction : GstPadDirection) : Pointer[GstPad];
 
 external gst_buffer_merge(
     buf1 : Pointer[GstBuffer],
-    buf2 : Pointer[GstBuffer]) Pointer[GstBuffer];
+    buf2 : Pointer[GstBuffer]) : Pointer[GstBuffer];
 
 external gst_buffer_join(
     buf1 : Pointer[GstBuffer],
-    buf2 : Pointer[GstBuffer]) Pointer[GstBuffer];
+    buf2 : Pointer[GstBuffer]) : Pointer[GstBuffer];
 
 external gst_buffer_stamp(
     dest : Pointer[GstBuffer],
@@ -6564,13 +6564,13 @@ external gst_atomic_int_set(
 external gst_pad_add_data_probe(
     pad : Pointer[GstPad],
     handler : GCallback,
-    data : gpointer) CULong;
+    data : gpointer) : CULong;
 
 external gst_pad_add_data_probe_full(
     pad : Pointer[GstPad],
     handler : GCallback,
     data : gpointer,
-    notify : GDestroyNotify) CULong;
+    notify : GDestroyNotify) : CULong;
 
 external gst_pad_remove_data_probe(
     pad : Pointer[GstPad],
@@ -6579,13 +6579,13 @@ external gst_pad_remove_data_probe(
 external gst_pad_add_event_probe(
     pad : Pointer[GstPad],
     handler : GCallback,
-    data : gpointer) CULong;
+    data : gpointer) : CULong;
 
 external gst_pad_add_event_probe_full(
     pad : Pointer[GstPad],
     handler : GCallback,
     data : gpointer,
-    notify : GDestroyNotify) CULong;
+    notify : GDestroyNotify) : CULong;
 
 external gst_pad_remove_event_probe(
     pad : Pointer[GstPad],
@@ -6594,13 +6594,13 @@ external gst_pad_remove_event_probe(
 external gst_pad_add_buffer_probe(
     pad : Pointer[GstPad],
     handler : GCallback,
-    data : gpointer) CULong;
+    data : gpointer) : CULong;
 
 external gst_pad_add_buffer_probe_full(
     pad : Pointer[GstPad],
     handler : GCallback,
     data : gpointer,
-    notify : GDestroyNotify) CULong;
+    notify : GDestroyNotify) : CULong;
 
 external gst_pad_remove_buffer_probe(
     pad : Pointer[GstPad],
@@ -6618,16 +6618,16 @@ external gst_element_found_tags(
 external gst_parse_bin_from_description(
     bin_description : Pointer[CChar],
     ghost_unlinked_pads : Int,
-    err : Pointer[Pointer[GError]]) Pointer[GstElement];
+    err : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
 external gst_parse_bin_from_description_full(
     bin_description : Pointer[CChar],
     ghost_unlinked_pads : Int,
     context : Pointer[GstParseContext],
     flags : GstParseFlags,
-    err : Pointer[Pointer[GError]]) Pointer[GstElement];
+    err : Pointer[Pointer[GError]]) : Pointer[GstElement];
 
-external gst_util_get_timestamp() CULong;
+external gst_util_get_timestamp() : CULong;
 
 alias GST_SEARCH_MODE_EXACT = 0;
 alias GST_SEARCH_MODE_BEFORE = 1;
@@ -6642,11 +6642,11 @@ external gst_util_array_binary_search(
     search_func : GCompareDataFunc,
     mode : GstSearchMode,
     search_data : gconstpointer,
-    user_data : gpointer) gpointer;
+    user_data : gpointer) : gpointer;
 
 external gst_util_greatest_common_divisor(
     a : Int,
-    b : Int) Int;
+    b : Int) : Int;
 
 external gst_util_fraction_to_double(
     src_n : Int,
@@ -6664,7 +6664,7 @@ external gst_util_fraction_multiply(
     b_n : Int,
     b_d : Int,
     res_n : Pointer[Int],
-    res_d : Pointer[Int]) Int;
+    res_d : Pointer[Int]) : Int;
 
 external gst_util_fraction_add(
     a_n : Int,
@@ -6672,16 +6672,16 @@ external gst_util_fraction_add(
     b_n : Int,
     b_d : Int,
     res_n : Pointer[Int],
-    res_d : Pointer[Int]) Int;
+    res_d : Pointer[Int]) : Int;
 
 external gst_util_fraction_compare(
     a_n : Int,
     a_d : Int,
     b_n : Int,
-    b_d : Int) Int;
+    b_d : Int) : Int;
 
 external gst_event_new_sink_message(
-    msg : Pointer[GstMessage]) Pointer[GstEvent];
+    msg : Pointer[GstMessage]) : Pointer[GstEvent];
 
 external gst_event_parse_sink_message(
     event : Pointer[GstEvent],
@@ -6700,48 +6700,48 @@ record Struct__GstXML (
 
 record Struct__GstXMLClass (
     parent_class : GstObjectClass,
-    object_loaded : CCodePointer[(Pointer[Struct__GstXML],Pointer[Struct__GstObject],Pointer[Struct__xmlNode]),()],
-    object_saved : CCodePointer[(Pointer[Struct__GstXML],Pointer[Struct__GstObject],Pointer[Struct__xmlNode]),()],
+    object_loaded : CCodePointer[[Pointer[Struct__GstXML],Pointer[Struct__GstObject],Pointer[Struct__xmlNode]],[]],
+    object_saved : CCodePointer[[Pointer[Struct__GstXML],Pointer[Struct__GstObject],Pointer[Struct__xmlNode]],[]],
     _gst_reserved : Array[gpointer,4],
 );
 
-external gst_xml_get_type() CULong;
+external gst_xml_get_type() : CULong;
 
 external gst_xml_write(
-    element : Pointer[GstElement]) xmlDocPtr;
+    element : Pointer[GstElement]) : xmlDocPtr;
 
 external gst_xml_write_file(
     element : Pointer[GstElement],
-    out : Pointer[FILE]) Int;
+    out : Pointer[FILE]) : Int;
 
-external gst_xml_new() Pointer[GstXML];
+external gst_xml_new() : Pointer[GstXML];
 
 external gst_xml_parse_doc(
     xml : Pointer[GstXML],
     doc : xmlDocPtr,
-    root : Pointer[CUChar]) Int;
+    root : Pointer[CUChar]) : Int;
 
 external gst_xml_parse_file(
     xml : Pointer[GstXML],
     fname : Pointer[CUChar],
-    root : Pointer[CUChar]) Int;
+    root : Pointer[CUChar]) : Int;
 
 external gst_xml_parse_memory(
     xml : Pointer[GstXML],
     buffer : Pointer[CUChar],
     size : UInt,
-    root : Pointer[CChar]) Int;
+    root : Pointer[CChar]) : Int;
 
 external gst_xml_get_element(
     xml : Pointer[GstXML],
-    name : Pointer[CUChar]) Pointer[GstElement];
+    name : Pointer[CUChar]) : Pointer[GstElement];
 
 external gst_xml_get_topelements(
-    xml : Pointer[GstXML]) Pointer[GList];
+    xml : Pointer[GstXML]) : Pointer[GList];
 
 external gst_xml_make_element(
     cur : xmlNodePtr,
-    parent : Pointer[GstObject]) Pointer[GstElement];
+    parent : Pointer[GstObject]) : Pointer[GstElement];
 
 external gst_init(
     argc : Pointer[Int],
@@ -6750,11 +6750,11 @@ external gst_init(
 external gst_init_check(
     argc : Pointer[Int],
     argv : Pointer[Pointer[Pointer[CChar]]],
-    err : Pointer[Pointer[GError]]) Int;
+    err : Pointer[Pointer[GError]]) : Int;
 
-external gst_is_initialized() Int;
+external gst_is_initialized() : Int;
 
-external gst_init_get_option_group() Pointer[GOptionGroup];
+external gst_init_get_option_group() : Pointer[GOptionGroup];
 
 external gst_deinit();
 
@@ -6764,16 +6764,16 @@ external gst_version(
     micro : Pointer[UInt],
     nano : Pointer[UInt]);
 
-external gst_version_string() Pointer[CChar];
+external gst_version_string() : Pointer[CChar];
 
-external gst_segtrap_is_enabled() Int;
+external gst_segtrap_is_enabled() : Int;
 
 external gst_segtrap_set_enabled(
     enabled : Int);
 
-external gst_registry_fork_is_enabled() Int;
+external gst_registry_fork_is_enabled() : Int;
 
 external gst_registry_fork_set_enabled(
     enabled : Int);
 
-external gst_update_registry() Int;
+external gst_update_registry() : Int;

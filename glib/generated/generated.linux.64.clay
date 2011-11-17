@@ -69,23 +69,23 @@ alias gpointer = RawPointer;
 
 alias gconstpointer = RawPointer;
 
-alias GCompareFunc = CCodePointer[(RawPointer,RawPointer),(Int)];
+alias GCompareFunc = CCodePointer[[RawPointer,RawPointer],[Int]];
 
-alias GCompareDataFunc = CCodePointer[(RawPointer,RawPointer,RawPointer),(Int)];
+alias GCompareDataFunc = CCodePointer[[RawPointer,RawPointer,RawPointer],[Int]];
 
-alias GEqualFunc = CCodePointer[(RawPointer,RawPointer),(Int)];
+alias GEqualFunc = CCodePointer[[RawPointer,RawPointer],[Int]];
 
-alias GDestroyNotify = CCodePointer[(RawPointer),()];
+alias GDestroyNotify = CCodePointer[[RawPointer],[]];
 
-alias GFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
-alias GHashFunc = CCodePointer[(RawPointer),(UInt)];
+alias GHashFunc = CCodePointer[[RawPointer],[UInt]];
 
-alias GHFunc = CCodePointer[(RawPointer,RawPointer,RawPointer),()];
+alias GHFunc = CCodePointer[[RawPointer,RawPointer,RawPointer],[]];
 
-alias GFreeFunc = CCodePointer[(RawPointer),()];
+alias GFreeFunc = CCodePointer[[RawPointer],[]];
 
-alias GTranslateFunc = CCodePointer[(Pointer[CChar],RawPointer),(Pointer[CChar])];
+alias GTranslateFunc = CCodePointer[[Pointer[CChar],RawPointer],[Pointer[CChar]]];
 
 alias GDoubleIEEE754 = AUnionType;
 
@@ -122,59 +122,59 @@ record Struct__GPtrArray (
 external g_array_new(
     zero_terminated : Int,
     clear_ : Int,
-    element_size : UInt) Pointer[GArray];
+    element_size : UInt) : Pointer[GArray];
 
 external g_array_sized_new(
     zero_terminated : Int,
     clear_ : Int,
     element_size : UInt,
-    reserved_size : UInt) Pointer[GArray];
+    reserved_size : UInt) : Pointer[GArray];
 
 external g_array_free(
     array : Pointer[GArray],
-    free_segment : Int) Pointer[CChar];
+    free_segment : Int) : Pointer[CChar];
 
 external g_array_ref(
-    array : Pointer[GArray]) Pointer[GArray];
+    array : Pointer[GArray]) : Pointer[GArray];
 
 external g_array_unref(
     array : Pointer[GArray]);
 
 external g_array_get_element_size(
-    array : Pointer[GArray]) UInt;
+    array : Pointer[GArray]) : UInt;
 
 external g_array_append_vals(
     array : Pointer[GArray],
     data : gconstpointer,
-    len : UInt) Pointer[GArray];
+    len : UInt) : Pointer[GArray];
 
 external g_array_prepend_vals(
     array : Pointer[GArray],
     data : gconstpointer,
-    len : UInt) Pointer[GArray];
+    len : UInt) : Pointer[GArray];
 
 external g_array_insert_vals(
     array : Pointer[GArray],
     index_ : UInt,
     data : gconstpointer,
-    len : UInt) Pointer[GArray];
+    len : UInt) : Pointer[GArray];
 
 external g_array_set_size(
     array : Pointer[GArray],
-    length : UInt) Pointer[GArray];
+    length : UInt) : Pointer[GArray];
 
 external g_array_remove_index(
     array : Pointer[GArray],
-    index_ : UInt) Pointer[GArray];
+    index_ : UInt) : Pointer[GArray];
 
 external g_array_remove_index_fast(
     array : Pointer[GArray],
-    index_ : UInt) Pointer[GArray];
+    index_ : UInt) : Pointer[GArray];
 
 external g_array_remove_range(
     array : Pointer[GArray],
     index_ : UInt,
-    length : UInt) Pointer[GArray];
+    length : UInt) : Pointer[GArray];
 
 external g_array_sort(
     array : Pointer[GArray],
@@ -185,20 +185,20 @@ external g_array_sort_with_data(
     compare_func : GCompareDataFunc,
     user_data : gpointer);
 
-external g_ptr_array_new() Pointer[GPtrArray];
+external g_ptr_array_new() : Pointer[GPtrArray];
 
 external g_ptr_array_new_with_free_func(
-    element_free_func : GDestroyNotify) Pointer[GPtrArray];
+    element_free_func : GDestroyNotify) : Pointer[GPtrArray];
 
 external g_ptr_array_sized_new(
-    reserved_size : UInt) Pointer[GPtrArray];
+    reserved_size : UInt) : Pointer[GPtrArray];
 
 external g_ptr_array_free(
     array : Pointer[GPtrArray],
-    free_seg : Int) Pointer[gpointer];
+    free_seg : Int) : Pointer[gpointer];
 
 external g_ptr_array_ref(
-    array : Pointer[GPtrArray]) Pointer[GPtrArray];
+    array : Pointer[GPtrArray]) : Pointer[GPtrArray];
 
 external g_ptr_array_unref(
     array : Pointer[GPtrArray]);
@@ -213,19 +213,19 @@ external g_ptr_array_set_size(
 
 external g_ptr_array_remove_index(
     array : Pointer[GPtrArray],
-    index_ : UInt) gpointer;
+    index_ : UInt) : gpointer;
 
 external g_ptr_array_remove_index_fast(
     array : Pointer[GPtrArray],
-    index_ : UInt) gpointer;
+    index_ : UInt) : gpointer;
 
 external g_ptr_array_remove(
     array : Pointer[GPtrArray],
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external g_ptr_array_remove_fast(
     array : Pointer[GPtrArray],
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external g_ptr_array_remove_range(
     array : Pointer[GPtrArray],
@@ -250,17 +250,17 @@ external g_ptr_array_foreach(
     func : GFunc,
     user_data : gpointer);
 
-external g_byte_array_new() Pointer[GByteArray];
+external g_byte_array_new() : Pointer[GByteArray];
 
 external g_byte_array_sized_new(
-    reserved_size : UInt) Pointer[GByteArray];
+    reserved_size : UInt) : Pointer[GByteArray];
 
 external g_byte_array_free(
     array : Pointer[GByteArray],
-    free_segment : Int) Pointer[CUChar];
+    free_segment : Int) : Pointer[CUChar];
 
 external g_byte_array_ref(
-    array : Pointer[GByteArray]) Pointer[GByteArray];
+    array : Pointer[GByteArray]) : Pointer[GByteArray];
 
 external g_byte_array_unref(
     array : Pointer[GByteArray]);
@@ -268,29 +268,29 @@ external g_byte_array_unref(
 external g_byte_array_append(
     array : Pointer[GByteArray],
     data : Pointer[CUChar],
-    len : UInt) Pointer[GByteArray];
+    len : UInt) : Pointer[GByteArray];
 
 external g_byte_array_prepend(
     array : Pointer[GByteArray],
     data : Pointer[CUChar],
-    len : UInt) Pointer[GByteArray];
+    len : UInt) : Pointer[GByteArray];
 
 external g_byte_array_set_size(
     array : Pointer[GByteArray],
-    length : UInt) Pointer[GByteArray];
+    length : UInt) : Pointer[GByteArray];
 
 external g_byte_array_remove_index(
     array : Pointer[GByteArray],
-    index_ : UInt) Pointer[GByteArray];
+    index_ : UInt) : Pointer[GByteArray];
 
 external g_byte_array_remove_index_fast(
     array : Pointer[GByteArray],
-    index_ : UInt) Pointer[GByteArray];
+    index_ : UInt) : Pointer[GByteArray];
 
 external g_byte_array_remove_range(
     array : Pointer[GByteArray],
     index_ : UInt,
-    length : UInt) Pointer[GByteArray];
+    length : UInt) : Pointer[GByteArray];
 
 external g_byte_array_sort(
     array : Pointer[GByteArray],
@@ -304,22 +304,22 @@ external g_byte_array_sort_with_data(
 alias GQuark = UInt;
 
 external g_quark_try_string(
-    string : Pointer[CChar]) UInt;
+    string : Pointer[CChar]) : UInt;
 
 external g_quark_from_static_string(
-    string : Pointer[CChar]) UInt;
+    string : Pointer[CChar]) : UInt;
 
 external g_quark_from_string(
-    string : Pointer[CChar]) UInt;
+    string : Pointer[CChar]) : UInt;
 
 external g_quark_to_string(
-    quark : UInt) Pointer[CChar];
+    quark : UInt) : Pointer[CChar];
 
 external g_intern_string(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_intern_static_string(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 alias GError = Struct__GError;
 
@@ -333,36 +333,36 @@ external g_error_new(
     domain : UInt,
     code : Int,
     format : Pointer[CChar],
-    ...) Pointer[GError];
+    ..) : Pointer[GError];
 
 external g_error_new_literal(
     domain : UInt,
     code : Int,
-    message : Pointer[CChar]) Pointer[GError];
+    message : Pointer[CChar]) : Pointer[GError];
 
 external g_error_new_valist(
     domain : UInt,
     code : Int,
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Pointer[GError];
+    args : Pointer[__va_list_tag]) : Pointer[GError];
 
 external g_error_free(
     error : Pointer[GError]);
 
 external g_error_copy(
-    error : Pointer[GError]) Pointer[GError];
+    error : Pointer[GError]) : Pointer[GError];
 
 external g_error_matches(
     error : Pointer[GError],
     domain : UInt,
-    code : Int) Int;
+    code : Int) : Int;
 
 external g_set_error(
     err : Pointer[Pointer[GError]],
     domain : UInt,
     code : Int,
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_set_error_literal(
     err : Pointer[Pointer[GError]],
@@ -380,47 +380,47 @@ external g_clear_error(
 external g_prefix_error(
     err : Pointer[Pointer[GError]],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_propagate_prefixed_error(
     dest : Pointer[Pointer[GError]],
     src : Pointer[GError],
     format : Pointer[CChar],
-    ...);
+    ..);
 
-external g_get_user_name() Pointer[CChar];
+external g_get_user_name() : Pointer[CChar];
 
-external g_get_real_name() Pointer[CChar];
+external g_get_real_name() : Pointer[CChar];
 
-external g_get_home_dir() Pointer[CChar];
+external g_get_home_dir() : Pointer[CChar];
 
-external g_get_tmp_dir() Pointer[CChar];
+external g_get_tmp_dir() : Pointer[CChar];
 
-external g_get_host_name() Pointer[CChar];
+external g_get_host_name() : Pointer[CChar];
 
-external g_get_prgname() Pointer[CChar];
+external g_get_prgname() : Pointer[CChar];
 
 external g_set_prgname(
     prgname : Pointer[CChar]);
 
-external g_get_application_name() Pointer[CChar];
+external g_get_application_name() : Pointer[CChar];
 
 external g_set_application_name(
     application_name : Pointer[CChar]);
 
 external g_reload_user_special_dirs_cache();
 
-external g_get_user_data_dir() Pointer[CChar];
+external g_get_user_data_dir() : Pointer[CChar];
 
-external g_get_user_config_dir() Pointer[CChar];
+external g_get_user_config_dir() : Pointer[CChar];
 
-external g_get_user_cache_dir() Pointer[CChar];
+external g_get_user_cache_dir() : Pointer[CChar];
 
-external g_get_system_data_dirs() Pointer[Pointer[CChar]];
+external g_get_system_data_dirs() : Pointer[Pointer[CChar]];
 
-external g_get_system_config_dirs() Pointer[Pointer[CChar]];
+external g_get_system_config_dirs() : Pointer[Pointer[CChar]];
 
-external g_get_language_names() Pointer[Pointer[CChar]];
+external g_get_language_names() : Pointer[Pointer[CChar]];
 
 alias G_USER_DIRECTORY_DESKTOP = 0;
 alias G_USER_DIRECTORY_DOCUMENTS = 1;
@@ -435,7 +435,7 @@ alias G_USER_N_DIRECTORIES = 8;
 alias GUserDirectory = Int;
 
 external g_get_user_special_dir(
-    directory : GUserDirectory) Pointer[CChar];
+    directory : GUserDirectory) : Pointer[CChar];
 
 alias GDebugKey = Struct__GDebugKey;
 
@@ -447,64 +447,64 @@ record Struct__GDebugKey (
 external g_parse_debug_string(
     string : Pointer[CChar],
     keys : Pointer[GDebugKey],
-    nkeys : UInt) UInt;
+    nkeys : UInt) : UInt;
 
 external g_snprintf(
     string : Pointer[CChar],
     n : CULong,
     format : Pointer[CChar],
-    ...) Int;
+    ..) : Int;
 
 external g_vsnprintf(
     string : Pointer[CChar],
     n : CULong,
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Int;
+    args : Pointer[__va_list_tag]) : Int;
 
 external g_path_is_absolute(
-    file_name : Pointer[CChar]) Int;
+    file_name : Pointer[CChar]) : Int;
 
 external g_path_skip_root(
-    file_name : Pointer[CChar]) Pointer[CChar];
+    file_name : Pointer[CChar]) : Pointer[CChar];
 
 external g_basename(
-    file_name : Pointer[CChar]) Pointer[CChar];
+    file_name : Pointer[CChar]) : Pointer[CChar];
 
-external g_get_current_dir() Pointer[CChar];
+external g_get_current_dir() : Pointer[CChar];
 
 external g_path_get_basename(
-    file_name : Pointer[CChar]) Pointer[CChar];
+    file_name : Pointer[CChar]) : Pointer[CChar];
 
 external g_path_get_dirname(
-    file_name : Pointer[CChar]) Pointer[CChar];
+    file_name : Pointer[CChar]) : Pointer[CChar];
 
 external g_nullify_pointer(
     nullify_location : Pointer[gpointer]);
 
 external g_getenv(
-    variable : Pointer[CChar]) Pointer[CChar];
+    variable : Pointer[CChar]) : Pointer[CChar];
 
 external g_setenv(
     variable : Pointer[CChar],
     value : Pointer[CChar],
-    overwrite : Int) Int;
+    overwrite : Int) : Int;
 
 external g_unsetenv(
     variable : Pointer[CChar]);
 
-external g_listenv() Pointer[Pointer[CChar]];
+external g_listenv() : Pointer[Pointer[CChar]];
 
 external _g_getenv_nomalloc(
     variable : Pointer[CChar],
-    buffer : Pointer[CChar]) Pointer[CChar];
+    buffer : Pointer[CChar]) : Pointer[CChar];
 
-alias GVoidFunc = CCodePointer[(),()];
+alias GVoidFunc = CCodePointer[[],[]];
 
 external g_atexit(
     func : GVoidFunc);
 
 external g_find_program_in_path(
-    program : Pointer[CChar]) Pointer[CChar];
+    program : Pointer[CChar]) : Pointer[CChar];
 
 alias GTrashStack = Struct__GTrashStack;
 
@@ -525,11 +525,11 @@ external glib_binary_age : UInt;
 external glib_check_version(
     required_major : UInt,
     required_minor : UInt,
-    required_micro : UInt) Pointer[CChar];
+    required_micro : UInt) : Pointer[CChar];
 
 external g_atomic_int_exchange_and_add(
     atomic : Pointer[Int],
-    val : Int) Int;
+    val : Int) : Int;
 
 external g_atomic_int_add(
     atomic : Pointer[Int],
@@ -538,34 +538,34 @@ external g_atomic_int_add(
 external g_atomic_int_compare_and_exchange(
     atomic : Pointer[Int],
     oldval : Int,
-    newval : Int) Int;
+    newval : Int) : Int;
 
 external g_atomic_pointer_compare_and_exchange(
     atomic : Pointer[gpointer],
     oldval : gpointer,
-    newval : gpointer) Int;
+    newval : gpointer) : Int;
 
 external g_atomic_int_get(
-    atomic : Pointer[Int]) Int;
+    atomic : Pointer[Int]) : Int;
 
 external g_atomic_int_set(
     atomic : Pointer[Int],
     newval : Int);
 
 external g_atomic_pointer_get(
-    atomic : Pointer[gpointer]) gpointer;
+    atomic : Pointer[gpointer]) : gpointer;
 
 external g_atomic_pointer_set(
     atomic : Pointer[gpointer],
     newval : gpointer);
 
-external g_thread_error_quark() UInt;
+external g_thread_error_quark() : UInt;
 
 alias G_THREAD_ERROR_AGAIN = 0;
 
 alias GThreadError = Int;
 
-alias GThreadFunc = CCodePointer[(RawPointer),(RawPointer)];
+alias GThreadFunc = CCodePointer[[RawPointer],[RawPointer]];
 
 alias G_THREAD_PRIORITY_LOW = 0;
 alias G_THREAD_PRIORITY_NORMAL = 1;
@@ -594,27 +594,27 @@ alias GStaticPrivate = Struct__GStaticPrivate;
 alias GThreadFunctions = Struct__GThreadFunctions;
 
 record Struct__GThreadFunctions (
-    mutex_new : CCodePointer[(),(OpaquePointer)],
-    mutex_lock : CCodePointer[(OpaquePointer),()],
-    mutex_trylock : CCodePointer[(OpaquePointer),(Int)],
-    mutex_unlock : CCodePointer[(OpaquePointer),()],
-    mutex_free : CCodePointer[(OpaquePointer),()],
-    cond_new : CCodePointer[(),(OpaquePointer)],
-    cond_signal : CCodePointer[(OpaquePointer),()],
-    cond_broadcast : CCodePointer[(OpaquePointer),()],
-    cond_wait : CCodePointer[(OpaquePointer,OpaquePointer),()],
-    cond_timed_wait : CCodePointer[(OpaquePointer,OpaquePointer,Pointer[Struct__GTimeVal]),(Int)],
-    cond_free : CCodePointer[(OpaquePointer),()],
-    private_new : CCodePointer[(CCodePointer[(RawPointer),()]),(OpaquePointer)],
-    private_get : CCodePointer[(OpaquePointer),(RawPointer)],
-    private_set : CCodePointer[(OpaquePointer,RawPointer),()],
-    thread_create : CCodePointer[(CCodePointer[(RawPointer),(RawPointer)],RawPointer,CULong,Int,Int,Int,RawPointer,Pointer[Pointer[Struct__GError]]),()],
-    thread_yield : CCodePointer[(),()],
-    thread_join : CCodePointer[(RawPointer),()],
-    thread_exit : CCodePointer[(),()],
-    thread_set_priority : CCodePointer[(RawPointer,Int),()],
-    thread_self : CCodePointer[(RawPointer),()],
-    thread_equal : CCodePointer[(RawPointer,RawPointer),(Int)],
+    mutex_new : CCodePointer[[],[OpaquePointer]],
+    mutex_lock : CCodePointer[[OpaquePointer],[]],
+    mutex_trylock : CCodePointer[[OpaquePointer],[Int]],
+    mutex_unlock : CCodePointer[[OpaquePointer],[]],
+    mutex_free : CCodePointer[[OpaquePointer],[]],
+    cond_new : CCodePointer[[],[OpaquePointer]],
+    cond_signal : CCodePointer[[OpaquePointer],[]],
+    cond_broadcast : CCodePointer[[OpaquePointer],[]],
+    cond_wait : CCodePointer[[OpaquePointer,OpaquePointer],[]],
+    cond_timed_wait : CCodePointer[[OpaquePointer,OpaquePointer,Pointer[Struct__GTimeVal]],[Int]],
+    cond_free : CCodePointer[[OpaquePointer],[]],
+    private_new : CCodePointer[[CCodePointer[[RawPointer],[]]],[OpaquePointer]],
+    private_get : CCodePointer[[OpaquePointer],[RawPointer]],
+    private_set : CCodePointer[[OpaquePointer,RawPointer],[]],
+    thread_create : CCodePointer[[CCodePointer[[RawPointer],[RawPointer]],RawPointer,CULong,Int,Int,Int,RawPointer,Pointer[Pointer[Struct__GError]]],[]],
+    thread_yield : CCodePointer[[],[]],
+    thread_join : CCodePointer[[RawPointer],[]],
+    thread_exit : CCodePointer[[],[]],
+    thread_set_priority : CCodePointer[[RawPointer,Int],[]],
+    thread_self : CCodePointer[[RawPointer],[]],
+    thread_equal : CCodePointer[[RawPointer,RawPointer],[Int]],
 );
 
 external g_thread_functions_for_glib_use : GThreadFunctions;
@@ -623,7 +623,7 @@ external g_thread_use_default_impl : Int;
 
 external g_threads_got_initialized : Int;
 
-external g_thread_gettime : CCodePointer[(),(CULong)];
+external g_thread_gettime : CCodePointer[[],[CULong]];
 
 external g_thread_init(
     vtable : Pointer[GThreadFunctions]);
@@ -631,10 +631,10 @@ external g_thread_init(
 external g_thread_init_with_errorcheck_mutexes(
     vtable : Pointer[GThreadFunctions]);
 
-external g_thread_get_initialized() Int;
+external g_thread_get_initialized() : Int;
 
 external g_static_mutex_get_mutex_impl(
-    mutex : Pointer[Pointer[GMutex]]) Pointer[GMutex];
+    mutex : Pointer[Pointer[GMutex]]) : Pointer[GMutex];
 
 external g_thread_create_full(
     func : GThreadFunc,
@@ -643,15 +643,15 @@ external g_thread_create_full(
     joinable : Int,
     bound : Int,
     priority : GThreadPriority,
-    error : Pointer[Pointer[GError]]) Pointer[GThread];
+    error : Pointer[Pointer[GError]]) : Pointer[GThread];
 
-external g_thread_self() Pointer[GThread];
+external g_thread_self() : Pointer[GThread];
 
 external g_thread_exit(
     retval : gpointer);
 
 external g_thread_join(
-    thread : Pointer[GThread]) gpointer;
+    thread : Pointer[GThread]) : gpointer;
 
 external g_thread_set_priority(
     thread : Pointer[GThread],
@@ -671,7 +671,7 @@ external g_static_private_init(
     private_key : Pointer[GStaticPrivate]);
 
 external g_static_private_get(
-    private_key : Pointer[GStaticPrivate]) gpointer;
+    private_key : Pointer[GStaticPrivate]) : gpointer;
 
 external g_static_private_set(
     private_key : Pointer[GStaticPrivate],
@@ -696,7 +696,7 @@ external g_static_rec_mutex_lock(
     mutex : Pointer[GStaticRecMutex]);
 
 external g_static_rec_mutex_trylock(
-    mutex : Pointer[GStaticRecMutex]) Int;
+    mutex : Pointer[GStaticRecMutex]) : Int;
 
 external g_static_rec_mutex_unlock(
     mutex : Pointer[GStaticRecMutex]);
@@ -706,7 +706,7 @@ external g_static_rec_mutex_lock_full(
     depth : UInt);
 
 external g_static_rec_mutex_unlock_full(
-    mutex : Pointer[GStaticRecMutex]) UInt;
+    mutex : Pointer[GStaticRecMutex]) : UInt;
 
 external g_static_rec_mutex_free(
     mutex : Pointer[GStaticRecMutex]);
@@ -730,7 +730,7 @@ external g_static_rw_lock_reader_lock(
     lock : Pointer[GStaticRWLock]);
 
 external g_static_rw_lock_reader_trylock(
-    lock : Pointer[GStaticRWLock]) Int;
+    lock : Pointer[GStaticRWLock]) : Int;
 
 external g_static_rw_lock_reader_unlock(
     lock : Pointer[GStaticRWLock]);
@@ -739,7 +739,7 @@ external g_static_rw_lock_writer_lock(
     lock : Pointer[GStaticRWLock]);
 
 external g_static_rw_lock_writer_trylock(
-    lock : Pointer[GStaticRWLock]) Int;
+    lock : Pointer[GStaticRWLock]) : Int;
 
 external g_static_rw_lock_writer_unlock(
     lock : Pointer[GStaticRWLock]);
@@ -767,10 +767,10 @@ record Struct__GOnce (
 external g_once_impl(
     once : Pointer[GOnce],
     func : GThreadFunc,
-    arg : gpointer) gpointer;
+    arg : gpointer) : gpointer;
 
 external g_once_init_enter_impl(
-    value_location : Pointer[CULong]) Int;
+    value_location : Pointer[CULong]) : Int;
 
 external g_once_init_leave(
     value_location : Pointer[CULong],
@@ -780,10 +780,10 @@ external glib_dummy_decl();
 
 alias GAsyncQueue = Opaque;
 
-external g_async_queue_new() Pointer[GAsyncQueue];
+external g_async_queue_new() : Pointer[GAsyncQueue];
 
 external g_async_queue_new_full(
-    item_free_func : GDestroyNotify) Pointer[GAsyncQueue];
+    item_free_func : GDestroyNotify) : Pointer[GAsyncQueue];
 
 external g_async_queue_lock(
     queue : Pointer[GAsyncQueue]);
@@ -792,7 +792,7 @@ external g_async_queue_unlock(
     queue : Pointer[GAsyncQueue]);
 
 external g_async_queue_ref(
-    queue : Pointer[GAsyncQueue]) Pointer[GAsyncQueue];
+    queue : Pointer[GAsyncQueue]) : Pointer[GAsyncQueue];
 
 external g_async_queue_unref(
     queue : Pointer[GAsyncQueue]);
@@ -824,30 +824,30 @@ external g_async_queue_push_sorted_unlocked(
     user_data : gpointer);
 
 external g_async_queue_pop(
-    queue : Pointer[GAsyncQueue]) gpointer;
+    queue : Pointer[GAsyncQueue]) : gpointer;
 
 external g_async_queue_pop_unlocked(
-    queue : Pointer[GAsyncQueue]) gpointer;
+    queue : Pointer[GAsyncQueue]) : gpointer;
 
 external g_async_queue_try_pop(
-    queue : Pointer[GAsyncQueue]) gpointer;
+    queue : Pointer[GAsyncQueue]) : gpointer;
 
 external g_async_queue_try_pop_unlocked(
-    queue : Pointer[GAsyncQueue]) gpointer;
+    queue : Pointer[GAsyncQueue]) : gpointer;
 
 external g_async_queue_timed_pop(
     queue : Pointer[GAsyncQueue],
-    end_time : Pointer[GTimeVal]) gpointer;
+    end_time : Pointer[GTimeVal]) : gpointer;
 
 external g_async_queue_timed_pop_unlocked(
     queue : Pointer[GAsyncQueue],
-    end_time : Pointer[GTimeVal]) gpointer;
+    end_time : Pointer[GTimeVal]) : gpointer;
 
 external g_async_queue_length(
-    queue : Pointer[GAsyncQueue]) Int;
+    queue : Pointer[GAsyncQueue]) : Int;
 
 external g_async_queue_length_unlocked(
-    queue : Pointer[GAsyncQueue]) Int;
+    queue : Pointer[GAsyncQueue]) : Int;
 
 external g_async_queue_sort(
     queue : Pointer[GAsyncQueue],
@@ -860,7 +860,7 @@ external g_async_queue_sort_unlocked(
     user_data : gpointer);
 
 external _g_async_queue_get_mutex(
-    queue : Pointer[GAsyncQueue]) Pointer[GMutex];
+    queue : Pointer[GAsyncQueue]) : Pointer[GMutex];
 
 external g_on_error_query(
     prg_name : Pointer[CChar]);
@@ -874,32 +874,32 @@ external g_base64_encode_step(
     break_lines : Int,
     out : Pointer[CChar],
     state : Pointer[Int],
-    save : Pointer[Int]) CULong;
+    save : Pointer[Int]) : CULong;
 
 external g_base64_encode_close(
     break_lines : Int,
     out : Pointer[CChar],
     state : Pointer[Int],
-    save : Pointer[Int]) CULong;
+    save : Pointer[Int]) : CULong;
 
 external g_base64_encode(
     data : Pointer[CUChar],
-    len : CULong) Pointer[CChar];
+    len : CULong) : Pointer[CChar];
 
 external g_base64_decode_step(
     in_ : Pointer[CChar],
     len : CULong,
     out : Pointer[CUChar],
     state : Pointer[Int],
-    save : Pointer[UInt]) CULong;
+    save : Pointer[UInt]) : CULong;
 
 external g_base64_decode(
     text : Pointer[CChar],
-    out_len : Pointer[CULong]) Pointer[CUChar];
+    out_len : Pointer[CULong]) : Pointer[CUChar];
 
 external g_base64_decode_inplace(
     text : Pointer[CChar],
-    out_len : Pointer[CULong]) Pointer[CUChar];
+    out_len : Pointer[CULong]) : Pointer[CUChar];
 
 external g_bit_lock(
     address : Pointer[Int],
@@ -907,7 +907,7 @@ external g_bit_lock(
 
 external g_bit_trylock(
     address : Pointer[Int],
-    lock_bit : Int) Int;
+    lock_bit : Int) : Int;
 
 external g_bit_unlock(
     address : Pointer[Int],
@@ -924,11 +924,11 @@ alias G_BOOKMARK_FILE_ERROR_FILE_NOT_FOUND = 7;
 
 alias GBookmarkFileError = Int;
 
-external g_bookmark_file_error_quark() UInt;
+external g_bookmark_file_error_quark() : UInt;
 
 alias GBookmarkFile = Opaque;
 
-external g_bookmark_file_new() Pointer[GBookmarkFile];
+external g_bookmark_file_new() : Pointer[GBookmarkFile];
 
 external g_bookmark_file_free(
     bookmark : Pointer[GBookmarkFile]);
@@ -936,29 +936,29 @@ external g_bookmark_file_free(
 external g_bookmark_file_load_from_file(
     bookmark : Pointer[GBookmarkFile],
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_load_from_data(
     bookmark : Pointer[GBookmarkFile],
     data : Pointer[CChar],
     length : CULong,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_load_from_data_dirs(
     bookmark : Pointer[GBookmarkFile],
     file : Pointer[CChar],
     full_path : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_to_data(
     bookmark : Pointer[GBookmarkFile],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_bookmark_file_to_file(
     bookmark : Pointer[GBookmarkFile],
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_set_title(
     bookmark : Pointer[GBookmarkFile],
@@ -968,7 +968,7 @@ external g_bookmark_file_set_title(
 external g_bookmark_file_get_title(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_bookmark_file_set_description(
     bookmark : Pointer[GBookmarkFile],
@@ -978,7 +978,7 @@ external g_bookmark_file_set_description(
 external g_bookmark_file_get_description(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_bookmark_file_set_mime_type(
     bookmark : Pointer[GBookmarkFile],
@@ -988,7 +988,7 @@ external g_bookmark_file_set_mime_type(
 external g_bookmark_file_get_mime_type(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_bookmark_file_set_groups(
     bookmark : Pointer[GBookmarkFile],
@@ -1005,13 +1005,13 @@ external g_bookmark_file_has_group(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     group : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_get_groups(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_bookmark_file_add_application(
     bookmark : Pointer[GBookmarkFile],
@@ -1023,13 +1023,13 @@ external g_bookmark_file_has_application(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     name : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_get_applications(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_bookmark_file_set_app_info(
     bookmark : Pointer[GBookmarkFile],
@@ -1038,7 +1038,7 @@ external g_bookmark_file_set_app_info(
     exec : Pointer[CChar],
     count : Int,
     stamp : CLong,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_get_app_info(
     bookmark : Pointer[GBookmarkFile],
@@ -1047,7 +1047,7 @@ external g_bookmark_file_get_app_info(
     exec : Pointer[Pointer[CChar]],
     count : Pointer[UInt],
     stamp : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_set_is_private(
     bookmark : Pointer[GBookmarkFile],
@@ -1057,7 +1057,7 @@ external g_bookmark_file_set_is_private(
 external g_bookmark_file_get_is_private(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_set_icon(
     bookmark : Pointer[GBookmarkFile],
@@ -1070,7 +1070,7 @@ external g_bookmark_file_get_icon(
     uri : Pointer[CChar],
     href : Pointer[Pointer[CChar]],
     mime_type : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_set_added(
     bookmark : Pointer[GBookmarkFile],
@@ -1080,7 +1080,7 @@ external g_bookmark_file_set_added(
 external g_bookmark_file_get_added(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) CLong;
+    error : Pointer[Pointer[GError]]) : CLong;
 
 external g_bookmark_file_set_modified(
     bookmark : Pointer[GBookmarkFile],
@@ -1090,7 +1090,7 @@ external g_bookmark_file_set_modified(
 external g_bookmark_file_get_modified(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) CLong;
+    error : Pointer[Pointer[GError]]) : CLong;
 
 external g_bookmark_file_set_visited(
     bookmark : Pointer[GBookmarkFile],
@@ -1100,51 +1100,51 @@ external g_bookmark_file_set_visited(
 external g_bookmark_file_get_visited(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) CLong;
+    error : Pointer[Pointer[GError]]) : CLong;
 
 external g_bookmark_file_has_item(
     bookmark : Pointer[GBookmarkFile],
-    uri : Pointer[CChar]) Int;
+    uri : Pointer[CChar]) : Int;
 
 external g_bookmark_file_get_size(
-    bookmark : Pointer[GBookmarkFile]) Int;
+    bookmark : Pointer[GBookmarkFile]) : Int;
 
 external g_bookmark_file_get_uris(
     bookmark : Pointer[GBookmarkFile],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_bookmark_file_remove_group(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     group : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_remove_application(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
     name : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_remove_item(
     bookmark : Pointer[GBookmarkFile],
     uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_bookmark_file_move_item(
     bookmark : Pointer[GBookmarkFile],
     old_uri : Pointer[CChar],
     new_uri : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_slice_alloc(
-    block_size : CULong) gpointer;
+    block_size : CULong) : gpointer;
 
 external g_slice_alloc0(
-    block_size : CULong) gpointer;
+    block_size : CULong) : gpointer;
 
 external g_slice_copy(
     block_size : CULong,
-    mem_block : gconstpointer) gpointer;
+    mem_block : gconstpointer) : gpointer;
 
 external g_slice_free1(
     block_size : CULong,
@@ -1169,12 +1169,12 @@ external g_slice_set_config(
     value : CLong);
 
 external g_slice_get_config(
-    ckey : GSliceConfig) CLong;
+    ckey : GSliceConfig) : CLong;
 
 external g_slice_get_config_state(
     ckey : GSliceConfig,
     address : CLong,
-    n_values : Pointer[UInt]) Pointer[CLong];
+    n_values : Pointer[UInt]) : Pointer[CLong];
 
 alias GMemVTable = Struct__GMemVTable;
 
@@ -1182,64 +1182,64 @@ external g_free(
     mem : gpointer);
 
 external g_malloc(
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_malloc0(
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_realloc(
     mem : gpointer,
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_try_malloc(
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_try_malloc0(
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_try_realloc(
     mem : gpointer,
-    n_bytes : CULong) gpointer;
+    n_bytes : CULong) : gpointer;
 
 external g_malloc_n(
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 external g_malloc0_n(
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 external g_realloc_n(
     mem : gpointer,
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 external g_try_malloc_n(
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 external g_try_malloc0_n(
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 external g_try_realloc_n(
     mem : gpointer,
     n_blocks : CULong,
-    n_block_bytes : CULong) gpointer;
+    n_block_bytes : CULong) : gpointer;
 
 record Struct__GMemVTable (
-    malloc : CCodePointer[(CULong),(RawPointer)],
-    realloc : CCodePointer[(RawPointer,CULong),(RawPointer)],
-    free : CCodePointer[(RawPointer),()],
-    calloc : CCodePointer[(CULong,CULong),(RawPointer)],
-    try_malloc : CCodePointer[(CULong),(RawPointer)],
-    try_realloc : CCodePointer[(RawPointer,CULong),(RawPointer)],
+    malloc : CCodePointer[[CULong],[RawPointer]],
+    realloc : CCodePointer[[RawPointer,CULong],[RawPointer]],
+    free : CCodePointer[[RawPointer],[]],
+    calloc : CCodePointer[[CULong,CULong],[RawPointer]],
+    try_malloc : CCodePointer[[CULong],[RawPointer]],
+    try_realloc : CCodePointer[[RawPointer,CULong],[RawPointer]],
 );
 
 external g_mem_set_vtable(
     vtable : Pointer[GMemVTable]);
 
-external g_mem_is_system_malloc() Int;
+external g_mem_is_system_malloc() : Int;
 
 external g_mem_gc_friendly : Int;
 
@@ -1255,16 +1255,16 @@ external g_mem_chunk_new(
     name : Pointer[CChar],
     atom_size : Int,
     area_size : CULong,
-    type : Int) Pointer[GMemChunk];
+    type : Int) : Pointer[GMemChunk];
 
 external g_mem_chunk_destroy(
     mem_chunk : Pointer[GMemChunk]);
 
 external g_mem_chunk_alloc(
-    mem_chunk : Pointer[GMemChunk]) gpointer;
+    mem_chunk : Pointer[GMemChunk]) : gpointer;
 
 external g_mem_chunk_alloc0(
-    mem_chunk : Pointer[GMemChunk]) gpointer;
+    mem_chunk : Pointer[GMemChunk]) : gpointer;
 
 external g_mem_chunk_free(
     mem_chunk : Pointer[GMemChunk],
@@ -1285,7 +1285,7 @@ external g_blow_chunks();
 
 external g_allocator_new(
     name : Pointer[CChar],
-    n_preallocs : UInt) Pointer[GAllocator];
+    n_preallocs : UInt) : Pointer[GAllocator];
 
 external g_allocator_free(
     allocator : Pointer[GAllocator]);
@@ -1298,7 +1298,7 @@ record Struct__GList (
     prev : Pointer[GList],
 );
 
-external g_list_alloc() Pointer[GList];
+external g_list_alloc() : Pointer[GList];
 
 external g_list_free(
     list : Pointer[GList]);
@@ -1308,92 +1308,92 @@ external g_list_free_1(
 
 external g_list_append(
     list : Pointer[GList],
-    data : gpointer) Pointer[GList];
+    data : gpointer) : Pointer[GList];
 
 external g_list_prepend(
     list : Pointer[GList],
-    data : gpointer) Pointer[GList];
+    data : gpointer) : Pointer[GList];
 
 external g_list_insert(
     list : Pointer[GList],
     data : gpointer,
-    position : Int) Pointer[GList];
+    position : Int) : Pointer[GList];
 
 external g_list_insert_sorted(
     list : Pointer[GList],
     data : gpointer,
-    func : GCompareFunc) Pointer[GList];
+    func : GCompareFunc) : Pointer[GList];
 
 external g_list_insert_sorted_with_data(
     list : Pointer[GList],
     data : gpointer,
     func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GList];
+    user_data : gpointer) : Pointer[GList];
 
 external g_list_insert_before(
     list : Pointer[GList],
     sibling : Pointer[GList],
-    data : gpointer) Pointer[GList];
+    data : gpointer) : Pointer[GList];
 
 external g_list_concat(
     list1 : Pointer[GList],
-    list2 : Pointer[GList]) Pointer[GList];
+    list2 : Pointer[GList]) : Pointer[GList];
 
 external g_list_remove(
     list : Pointer[GList],
-    data : gconstpointer) Pointer[GList];
+    data : gconstpointer) : Pointer[GList];
 
 external g_list_remove_all(
     list : Pointer[GList],
-    data : gconstpointer) Pointer[GList];
+    data : gconstpointer) : Pointer[GList];
 
 external g_list_remove_link(
     list : Pointer[GList],
-    llink : Pointer[GList]) Pointer[GList];
+    llink : Pointer[GList]) : Pointer[GList];
 
 external g_list_delete_link(
     list : Pointer[GList],
-    link_ : Pointer[GList]) Pointer[GList];
+    link_ : Pointer[GList]) : Pointer[GList];
 
 external g_list_reverse(
-    list : Pointer[GList]) Pointer[GList];
+    list : Pointer[GList]) : Pointer[GList];
 
 external g_list_copy(
-    list : Pointer[GList]) Pointer[GList];
+    list : Pointer[GList]) : Pointer[GList];
 
 external g_list_nth(
     list : Pointer[GList],
-    n : UInt) Pointer[GList];
+    n : UInt) : Pointer[GList];
 
 external g_list_nth_prev(
     list : Pointer[GList],
-    n : UInt) Pointer[GList];
+    n : UInt) : Pointer[GList];
 
 external g_list_find(
     list : Pointer[GList],
-    data : gconstpointer) Pointer[GList];
+    data : gconstpointer) : Pointer[GList];
 
 external g_list_find_custom(
     list : Pointer[GList],
     data : gconstpointer,
-    func : GCompareFunc) Pointer[GList];
+    func : GCompareFunc) : Pointer[GList];
 
 external g_list_position(
     list : Pointer[GList],
-    llink : Pointer[GList]) Int;
+    llink : Pointer[GList]) : Int;
 
 external g_list_index(
     list : Pointer[GList],
-    data : gconstpointer) Int;
+    data : gconstpointer) : Int;
 
 external g_list_last(
-    list : Pointer[GList]) Pointer[GList];
+    list : Pointer[GList]) : Pointer[GList];
 
 external g_list_first(
-    list : Pointer[GList]) Pointer[GList];
+    list : Pointer[GList]) : Pointer[GList];
 
 external g_list_length(
-    list : Pointer[GList]) UInt;
+    list : Pointer[GList]) : UInt;
 
 external g_list_foreach(
     list : Pointer[GList],
@@ -1402,16 +1402,16 @@ external g_list_foreach(
 
 external g_list_sort(
     list : Pointer[GList],
-    compare_func : GCompareFunc) Pointer[GList];
+    compare_func : GCompareFunc) : Pointer[GList];
 
 external g_list_sort_with_data(
     list : Pointer[GList],
     compare_func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GList];
+    user_data : gpointer) : Pointer[GList];
 
 external g_list_nth_data(
     list : Pointer[GList],
-    n : UInt) gpointer;
+    n : UInt) : gpointer;
 
 external g_list_push_allocator(
     allocator : gpointer);
@@ -1420,11 +1420,11 @@ external g_list_pop_allocator();
 
 alias GCache = Opaque;
 
-alias GCacheNewFunc = CCodePointer[(RawPointer),(RawPointer)];
+alias GCacheNewFunc = CCodePointer[[RawPointer],[RawPointer]];
 
-alias GCacheDupFunc = CCodePointer[(RawPointer),(RawPointer)];
+alias GCacheDupFunc = CCodePointer[[RawPointer],[RawPointer]];
 
-alias GCacheDestroyFunc = CCodePointer[(RawPointer),()];
+alias GCacheDestroyFunc = CCodePointer[[RawPointer],[]];
 
 external g_cache_new(
     value_new_func : GCacheNewFunc,
@@ -1433,14 +1433,14 @@ external g_cache_new(
     key_destroy_func : GCacheDestroyFunc,
     hash_key_func : GHashFunc,
     hash_value_func : GHashFunc,
-    key_equal_func : GEqualFunc) Pointer[GCache];
+    key_equal_func : GEqualFunc) : Pointer[GCache];
 
 external g_cache_destroy(
     cache : Pointer[GCache]);
 
 external g_cache_insert(
     cache : Pointer[GCache],
-    key : gpointer) gpointer;
+    key : gpointer) : gpointer;
 
 external g_cache_remove(
     cache : Pointer[GCache],
@@ -1465,16 +1465,16 @@ alias GChecksumType = Int;
 alias GChecksum = Opaque;
 
 external g_checksum_type_get_length(
-    checksum_type : GChecksumType) CLong;
+    checksum_type : GChecksumType) : CLong;
 
 external g_checksum_new(
-    checksum_type : GChecksumType) Pointer[GChecksum];
+    checksum_type : GChecksumType) : Pointer[GChecksum];
 
 external g_checksum_reset(
     checksum : Pointer[GChecksum]);
 
 external g_checksum_copy(
-    checksum : Pointer[GChecksum]) Pointer[GChecksum];
+    checksum : Pointer[GChecksum]) : Pointer[GChecksum];
 
 external g_checksum_free(
     checksum : Pointer[GChecksum]);
@@ -1485,7 +1485,7 @@ external g_checksum_update(
     length : CLong);
 
 external g_checksum_get_string(
-    checksum : Pointer[GChecksum]) Pointer[CChar];
+    checksum : Pointer[GChecksum]) : Pointer[CChar];
 
 external g_checksum_get_digest(
     checksum : Pointer[GChecksum],
@@ -1495,18 +1495,18 @@ external g_checksum_get_digest(
 external g_compute_checksum_for_data(
     checksum_type : GChecksumType,
     data : Pointer[CUChar],
-    length : CULong) Pointer[CChar];
+    length : CULong) : Pointer[CChar];
 
 external g_compute_checksum_for_string(
     checksum_type : GChecksumType,
     str : Pointer[CChar],
-    length : CLong) Pointer[CChar];
+    length : CLong) : Pointer[CChar];
 
 alias GCompletion = Struct__GCompletion;
 
-alias GCompletionFunc = CCodePointer[(RawPointer),(Pointer[CChar])];
+alias GCompletionFunc = CCodePointer[[RawPointer],[Pointer[CChar]]];
 
-alias GCompletionStrncmpFunc = CCodePointer[(Pointer[CChar],Pointer[CChar],CULong),(Int)];
+alias GCompletionStrncmpFunc = CCodePointer[[Pointer[CChar],Pointer[CChar],CULong],[Int]];
 
 record Struct__GCompletion (
     items : Pointer[GList],
@@ -1517,7 +1517,7 @@ record Struct__GCompletion (
 );
 
 external g_completion_new(
-    func : GCompletionFunc) Pointer[GCompletion];
+    func : GCompletionFunc) : Pointer[GCompletion];
 
 external g_completion_add_items(
     cmp : Pointer[GCompletion],
@@ -1533,12 +1533,12 @@ external g_completion_clear_items(
 external g_completion_complete(
     cmp : Pointer[GCompletion],
     prefix : Pointer[CChar],
-    new_prefix : Pointer[Pointer[CChar]]) Pointer[GList];
+    new_prefix : Pointer[Pointer[CChar]]) : Pointer[GList];
 
 external g_completion_complete_utf8(
     cmp : Pointer[GCompletion],
     prefix : Pointer[CChar],
-    new_prefix : Pointer[Pointer[CChar]]) Pointer[GList];
+    new_prefix : Pointer[Pointer[CChar]]) : Pointer[GList];
 
 external g_completion_set_compare(
     cmp : Pointer[GCompletion],
@@ -1556,23 +1556,23 @@ alias G_CONVERT_ERROR_NOT_ABSOLUTE_PATH = 5;
 
 alias GConvertError = Int;
 
-external g_convert_error_quark() UInt;
+external g_convert_error_quark() : UInt;
 
 alias GIConv = OpaquePointer;
 
 external g_iconv_open(
     to_codeset : Pointer[CChar],
-    from_codeset : Pointer[CChar]) GIConv;
+    from_codeset : Pointer[CChar]) : GIConv;
 
 external g_iconv(
     converter : GIConv,
     inbuf : Pointer[Pointer[CChar]],
     inbytes_left : Pointer[CULong],
     outbuf : Pointer[Pointer[CChar]],
-    outbytes_left : Pointer[CULong]) CULong;
+    outbytes_left : Pointer[CULong]) : CULong;
 
 external g_iconv_close(
-    converter : GIConv) Int;
+    converter : GIConv) : Int;
 
 external g_convert(
     str : Pointer[CChar],
@@ -1581,7 +1581,7 @@ external g_convert(
     from_codeset : Pointer[CChar],
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_convert_with_iconv(
     str : Pointer[CChar],
@@ -1589,7 +1589,7 @@ external g_convert_with_iconv(
     converter : GIConv,
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_convert_with_fallback(
     str : Pointer[CChar],
@@ -1599,61 +1599,61 @@ external g_convert_with_fallback(
     fallback : Pointer[CChar],
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_locale_to_utf8(
     opsysstring : Pointer[CChar],
     len : CLong,
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_locale_from_utf8(
     utf8string : Pointer[CChar],
     len : CLong,
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_filename_to_utf8(
     opsysstring : Pointer[CChar],
     len : CLong,
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_filename_from_utf8(
     utf8string : Pointer[CChar],
     len : CLong,
     bytes_read : Pointer[CULong],
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_filename_from_uri(
     uri : Pointer[CChar],
     hostname : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_filename_to_uri(
     filename : Pointer[CChar],
     hostname : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_filename_display_name(
-    filename : Pointer[CChar]) Pointer[CChar];
+    filename : Pointer[CChar]) : Pointer[CChar];
 
 external g_get_filename_charsets(
-    charsets : Pointer[Pointer[Pointer[CChar]]]) Int;
+    charsets : Pointer[Pointer[Pointer[CChar]]]) : Int;
 
 external g_filename_display_basename(
-    filename : Pointer[CChar]) Pointer[CChar];
+    filename : Pointer[CChar]) : Pointer[CChar];
 
 external g_uri_list_extract_uris(
-    uri_list : Pointer[CChar]) Pointer[Pointer[CChar]];
+    uri_list : Pointer[CChar]) : Pointer[Pointer[CChar]];
 
 alias GData = Opaque;
 
-alias GDataForeachFunc = CCodePointer[(UInt,RawPointer,RawPointer),()];
+alias GDataForeachFunc = CCodePointer[[UInt,RawPointer,RawPointer],[]];
 
 external g_datalist_init(
     datalist : Pointer[Pointer[GData]]);
@@ -1663,7 +1663,7 @@ external g_datalist_clear(
 
 external g_datalist_id_get_data(
     datalist : Pointer[Pointer[GData]],
-    key_id : UInt) gpointer;
+    key_id : UInt) : gpointer;
 
 external g_datalist_id_set_data_full(
     datalist : Pointer[Pointer[GData]],
@@ -1673,7 +1673,7 @@ external g_datalist_id_set_data_full(
 
 external g_datalist_id_remove_no_notify(
     datalist : Pointer[Pointer[GData]],
-    key_id : UInt) gpointer;
+    key_id : UInt) : gpointer;
 
 external g_datalist_foreach(
     datalist : Pointer[Pointer[GData]],
@@ -1689,14 +1689,14 @@ external g_datalist_unset_flags(
     flags : UInt);
 
 external g_datalist_get_flags(
-    datalist : Pointer[Pointer[GData]]) UInt;
+    datalist : Pointer[Pointer[GData]]) : UInt;
 
 external g_dataset_destroy(
     dataset_location : gconstpointer);
 
 external g_dataset_id_get_data(
     dataset_location : gconstpointer,
-    key_id : UInt) gpointer;
+    key_id : UInt) : gpointer;
 
 external g_dataset_id_set_data_full(
     dataset_location : gconstpointer,
@@ -1706,7 +1706,7 @@ external g_dataset_id_set_data_full(
 
 external g_dataset_id_remove_no_notify(
     dataset_location : gconstpointer,
-    key_id : UInt) gpointer;
+    key_id : UInt) : gpointer;
 
 external g_dataset_foreach(
     dataset_location : gconstpointer,
@@ -1763,68 +1763,68 @@ record Struct__GDate (
     year : UInt,
 );
 
-external g_date_new() Pointer[GDate];
+external g_date_new() : Pointer[GDate];
 
 external g_date_new_dmy(
     day : CUChar,
     month : GDateMonth,
-    year : UShort) Pointer[GDate];
+    year : UShort) : Pointer[GDate];
 
 external g_date_new_julian(
-    julian_day : UInt) Pointer[GDate];
+    julian_day : UInt) : Pointer[GDate];
 
 external g_date_free(
     date : Pointer[GDate]);
 
 external g_date_valid(
-    date : Pointer[GDate]) Int;
+    date : Pointer[GDate]) : Int;
 
 external g_date_valid_day(
-    day : CUChar) Int;
+    day : CUChar) : Int;
 
 external g_date_valid_month(
-    month : GDateMonth) Int;
+    month : GDateMonth) : Int;
 
 external g_date_valid_year(
-    year : UShort) Int;
+    year : UShort) : Int;
 
 external g_date_valid_weekday(
-    weekday : GDateWeekday) Int;
+    weekday : GDateWeekday) : Int;
 
 external g_date_valid_julian(
-    julian_date : UInt) Int;
+    julian_date : UInt) : Int;
 
 external g_date_valid_dmy(
     day : CUChar,
     month : GDateMonth,
-    year : UShort) Int;
+    year : UShort) : Int;
 
 external g_date_get_weekday(
-    date : Pointer[GDate]) GDateWeekday;
+    date : Pointer[GDate]) : GDateWeekday;
 
 external g_date_get_month(
-    date : Pointer[GDate]) GDateMonth;
+    date : Pointer[GDate]) : GDateMonth;
 
 external g_date_get_year(
-    date : Pointer[GDate]) UShort;
+    date : Pointer[GDate]) : UShort;
 
 external g_date_get_day(
-    date : Pointer[GDate]) CUChar;
+    date : Pointer[GDate]) : CUChar;
 
 external g_date_get_julian(
-    date : Pointer[GDate]) UInt;
+    date : Pointer[GDate]) : UInt;
 
 external g_date_get_day_of_year(
-    date : Pointer[GDate]) UInt;
+    date : Pointer[GDate]) : UInt;
 
 external g_date_get_monday_week_of_year(
-    date : Pointer[GDate]) UInt;
+    date : Pointer[GDate]) : UInt;
 
 external g_date_get_sunday_week_of_year(
-    date : Pointer[GDate]) UInt;
+    date : Pointer[GDate]) : UInt;
 
 external g_date_get_iso8601_week_of_year(
-    date : Pointer[GDate]) UInt;
+    date : Pointer[GDate]) : UInt;
 
 external g_date_clear(
     date : Pointer[GDate],
@@ -1869,10 +1869,10 @@ external g_date_set_julian(
     julian_date : UInt);
 
 external g_date_is_first_of_month(
-    date : Pointer[GDate]) Int;
+    date : Pointer[GDate]) : Int;
 
 external g_date_is_last_of_month(
-    date : Pointer[GDate]) Int;
+    date : Pointer[GDate]) : Int;
 
 external g_date_add_days(
     date : Pointer[GDate],
@@ -1899,25 +1899,25 @@ external g_date_subtract_years(
     n_years : UInt);
 
 external g_date_is_leap_year(
-    year : UShort) Int;
+    year : UShort) : Int;
 
 external g_date_get_days_in_month(
     month : GDateMonth,
-    year : UShort) CUChar;
+    year : UShort) : CUChar;
 
 external g_date_get_monday_weeks_in_year(
-    year : UShort) CUChar;
+    year : UShort) : CUChar;
 
 external g_date_get_sunday_weeks_in_year(
-    year : UShort) CUChar;
+    year : UShort) : CUChar;
 
 external g_date_days_between(
     date1 : Pointer[GDate],
-    date2 : Pointer[GDate]) Int;
+    date2 : Pointer[GDate]) : Int;
 
 external g_date_compare(
     lhs : Pointer[GDate],
-    rhs : Pointer[GDate]) Int;
+    rhs : Pointer[GDate]) : Int;
 
 external g_date_to_struct_tm(
     date : Pointer[GDate],
@@ -1936,19 +1936,19 @@ external g_date_strftime(
     s : Pointer[CChar],
     slen : CULong,
     format : Pointer[CChar],
-    date : Pointer[GDate]) CULong;
+    date : Pointer[GDate]) : CULong;
 
 alias GTimeZone = Opaque;
 
 external g_time_zone_new(
-    identifier : Pointer[CChar]) Pointer[GTimeZone];
+    identifier : Pointer[CChar]) : Pointer[GTimeZone];
 
-external g_time_zone_new_utc() Pointer[GTimeZone];
+external g_time_zone_new_utc() : Pointer[GTimeZone];
 
-external g_time_zone_new_local() Pointer[GTimeZone];
+external g_time_zone_new_local() : Pointer[GTimeZone];
 
 external g_time_zone_ref(
-    tz : Pointer[GTimeZone]) Pointer[GTimeZone];
+    tz : Pointer[GTimeZone]) : Pointer[GTimeZone];
 
 external g_time_zone_unref(
     tz : Pointer[GTimeZone]);
@@ -1961,26 +1961,26 @@ external g_date_time_unref(
     datetime : Pointer[GDateTime]);
 
 external g_date_time_ref(
-    datetime : Pointer[GDateTime]) Pointer[GDateTime];
+    datetime : Pointer[GDateTime]) : Pointer[GDateTime];
 
 external g_date_time_new_now(
-    tz : Pointer[GTimeZone]) Pointer[GDateTime];
+    tz : Pointer[GTimeZone]) : Pointer[GDateTime];
 
-external g_date_time_new_now_local() Pointer[GDateTime];
+external g_date_time_new_now_local() : Pointer[GDateTime];
 
-external g_date_time_new_now_utc() Pointer[GDateTime];
+external g_date_time_new_now_utc() : Pointer[GDateTime];
 
 external g_date_time_new_from_unix_local(
-    t : CLong) Pointer[GDateTime];
+    t : CLong) : Pointer[GDateTime];
 
 external g_date_time_new_from_unix_utc(
-    t : CLong) Pointer[GDateTime];
+    t : CLong) : Pointer[GDateTime];
 
 external g_date_time_new_from_timeval_local(
-    tv : Pointer[GTimeVal]) Pointer[GDateTime];
+    tv : Pointer[GTimeVal]) : Pointer[GDateTime];
 
 external g_date_time_new_from_timeval_utc(
-    tv : Pointer[GTimeVal]) Pointer[GDateTime];
+    tv : Pointer[GTimeVal]) : Pointer[GDateTime];
 
 external g_date_time_new(
     tz : Pointer[GTimeZone],
@@ -1989,7 +1989,7 @@ external g_date_time_new(
     day : Int,
     hour : Int,
     minute : Int,
-    seconds : Double) Pointer[GDateTime];
+    seconds : Double) : Pointer[GDateTime];
 
 external g_date_time_new_local(
     year : Int,
@@ -1997,7 +1997,7 @@ external g_date_time_new_local(
     day : Int,
     hour : Int,
     minute : Int,
-    seconds : Double) Pointer[GDateTime];
+    seconds : Double) : Pointer[GDateTime];
 
 external g_date_time_new_utc(
     year : Int,
@@ -2005,39 +2005,39 @@ external g_date_time_new_utc(
     day : Int,
     hour : Int,
     minute : Int,
-    seconds : Double) Pointer[GDateTime];
+    seconds : Double) : Pointer[GDateTime];
 
 external g_date_time_add(
     datetime : Pointer[GDateTime],
-    timespan : CLong) Pointer[GDateTime];
+    timespan : CLong) : Pointer[GDateTime];
 
 external g_date_time_add_years(
     datetime : Pointer[GDateTime],
-    years : Int) Pointer[GDateTime];
+    years : Int) : Pointer[GDateTime];
 
 external g_date_time_add_months(
     datetime : Pointer[GDateTime],
-    months : Int) Pointer[GDateTime];
+    months : Int) : Pointer[GDateTime];
 
 external g_date_time_add_weeks(
     datetime : Pointer[GDateTime],
-    weeks : Int) Pointer[GDateTime];
+    weeks : Int) : Pointer[GDateTime];
 
 external g_date_time_add_days(
     datetime : Pointer[GDateTime],
-    days : Int) Pointer[GDateTime];
+    days : Int) : Pointer[GDateTime];
 
 external g_date_time_add_hours(
     datetime : Pointer[GDateTime],
-    hours : Int) Pointer[GDateTime];
+    hours : Int) : Pointer[GDateTime];
 
 external g_date_time_add_minutes(
     datetime : Pointer[GDateTime],
-    minutes : Int) Pointer[GDateTime];
+    minutes : Int) : Pointer[GDateTime];
 
 external g_date_time_add_seconds(
     datetime : Pointer[GDateTime],
-    seconds : Double) Pointer[GDateTime];
+    seconds : Double) : Pointer[GDateTime];
 
 external g_date_time_add_full(
     datetime : Pointer[GDateTime],
@@ -2046,22 +2046,22 @@ external g_date_time_add_full(
     days : Int,
     hours : Int,
     minutes : Int,
-    seconds : Double) Pointer[GDateTime];
+    seconds : Double) : Pointer[GDateTime];
 
 external g_date_time_compare(
     dt1 : gconstpointer,
-    dt2 : gconstpointer) Int;
+    dt2 : gconstpointer) : Int;
 
 external g_date_time_difference(
     end : Pointer[GDateTime],
-    begin : Pointer[GDateTime]) CLong;
+    begin : Pointer[GDateTime]) : CLong;
 
 external g_date_time_hash(
-    datetime : gconstpointer) UInt;
+    datetime : gconstpointer) : UInt;
 
 external g_date_time_equal(
     dt1 : gconstpointer,
-    dt2 : gconstpointer) Int;
+    dt2 : gconstpointer) : Int;
 
 external g_date_time_get_ymd(
     datetime : Pointer[GDateTime],
@@ -2070,80 +2070,80 @@ external g_date_time_get_ymd(
     day : Pointer[Int]);
 
 external g_date_time_get_year(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_month(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_day_of_month(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_week_numbering_year(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_week_of_year(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_day_of_week(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_day_of_year(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_hour(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_minute(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_second(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_microsecond(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_get_seconds(
-    datetime : Pointer[GDateTime]) Double;
+    datetime : Pointer[GDateTime]) : Double;
 
 external g_date_time_to_unix(
-    datetime : Pointer[GDateTime]) CLong;
+    datetime : Pointer[GDateTime]) : CLong;
 
 external g_date_time_to_timeval(
     datetime : Pointer[GDateTime],
-    tv : Pointer[GTimeVal]) Int;
+    tv : Pointer[GTimeVal]) : Int;
 
 external g_date_time_get_utc_offset(
-    datetime : Pointer[GDateTime]) CLong;
+    datetime : Pointer[GDateTime]) : CLong;
 
 external g_date_time_get_timezone_abbreviation(
-    datetime : Pointer[GDateTime]) Pointer[CChar];
+    datetime : Pointer[GDateTime]) : Pointer[CChar];
 
 external g_date_time_is_daylight_savings(
-    datetime : Pointer[GDateTime]) Int;
+    datetime : Pointer[GDateTime]) : Int;
 
 external g_date_time_to_timezone(
     datetime : Pointer[GDateTime],
-    tz : Pointer[GTimeZone]) Pointer[GDateTime];
+    tz : Pointer[GTimeZone]) : Pointer[GDateTime];
 
 external g_date_time_to_local(
-    datetime : Pointer[GDateTime]) Pointer[GDateTime];
+    datetime : Pointer[GDateTime]) : Pointer[GDateTime];
 
 external g_date_time_to_utc(
-    datetime : Pointer[GDateTime]) Pointer[GDateTime];
+    datetime : Pointer[GDateTime]) : Pointer[GDateTime];
 
 external g_date_time_format(
     datetime : Pointer[GDateTime],
-    format : Pointer[CChar]) Pointer[CChar];
+    format : Pointer[CChar]) : Pointer[CChar];
 
 alias GDir = Opaque;
 
 external g_dir_open(
     path : Pointer[CChar],
     flags : UInt,
-    error : Pointer[Pointer[GError]]) Pointer[GDir];
+    error : Pointer[Pointer[GError]]) : Pointer[GDir];
 
 external g_dir_read_name(
-    dir : Pointer[GDir]) Pointer[CChar];
+    dir : Pointer[GDir]) : Pointer[CChar];
 
 external g_dir_rewind(
     dir : Pointer[GDir]);
@@ -2187,70 +2187,70 @@ alias G_FILE_TEST_EXISTS = 16;
 
 alias GFileTest = Int;
 
-external g_file_error_quark() UInt;
+external g_file_error_quark() : UInt;
 
 external g_file_error_from_errno(
-    err_no : Int) GFileError;
+    err_no : Int) : GFileError;
 
 external g_file_test(
     filename : Pointer[CChar],
-    test : GFileTest) Int;
+    test : GFileTest) : Int;
 
 external g_file_get_contents(
     filename : Pointer[CChar],
     contents : Pointer[Pointer[CChar]],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_file_set_contents(
     filename : Pointer[CChar],
     contents : Pointer[CChar],
     length : CLong,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_file_read_link(
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_mkstemp(
-    tmpl : Pointer[CChar]) Int;
+    tmpl : Pointer[CChar]) : Int;
 
 external g_mkstemp_full(
     tmpl : Pointer[CChar],
     flags : Int,
-    mode : Int) Int;
+    mode : Int) : Int;
 
 external g_file_open_tmp(
     tmpl : Pointer[CChar],
     name_used : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_format_size_for_display(
-    size : CLong) Pointer[CChar];
+    size : CLong) : Pointer[CChar];
 
 external g_build_path(
     separator : Pointer[CChar],
     first_element : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_build_pathv(
     separator : Pointer[CChar],
-    args : Pointer[Pointer[CChar]]) Pointer[CChar];
+    args : Pointer[Pointer[CChar]]) : Pointer[CChar];
 
 external g_build_filename(
     first_element : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_build_filenamev(
-    args : Pointer[Pointer[CChar]]) Pointer[CChar];
+    args : Pointer[Pointer[CChar]]) : Pointer[CChar];
 
 external g_mkdir_with_parents(
     pathname : Pointer[CChar],
-    mode : Int) Int;
+    mode : Int) : Int;
 
 alias GHashTable = Opaque;
 
-alias GHRFunc = CCodePointer[(RawPointer,RawPointer,RawPointer),(Int)];
+alias GHRFunc = CCodePointer[[RawPointer,RawPointer,RawPointer],[Int]];
 
 alias GHashTableIter = Struct__GHashTableIter;
 
@@ -2265,13 +2265,13 @@ record Struct__GHashTableIter (
 
 external g_hash_table_new(
     hash_func : GHashFunc,
-    key_equal_func : GEqualFunc) Pointer[GHashTable];
+    key_equal_func : GEqualFunc) : Pointer[GHashTable];
 
 external g_hash_table_new_full(
     hash_func : GHashFunc,
     key_equal_func : GEqualFunc,
     key_destroy_func : GDestroyNotify,
-    value_destroy_func : GDestroyNotify) Pointer[GHashTable];
+    value_destroy_func : GDestroyNotify) : Pointer[GHashTable];
 
 external g_hash_table_destroy(
     hash_table : Pointer[GHashTable]);
@@ -2288,27 +2288,27 @@ external g_hash_table_replace(
 
 external g_hash_table_remove(
     hash_table : Pointer[GHashTable],
-    key : gconstpointer) Int;
+    key : gconstpointer) : Int;
 
 external g_hash_table_remove_all(
     hash_table : Pointer[GHashTable]);
 
 external g_hash_table_steal(
     hash_table : Pointer[GHashTable],
-    key : gconstpointer) Int;
+    key : gconstpointer) : Int;
 
 external g_hash_table_steal_all(
     hash_table : Pointer[GHashTable]);
 
 external g_hash_table_lookup(
     hash_table : Pointer[GHashTable],
-    key : gconstpointer) gpointer;
+    key : gconstpointer) : gpointer;
 
 external g_hash_table_lookup_extended(
     hash_table : Pointer[GHashTable],
     lookup_key : gconstpointer,
     orig_key : Pointer[gpointer],
-    value : Pointer[gpointer]) Int;
+    value : Pointer[gpointer]) : Int;
 
 external g_hash_table_foreach(
     hash_table : Pointer[GHashTable],
@@ -2318,26 +2318,26 @@ external g_hash_table_foreach(
 external g_hash_table_find(
     hash_table : Pointer[GHashTable],
     predicate : GHRFunc,
-    user_data : gpointer) gpointer;
+    user_data : gpointer) : gpointer;
 
 external g_hash_table_foreach_remove(
     hash_table : Pointer[GHashTable],
     func : GHRFunc,
-    user_data : gpointer) UInt;
+    user_data : gpointer) : UInt;
 
 external g_hash_table_foreach_steal(
     hash_table : Pointer[GHashTable],
     func : GHRFunc,
-    user_data : gpointer) UInt;
+    user_data : gpointer) : UInt;
 
 external g_hash_table_size(
-    hash_table : Pointer[GHashTable]) UInt;
+    hash_table : Pointer[GHashTable]) : UInt;
 
 external g_hash_table_get_keys(
-    hash_table : Pointer[GHashTable]) Pointer[GList];
+    hash_table : Pointer[GHashTable]) : Pointer[GList];
 
 external g_hash_table_get_values(
-    hash_table : Pointer[GHashTable]) Pointer[GList];
+    hash_table : Pointer[GHashTable]) : Pointer[GList];
 
 external g_hash_table_iter_init(
     iter : Pointer[GHashTableIter],
@@ -2346,10 +2346,10 @@ external g_hash_table_iter_init(
 external g_hash_table_iter_next(
     iter : Pointer[GHashTableIter],
     key : Pointer[gpointer],
-    value : Pointer[gpointer]) Int;
+    value : Pointer[gpointer]) : Int;
 
 external g_hash_table_iter_get_hash_table(
-    iter : Pointer[GHashTableIter]) Pointer[GHashTable];
+    iter : Pointer[GHashTableIter]) : Pointer[GHashTable];
 
 external g_hash_table_iter_remove(
     iter : Pointer[GHashTableIter]);
@@ -2358,63 +2358,63 @@ external g_hash_table_iter_steal(
     iter : Pointer[GHashTableIter]);
 
 external g_hash_table_ref(
-    hash_table : Pointer[GHashTable]) Pointer[GHashTable];
+    hash_table : Pointer[GHashTable]) : Pointer[GHashTable];
 
 external g_hash_table_unref(
     hash_table : Pointer[GHashTable]);
 
 external g_str_equal(
     v1 : gconstpointer,
-    v2 : gconstpointer) Int;
+    v2 : gconstpointer) : Int;
 
 external g_str_hash(
-    v : gconstpointer) UInt;
+    v : gconstpointer) : UInt;
 
 external g_int_equal(
     v1 : gconstpointer,
-    v2 : gconstpointer) Int;
+    v2 : gconstpointer) : Int;
 
 external g_int_hash(
-    v : gconstpointer) UInt;
+    v : gconstpointer) : UInt;
 
 external g_int64_equal(
     v1 : gconstpointer,
-    v2 : gconstpointer) Int;
+    v2 : gconstpointer) : Int;
 
 external g_int64_hash(
-    v : gconstpointer) UInt;
+    v : gconstpointer) : UInt;
 
 external g_double_equal(
     v1 : gconstpointer,
-    v2 : gconstpointer) Int;
+    v2 : gconstpointer) : Int;
 
 external g_double_hash(
-    v : gconstpointer) UInt;
+    v : gconstpointer) : UInt;
 
 external g_direct_hash(
-    v : gconstpointer) UInt;
+    v : gconstpointer) : UInt;
 
 external g_direct_equal(
     v1 : gconstpointer,
-    v2 : gconstpointer) Int;
+    v2 : gconstpointer) : Int;
 
 alias GHook = Struct__GHook;
 
 alias GHookList = Struct__GHookList;
 
-alias GHookCompareFunc = CCodePointer[(Pointer[Struct__GHook],Pointer[Struct__GHook]),(Int)];
+alias GHookCompareFunc = CCodePointer[[Pointer[Struct__GHook],Pointer[Struct__GHook]],[Int]];
 
-alias GHookFindFunc = CCodePointer[(Pointer[Struct__GHook],RawPointer),(Int)];
+alias GHookFindFunc = CCodePointer[[Pointer[Struct__GHook],RawPointer],[Int]];
 
-alias GHookMarshaller = CCodePointer[(Pointer[Struct__GHook],RawPointer),()];
+alias GHookMarshaller = CCodePointer[[Pointer[Struct__GHook],RawPointer],[]];
 
-alias GHookCheckMarshaller = CCodePointer[(Pointer[Struct__GHook],RawPointer),(Int)];
+alias GHookCheckMarshaller = CCodePointer[[Pointer[Struct__GHook],RawPointer],[Int]];
 
-alias GHookFunc = CCodePointer[(RawPointer),()];
+alias GHookFunc = CCodePointer[[RawPointer],[]];
 
-alias GHookCheckFunc = CCodePointer[(RawPointer),(Int)];
+alias GHookCheckFunc = CCodePointer[[RawPointer],[Int]];
 
-alias GHookFinalizeFunc = CCodePointer[(Pointer[Struct__GHookList],Pointer[Struct__GHook]),()];
+alias GHookFinalizeFunc = CCodePointer[[Pointer[Struct__GHookList],Pointer[Struct__GHook]],[]];
 
 alias G_HOOK_FLAG_ACTIVE = 1;
 alias G_HOOK_FLAG_IN_CALL = 2;
@@ -2451,7 +2451,7 @@ external g_hook_list_clear(
     hook_list : Pointer[GHookList]);
 
 external g_hook_alloc(
-    hook_list : Pointer[GHookList]) Pointer[GHook];
+    hook_list : Pointer[GHookList]) : Pointer[GHook];
 
 external g_hook_free(
     hook_list : Pointer[GHookList],
@@ -2459,7 +2459,7 @@ external g_hook_free(
 
 external g_hook_ref(
     hook_list : Pointer[GHookList],
-    hook : Pointer[GHook]) Pointer[GHook];
+    hook : Pointer[GHook]) : Pointer[GHook];
 
 external g_hook_unref(
     hook_list : Pointer[GHookList],
@@ -2467,7 +2467,7 @@ external g_hook_unref(
 
 external g_hook_destroy(
     hook_list : Pointer[GHookList],
-    hook_id : CULong) Int;
+    hook_id : CULong) : Int;
 
 external g_hook_destroy_link(
     hook_list : Pointer[GHookList],
@@ -2489,42 +2489,42 @@ external g_hook_insert_sorted(
 
 external g_hook_get(
     hook_list : Pointer[GHookList],
-    hook_id : CULong) Pointer[GHook];
+    hook_id : CULong) : Pointer[GHook];
 
 external g_hook_find(
     hook_list : Pointer[GHookList],
     need_valids : Int,
     func : GHookFindFunc,
-    data : gpointer) Pointer[GHook];
+    data : gpointer) : Pointer[GHook];
 
 external g_hook_find_data(
     hook_list : Pointer[GHookList],
     need_valids : Int,
-    data : gpointer) Pointer[GHook];
+    data : gpointer) : Pointer[GHook];
 
 external g_hook_find_func(
     hook_list : Pointer[GHookList],
     need_valids : Int,
-    func : gpointer) Pointer[GHook];
+    func : gpointer) : Pointer[GHook];
 
 external g_hook_find_func_data(
     hook_list : Pointer[GHookList],
     need_valids : Int,
     func : gpointer,
-    data : gpointer) Pointer[GHook];
+    data : gpointer) : Pointer[GHook];
 
 external g_hook_first_valid(
     hook_list : Pointer[GHookList],
-    may_be_in_call : Int) Pointer[GHook];
+    may_be_in_call : Int) : Pointer[GHook];
 
 external g_hook_next_valid(
     hook_list : Pointer[GHookList],
     hook : Pointer[GHook],
-    may_be_in_call : Int) Pointer[GHook];
+    may_be_in_call : Int) : Pointer[GHook];
 
 external g_hook_compare_ids(
     new_hook : Pointer[GHook],
-    sibling : Pointer[GHook]) Int;
+    sibling : Pointer[GHook]) : Int;
 
 external g_hook_list_invoke(
     hook_list : Pointer[GHookList],
@@ -2547,23 +2547,23 @@ external g_hook_list_marshal_check(
     marshal_data : gpointer);
 
 external g_hostname_is_non_ascii(
-    hostname : Pointer[CChar]) Int;
+    hostname : Pointer[CChar]) : Int;
 
 external g_hostname_is_ascii_encoded(
-    hostname : Pointer[CChar]) Int;
+    hostname : Pointer[CChar]) : Int;
 
 external g_hostname_is_ip_address(
-    hostname : Pointer[CChar]) Int;
+    hostname : Pointer[CChar]) : Int;
 
 external g_hostname_to_ascii(
-    hostname : Pointer[CChar]) Pointer[CChar];
+    hostname : Pointer[CChar]) : Pointer[CChar];
 
 external g_hostname_to_unicode(
-    hostname : Pointer[CChar]) Pointer[CChar];
+    hostname : Pointer[CChar]) : Pointer[CChar];
 
 alias GPollFD = Struct__GPollFD;
 
-alias GPollFunc = CCodePointer[(Pointer[Struct__GPollFD],UInt,Int),(Int)];
+alias GPollFunc = CCodePointer[[Pointer[Struct__GPollFD],UInt,Int],[Int]];
 
 record Struct__GPollFD (
     fd : Int,
@@ -2574,7 +2574,7 @@ record Struct__GPollFD (
 external g_poll(
     fds : Pointer[GPollFD],
     nfds : UInt,
-    timeout : Int) Int;
+    timeout : Int) : Int;
 
 alias GSList = Struct__GSList;
 
@@ -2583,7 +2583,7 @@ record Struct__GSList (
     next : Pointer[GSList],
 );
 
-external g_slist_alloc() Pointer[GSList];
+external g_slist_alloc() : Pointer[GSList];
 
 external g_slist_free(
     list : Pointer[GSList]);
@@ -2593,85 +2593,85 @@ external g_slist_free_1(
 
 external g_slist_append(
     list : Pointer[GSList],
-    data : gpointer) Pointer[GSList];
+    data : gpointer) : Pointer[GSList];
 
 external g_slist_prepend(
     list : Pointer[GSList],
-    data : gpointer) Pointer[GSList];
+    data : gpointer) : Pointer[GSList];
 
 external g_slist_insert(
     list : Pointer[GSList],
     data : gpointer,
-    position : Int) Pointer[GSList];
+    position : Int) : Pointer[GSList];
 
 external g_slist_insert_sorted(
     list : Pointer[GSList],
     data : gpointer,
-    func : GCompareFunc) Pointer[GSList];
+    func : GCompareFunc) : Pointer[GSList];
 
 external g_slist_insert_sorted_with_data(
     list : Pointer[GSList],
     data : gpointer,
     func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GSList];
+    user_data : gpointer) : Pointer[GSList];
 
 external g_slist_insert_before(
     slist : Pointer[GSList],
     sibling : Pointer[GSList],
-    data : gpointer) Pointer[GSList];
+    data : gpointer) : Pointer[GSList];
 
 external g_slist_concat(
     list1 : Pointer[GSList],
-    list2 : Pointer[GSList]) Pointer[GSList];
+    list2 : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_remove(
     list : Pointer[GSList],
-    data : gconstpointer) Pointer[GSList];
+    data : gconstpointer) : Pointer[GSList];
 
 external g_slist_remove_all(
     list : Pointer[GSList],
-    data : gconstpointer) Pointer[GSList];
+    data : gconstpointer) : Pointer[GSList];
 
 external g_slist_remove_link(
     list : Pointer[GSList],
-    link_ : Pointer[GSList]) Pointer[GSList];
+    link_ : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_delete_link(
     list : Pointer[GSList],
-    link_ : Pointer[GSList]) Pointer[GSList];
+    link_ : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_reverse(
-    list : Pointer[GSList]) Pointer[GSList];
+    list : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_copy(
-    list : Pointer[GSList]) Pointer[GSList];
+    list : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_nth(
     list : Pointer[GSList],
-    n : UInt) Pointer[GSList];
+    n : UInt) : Pointer[GSList];
 
 external g_slist_find(
     list : Pointer[GSList],
-    data : gconstpointer) Pointer[GSList];
+    data : gconstpointer) : Pointer[GSList];
 
 external g_slist_find_custom(
     list : Pointer[GSList],
     data : gconstpointer,
-    func : GCompareFunc) Pointer[GSList];
+    func : GCompareFunc) : Pointer[GSList];
 
 external g_slist_position(
     list : Pointer[GSList],
-    llink : Pointer[GSList]) Int;
+    llink : Pointer[GSList]) : Int;
 
 external g_slist_index(
     list : Pointer[GSList],
-    data : gconstpointer) Int;
+    data : gconstpointer) : Int;
 
 external g_slist_last(
-    list : Pointer[GSList]) Pointer[GSList];
+    list : Pointer[GSList]) : Pointer[GSList];
 
 external g_slist_length(
-    list : Pointer[GSList]) UInt;
+    list : Pointer[GSList]) : UInt;
 
 external g_slist_foreach(
     list : Pointer[GSList],
@@ -2680,16 +2680,16 @@ external g_slist_foreach(
 
 external g_slist_sort(
     list : Pointer[GSList],
-    compare_func : GCompareFunc) Pointer[GSList];
+    compare_func : GCompareFunc) : Pointer[GSList];
 
 external g_slist_sort_with_data(
     list : Pointer[GSList],
     compare_func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GSList];
+    user_data : gpointer) : Pointer[GSList];
 
 external g_slist_nth_data(
     list : Pointer[GSList],
-    n : UInt) gpointer;
+    n : UInt) : gpointer;
 
 external g_slist_push_allocator(
     dummy : gpointer);
@@ -2706,9 +2706,9 @@ alias GSourceCallbackFuncs = Struct__GSourceCallbackFuncs;
 
 alias GSourceFuncs = Struct__GSourceFuncs;
 
-alias GSourceFunc = CCodePointer[(RawPointer),(Int)];
+alias GSourceFunc = CCodePointer[[RawPointer],[Int]];
 
-alias GChildWatchFunc = CCodePointer[(Int,Int,RawPointer),()];
+alias GChildWatchFunc = CCodePointer[[Int,Int,RawPointer],[]];
 
 record Struct__GSource (
     callback_data : gpointer,
@@ -2727,85 +2727,85 @@ record Struct__GSource (
 );
 
 record Struct__GSourceCallbackFuncs (
-    ref_ : CCodePointer[(RawPointer),()],
-    unref : CCodePointer[(RawPointer),()],
-    get : CCodePointer[(RawPointer,Pointer[Struct__GSource],Pointer[CCodePointer[(RawPointer),(Int)]],Pointer[RawPointer]),()],
+    ref_ : CCodePointer[[RawPointer],[]],
+    unref : CCodePointer[[RawPointer],[]],
+    get : CCodePointer[[RawPointer,Pointer[Struct__GSource],Pointer[CCodePointer[[RawPointer],[Int]]],Pointer[RawPointer]],[]],
 );
 
-alias GSourceDummyMarshal = CCodePointer[(),()];
+alias GSourceDummyMarshal = CCodePointer[[],[]];
 
 record Struct__GSourceFuncs (
-    prepare : CCodePointer[(Pointer[Struct__GSource],Pointer[Int]),(Int)],
-    check : CCodePointer[(Pointer[Struct__GSource]),(Int)],
-    dispatch : CCodePointer[(Pointer[Struct__GSource],CCodePointer[(RawPointer),(Int)],RawPointer),(Int)],
-    finalize : CCodePointer[(Pointer[Struct__GSource]),()],
+    prepare : CCodePointer[[Pointer[Struct__GSource],Pointer[Int]],[Int]],
+    check : CCodePointer[[Pointer[Struct__GSource]],[Int]],
+    dispatch : CCodePointer[[Pointer[Struct__GSource],CCodePointer[[RawPointer],[Int]],RawPointer],[Int]],
+    finalize : CCodePointer[[Pointer[Struct__GSource]],[]],
     closure_callback : GSourceFunc,
     closure_marshal : GSourceDummyMarshal,
 );
 
-external g_main_context_new() Pointer[GMainContext];
+external g_main_context_new() : Pointer[GMainContext];
 
 external g_main_context_ref(
-    context : Pointer[GMainContext]) Pointer[GMainContext];
+    context : Pointer[GMainContext]) : Pointer[GMainContext];
 
 external g_main_context_unref(
     context : Pointer[GMainContext]);
 
-external g_main_context_default() Pointer[GMainContext];
+external g_main_context_default() : Pointer[GMainContext];
 
 external g_main_context_iteration(
     context : Pointer[GMainContext],
-    may_block : Int) Int;
+    may_block : Int) : Int;
 
 external g_main_context_pending(
-    context : Pointer[GMainContext]) Int;
+    context : Pointer[GMainContext]) : Int;
 
 external g_main_context_find_source_by_id(
     context : Pointer[GMainContext],
-    source_id : UInt) Pointer[GSource];
+    source_id : UInt) : Pointer[GSource];
 
 external g_main_context_find_source_by_user_data(
     context : Pointer[GMainContext],
-    user_data : gpointer) Pointer[GSource];
+    user_data : gpointer) : Pointer[GSource];
 
 external g_main_context_find_source_by_funcs_user_data(
     context : Pointer[GMainContext],
     funcs : Pointer[GSourceFuncs],
-    user_data : gpointer) Pointer[GSource];
+    user_data : gpointer) : Pointer[GSource];
 
 external g_main_context_wakeup(
     context : Pointer[GMainContext]);
 
 external g_main_context_acquire(
-    context : Pointer[GMainContext]) Int;
+    context : Pointer[GMainContext]) : Int;
 
 external g_main_context_release(
     context : Pointer[GMainContext]);
 
 external g_main_context_is_owner(
-    context : Pointer[GMainContext]) Int;
+    context : Pointer[GMainContext]) : Int;
 
 external g_main_context_wait(
     context : Pointer[GMainContext],
     cond : Pointer[GCond],
-    mutex : Pointer[GMutex]) Int;
+    mutex : Pointer[GMutex]) : Int;
 
 external g_main_context_prepare(
     context : Pointer[GMainContext],
-    priority : Pointer[Int]) Int;
+    priority : Pointer[Int]) : Int;
 
 external g_main_context_query(
     context : Pointer[GMainContext],
     max_priority : Int,
     timeout_ : Pointer[Int],
     fds : Pointer[GPollFD],
-    n_fds : Int) Int;
+    n_fds : Int) : Int;
 
 external g_main_context_check(
     context : Pointer[GMainContext],
     max_priority : Int,
     fds : Pointer[GPollFD],
-    n_fds : Int) Int;
+    n_fds : Int) : Int;
 
 external g_main_context_dispatch(
     context : Pointer[GMainContext]);
@@ -2815,7 +2815,7 @@ external g_main_context_set_poll_func(
     func : GPollFunc);
 
 external g_main_context_get_poll_func(
-    context : Pointer[GMainContext]) GPollFunc;
+    context : Pointer[GMainContext]) : GPollFunc;
 
 external g_main_context_add_poll(
     context : Pointer[GMainContext],
@@ -2826,9 +2826,9 @@ external g_main_context_remove_poll(
     context : Pointer[GMainContext],
     fd : Pointer[GPollFD]);
 
-external g_main_depth() Int;
+external g_main_depth() : Int;
 
-external g_main_current_source() Pointer[GSource];
+external g_main_current_source() : Pointer[GSource];
 
 external g_main_context_push_thread_default(
     context : Pointer[GMainContext]);
@@ -2836,11 +2836,11 @@ external g_main_context_push_thread_default(
 external g_main_context_pop_thread_default(
     context : Pointer[GMainContext]);
 
-external g_main_context_get_thread_default() Pointer[GMainContext];
+external g_main_context_get_thread_default() : Pointer[GMainContext];
 
 external g_main_loop_new(
     context : Pointer[GMainContext],
-    is_running : Int) Pointer[GMainLoop];
+    is_running : Int) : Pointer[GMainLoop];
 
 external g_main_loop_run(
     loop : Pointer[GMainLoop]);
@@ -2849,30 +2849,30 @@ external g_main_loop_quit(
     loop : Pointer[GMainLoop]);
 
 external g_main_loop_ref(
-    loop : Pointer[GMainLoop]) Pointer[GMainLoop];
+    loop : Pointer[GMainLoop]) : Pointer[GMainLoop];
 
 external g_main_loop_unref(
     loop : Pointer[GMainLoop]);
 
 external g_main_loop_is_running(
-    loop : Pointer[GMainLoop]) Int;
+    loop : Pointer[GMainLoop]) : Int;
 
 external g_main_loop_get_context(
-    loop : Pointer[GMainLoop]) Pointer[GMainContext];
+    loop : Pointer[GMainLoop]) : Pointer[GMainContext];
 
 external g_source_new(
     source_funcs : Pointer[GSourceFuncs],
-    struct_size : UInt) Pointer[GSource];
+    struct_size : UInt) : Pointer[GSource];
 
 external g_source_ref(
-    source : Pointer[GSource]) Pointer[GSource];
+    source : Pointer[GSource]) : Pointer[GSource];
 
 external g_source_unref(
     source : Pointer[GSource]);
 
 external g_source_attach(
     source : Pointer[GSource],
-    context : Pointer[GMainContext]) UInt;
+    context : Pointer[GMainContext]) : UInt;
 
 external g_source_destroy(
     source : Pointer[GSource]);
@@ -2882,20 +2882,20 @@ external g_source_set_priority(
     priority : Int);
 
 external g_source_get_priority(
-    source : Pointer[GSource]) Int;
+    source : Pointer[GSource]) : Int;
 
 external g_source_set_can_recurse(
     source : Pointer[GSource],
     can_recurse : Int);
 
 external g_source_get_can_recurse(
-    source : Pointer[GSource]) Int;
+    source : Pointer[GSource]) : Int;
 
 external g_source_get_id(
-    source : Pointer[GSource]) UInt;
+    source : Pointer[GSource]) : UInt;
 
 external g_source_get_context(
-    source : Pointer[GSource]) Pointer[GMainContext];
+    source : Pointer[GSource]) : Pointer[GMainContext];
 
 external g_source_set_callback(
     source : Pointer[GSource],
@@ -2908,14 +2908,14 @@ external g_source_set_funcs(
     funcs : Pointer[GSourceFuncs]);
 
 external g_source_is_destroyed(
-    source : Pointer[GSource]) Int;
+    source : Pointer[GSource]) : Int;
 
 external g_source_set_name(
     source : Pointer[GSource],
     name : Pointer[CChar]);
 
 external g_source_get_name(
-    source : Pointer[GSource]) Pointer[CChar];
+    source : Pointer[GSource]) : Pointer[CChar];
 
 external g_source_set_name_by_id(
     tag : UInt,
@@ -2938,78 +2938,78 @@ external g_source_get_current_time(
     source : Pointer[GSource],
     timeval : Pointer[GTimeVal]);
 
-external g_idle_source_new() Pointer[GSource];
+external g_idle_source_new() : Pointer[GSource];
 
 external g_child_watch_source_new(
-    pid : Int) Pointer[GSource];
+    pid : Int) : Pointer[GSource];
 
 external g_timeout_source_new(
-    interval : UInt) Pointer[GSource];
+    interval : UInt) : Pointer[GSource];
 
 external g_timeout_source_new_seconds(
-    interval : UInt) Pointer[GSource];
+    interval : UInt) : Pointer[GSource];
 
 external g_get_current_time(
     result : Pointer[GTimeVal]);
 
 external g_source_remove(
-    tag : UInt) Int;
+    tag : UInt) : Int;
 
 external g_source_remove_by_user_data(
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external g_source_remove_by_funcs_user_data(
     funcs : Pointer[GSourceFuncs],
-    user_data : gpointer) Int;
+    user_data : gpointer) : Int;
 
 external g_timeout_add_full(
     priority : Int,
     interval : UInt,
     function : GSourceFunc,
     data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external g_timeout_add(
     interval : UInt,
     function : GSourceFunc,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_timeout_add_seconds_full(
     priority : Int,
     interval : UInt,
     function : GSourceFunc,
     data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external g_timeout_add_seconds(
     interval : UInt,
     function : GSourceFunc,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_child_watch_add_full(
     priority : Int,
     pid : Int,
     function : GChildWatchFunc,
     data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external g_child_watch_add(
     pid : Int,
     function : GChildWatchFunc,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_idle_add(
     function : GSourceFunc,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_idle_add_full(
     priority : Int,
     function : GSourceFunc,
     data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external g_idle_remove_by_data(
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external g_timeout_funcs : GSourceFuncs;
 
@@ -3191,82 +3191,82 @@ alias G_UNICODE_SCRIPT_TAI_VIET = 92;
 alias GUnicodeScript = Int;
 
 external g_get_charset(
-    charset : Pointer[Pointer[CChar]]) Int;
+    charset : Pointer[Pointer[CChar]]) : Int;
 
 external g_unichar_isalnum(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isalpha(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_iscntrl(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isdigit(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isgraph(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_islower(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isprint(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_ispunct(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isspace(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isupper(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isxdigit(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_istitle(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_isdefined(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_iswide(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_iswide_cjk(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_iszerowidth(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_ismark(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_toupper(
-    c : UInt) UInt;
+    c : UInt) : UInt;
 
 external g_unichar_tolower(
-    c : UInt) UInt;
+    c : UInt) : UInt;
 
 external g_unichar_totitle(
-    c : UInt) UInt;
+    c : UInt) : UInt;
 
 external g_unichar_digit_value(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_xdigit_value(
-    c : UInt) Int;
+    c : UInt) : Int;
 
 external g_unichar_type(
-    c : UInt) GUnicodeType;
+    c : UInt) : GUnicodeType;
 
 external g_unichar_break_type(
-    c : UInt) GUnicodeBreakType;
+    c : UInt) : GUnicodeBreakType;
 
 external g_unichar_combining_class(
-    uc : UInt) Int;
+    uc : UInt) : Int;
 
 external g_unicode_canonical_ordering(
     string : Pointer[UInt],
@@ -3274,129 +3274,129 @@ external g_unicode_canonical_ordering(
 
 external g_unicode_canonical_decomposition(
     ch : UInt,
-    result_len : Pointer[CULong]) Pointer[UInt];
+    result_len : Pointer[CULong]) : Pointer[UInt];
 
 external g_utf8_skip : Pointer[CChar];
 
 external g_utf8_get_char(
-    p : Pointer[CChar]) UInt;
+    p : Pointer[CChar]) : UInt;
 
 external g_utf8_get_char_validated(
     p : Pointer[CChar],
-    max_len : CLong) UInt;
+    max_len : CLong) : UInt;
 
 external g_utf8_offset_to_pointer(
     str : Pointer[CChar],
-    offset : CLong) Pointer[CChar];
+    offset : CLong) : Pointer[CChar];
 
 external g_utf8_pointer_to_offset(
     str : Pointer[CChar],
-    pos : Pointer[CChar]) CLong;
+    pos : Pointer[CChar]) : CLong;
 
 external g_utf8_prev_char(
-    p : Pointer[CChar]) Pointer[CChar];
+    p : Pointer[CChar]) : Pointer[CChar];
 
 external g_utf8_find_next_char(
     p : Pointer[CChar],
-    end : Pointer[CChar]) Pointer[CChar];
+    end : Pointer[CChar]) : Pointer[CChar];
 
 external g_utf8_find_prev_char(
     str : Pointer[CChar],
-    p : Pointer[CChar]) Pointer[CChar];
+    p : Pointer[CChar]) : Pointer[CChar];
 
 external g_utf8_strlen(
     p : Pointer[CChar],
-    max : CLong) CLong;
+    max : CLong) : CLong;
 
 external g_utf8_strncpy(
     dest : Pointer[CChar],
     src : Pointer[CChar],
-    n : CULong) Pointer[CChar];
+    n : CULong) : Pointer[CChar];
 
 external g_utf8_strchr(
     p : Pointer[CChar],
     len : CLong,
-    c : UInt) Pointer[CChar];
+    c : UInt) : Pointer[CChar];
 
 external g_utf8_strrchr(
     p : Pointer[CChar],
     len : CLong,
-    c : UInt) Pointer[CChar];
+    c : UInt) : Pointer[CChar];
 
 external g_utf8_strreverse(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_utf8_to_utf16(
     str : Pointer[CChar],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[UShort];
+    error : Pointer[Pointer[GError]]) : Pointer[UShort];
 
 external g_utf8_to_ucs4(
     str : Pointer[CChar],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[UInt];
+    error : Pointer[Pointer[GError]]) : Pointer[UInt];
 
 external g_utf8_to_ucs4_fast(
     str : Pointer[CChar],
     len : CLong,
-    items_written : Pointer[CLong]) Pointer[UInt];
+    items_written : Pointer[CLong]) : Pointer[UInt];
 
 external g_utf16_to_ucs4(
     str : Pointer[UShort],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[UInt];
+    error : Pointer[Pointer[GError]]) : Pointer[UInt];
 
 external g_utf16_to_utf8(
     str : Pointer[UShort],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_ucs4_to_utf16(
     str : Pointer[UInt],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[UShort];
+    error : Pointer[Pointer[GError]]) : Pointer[UShort];
 
 external g_ucs4_to_utf8(
     str : Pointer[UInt],
     len : CLong,
     items_read : Pointer[CLong],
     items_written : Pointer[CLong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_unichar_to_utf8(
     c : UInt,
-    outbuf : Pointer[CChar]) Int;
+    outbuf : Pointer[CChar]) : Int;
 
 external g_utf8_validate(
     str : Pointer[CChar],
     max_len : CLong,
-    end : Pointer[Pointer[CChar]]) Int;
+    end : Pointer[Pointer[CChar]]) : Int;
 
 external g_unichar_validate(
-    ch : UInt) Int;
+    ch : UInt) : Int;
 
 external g_utf8_strup(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_utf8_strdown(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_utf8_casefold(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 alias G_NORMALIZE_DEFAULT = 0;
 alias G_NORMALIZE_NFD = 0;
@@ -3412,29 +3412,29 @@ alias GNormalizeMode = Int;
 external g_utf8_normalize(
     str : Pointer[CChar],
     len : CLong,
-    mode : GNormalizeMode) Pointer[CChar];
+    mode : GNormalizeMode) : Pointer[CChar];
 
 external g_utf8_collate(
     str1 : Pointer[CChar],
-    str2 : Pointer[CChar]) Int;
+    str2 : Pointer[CChar]) : Int;
 
 external g_utf8_collate_key(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_utf8_collate_key_for_filename(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_unichar_get_mirror_char(
     ch : UInt,
-    mirrored_ch : Pointer[UInt]) Int;
+    mirrored_ch : Pointer[UInt]) : Int;
 
 external g_unichar_get_script(
-    ch : UInt) GUnicodeScript;
+    ch : UInt) : GUnicodeScript;
 
 external _g_utf8_make_valid(
-    name : Pointer[CChar]) Pointer[CChar];
+    name : Pointer[CChar]) : Pointer[CChar];
 
 alias GString = Struct__GString;
 
@@ -3447,7 +3447,7 @@ record Struct__GString (
 );
 
 external g_string_chunk_new(
-    size : CULong) Pointer[GStringChunk];
+    size : CULong) : Pointer[GStringChunk];
 
 external g_string_chunk_free(
     chunk : Pointer[GStringChunk]);
@@ -3457,126 +3457,126 @@ external g_string_chunk_clear(
 
 external g_string_chunk_insert(
     chunk : Pointer[GStringChunk],
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_string_chunk_insert_len(
     chunk : Pointer[GStringChunk],
     string : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_string_chunk_insert_const(
     chunk : Pointer[GStringChunk],
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_string_new(
-    init : Pointer[CChar]) Pointer[GString];
+    init : Pointer[CChar]) : Pointer[GString];
 
 external g_string_new_len(
     init : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_sized_new(
-    dfl_size : CULong) Pointer[GString];
+    dfl_size : CULong) : Pointer[GString];
 
 external g_string_free(
     string : Pointer[GString],
-    free_segment : Int) Pointer[CChar];
+    free_segment : Int) : Pointer[CChar];
 
 external g_string_equal(
     v : Pointer[GString],
-    v2 : Pointer[GString]) Int;
+    v2 : Pointer[GString]) : Int;
 
 external g_string_hash(
-    str : Pointer[GString]) UInt;
+    str : Pointer[GString]) : UInt;
 
 external g_string_assign(
     string : Pointer[GString],
-    rval : Pointer[CChar]) Pointer[GString];
+    rval : Pointer[CChar]) : Pointer[GString];
 
 external g_string_truncate(
     string : Pointer[GString],
-    len : CULong) Pointer[GString];
+    len : CULong) : Pointer[GString];
 
 external g_string_set_size(
     string : Pointer[GString],
-    len : CULong) Pointer[GString];
+    len : CULong) : Pointer[GString];
 
 external g_string_insert_len(
     string : Pointer[GString],
     pos : CLong,
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_append(
     string : Pointer[GString],
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_append_len(
     string : Pointer[GString],
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_append_c(
     string : Pointer[GString],
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_append_unichar(
     string : Pointer[GString],
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_prepend(
     string : Pointer[GString],
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_prepend_c(
     string : Pointer[GString],
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_prepend_unichar(
     string : Pointer[GString],
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_prepend_len(
     string : Pointer[GString],
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_insert(
     string : Pointer[GString],
     pos : CLong,
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_insert_c(
     string : Pointer[GString],
     pos : CLong,
-    c : CChar) Pointer[GString];
+    c : CChar) : Pointer[GString];
 
 external g_string_insert_unichar(
     string : Pointer[GString],
     pos : CLong,
-    wc : UInt) Pointer[GString];
+    wc : UInt) : Pointer[GString];
 
 external g_string_overwrite(
     string : Pointer[GString],
     pos : CULong,
-    val : Pointer[CChar]) Pointer[GString];
+    val : Pointer[CChar]) : Pointer[GString];
 
 external g_string_overwrite_len(
     string : Pointer[GString],
     pos : CULong,
     val : Pointer[CChar],
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_erase(
     string : Pointer[GString],
     pos : CLong,
-    len : CLong) Pointer[GString];
+    len : CLong) : Pointer[GString];
 
 external g_string_ascii_down(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_ascii_up(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_vprintf(
     string : Pointer[GString],
@@ -3586,7 +3586,7 @@ external g_string_vprintf(
 external g_string_printf(
     string : Pointer[GString],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_string_append_vprintf(
     string : Pointer[GString],
@@ -3596,19 +3596,19 @@ external g_string_append_vprintf(
 external g_string_append_printf(
     string : Pointer[GString],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_string_append_uri_escaped(
     string : Pointer[GString],
     unescaped : Pointer[CChar],
     reserved_chars_allowed : Pointer[CChar],
-    allow_utf8 : Int) Pointer[GString];
+    allow_utf8 : Int) : Pointer[GString];
 
 external g_string_down(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 external g_string_up(
-    string : Pointer[GString]) Pointer[GString];
+    string : Pointer[GString]) : Pointer[GString];
 
 alias GIOChannel = Struct__GIOChannel;
 
@@ -3689,24 +3689,24 @@ record Struct__GIOChannel (
     reserved2 : gpointer,
 );
 
-alias GIOFunc = CCodePointer[(Pointer[Struct__GIOChannel],Int,RawPointer),(Int)];
+alias GIOFunc = CCodePointer[[Pointer[Struct__GIOChannel],Int,RawPointer],[Int]];
 
 record Struct__GIOFuncs (
-    io_read : CCodePointer[(Pointer[Struct__GIOChannel],Pointer[CChar],CULong,Pointer[CULong],Pointer[Pointer[Struct__GError]]),(Int)],
-    io_write : CCodePointer[(Pointer[Struct__GIOChannel],Pointer[CChar],CULong,Pointer[CULong],Pointer[Pointer[Struct__GError]]),(Int)],
-    io_seek : CCodePointer[(Pointer[Struct__GIOChannel],CLong,Int,Pointer[Pointer[Struct__GError]]),(Int)],
-    io_close : CCodePointer[(Pointer[Struct__GIOChannel],Pointer[Pointer[Struct__GError]]),(Int)],
-    io_create_watch : CCodePointer[(Pointer[Struct__GIOChannel],Int),(Pointer[Struct__GSource])],
-    io_free : CCodePointer[(Pointer[Struct__GIOChannel]),()],
-    io_set_flags : CCodePointer[(Pointer[Struct__GIOChannel],Int,Pointer[Pointer[Struct__GError]]),(Int)],
-    io_get_flags : CCodePointer[(Pointer[Struct__GIOChannel]),(Int)],
+    io_read : CCodePointer[[Pointer[Struct__GIOChannel],Pointer[CChar],CULong,Pointer[CULong],Pointer[Pointer[Struct__GError]]],[Int]],
+    io_write : CCodePointer[[Pointer[Struct__GIOChannel],Pointer[CChar],CULong,Pointer[CULong],Pointer[Pointer[Struct__GError]]],[Int]],
+    io_seek : CCodePointer[[Pointer[Struct__GIOChannel],CLong,Int,Pointer[Pointer[Struct__GError]]],[Int]],
+    io_close : CCodePointer[[Pointer[Struct__GIOChannel],Pointer[Pointer[Struct__GError]]],[Int]],
+    io_create_watch : CCodePointer[[Pointer[Struct__GIOChannel],Int],[Pointer[Struct__GSource]]],
+    io_free : CCodePointer[[Pointer[Struct__GIOChannel]],[]],
+    io_set_flags : CCodePointer[[Pointer[Struct__GIOChannel],Int,Pointer[Pointer[Struct__GError]]],[Int]],
+    io_get_flags : CCodePointer[[Pointer[Struct__GIOChannel]],[Int]],
 );
 
 external g_io_channel_init(
     channel : Pointer[GIOChannel]);
 
 external g_io_channel_ref(
-    channel : Pointer[GIOChannel]) Pointer[GIOChannel];
+    channel : Pointer[GIOChannel]) : Pointer[GIOChannel];
 
 external g_io_channel_unref(
     channel : Pointer[GIOChannel]);
@@ -3715,18 +3715,18 @@ external g_io_channel_read(
     channel : Pointer[GIOChannel],
     buf : Pointer[CChar],
     count : CULong,
-    bytes_read : Pointer[CULong]) GIOError;
+    bytes_read : Pointer[CULong]) : GIOError;
 
 external g_io_channel_write(
     channel : Pointer[GIOChannel],
     buf : Pointer[CChar],
     count : CULong,
-    bytes_written : Pointer[CULong]) GIOError;
+    bytes_written : Pointer[CULong]) : GIOError;
 
 external g_io_channel_seek(
     channel : Pointer[GIOChannel],
     offset : CLong,
-    type : GSeekType) GIOError;
+    type : GSeekType) : GIOError;
 
 external g_io_channel_close(
     channel : Pointer[GIOChannel]);
@@ -3734,7 +3734,7 @@ external g_io_channel_close(
 external g_io_channel_shutdown(
     channel : Pointer[GIOChannel],
     flush : Int,
-    err : Pointer[Pointer[GError]]) GIOStatus;
+    err : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_add_watch_full(
     channel : Pointer[GIOChannel],
@@ -3742,35 +3742,35 @@ external g_io_add_watch_full(
     condition : GIOCondition,
     func : GIOFunc,
     user_data : gpointer,
-    notify : GDestroyNotify) UInt;
+    notify : GDestroyNotify) : UInt;
 
 external g_io_create_watch(
     channel : Pointer[GIOChannel],
-    condition : GIOCondition) Pointer[GSource];
+    condition : GIOCondition) : Pointer[GSource];
 
 external g_io_add_watch(
     channel : Pointer[GIOChannel],
     condition : GIOCondition,
     func : GIOFunc,
-    user_data : gpointer) UInt;
+    user_data : gpointer) : UInt;
 
 external g_io_channel_set_buffer_size(
     channel : Pointer[GIOChannel],
     size : CULong);
 
 external g_io_channel_get_buffer_size(
-    channel : Pointer[GIOChannel]) CULong;
+    channel : Pointer[GIOChannel]) : CULong;
 
 external g_io_channel_get_buffer_condition(
-    channel : Pointer[GIOChannel]) GIOCondition;
+    channel : Pointer[GIOChannel]) : GIOCondition;
 
 external g_io_channel_set_flags(
     channel : Pointer[GIOChannel],
     flags : GIOFlags,
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_get_flags(
-    channel : Pointer[GIOChannel]) GIOFlags;
+    channel : Pointer[GIOChannel]) : GIOFlags;
 
 external g_io_channel_set_line_term(
     channel : Pointer[GIOChannel],
@@ -3779,98 +3779,98 @@ external g_io_channel_set_line_term(
 
 external g_io_channel_get_line_term(
     channel : Pointer[GIOChannel],
-    length : Pointer[Int]) Pointer[CChar];
+    length : Pointer[Int]) : Pointer[CChar];
 
 external g_io_channel_set_buffered(
     channel : Pointer[GIOChannel],
     buffered : Int);
 
 external g_io_channel_get_buffered(
-    channel : Pointer[GIOChannel]) Int;
+    channel : Pointer[GIOChannel]) : Int;
 
 external g_io_channel_set_encoding(
     channel : Pointer[GIOChannel],
     encoding : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_get_encoding(
-    channel : Pointer[GIOChannel]) Pointer[CChar];
+    channel : Pointer[GIOChannel]) : Pointer[CChar];
 
 external g_io_channel_set_close_on_unref(
     channel : Pointer[GIOChannel],
     do_close : Int);
 
 external g_io_channel_get_close_on_unref(
-    channel : Pointer[GIOChannel]) Int;
+    channel : Pointer[GIOChannel]) : Int;
 
 external g_io_channel_flush(
     channel : Pointer[GIOChannel],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_read_line(
     channel : Pointer[GIOChannel],
     str_return : Pointer[Pointer[CChar]],
     length : Pointer[CULong],
     terminator_pos : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_read_line_string(
     channel : Pointer[GIOChannel],
     buffer : Pointer[GString],
     terminator_pos : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_read_to_end(
     channel : Pointer[GIOChannel],
     str_return : Pointer[Pointer[CChar]],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_read_chars(
     channel : Pointer[GIOChannel],
     buf : Pointer[CChar],
     count : CULong,
     bytes_read : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_read_unichar(
     channel : Pointer[GIOChannel],
     thechar : Pointer[UInt],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_write_chars(
     channel : Pointer[GIOChannel],
     buf : Pointer[CChar],
     count : CLong,
     bytes_written : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_write_unichar(
     channel : Pointer[GIOChannel],
     thechar : UInt,
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_seek_position(
     channel : Pointer[GIOChannel],
     offset : CLong,
     type : GSeekType,
-    error : Pointer[Pointer[GError]]) GIOStatus;
+    error : Pointer[Pointer[GError]]) : GIOStatus;
 
 external g_io_channel_new_file(
     filename : Pointer[CChar],
     mode : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GIOChannel];
+    error : Pointer[Pointer[GError]]) : Pointer[GIOChannel];
 
-external g_io_channel_error_quark() UInt;
+external g_io_channel_error_quark() : UInt;
 
 external g_io_channel_error_from_errno(
-    en : Int) GIOChannelError;
+    en : Int) : GIOChannelError;
 
 external g_io_channel_unix_new(
-    fd : Int) Pointer[GIOChannel];
+    fd : Int) : Pointer[GIOChannel];
 
 external g_io_channel_unix_get_fd(
-    channel : Pointer[GIOChannel]) Int;
+    channel : Pointer[GIOChannel]) : Int;
 
 external g_io_watch_funcs : GSourceFuncs;
 
@@ -3883,7 +3883,7 @@ alias G_KEY_FILE_ERROR_INVALID_VALUE = 5;
 
 alias GKeyFileError = Int;
 
-external g_key_file_error_quark() UInt;
+external g_key_file_error_quark() : UInt;
 
 alias GKeyFile = Opaque;
 
@@ -3893,7 +3893,7 @@ alias G_KEY_FILE_KEEP_TRANSLATIONS = 2;
 
 alias GKeyFileFlags = Int;
 
-external g_key_file_new() Pointer[GKeyFile];
+external g_key_file_new() : Pointer[GKeyFile];
 
 external g_key_file_free(
     key_file : Pointer[GKeyFile]);
@@ -3906,14 +3906,14 @@ external g_key_file_load_from_file(
     key_file : Pointer[GKeyFile],
     file : Pointer[CChar],
     flags : GKeyFileFlags,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_load_from_data(
     key_file : Pointer[GKeyFile],
     data : Pointer[CChar],
     length : CULong,
     flags : GKeyFileFlags,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_load_from_dirs(
     key_file : Pointer[GKeyFile],
@@ -3921,48 +3921,48 @@ external g_key_file_load_from_dirs(
     search_dirs : Pointer[Pointer[CChar]],
     full_path : Pointer[Pointer[CChar]],
     flags : GKeyFileFlags,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_load_from_data_dirs(
     key_file : Pointer[GKeyFile],
     file : Pointer[CChar],
     full_path : Pointer[Pointer[CChar]],
     flags : GKeyFileFlags,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_to_data(
     key_file : Pointer[GKeyFile],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_key_file_get_start_group(
-    key_file : Pointer[GKeyFile]) Pointer[CChar];
+    key_file : Pointer[GKeyFile]) : Pointer[CChar];
 
 external g_key_file_get_groups(
     key_file : Pointer[GKeyFile],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_key_file_get_keys(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_key_file_has_group(
     key_file : Pointer[GKeyFile],
-    group_name : Pointer[CChar]) Int;
+    group_name : Pointer[CChar]) : Int;
 
 external g_key_file_has_key(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_get_value(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_key_file_set_value(
     key_file : Pointer[GKeyFile],
@@ -3974,7 +3974,7 @@ external g_key_file_get_string(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_key_file_set_string(
     key_file : Pointer[GKeyFile],
@@ -3987,7 +3987,7 @@ external g_key_file_get_locale_string(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     locale : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_key_file_set_locale_string(
     key_file : Pointer[GKeyFile],
@@ -4000,7 +4000,7 @@ external g_key_file_get_boolean(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_set_boolean(
     key_file : Pointer[GKeyFile],
@@ -4012,7 +4012,7 @@ external g_key_file_get_integer(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_set_integer(
     key_file : Pointer[GKeyFile],
@@ -4024,7 +4024,7 @@ external g_key_file_get_int64(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) CLong;
+    error : Pointer[Pointer[GError]]) : CLong;
 
 external g_key_file_set_int64(
     key_file : Pointer[GKeyFile],
@@ -4036,7 +4036,7 @@ external g_key_file_get_uint64(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) CULong;
+    error : Pointer[Pointer[GError]]) : CULong;
 
 external g_key_file_set_uint64(
     key_file : Pointer[GKeyFile],
@@ -4048,7 +4048,7 @@ external g_key_file_get_double(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Double;
+    error : Pointer[Pointer[GError]]) : Double;
 
 external g_key_file_set_double(
     key_file : Pointer[GKeyFile],
@@ -4061,7 +4061,7 @@ external g_key_file_get_string_list(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_key_file_set_string_list(
     key_file : Pointer[GKeyFile],
@@ -4076,7 +4076,7 @@ external g_key_file_get_locale_string_list(
     key : Pointer[CChar],
     locale : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_key_file_set_locale_string_list(
     key_file : Pointer[GKeyFile],
@@ -4091,7 +4091,7 @@ external g_key_file_get_boolean_list(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Int];
+    error : Pointer[Pointer[GError]]) : Pointer[Int];
 
 external g_key_file_set_boolean_list(
     key_file : Pointer[GKeyFile],
@@ -4105,7 +4105,7 @@ external g_key_file_get_integer_list(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Int];
+    error : Pointer[Pointer[GError]]) : Pointer[Int];
 
 external g_key_file_set_double_list(
     key_file : Pointer[GKeyFile],
@@ -4119,7 +4119,7 @@ external g_key_file_get_double_list(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     length : Pointer[CULong],
-    error : Pointer[Pointer[GError]]) Pointer[Double];
+    error : Pointer[Pointer[GError]]) : Pointer[Double];
 
 external g_key_file_set_integer_list(
     key_file : Pointer[GKeyFile],
@@ -4133,46 +4133,46 @@ external g_key_file_set_comment(
     group_name : Pointer[CChar],
     key : Pointer[CChar],
     comment : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_get_comment(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_key_file_remove_comment(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_remove_key(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
     key : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_key_file_remove_group(
     key_file : Pointer[GKeyFile],
     group_name : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 alias GMappedFile = Opaque;
 
 external g_mapped_file_new(
     filename : Pointer[CChar],
     writable : Int,
-    error : Pointer[Pointer[GError]]) Pointer[GMappedFile];
+    error : Pointer[Pointer[GError]]) : Pointer[GMappedFile];
 
 external g_mapped_file_get_length(
-    file : Pointer[GMappedFile]) CULong;
+    file : Pointer[GMappedFile]) : CULong;
 
 external g_mapped_file_get_contents(
-    file : Pointer[GMappedFile]) Pointer[CChar];
+    file : Pointer[GMappedFile]) : Pointer[CChar];
 
 external g_mapped_file_ref(
-    file : Pointer[GMappedFile]) Pointer[GMappedFile];
+    file : Pointer[GMappedFile]) : Pointer[GMappedFile];
 
 external g_mapped_file_unref(
     file : Pointer[GMappedFile]);
@@ -4190,7 +4190,7 @@ alias G_MARKUP_ERROR_MISSING_ATTRIBUTE = 6;
 
 alias GMarkupError = Int;
 
-external g_markup_error_quark() UInt;
+external g_markup_error_quark() : UInt;
 
 alias G_MARKUP_DO_NOT_USE_THIS_UNSUPPORTED_FLAG = 1;
 alias G_MARKUP_TREAT_CDATA_AS_TEXT = 2;
@@ -4203,18 +4203,18 @@ alias GMarkupParseContext = Opaque;
 alias GMarkupParser = Struct__GMarkupParser;
 
 record Struct__GMarkupParser (
-    start_element : CCodePointer[(OpaquePointer,Pointer[CChar],Pointer[Pointer[CChar]],Pointer[Pointer[CChar]],RawPointer,Pointer[Pointer[Struct__GError]]),()],
-    end_element : CCodePointer[(OpaquePointer,Pointer[CChar],RawPointer,Pointer[Pointer[Struct__GError]]),()],
-    text : CCodePointer[(OpaquePointer,Pointer[CChar],CULong,RawPointer,Pointer[Pointer[Struct__GError]]),()],
-    passthrough : CCodePointer[(OpaquePointer,Pointer[CChar],CULong,RawPointer,Pointer[Pointer[Struct__GError]]),()],
-    error : CCodePointer[(OpaquePointer,Pointer[Struct__GError],RawPointer),()],
+    start_element : CCodePointer[[OpaquePointer,Pointer[CChar],Pointer[Pointer[CChar]],Pointer[Pointer[CChar]],RawPointer,Pointer[Pointer[Struct__GError]]],[]],
+    end_element : CCodePointer[[OpaquePointer,Pointer[CChar],RawPointer,Pointer[Pointer[Struct__GError]]],[]],
+    text : CCodePointer[[OpaquePointer,Pointer[CChar],CULong,RawPointer,Pointer[Pointer[Struct__GError]]],[]],
+    passthrough : CCodePointer[[OpaquePointer,Pointer[CChar],CULong,RawPointer,Pointer[Pointer[Struct__GError]]],[]],
+    error : CCodePointer[[OpaquePointer,Pointer[Struct__GError],RawPointer],[]],
 );
 
 external g_markup_parse_context_new(
     parser : Pointer[GMarkupParser],
     flags : GMarkupParseFlags,
     user_data : gpointer,
-    user_data_dnotify : GDestroyNotify) Pointer[GMarkupParseContext];
+    user_data_dnotify : GDestroyNotify) : Pointer[GMarkupParseContext];
 
 external g_markup_parse_context_free(
     context : Pointer[GMarkupParseContext]);
@@ -4223,7 +4223,7 @@ external g_markup_parse_context_parse(
     context : Pointer[GMarkupParseContext],
     text : Pointer[CChar],
     text_len : CLong,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_markup_parse_context_push(
     context : Pointer[GMarkupParseContext],
@@ -4231,17 +4231,17 @@ external g_markup_parse_context_push(
     user_data : gpointer);
 
 external g_markup_parse_context_pop(
-    context : Pointer[GMarkupParseContext]) gpointer;
+    context : Pointer[GMarkupParseContext]) : gpointer;
 
 external g_markup_parse_context_end_parse(
     context : Pointer[GMarkupParseContext],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_markup_parse_context_get_element(
-    context : Pointer[GMarkupParseContext]) Pointer[CChar];
+    context : Pointer[GMarkupParseContext]) : Pointer[CChar];
 
 external g_markup_parse_context_get_element_stack(
-    context : Pointer[GMarkupParseContext]) Pointer[GSList];
+    context : Pointer[GMarkupParseContext]) : Pointer[GSList];
 
 external g_markup_parse_context_get_position(
     context : Pointer[GMarkupParseContext],
@@ -4249,19 +4249,19 @@ external g_markup_parse_context_get_position(
     char_number : Pointer[Int]);
 
 external g_markup_parse_context_get_user_data(
-    context : Pointer[GMarkupParseContext]) gpointer;
+    context : Pointer[GMarkupParseContext]) : gpointer;
 
 external g_markup_escape_text(
     text : Pointer[CChar],
-    length : CLong) Pointer[CChar];
+    length : CLong) : Pointer[CChar];
 
 external g_markup_printf_escaped(
     format : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_markup_vprintf_escaped(
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Pointer[CChar];
+    args : Pointer[__va_list_tag]) : Pointer[CChar];
 
 alias G_MARKUP_COLLECT_INVALID = 0;
 alias G_MARKUP_COLLECT_STRING = 1;
@@ -4279,11 +4279,11 @@ external g_markup_collect_attributes(
     error : Pointer[Pointer[GError]],
     first_type : GMarkupCollectType,
     first_attr : Pointer[CChar],
-    ...) Int;
+    ..) : Int;
 
 external g_printf_string_upper_bound(
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) CULong;
+    args : Pointer[__va_list_tag]) : CULong;
 
 alias G_LOG_FLAG_RECURSION = 1;
 alias G_LOG_FLAG_FATAL = 2;
@@ -4297,13 +4297,13 @@ alias G_LOG_LEVEL_MASK = 4294967292;
 
 alias GLogLevelFlags = Int;
 
-alias GLogFunc = CCodePointer[(Pointer[CChar],Int,Pointer[CChar],RawPointer),()];
+alias GLogFunc = CCodePointer[[Pointer[CChar],Int,Pointer[CChar],RawPointer],[]];
 
 external g_log_set_handler(
     log_domain : Pointer[CChar],
     log_levels : GLogLevelFlags,
     log_func : GLogFunc,
-    user_data : gpointer) UInt;
+    user_data : gpointer) : UInt;
 
 external g_log_remove_handler(
     log_domain : Pointer[CChar],
@@ -4317,13 +4317,13 @@ external g_log_default_handler(
 
 external g_log_set_default_handler(
     log_func : GLogFunc,
-    user_data : gpointer) GLogFunc;
+    user_data : gpointer) : GLogFunc;
 
 external g_log(
     log_domain : Pointer[CChar],
     log_level : GLogLevelFlags,
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_logv(
     log_domain : Pointer[CChar],
@@ -4333,10 +4333,10 @@ external g_logv(
 
 external g_log_set_fatal_mask(
     log_domain : Pointer[CChar],
-    fatal_mask : GLogLevelFlags) GLogLevelFlags;
+    fatal_mask : GLogLevelFlags) : GLogLevelFlags;
 
 external g_log_set_always_fatal(
-    fatal_mask : GLogLevelFlags) GLogLevelFlags;
+    fatal_mask : GLogLevelFlags) : GLogLevelFlags;
 
 external _g_log_fallback_handler(
     log_domain : Pointer[CChar],
@@ -4363,21 +4363,21 @@ external g_assert_warning(
     pretty_function : Pointer[CChar],
     expression : Pointer[CChar]);
 
-alias GPrintFunc = CCodePointer[(Pointer[CChar]),()];
+alias GPrintFunc = CCodePointer[[Pointer[CChar]],[]];
 
 external g_print(
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_set_print_handler(
-    func : GPrintFunc) GPrintFunc;
+    func : GPrintFunc) : GPrintFunc;
 
 external g_printerr(
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_set_printerr_handler(
-    func : GPrintFunc) GPrintFunc;
+    func : GPrintFunc) : GPrintFunc;
 
 alias GNode = Struct__GNode;
 
@@ -4397,11 +4397,11 @@ alias G_LEVEL_ORDER = 3;
 
 alias GTraverseType = Int;
 
-alias GNodeTraverseFunc = CCodePointer[(Pointer[Struct__GNode],RawPointer),(Int)];
+alias GNodeTraverseFunc = CCodePointer[[Pointer[Struct__GNode],RawPointer],[Int]];
 
-alias GNodeForeachFunc = CCodePointer[(Pointer[Struct__GNode],RawPointer),()];
+alias GNodeForeachFunc = CCodePointer[[Pointer[Struct__GNode],RawPointer],[]];
 
-alias GCopyFunc = CCodePointer[(RawPointer,RawPointer),(RawPointer)];
+alias GCopyFunc = CCodePointer[[RawPointer,RawPointer],[RawPointer]];
 
 record Struct__GNode (
     data : gpointer,
@@ -4412,7 +4412,7 @@ record Struct__GNode (
 );
 
 external g_node_new(
-    data : gpointer) Pointer[GNode];
+    data : gpointer) : Pointer[GNode];
 
 external g_node_destroy(
     root : Pointer[GNode]);
@@ -4423,49 +4423,49 @@ external g_node_unlink(
 external g_node_copy_deep(
     node : Pointer[GNode],
     copy_func : GCopyFunc,
-    data : gpointer) Pointer[GNode];
+    data : gpointer) : Pointer[GNode];
 
 external g_node_copy(
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_insert(
     parent : Pointer[GNode],
     position : Int,
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_insert_before(
     parent : Pointer[GNode],
     sibling : Pointer[GNode],
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_insert_after(
     parent : Pointer[GNode],
     sibling : Pointer[GNode],
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_prepend(
     parent : Pointer[GNode],
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_n_nodes(
     root : Pointer[GNode],
-    flags : GTraverseFlags) UInt;
+    flags : GTraverseFlags) : UInt;
 
 external g_node_get_root(
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_is_ancestor(
     node : Pointer[GNode],
-    descendant : Pointer[GNode]) Int;
+    descendant : Pointer[GNode]) : Int;
 
 external g_node_depth(
-    node : Pointer[GNode]) UInt;
+    node : Pointer[GNode]) : UInt;
 
 external g_node_find(
     root : Pointer[GNode],
     order : GTraverseType,
     flags : GTraverseFlags,
-    data : gpointer) Pointer[GNode];
+    data : gpointer) : Pointer[GNode];
 
 external g_node_traverse(
     root : Pointer[GNode],
@@ -4476,7 +4476,7 @@ external g_node_traverse(
     data : gpointer);
 
 external g_node_max_height(
-    root : Pointer[GNode]) UInt;
+    root : Pointer[GNode]) : UInt;
 
 external g_node_children_foreach(
     node : Pointer[GNode],
@@ -4488,33 +4488,33 @@ external g_node_reverse_children(
     node : Pointer[GNode]);
 
 external g_node_n_children(
-    node : Pointer[GNode]) UInt;
+    node : Pointer[GNode]) : UInt;
 
 external g_node_nth_child(
     node : Pointer[GNode],
-    n : UInt) Pointer[GNode];
+    n : UInt) : Pointer[GNode];
 
 external g_node_last_child(
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_find_child(
     node : Pointer[GNode],
     flags : GTraverseFlags,
-    data : gpointer) Pointer[GNode];
+    data : gpointer) : Pointer[GNode];
 
 external g_node_child_position(
     node : Pointer[GNode],
-    child : Pointer[GNode]) Int;
+    child : Pointer[GNode]) : Int;
 
 external g_node_child_index(
     node : Pointer[GNode],
-    data : gpointer) Int;
+    data : gpointer) : Int;
 
 external g_node_first_sibling(
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_last_sibling(
-    node : Pointer[GNode]) Pointer[GNode];
+    node : Pointer[GNode]) : Pointer[GNode];
 
 external g_node_push_allocator(
     dummy : gpointer);
@@ -4549,11 +4549,11 @@ alias G_OPTION_ARG_INT64 = 8;
 
 alias GOptionArg = Int;
 
-alias GOptionArgFunc = CCodePointer[(Pointer[CChar],Pointer[CChar],RawPointer,Pointer[Pointer[Struct__GError]]),(Int)];
+alias GOptionArgFunc = CCodePointer[[Pointer[CChar],Pointer[CChar],RawPointer,Pointer[Pointer[Struct__GError]]],[Int]];
 
-alias GOptionParseFunc = CCodePointer[(OpaquePointer,OpaquePointer,RawPointer,Pointer[Pointer[Struct__GError]]),(Int)];
+alias GOptionParseFunc = CCodePointer[[OpaquePointer,OpaquePointer,RawPointer,Pointer[Pointer[Struct__GError]]],[Int]];
 
-alias GOptionErrorFunc = CCodePointer[(OpaquePointer,OpaquePointer,RawPointer,Pointer[Pointer[Struct__GError]]),()];
+alias GOptionErrorFunc = CCodePointer[[OpaquePointer,OpaquePointer,RawPointer,Pointer[Pointer[Struct__GError]]],[]];
 
 alias G_OPTION_ERROR_UNKNOWN_OPTION = 0;
 alias G_OPTION_ERROR_BAD_VALUE = 1;
@@ -4561,7 +4561,7 @@ alias G_OPTION_ERROR_FAILED = 2;
 
 alias GOptionError = Int;
 
-external g_option_error_quark() UInt;
+external g_option_error_quark() : UInt;
 
 record Struct__GOptionEntry (
     long_name : Pointer[CChar],
@@ -4574,21 +4574,21 @@ record Struct__GOptionEntry (
 );
 
 external g_option_context_new(
-    parameter_string : Pointer[CChar]) Pointer[GOptionContext];
+    parameter_string : Pointer[CChar]) : Pointer[GOptionContext];
 
 external g_option_context_set_summary(
     context : Pointer[GOptionContext],
     summary : Pointer[CChar]);
 
 external g_option_context_get_summary(
-    context : Pointer[GOptionContext]) Pointer[CChar];
+    context : Pointer[GOptionContext]) : Pointer[CChar];
 
 external g_option_context_set_description(
     context : Pointer[GOptionContext],
     description : Pointer[CChar]);
 
 external g_option_context_get_description(
-    context : Pointer[GOptionContext]) Pointer[CChar];
+    context : Pointer[GOptionContext]) : Pointer[CChar];
 
 external g_option_context_free(
     context : Pointer[GOptionContext]);
@@ -4598,14 +4598,14 @@ external g_option_context_set_help_enabled(
     help_enabled : Int);
 
 external g_option_context_get_help_enabled(
-    context : Pointer[GOptionContext]) Int;
+    context : Pointer[GOptionContext]) : Int;
 
 external g_option_context_set_ignore_unknown_options(
     context : Pointer[GOptionContext],
     ignore_unknown : Int);
 
 external g_option_context_get_ignore_unknown_options(
-    context : Pointer[GOptionContext]) Int;
+    context : Pointer[GOptionContext]) : Int;
 
 external g_option_context_add_main_entries(
     context : Pointer[GOptionContext],
@@ -4616,7 +4616,7 @@ external g_option_context_parse(
     context : Pointer[GOptionContext],
     argc : Pointer[Int],
     argv : Pointer[Pointer[Pointer[CChar]]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_option_context_set_translate_func(
     context : Pointer[GOptionContext],
@@ -4637,19 +4637,19 @@ external g_option_context_set_main_group(
     group : Pointer[GOptionGroup]);
 
 external g_option_context_get_main_group(
-    context : Pointer[GOptionContext]) Pointer[GOptionGroup];
+    context : Pointer[GOptionContext]) : Pointer[GOptionGroup];
 
 external g_option_context_get_help(
     context : Pointer[GOptionContext],
     main_help : Int,
-    group : Pointer[GOptionGroup]) Pointer[CChar];
+    group : Pointer[GOptionGroup]) : Pointer[CChar];
 
 external g_option_group_new(
     name : Pointer[CChar],
     description : Pointer[CChar],
     help_description : Pointer[CChar],
     user_data : gpointer,
-    destroy : GDestroyNotify) Pointer[GOptionGroup];
+    destroy : GDestroyNotify) : Pointer[GOptionGroup];
 
 external g_option_group_set_parse_hooks(
     group : Pointer[GOptionGroup],
@@ -4680,31 +4680,31 @@ external g_option_group_set_translation_domain(
 alias GPatternSpec = Opaque;
 
 external g_pattern_spec_new(
-    pattern : Pointer[CChar]) Pointer[GPatternSpec];
+    pattern : Pointer[CChar]) : Pointer[GPatternSpec];
 
 external g_pattern_spec_free(
     pspec : Pointer[GPatternSpec]);
 
 external g_pattern_spec_equal(
     pspec1 : Pointer[GPatternSpec],
-    pspec2 : Pointer[GPatternSpec]) Int;
+    pspec2 : Pointer[GPatternSpec]) : Int;
 
 external g_pattern_match(
     pspec : Pointer[GPatternSpec],
     string_length : UInt,
     string : Pointer[CChar],
-    string_reversed : Pointer[CChar]) Int;
+    string_reversed : Pointer[CChar]) : Int;
 
 external g_pattern_match_string(
     pspec : Pointer[GPatternSpec],
-    string : Pointer[CChar]) Int;
+    string : Pointer[CChar]) : Int;
 
 external g_pattern_match_simple(
     pattern : Pointer[CChar],
-    string : Pointer[CChar]) Int;
+    string : Pointer[CChar]) : Int;
 
 external g_spaced_primes_closest(
-    num : UInt) UInt;
+    num : UInt) : UInt;
 
 external g_qsort_with_data(
     pbase : gconstpointer,
@@ -4721,7 +4721,7 @@ record Struct__GQueue (
     length : UInt,
 );
 
-external g_queue_new() Pointer[GQueue];
+external g_queue_new() : Pointer[GQueue];
 
 external g_queue_free(
     queue : Pointer[GQueue]);
@@ -4733,16 +4733,16 @@ external g_queue_clear(
     queue : Pointer[GQueue]);
 
 external g_queue_is_empty(
-    queue : Pointer[GQueue]) Int;
+    queue : Pointer[GQueue]) : Int;
 
 external g_queue_get_length(
-    queue : Pointer[GQueue]) UInt;
+    queue : Pointer[GQueue]) : UInt;
 
 external g_queue_reverse(
     queue : Pointer[GQueue]);
 
 external g_queue_copy(
-    queue : Pointer[GQueue]) Pointer[GQueue];
+    queue : Pointer[GQueue]) : Pointer[GQueue];
 
 external g_queue_foreach(
     queue : Pointer[GQueue],
@@ -4751,12 +4751,12 @@ external g_queue_foreach(
 
 external g_queue_find(
     queue : Pointer[GQueue],
-    data : gconstpointer) Pointer[GList];
+    data : gconstpointer) : Pointer[GList];
 
 external g_queue_find_custom(
     queue : Pointer[GQueue],
     data : gconstpointer,
-    func : GCompareFunc) Pointer[GList];
+    func : GCompareFunc) : Pointer[GList];
 
 external g_queue_sort(
     queue : Pointer[GQueue],
@@ -4777,28 +4777,28 @@ external g_queue_push_nth(
     n : Int);
 
 external g_queue_pop_head(
-    queue : Pointer[GQueue]) gpointer;
+    queue : Pointer[GQueue]) : gpointer;
 
 external g_queue_pop_tail(
-    queue : Pointer[GQueue]) gpointer;
+    queue : Pointer[GQueue]) : gpointer;
 
 external g_queue_pop_nth(
     queue : Pointer[GQueue],
-    n : UInt) gpointer;
+    n : UInt) : gpointer;
 
 external g_queue_peek_head(
-    queue : Pointer[GQueue]) gpointer;
+    queue : Pointer[GQueue]) : gpointer;
 
 external g_queue_peek_tail(
-    queue : Pointer[GQueue]) gpointer;
+    queue : Pointer[GQueue]) : gpointer;
 
 external g_queue_peek_nth(
     queue : Pointer[GQueue],
-    n : UInt) gpointer;
+    n : UInt) : gpointer;
 
 external g_queue_index(
     queue : Pointer[GQueue],
-    data : gconstpointer) Int;
+    data : gconstpointer) : Int;
 
 external g_queue_remove(
     queue : Pointer[GQueue],
@@ -4838,28 +4838,28 @@ external g_queue_push_nth_link(
     link_ : Pointer[GList]);
 
 external g_queue_pop_head_link(
-    queue : Pointer[GQueue]) Pointer[GList];
+    queue : Pointer[GQueue]) : Pointer[GList];
 
 external g_queue_pop_tail_link(
-    queue : Pointer[GQueue]) Pointer[GList];
+    queue : Pointer[GQueue]) : Pointer[GList];
 
 external g_queue_pop_nth_link(
     queue : Pointer[GQueue],
-    n : UInt) Pointer[GList];
+    n : UInt) : Pointer[GList];
 
 external g_queue_peek_head_link(
-    queue : Pointer[GQueue]) Pointer[GList];
+    queue : Pointer[GQueue]) : Pointer[GList];
 
 external g_queue_peek_tail_link(
-    queue : Pointer[GQueue]) Pointer[GList];
+    queue : Pointer[GQueue]) : Pointer[GList];
 
 external g_queue_peek_nth_link(
     queue : Pointer[GQueue],
-    n : UInt) Pointer[GList];
+    n : UInt) : Pointer[GList];
 
 external g_queue_link_index(
     queue : Pointer[GQueue],
-    link_ : Pointer[GList]) Int;
+    link_ : Pointer[GList]) : Int;
 
 external g_queue_unlink(
     queue : Pointer[GQueue],
@@ -4872,19 +4872,19 @@ external g_queue_delete_link(
 alias GRand = Opaque;
 
 external g_rand_new_with_seed(
-    seed : UInt) Pointer[GRand];
+    seed : UInt) : Pointer[GRand];
 
 external g_rand_new_with_seed_array(
     seed : Pointer[UInt],
-    seed_length : UInt) Pointer[GRand];
+    seed_length : UInt) : Pointer[GRand];
 
-external g_rand_new() Pointer[GRand];
+external g_rand_new() : Pointer[GRand];
 
 external g_rand_free(
     rand_ : Pointer[GRand]);
 
 external g_rand_copy(
-    rand_ : Pointer[GRand]) Pointer[GRand];
+    rand_ : Pointer[GRand]) : Pointer[GRand];
 
 external g_rand_set_seed(
     rand_ : Pointer[GRand],
@@ -4896,35 +4896,35 @@ external g_rand_set_seed_array(
     seed_length : UInt);
 
 external g_rand_int(
-    rand_ : Pointer[GRand]) UInt;
+    rand_ : Pointer[GRand]) : UInt;
 
 external g_rand_int_range(
     rand_ : Pointer[GRand],
     begin : Int,
-    end : Int) Int;
+    end : Int) : Int;
 
 external g_rand_double(
-    rand_ : Pointer[GRand]) Double;
+    rand_ : Pointer[GRand]) : Double;
 
 external g_rand_double_range(
     rand_ : Pointer[GRand],
     begin : Double,
-    end : Double) Double;
+    end : Double) : Double;
 
 external g_random_set_seed(
     seed : UInt);
 
-external g_random_int() UInt;
+external g_random_int() : UInt;
 
 external g_random_int_range(
     begin : Int,
-    end : Int) Int;
+    end : Int) : Int;
 
-external g_random_double() Double;
+external g_random_double() : Double;
 
 external g_random_double_range(
     begin : Double,
-    end : Double) Double;
+    end : Double) : Double;
 
 alias GRelation = Opaque;
 
@@ -4935,7 +4935,7 @@ record Struct__GTuples (
 );
 
 external g_relation_new(
-    fields : Int) Pointer[GRelation];
+    fields : Int) : Pointer[GRelation];
 
 external g_relation_destroy(
     relation : Pointer[GRelation]);
@@ -4948,26 +4948,26 @@ external g_relation_index(
 
 external g_relation_insert(
     relation : Pointer[GRelation],
-    ...);
+    ..);
 
 external g_relation_delete(
     relation : Pointer[GRelation],
     key : gconstpointer,
-    field : Int) Int;
+    field : Int) : Int;
 
 external g_relation_select(
     relation : Pointer[GRelation],
     key : gconstpointer,
-    field : Int) Pointer[GTuples];
+    field : Int) : Pointer[GTuples];
 
 external g_relation_count(
     relation : Pointer[GRelation],
     key : gconstpointer,
-    field : Int) Int;
+    field : Int) : Int;
 
 external g_relation_exists(
     relation : Pointer[GRelation],
-    ...) Int;
+    ..) : Int;
 
 external g_relation_print(
     relation : Pointer[GRelation]);
@@ -4978,7 +4978,7 @@ external g_tuples_destroy(
 external g_tuples_index(
     tuples : Pointer[GTuples],
     index_ : Int,
-    field : Int) gpointer;
+    field : Int) : gpointer;
 
 alias G_REGEX_ERROR_COMPILE = 0;
 alias G_REGEX_ERROR_OPTIMIZE = 1;
@@ -5025,7 +5025,7 @@ alias G_REGEX_ERROR_MISSING_BACK_REFERENCE = 157;
 
 alias GRegexError = Int;
 
-external g_regex_error_quark() UInt;
+external g_regex_error_quark() : UInt;
 
 alias G_REGEX_CASELESS = 1;
 alias G_REGEX_MULTILINE = 2;
@@ -5060,54 +5060,54 @@ alias GRegex = Opaque;
 
 alias GMatchInfo = Opaque;
 
-alias GRegexEvalCallback = CCodePointer[(OpaquePointer,Pointer[Struct__GString],RawPointer),(Int)];
+alias GRegexEvalCallback = CCodePointer[[OpaquePointer,Pointer[Struct__GString],RawPointer],[Int]];
 
 external g_regex_new(
     pattern : Pointer[CChar],
     compile_options : GRegexCompileFlags,
     match_options : GRegexMatchFlags,
-    error : Pointer[Pointer[GError]]) Pointer[GRegex];
+    error : Pointer[Pointer[GError]]) : Pointer[GRegex];
 
 external g_regex_ref(
-    regex : Pointer[GRegex]) Pointer[GRegex];
+    regex : Pointer[GRegex]) : Pointer[GRegex];
 
 external g_regex_unref(
     regex : Pointer[GRegex]);
 
 external g_regex_get_pattern(
-    regex : Pointer[GRegex]) Pointer[CChar];
+    regex : Pointer[GRegex]) : Pointer[CChar];
 
 external g_regex_get_max_backref(
-    regex : Pointer[GRegex]) Int;
+    regex : Pointer[GRegex]) : Int;
 
 external g_regex_get_capture_count(
-    regex : Pointer[GRegex]) Int;
+    regex : Pointer[GRegex]) : Int;
 
 external g_regex_get_string_number(
     regex : Pointer[GRegex],
-    name : Pointer[CChar]) Int;
+    name : Pointer[CChar]) : Int;
 
 external g_regex_escape_string(
     string : Pointer[CChar],
-    length : Int) Pointer[CChar];
+    length : Int) : Pointer[CChar];
 
 external g_regex_get_compile_flags(
-    regex : Pointer[GRegex]) GRegexCompileFlags;
+    regex : Pointer[GRegex]) : GRegexCompileFlags;
 
 external g_regex_get_match_flags(
-    regex : Pointer[GRegex]) GRegexMatchFlags;
+    regex : Pointer[GRegex]) : GRegexMatchFlags;
 
 external g_regex_match_simple(
     pattern : Pointer[CChar],
     string : Pointer[CChar],
     compile_options : GRegexCompileFlags,
-    match_options : GRegexMatchFlags) Int;
+    match_options : GRegexMatchFlags) : Int;
 
 external g_regex_match(
     regex : Pointer[GRegex],
     string : Pointer[CChar],
     match_options : GRegexMatchFlags,
-    match_info : Pointer[Pointer[GMatchInfo]]) Int;
+    match_info : Pointer[Pointer[GMatchInfo]]) : Int;
 
 external g_regex_match_full(
     regex : Pointer[GRegex],
@@ -5116,13 +5116,13 @@ external g_regex_match_full(
     start_position : Int,
     match_options : GRegexMatchFlags,
     match_info : Pointer[Pointer[GMatchInfo]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_regex_match_all(
     regex : Pointer[GRegex],
     string : Pointer[CChar],
     match_options : GRegexMatchFlags,
-    match_info : Pointer[Pointer[GMatchInfo]]) Int;
+    match_info : Pointer[Pointer[GMatchInfo]]) : Int;
 
 external g_regex_match_all_full(
     regex : Pointer[GRegex],
@@ -5131,18 +5131,18 @@ external g_regex_match_all_full(
     start_position : Int,
     match_options : GRegexMatchFlags,
     match_info : Pointer[Pointer[GMatchInfo]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_regex_split_simple(
     pattern : Pointer[CChar],
     string : Pointer[CChar],
     compile_options : GRegexCompileFlags,
-    match_options : GRegexMatchFlags) Pointer[Pointer[CChar]];
+    match_options : GRegexMatchFlags) : Pointer[Pointer[CChar]];
 
 external g_regex_split(
     regex : Pointer[GRegex],
     string : Pointer[CChar],
-    match_options : GRegexMatchFlags) Pointer[Pointer[CChar]];
+    match_options : GRegexMatchFlags) : Pointer[Pointer[CChar]];
 
 external g_regex_split_full(
     regex : Pointer[GRegex],
@@ -5151,7 +5151,7 @@ external g_regex_split_full(
     start_position : Int,
     match_options : GRegexMatchFlags,
     max_tokens : Int,
-    error : Pointer[Pointer[GError]]) Pointer[Pointer[CChar]];
+    error : Pointer[Pointer[GError]]) : Pointer[Pointer[CChar]];
 
 external g_regex_replace(
     regex : Pointer[GRegex],
@@ -5160,7 +5160,7 @@ external g_regex_replace(
     start_position : Int,
     replacement : Pointer[CChar],
     match_options : GRegexMatchFlags,
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_regex_replace_literal(
     regex : Pointer[GRegex],
@@ -5169,7 +5169,7 @@ external g_regex_replace_literal(
     start_position : Int,
     replacement : Pointer[CChar],
     match_options : GRegexMatchFlags,
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_regex_replace_eval(
     regex : Pointer[GRegex],
@@ -5179,62 +5179,62 @@ external g_regex_replace_eval(
     match_options : GRegexMatchFlags,
     eval : GRegexEvalCallback,
     user_data : gpointer,
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_regex_check_replacement(
     replacement : Pointer[CChar],
     has_references : Pointer[Int],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_match_info_get_regex(
-    match_info : Pointer[GMatchInfo]) Pointer[GRegex];
+    match_info : Pointer[GMatchInfo]) : Pointer[GRegex];
 
 external g_match_info_get_string(
-    match_info : Pointer[GMatchInfo]) Pointer[CChar];
+    match_info : Pointer[GMatchInfo]) : Pointer[CChar];
 
 external g_match_info_free(
     match_info : Pointer[GMatchInfo]);
 
 external g_match_info_next(
     match_info : Pointer[GMatchInfo],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_match_info_matches(
-    match_info : Pointer[GMatchInfo]) Int;
+    match_info : Pointer[GMatchInfo]) : Int;
 
 external g_match_info_get_match_count(
-    match_info : Pointer[GMatchInfo]) Int;
+    match_info : Pointer[GMatchInfo]) : Int;
 
 external g_match_info_is_partial_match(
-    match_info : Pointer[GMatchInfo]) Int;
+    match_info : Pointer[GMatchInfo]) : Int;
 
 external g_match_info_expand_references(
     match_info : Pointer[GMatchInfo],
     string_to_expand : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_match_info_fetch(
     match_info : Pointer[GMatchInfo],
-    match_num : Int) Pointer[CChar];
+    match_num : Int) : Pointer[CChar];
 
 external g_match_info_fetch_pos(
     match_info : Pointer[GMatchInfo],
     match_num : Int,
     start_pos : Pointer[Int],
-    end_pos : Pointer[Int]) Int;
+    end_pos : Pointer[Int]) : Int;
 
 external g_match_info_fetch_named(
     match_info : Pointer[GMatchInfo],
-    name : Pointer[CChar]) Pointer[CChar];
+    name : Pointer[CChar]) : Pointer[CChar];
 
 external g_match_info_fetch_named_pos(
     match_info : Pointer[GMatchInfo],
     name : Pointer[CChar],
     start_pos : Pointer[Int],
-    end_pos : Pointer[Int]) Int;
+    end_pos : Pointer[Int]) : Int;
 
 external g_match_info_fetch_all(
-    match_info : Pointer[GMatchInfo]) Pointer[Pointer[CChar]];
+    match_info : Pointer[GMatchInfo]) : Pointer[Pointer[CChar]];
 
 alias GScanner = Struct__GScanner;
 
@@ -5242,7 +5242,7 @@ alias GScannerConfig = Struct__GScannerConfig;
 
 alias GTokenValue = AUnionType;
 
-alias GScannerMsgFunc = CCodePointer[(Pointer[Struct__GScanner],Pointer[CChar],Int),()];
+alias GScannerMsgFunc = CCodePointer[[Pointer[Struct__GScanner],Pointer[CChar],Int],[]];
 
 alias G_ERR_UNKNOWN = 0;
 alias G_ERR_UNEXP_EOF = 1;
@@ -5337,7 +5337,7 @@ record Struct__GScanner (
 );
 
 external g_scanner_new(
-    config_templ : Pointer[GScannerConfig]) Pointer[GScanner];
+    config_templ : Pointer[GScannerConfig]) : Pointer[GScanner];
 
 external g_scanner_destroy(
     scanner : Pointer[GScanner]);
@@ -5355,29 +5355,29 @@ external g_scanner_input_text(
     text_len : UInt);
 
 external g_scanner_get_next_token(
-    scanner : Pointer[GScanner]) GTokenType;
+    scanner : Pointer[GScanner]) : GTokenType;
 
 external g_scanner_peek_next_token(
-    scanner : Pointer[GScanner]) GTokenType;
+    scanner : Pointer[GScanner]) : GTokenType;
 
 external g_scanner_cur_token(
-    scanner : Pointer[GScanner]) GTokenType;
+    scanner : Pointer[GScanner]) : GTokenType;
 
 external g_scanner_cur_value(
-    scanner : Pointer[GScanner]) GTokenValue;
+    scanner : Pointer[GScanner]) : GTokenValue;
 
 external g_scanner_cur_line(
-    scanner : Pointer[GScanner]) UInt;
+    scanner : Pointer[GScanner]) : UInt;
 
 external g_scanner_cur_position(
-    scanner : Pointer[GScanner]) UInt;
+    scanner : Pointer[GScanner]) : UInt;
 
 external g_scanner_eof(
-    scanner : Pointer[GScanner]) Int;
+    scanner : Pointer[GScanner]) : Int;
 
 external g_scanner_set_scope(
     scanner : Pointer[GScanner],
-    scope_id : UInt) UInt;
+    scope_id : UInt) : UInt;
 
 external g_scanner_scope_add_symbol(
     scanner : Pointer[GScanner],
@@ -5393,7 +5393,7 @@ external g_scanner_scope_remove_symbol(
 external g_scanner_scope_lookup_symbol(
     scanner : Pointer[GScanner],
     scope_id : UInt,
-    symbol : Pointer[CChar]) gpointer;
+    symbol : Pointer[CChar]) : gpointer;
 
 external g_scanner_scope_foreach_symbol(
     scanner : Pointer[GScanner],
@@ -5403,7 +5403,7 @@ external g_scanner_scope_foreach_symbol(
 
 external g_scanner_lookup_symbol(
     scanner : Pointer[GScanner],
-    symbol : Pointer[CChar]) gpointer;
+    symbol : Pointer[CChar]) : gpointer;
 
 external g_scanner_unexp_token(
     scanner : Pointer[GScanner],
@@ -5417,27 +5417,27 @@ external g_scanner_unexp_token(
 external g_scanner_error(
     scanner : Pointer[GScanner],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_scanner_warn(
     scanner : Pointer[GScanner],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 alias GSequence = Opaque;
 
 alias GSequenceIter = Opaque;
 
-alias GSequenceIterCompareFunc = CCodePointer[(OpaquePointer,OpaquePointer,RawPointer),(Int)];
+alias GSequenceIterCompareFunc = CCodePointer[[OpaquePointer,OpaquePointer,RawPointer],[Int]];
 
 external g_sequence_new(
-    data_destroy : GDestroyNotify) Pointer[GSequence];
+    data_destroy : GDestroyNotify) : Pointer[GSequence];
 
 external g_sequence_free(
     seq : Pointer[GSequence]);
 
 external g_sequence_get_length(
-    seq : Pointer[GSequence]) Int;
+    seq : Pointer[GSequence]) : Int;
 
 external g_sequence_foreach(
     seq : Pointer[GSequence],
@@ -5461,26 +5461,26 @@ external g_sequence_sort_iter(
     cmp_data : gpointer);
 
 external g_sequence_get_begin_iter(
-    seq : Pointer[GSequence]) Pointer[GSequenceIter];
+    seq : Pointer[GSequence]) : Pointer[GSequenceIter];
 
 external g_sequence_get_end_iter(
-    seq : Pointer[GSequence]) Pointer[GSequenceIter];
+    seq : Pointer[GSequence]) : Pointer[GSequenceIter];
 
 external g_sequence_get_iter_at_pos(
     seq : Pointer[GSequence],
-    pos : Int) Pointer[GSequenceIter];
+    pos : Int) : Pointer[GSequenceIter];
 
 external g_sequence_append(
     seq : Pointer[GSequence],
-    data : gpointer) Pointer[GSequenceIter];
+    data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_prepend(
     seq : Pointer[GSequence],
-    data : gpointer) Pointer[GSequenceIter];
+    data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_insert_before(
     iter : Pointer[GSequenceIter],
-    data : gpointer) Pointer[GSequenceIter];
+    data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_move(
     src : Pointer[GSequenceIter],
@@ -5494,13 +5494,13 @@ external g_sequence_insert_sorted(
     seq : Pointer[GSequence],
     data : gpointer,
     cmp_func : GCompareDataFunc,
-    cmp_data : gpointer) Pointer[GSequenceIter];
+    cmp_data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_insert_sorted_iter(
     seq : Pointer[GSequence],
     data : gpointer,
     iter_cmp : GSequenceIterCompareFunc,
-    cmp_data : gpointer) Pointer[GSequenceIter];
+    cmp_data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_sort_changed(
     iter : Pointer[GSequenceIter],
@@ -5528,50 +5528,50 @@ external g_sequence_search(
     seq : Pointer[GSequence],
     data : gpointer,
     cmp_func : GCompareDataFunc,
-    cmp_data : gpointer) Pointer[GSequenceIter];
+    cmp_data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_search_iter(
     seq : Pointer[GSequence],
     data : gpointer,
     iter_cmp : GSequenceIterCompareFunc,
-    cmp_data : gpointer) Pointer[GSequenceIter];
+    cmp_data : gpointer) : Pointer[GSequenceIter];
 
 external g_sequence_get(
-    iter : Pointer[GSequenceIter]) gpointer;
+    iter : Pointer[GSequenceIter]) : gpointer;
 
 external g_sequence_set(
     iter : Pointer[GSequenceIter],
     data : gpointer);
 
 external g_sequence_iter_is_begin(
-    iter : Pointer[GSequenceIter]) Int;
+    iter : Pointer[GSequenceIter]) : Int;
 
 external g_sequence_iter_is_end(
-    iter : Pointer[GSequenceIter]) Int;
+    iter : Pointer[GSequenceIter]) : Int;
 
 external g_sequence_iter_next(
-    iter : Pointer[GSequenceIter]) Pointer[GSequenceIter];
+    iter : Pointer[GSequenceIter]) : Pointer[GSequenceIter];
 
 external g_sequence_iter_prev(
-    iter : Pointer[GSequenceIter]) Pointer[GSequenceIter];
+    iter : Pointer[GSequenceIter]) : Pointer[GSequenceIter];
 
 external g_sequence_iter_get_position(
-    iter : Pointer[GSequenceIter]) Int;
+    iter : Pointer[GSequenceIter]) : Int;
 
 external g_sequence_iter_move(
     iter : Pointer[GSequenceIter],
-    delta : Int) Pointer[GSequenceIter];
+    delta : Int) : Pointer[GSequenceIter];
 
 external g_sequence_iter_get_sequence(
-    iter : Pointer[GSequenceIter]) Pointer[GSequence];
+    iter : Pointer[GSequenceIter]) : Pointer[GSequence];
 
 external g_sequence_iter_compare(
     a : Pointer[GSequenceIter],
-    b : Pointer[GSequenceIter]) Int;
+    b : Pointer[GSequenceIter]) : Int;
 
 external g_sequence_range_get_midpoint(
     begin : Pointer[GSequenceIter],
-    end : Pointer[GSequenceIter]) Pointer[GSequenceIter];
+    end : Pointer[GSequenceIter]) : Pointer[GSequenceIter];
 
 alias G_SHELL_ERROR_BAD_QUOTING = 0;
 alias G_SHELL_ERROR_EMPTY_STRING = 1;
@@ -5579,20 +5579,20 @@ alias G_SHELL_ERROR_FAILED = 2;
 
 alias GShellError = Int;
 
-external g_shell_error_quark() UInt;
+external g_shell_error_quark() : UInt;
 
 external g_shell_quote(
-    unquoted_string : Pointer[CChar]) Pointer[CChar];
+    unquoted_string : Pointer[CChar]) : Pointer[CChar];
 
 external g_shell_unquote(
     quoted_string : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[CChar];
+    error : Pointer[Pointer[GError]]) : Pointer[CChar];
 
 external g_shell_parse_argv(
     command_line : Pointer[CChar],
     argcp : Pointer[Int],
     argvp : Pointer[Pointer[Pointer[CChar]]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 alias G_SPAWN_ERROR_FORK = 0;
 alias G_SPAWN_ERROR_READ = 1;
@@ -5617,7 +5617,7 @@ alias G_SPAWN_ERROR_FAILED = 19;
 
 alias GSpawnError = Int;
 
-alias GSpawnChildSetupFunc = CCodePointer[(RawPointer),()];
+alias GSpawnChildSetupFunc = CCodePointer[[RawPointer],[]];
 
 alias G_SPAWN_LEAVE_DESCRIPTORS_OPEN = 1;
 alias G_SPAWN_DO_NOT_REAP_CHILD = 2;
@@ -5629,7 +5629,7 @@ alias G_SPAWN_FILE_AND_ARGV_ZERO = 64;
 
 alias GSpawnFlags = Int;
 
-external g_spawn_error_quark() UInt;
+external g_spawn_error_quark() : UInt;
 
 external g_spawn_async(
     working_directory : Pointer[CChar],
@@ -5639,7 +5639,7 @@ external g_spawn_async(
     child_setup : GSpawnChildSetupFunc,
     user_data : gpointer,
     child_pid : Pointer[Int],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_spawn_async_with_pipes(
     working_directory : Pointer[CChar],
@@ -5652,7 +5652,7 @@ external g_spawn_async_with_pipes(
     standard_input : Pointer[Int],
     standard_output : Pointer[Int],
     standard_error : Pointer[Int],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_spawn_sync(
     working_directory : Pointer[CChar],
@@ -5664,18 +5664,18 @@ external g_spawn_sync(
     standard_output : Pointer[Pointer[CChar]],
     standard_error : Pointer[Pointer[CChar]],
     exit_status : Pointer[Int],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_spawn_command_line_sync(
     command_line : Pointer[CChar],
     standard_output : Pointer[Pointer[CChar]],
     standard_error : Pointer[Pointer[CChar]],
     exit_status : Pointer[Int],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_spawn_command_line_async(
     command_line : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external g_spawn_close_pid(
     pid : Int);
@@ -5697,259 +5697,259 @@ alias GAsciiType = Int;
 external g_ascii_table : Pointer[UShort];
 
 external g_ascii_tolower(
-    c : CChar) CChar;
+    c : CChar) : CChar;
 
 external g_ascii_toupper(
-    c : CChar) CChar;
+    c : CChar) : CChar;
 
 external g_ascii_digit_value(
-    c : CChar) Int;
+    c : CChar) : Int;
 
 external g_ascii_xdigit_value(
-    c : CChar) Int;
+    c : CChar) : Int;
 
 external g_strdelimit(
     string : Pointer[CChar],
     delimiters : Pointer[CChar],
-    new_delimiter : CChar) Pointer[CChar];
+    new_delimiter : CChar) : Pointer[CChar];
 
 external g_strcanon(
     string : Pointer[CChar],
     valid_chars : Pointer[CChar],
-    substitutor : CChar) Pointer[CChar];
+    substitutor : CChar) : Pointer[CChar];
 
 external g_strerror(
-    errnum : Int) Pointer[CChar];
+    errnum : Int) : Pointer[CChar];
 
 external g_strsignal(
-    signum : Int) Pointer[CChar];
+    signum : Int) : Pointer[CChar];
 
 external g_strreverse(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strlcpy(
     dest : Pointer[CChar],
     src : Pointer[CChar],
-    dest_size : CULong) CULong;
+    dest_size : CULong) : CULong;
 
 external g_strlcat(
     dest : Pointer[CChar],
     src : Pointer[CChar],
-    dest_size : CULong) CULong;
+    dest_size : CULong) : CULong;
 
 external g_strstr_len(
     haystack : Pointer[CChar],
     haystack_len : CLong,
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_strrstr(
     haystack : Pointer[CChar],
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_strrstr_len(
     haystack : Pointer[CChar],
     haystack_len : CLong,
-    needle : Pointer[CChar]) Pointer[CChar];
+    needle : Pointer[CChar]) : Pointer[CChar];
 
 external g_str_has_suffix(
     str : Pointer[CChar],
-    suffix : Pointer[CChar]) Int;
+    suffix : Pointer[CChar]) : Int;
 
 external g_str_has_prefix(
     str : Pointer[CChar],
-    prefix : Pointer[CChar]) Int;
+    prefix : Pointer[CChar]) : Int;
 
 external g_strtod(
     nptr : Pointer[CChar],
-    endptr : Pointer[Pointer[CChar]]) Double;
+    endptr : Pointer[Pointer[CChar]]) : Double;
 
 external g_ascii_strtod(
     nptr : Pointer[CChar],
-    endptr : Pointer[Pointer[CChar]]) Double;
+    endptr : Pointer[Pointer[CChar]]) : Double;
 
 external g_ascii_strtoull(
     nptr : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    base : UInt) CULong;
+    base : UInt) : CULong;
 
 external g_ascii_strtoll(
     nptr : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    base : UInt) CLong;
+    base : UInt) : CLong;
 
 external g_ascii_dtostr(
     buffer : Pointer[CChar],
     buf_len : Int,
-    d : Double) Pointer[CChar];
+    d : Double) : Pointer[CChar];
 
 external g_ascii_formatd(
     buffer : Pointer[CChar],
     buf_len : Int,
     format : Pointer[CChar],
-    d : Double) Pointer[CChar];
+    d : Double) : Pointer[CChar];
 
 external g_strchug(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strchomp(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_ascii_strcasecmp(
     s1 : Pointer[CChar],
-    s2 : Pointer[CChar]) Int;
+    s2 : Pointer[CChar]) : Int;
 
 external g_ascii_strncasecmp(
     s1 : Pointer[CChar],
     s2 : Pointer[CChar],
-    n : CULong) Int;
+    n : CULong) : Int;
 
 external g_ascii_strdown(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_ascii_strup(
     str : Pointer[CChar],
-    len : CLong) Pointer[CChar];
+    len : CLong) : Pointer[CChar];
 
 external g_strcasecmp(
     s1 : Pointer[CChar],
-    s2 : Pointer[CChar]) Int;
+    s2 : Pointer[CChar]) : Int;
 
 external g_strncasecmp(
     s1 : Pointer[CChar],
     s2 : Pointer[CChar],
-    n : UInt) Int;
+    n : UInt) : Int;
 
 external g_strdown(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strup(
-    string : Pointer[CChar]) Pointer[CChar];
+    string : Pointer[CChar]) : Pointer[CChar];
 
 external g_strdup(
-    str : Pointer[CChar]) Pointer[CChar];
+    str : Pointer[CChar]) : Pointer[CChar];
 
 external g_strdup_printf(
     format : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strdup_vprintf(
     format : Pointer[CChar],
-    args : Pointer[__va_list_tag]) Pointer[CChar];
+    args : Pointer[__va_list_tag]) : Pointer[CChar];
 
 external g_strndup(
     str : Pointer[CChar],
-    n : CULong) Pointer[CChar];
+    n : CULong) : Pointer[CChar];
 
 external g_strnfill(
     length : CULong,
-    fill_char : CChar) Pointer[CChar];
+    fill_char : CChar) : Pointer[CChar];
 
 external g_strconcat(
     string1 : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strjoin(
     separator : Pointer[CChar],
-    ...) Pointer[CChar];
+    ..) : Pointer[CChar];
 
 external g_strcompress(
-    source : Pointer[CChar]) Pointer[CChar];
+    source : Pointer[CChar]) : Pointer[CChar];
 
 external g_strescape(
     source : Pointer[CChar],
-    exceptions : Pointer[CChar]) Pointer[CChar];
+    exceptions : Pointer[CChar]) : Pointer[CChar];
 
 external g_memdup(
     mem : gconstpointer,
-    byte_size : UInt) gpointer;
+    byte_size : UInt) : gpointer;
 
 external g_strsplit(
     string : Pointer[CChar],
     delimiter : Pointer[CChar],
-    max_tokens : Int) Pointer[Pointer[CChar]];
+    max_tokens : Int) : Pointer[Pointer[CChar]];
 
 external g_strsplit_set(
     string : Pointer[CChar],
     delimiters : Pointer[CChar],
-    max_tokens : Int) Pointer[Pointer[CChar]];
+    max_tokens : Int) : Pointer[Pointer[CChar]];
 
 external g_strjoinv(
     separator : Pointer[CChar],
-    str_array : Pointer[Pointer[CChar]]) Pointer[CChar];
+    str_array : Pointer[Pointer[CChar]]) : Pointer[CChar];
 
 external g_strfreev(
     str_array : Pointer[Pointer[CChar]]);
 
 external g_strdupv(
-    str_array : Pointer[Pointer[CChar]]) Pointer[Pointer[CChar]];
+    str_array : Pointer[Pointer[CChar]]) : Pointer[Pointer[CChar]];
 
 external g_strv_length(
-    str_array : Pointer[Pointer[CChar]]) UInt;
+    str_array : Pointer[Pointer[CChar]]) : UInt;
 
 external g_stpcpy(
     dest : Pointer[CChar],
-    src : Pointer[CChar]) Pointer[CChar];
+    src : Pointer[CChar]) : Pointer[CChar];
 
 external g_strip_context(
     msgid : Pointer[CChar],
-    msgval : Pointer[CChar]) Pointer[CChar];
+    msgval : Pointer[CChar]) : Pointer[CChar];
 
 external g_dgettext(
     domain : Pointer[CChar],
-    msgid : Pointer[CChar]) Pointer[CChar];
+    msgid : Pointer[CChar]) : Pointer[CChar];
 
 external g_dcgettext(
     domain : Pointer[CChar],
     msgid : Pointer[CChar],
-    category : Int) Pointer[CChar];
+    category : Int) : Pointer[CChar];
 
 external g_dngettext(
     domain : Pointer[CChar],
     msgid : Pointer[CChar],
     msgid_plural : Pointer[CChar],
-    n : CULong) Pointer[CChar];
+    n : CULong) : Pointer[CChar];
 
 external g_dpgettext(
     domain : Pointer[CChar],
     msgctxtid : Pointer[CChar],
-    msgidoffset : CULong) Pointer[CChar];
+    msgidoffset : CULong) : Pointer[CChar];
 
 external g_dpgettext2(
     domain : Pointer[CChar],
     context : Pointer[CChar],
-    msgid : Pointer[CChar]) Pointer[CChar];
+    msgid : Pointer[CChar]) : Pointer[CChar];
 
 alias GTestCase = Opaque;
 
 alias GTestSuite = Opaque;
 
-alias GTestFunc = CCodePointer[(),()];
+alias GTestFunc = CCodePointer[[],[]];
 
-alias GTestDataFunc = CCodePointer[(RawPointer),()];
+alias GTestDataFunc = CCodePointer[[RawPointer],[]];
 
-alias GTestFixtureFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GTestFixtureFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
 external g_strcmp0(
     str1 : Pointer[CChar],
-    str2 : Pointer[CChar]) Int;
+    str2 : Pointer[CChar]) : Int;
 
 external g_test_minimized_result(
     minimized_quantity : Double,
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_test_maximized_result(
     maximized_quantity : Double,
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_test_init(
     argc : Pointer[Int],
     argv : Pointer[Pointer[Pointer[CChar]]],
-    ...);
+    ..);
 
-external g_test_run() Int;
+external g_test_run() : Int;
 
 external g_test_add_func(
     testpath : Pointer[CChar],
@@ -5962,7 +5962,7 @@ external g_test_add_data_func(
 
 external g_test_message(
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_test_bug_base(
     uri_pattern : Pointer[CChar]);
@@ -5972,9 +5972,9 @@ external g_test_bug(
 
 external g_test_timer_start();
 
-external g_test_timer_elapsed() Double;
+external g_test_timer_elapsed() : Double;
 
-external g_test_timer_last() Double;
+external g_test_timer_last() : Double;
 
 external g_test_queue_free(
     gfree_pointer : gpointer);
@@ -5991,23 +5991,23 @@ alias GTestTrapFlags = Int;
 
 external g_test_trap_fork(
     usec_timeout : CULong,
-    test_trap_flags : GTestTrapFlags) Int;
+    test_trap_flags : GTestTrapFlags) : Int;
 
-external g_test_trap_has_passed() Int;
+external g_test_trap_has_passed() : Int;
 
-external g_test_trap_reached_timeout() Int;
+external g_test_trap_reached_timeout() : Int;
 
-external g_test_rand_int() Int;
+external g_test_rand_int() : Int;
 
 external g_test_rand_int_range(
     begin : Int,
-    end : Int) Int;
+    end : Int) : Int;
 
-external g_test_rand_double() Double;
+external g_test_rand_double() : Double;
 
 external g_test_rand_double_range(
     range_start : Double,
-    range_end : Double) Double;
+    range_end : Double) : Double;
 
 external g_test_create_case(
     test_name : Pointer[CChar],
@@ -6015,12 +6015,12 @@ external g_test_create_case(
     test_data : gconstpointer,
     data_setup : GTestFixtureFunc,
     data_test : GTestFixtureFunc,
-    data_teardown : GTestFixtureFunc) Pointer[GTestCase];
+    data_teardown : GTestFixtureFunc) : Pointer[GTestCase];
 
 external g_test_create_suite(
-    suite_name : Pointer[CChar]) Pointer[GTestSuite];
+    suite_name : Pointer[CChar]) : Pointer[GTestSuite];
 
-external g_test_get_root() Pointer[GTestSuite];
+external g_test_get_root() : Pointer[GTestSuite];
 
 external g_test_suite_add(
     suite : Pointer[GTestSuite],
@@ -6031,7 +6031,7 @@ external g_test_suite_add_suite(
     nestedsuite : Pointer[GTestSuite]);
 
 external g_test_run_suite(
-    suite : Pointer[GTestSuite]) Int;
+    suite : Pointer[GTestSuite]) : Int;
 
 external g_test_trap_assertions(
     domain : Pointer[CChar],
@@ -6137,9 +6137,9 @@ record UnnamedStruct5 (
 alias GTestLogBuffer = UnnamedStruct5;
 
 external g_test_log_type_name(
-    log_type : GTestLogType) Pointer[CChar];
+    log_type : GTestLogType) : Pointer[CChar];
 
-external g_test_log_buffer_new() Pointer[GTestLogBuffer];
+external g_test_log_buffer_new() : Pointer[GTestLogBuffer];
 
 external g_test_log_buffer_free(
     tbuffer : Pointer[GTestLogBuffer]);
@@ -6150,12 +6150,12 @@ external g_test_log_buffer_push(
     bytes : Pointer[CUChar]);
 
 external g_test_log_buffer_pop(
-    tbuffer : Pointer[GTestLogBuffer]) Pointer[GTestLogMsg];
+    tbuffer : Pointer[GTestLogBuffer]) : Pointer[GTestLogMsg];
 
 external g_test_log_msg_free(
     tmsg : Pointer[GTestLogMsg]);
 
-alias GTestLogFatalFunc = CCodePointer[(Pointer[CChar],Int,Pointer[CChar],RawPointer),(Int)];
+alias GTestLogFatalFunc = CCodePointer[[Pointer[CChar],Int,Pointer[CChar],RawPointer],[Int]];
 
 external g_test_log_set_fatal_handler(
     log_func : GTestLogFatalFunc,
@@ -6174,7 +6174,7 @@ external g_thread_pool_new(
     user_data : gpointer,
     max_threads : Int,
     exclusive : Int,
-    error : Pointer[Pointer[GError]]) Pointer[GThreadPool];
+    error : Pointer[Pointer[GError]]) : Pointer[GThreadPool];
 
 external g_thread_pool_push(
     pool : Pointer[GThreadPool],
@@ -6187,13 +6187,13 @@ external g_thread_pool_set_max_threads(
     error : Pointer[Pointer[GError]]);
 
 external g_thread_pool_get_max_threads(
-    pool : Pointer[GThreadPool]) Int;
+    pool : Pointer[GThreadPool]) : Int;
 
 external g_thread_pool_get_num_threads(
-    pool : Pointer[GThreadPool]) UInt;
+    pool : Pointer[GThreadPool]) : UInt;
 
 external g_thread_pool_unprocessed(
-    pool : Pointer[GThreadPool]) UInt;
+    pool : Pointer[GThreadPool]) : UInt;
 
 external g_thread_pool_free(
     pool : Pointer[GThreadPool],
@@ -6203,9 +6203,9 @@ external g_thread_pool_free(
 external g_thread_pool_set_max_unused_threads(
     max_threads : Int);
 
-external g_thread_pool_get_max_unused_threads() Int;
+external g_thread_pool_get_max_unused_threads() : Int;
 
-external g_thread_pool_get_num_unused_threads() UInt;
+external g_thread_pool_get_num_unused_threads() : UInt;
 
 external g_thread_pool_stop_unused_threads();
 
@@ -6217,11 +6217,11 @@ external g_thread_pool_set_sort_function(
 external g_thread_pool_set_max_idle_time(
     interval : UInt);
 
-external g_thread_pool_get_max_idle_time() UInt;
+external g_thread_pool_get_max_idle_time() : UInt;
 
 alias GTimer = Opaque;
 
-external g_timer_new() Pointer[GTimer];
+external g_timer_new() : Pointer[GTimer];
 
 external g_timer_destroy(
     timer : Pointer[GTimer]);
@@ -6240,7 +6240,7 @@ external g_timer_continue(
 
 external g_timer_elapsed(
     timer : Pointer[GTimer],
-    microseconds : Pointer[CULong]) Double;
+    microseconds : Pointer[CULong]) : Double;
 
 external g_usleep(
     microseconds : CULong);
@@ -6251,30 +6251,30 @@ external g_time_val_add(
 
 external g_time_val_from_iso8601(
     iso_date : Pointer[CChar],
-    time_ : Pointer[GTimeVal]) Int;
+    time_ : Pointer[GTimeVal]) : Int;
 
 external g_time_val_to_iso8601(
-    time_ : Pointer[GTimeVal]) Pointer[CChar];
+    time_ : Pointer[GTimeVal]) : Pointer[CChar];
 
 alias GTree = Opaque;
 
-alias GTraverseFunc = CCodePointer[(RawPointer,RawPointer,RawPointer),(Int)];
+alias GTraverseFunc = CCodePointer[[RawPointer,RawPointer,RawPointer],[Int]];
 
 external g_tree_new(
-    key_compare_func : GCompareFunc) Pointer[GTree];
+    key_compare_func : GCompareFunc) : Pointer[GTree];
 
 external g_tree_new_with_data(
     key_compare_func : GCompareDataFunc,
-    key_compare_data : gpointer) Pointer[GTree];
+    key_compare_data : gpointer) : Pointer[GTree];
 
 external g_tree_new_full(
     key_compare_func : GCompareDataFunc,
     key_compare_data : gpointer,
     key_destroy_func : GDestroyNotify,
-    value_destroy_func : GDestroyNotify) Pointer[GTree];
+    value_destroy_func : GDestroyNotify) : Pointer[GTree];
 
 external g_tree_ref(
-    tree : Pointer[GTree]) Pointer[GTree];
+    tree : Pointer[GTree]) : Pointer[GTree];
 
 external g_tree_unref(
     tree : Pointer[GTree]);
@@ -6294,21 +6294,21 @@ external g_tree_replace(
 
 external g_tree_remove(
     tree : Pointer[GTree],
-    key : gconstpointer) Int;
+    key : gconstpointer) : Int;
 
 external g_tree_steal(
     tree : Pointer[GTree],
-    key : gconstpointer) Int;
+    key : gconstpointer) : Int;
 
 external g_tree_lookup(
     tree : Pointer[GTree],
-    key : gconstpointer) gpointer;
+    key : gconstpointer) : gpointer;
 
 external g_tree_lookup_extended(
     tree : Pointer[GTree],
     lookup_key : gconstpointer,
     orig_key : Pointer[gpointer],
-    value : Pointer[gpointer]) Int;
+    value : Pointer[gpointer]) : Int;
 
 external g_tree_foreach(
     tree : Pointer[GTree],
@@ -6324,128 +6324,128 @@ external g_tree_traverse(
 external g_tree_search(
     tree : Pointer[GTree],
     search_func : GCompareFunc,
-    user_data : gconstpointer) gpointer;
+    user_data : gconstpointer) : gpointer;
 
 external g_tree_height(
-    tree : Pointer[GTree]) Int;
+    tree : Pointer[GTree]) : Int;
 
 external g_tree_nnodes(
-    tree : Pointer[GTree]) Int;
+    tree : Pointer[GTree]) : Int;
 
 external g_uri_unescape_string(
     escaped_string : Pointer[CChar],
-    illegal_characters : Pointer[CChar]) Pointer[CChar];
+    illegal_characters : Pointer[CChar]) : Pointer[CChar];
 
 external g_uri_unescape_segment(
     escaped_string : Pointer[CChar],
     escaped_string_end : Pointer[CChar],
-    illegal_characters : Pointer[CChar]) Pointer[CChar];
+    illegal_characters : Pointer[CChar]) : Pointer[CChar];
 
 external g_uri_parse_scheme(
-    uri : Pointer[CChar]) Pointer[CChar];
+    uri : Pointer[CChar]) : Pointer[CChar];
 
 external g_uri_escape_string(
     unescaped : Pointer[CChar],
     reserved_chars_allowed : Pointer[CChar],
-    allow_utf8 : Int) Pointer[CChar];
+    allow_utf8 : Int) : Pointer[CChar];
 
 alias GVariantType = Opaque;
 
 external g_variant_type_string_is_valid(
-    type_string : Pointer[CChar]) Int;
+    type_string : Pointer[CChar]) : Int;
 
 external g_variant_type_string_scan(
     string : Pointer[CChar],
     limit : Pointer[CChar],
-    endptr : Pointer[Pointer[CChar]]) Int;
+    endptr : Pointer[Pointer[CChar]]) : Int;
 
 external g_variant_type_free(
     type : Pointer[GVariantType]);
 
 external g_variant_type_copy(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_new(
-    type_string : Pointer[CChar]) Pointer[GVariantType];
+    type_string : Pointer[CChar]) : Pointer[GVariantType];
 
 external g_variant_type_get_string_length(
-    type : Pointer[GVariantType]) CULong;
+    type : Pointer[GVariantType]) : CULong;
 
 external g_variant_type_peek_string(
-    type : Pointer[GVariantType]) Pointer[CChar];
+    type : Pointer[GVariantType]) : Pointer[CChar];
 
 external g_variant_type_dup_string(
-    type : Pointer[GVariantType]) Pointer[CChar];
+    type : Pointer[GVariantType]) : Pointer[CChar];
 
 external g_variant_type_is_definite(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_container(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_basic(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_maybe(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_array(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_tuple(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_dict_entry(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_is_variant(
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_type_hash(
-    type : gconstpointer) UInt;
+    type : gconstpointer) : UInt;
 
 external g_variant_type_equal(
     type1 : gconstpointer,
-    type2 : gconstpointer) Int;
+    type2 : gconstpointer) : Int;
 
 external g_variant_type_is_subtype_of(
     type : Pointer[GVariantType],
-    supertype : Pointer[GVariantType]) Int;
+    supertype : Pointer[GVariantType]) : Int;
 
 external g_variant_type_element(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_first(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_next(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_n_items(
-    type : Pointer[GVariantType]) CULong;
+    type : Pointer[GVariantType]) : CULong;
 
 external g_variant_type_key(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_value(
-    type : Pointer[GVariantType]) Pointer[GVariantType];
+    type : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_new_array(
-    element : Pointer[GVariantType]) Pointer[GVariantType];
+    element : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_new_maybe(
-    element : Pointer[GVariantType]) Pointer[GVariantType];
+    element : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_new_tuple(
     items : Pointer[Pointer[GVariantType]],
-    length : Int) Pointer[GVariantType];
+    length : Int) : Pointer[GVariantType];
 
 external g_variant_type_new_dict_entry(
     key : Pointer[GVariantType],
-    value : Pointer[GVariantType]) Pointer[GVariantType];
+    value : Pointer[GVariantType]) : Pointer[GVariantType];
 
 external g_variant_type_checked_(
-    argument0 : Pointer[CChar]) Pointer[GVariantType];
+    argument0 : Pointer[CChar]) : Pointer[GVariantType];
 
 alias GVariant = Opaque;
 
@@ -6474,196 +6474,196 @@ external g_variant_unref(
     value : Pointer[GVariant]);
 
 external g_variant_ref(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_ref_sink(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_is_floating(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_get_type(
-    value : Pointer[GVariant]) Pointer[GVariantType];
+    value : Pointer[GVariant]) : Pointer[GVariantType];
 
 external g_variant_get_type_string(
-    value : Pointer[GVariant]) Pointer[CChar];
+    value : Pointer[GVariant]) : Pointer[CChar];
 
 external g_variant_is_of_type(
     value : Pointer[GVariant],
-    type : Pointer[GVariantType]) Int;
+    type : Pointer[GVariantType]) : Int;
 
 external g_variant_is_container(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_classify(
-    value : Pointer[GVariant]) GVariantClass;
+    value : Pointer[GVariant]) : GVariantClass;
 
 external g_variant_new_boolean(
-    boolean : Int) Pointer[GVariant];
+    boolean : Int) : Pointer[GVariant];
 
 external g_variant_new_byte(
-    byte : CUChar) Pointer[GVariant];
+    byte : CUChar) : Pointer[GVariant];
 
 external g_variant_new_int16(
-    int16 : Short) Pointer[GVariant];
+    int16 : Short) : Pointer[GVariant];
 
 external g_variant_new_uint16(
-    uint16 : UShort) Pointer[GVariant];
+    uint16 : UShort) : Pointer[GVariant];
 
 external g_variant_new_int32(
-    int32 : Int) Pointer[GVariant];
+    int32 : Int) : Pointer[GVariant];
 
 external g_variant_new_uint32(
-    uint32 : UInt) Pointer[GVariant];
+    uint32 : UInt) : Pointer[GVariant];
 
 external g_variant_new_int64(
-    int64 : CLong) Pointer[GVariant];
+    int64 : CLong) : Pointer[GVariant];
 
 external g_variant_new_uint64(
-    uint64 : CULong) Pointer[GVariant];
+    uint64 : CULong) : Pointer[GVariant];
 
 external g_variant_new_handle(
-    handle : Int) Pointer[GVariant];
+    handle : Int) : Pointer[GVariant];
 
 external g_variant_new_double(
-    floating : Double) Pointer[GVariant];
+    floating : Double) : Pointer[GVariant];
 
 external g_variant_new_string(
-    string : Pointer[CChar]) Pointer[GVariant];
+    string : Pointer[CChar]) : Pointer[GVariant];
 
 external g_variant_new_object_path(
-    object_path : Pointer[CChar]) Pointer[GVariant];
+    object_path : Pointer[CChar]) : Pointer[GVariant];
 
 external g_variant_is_object_path(
-    string : Pointer[CChar]) Int;
+    string : Pointer[CChar]) : Int;
 
 external g_variant_new_signature(
-    signature : Pointer[CChar]) Pointer[GVariant];
+    signature : Pointer[CChar]) : Pointer[GVariant];
 
 external g_variant_is_signature(
-    string : Pointer[CChar]) Int;
+    string : Pointer[CChar]) : Int;
 
 external g_variant_new_variant(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_new_strv(
     strv : Pointer[Pointer[CChar]],
-    length : CLong) Pointer[GVariant];
+    length : CLong) : Pointer[GVariant];
 
 external g_variant_new_bytestring(
-    string : Pointer[CChar]) Pointer[GVariant];
+    string : Pointer[CChar]) : Pointer[GVariant];
 
 external g_variant_new_bytestring_array(
     strv : Pointer[Pointer[CChar]],
-    length : CLong) Pointer[GVariant];
+    length : CLong) : Pointer[GVariant];
 
 external g_variant_get_boolean(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_get_byte(
-    value : Pointer[GVariant]) CUChar;
+    value : Pointer[GVariant]) : CUChar;
 
 external g_variant_get_int16(
-    value : Pointer[GVariant]) Short;
+    value : Pointer[GVariant]) : Short;
 
 external g_variant_get_uint16(
-    value : Pointer[GVariant]) UShort;
+    value : Pointer[GVariant]) : UShort;
 
 external g_variant_get_int32(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_get_uint32(
-    value : Pointer[GVariant]) UInt;
+    value : Pointer[GVariant]) : UInt;
 
 external g_variant_get_int64(
-    value : Pointer[GVariant]) CLong;
+    value : Pointer[GVariant]) : CLong;
 
 external g_variant_get_uint64(
-    value : Pointer[GVariant]) CULong;
+    value : Pointer[GVariant]) : CULong;
 
 external g_variant_get_handle(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_get_double(
-    value : Pointer[GVariant]) Double;
+    value : Pointer[GVariant]) : Double;
 
 external g_variant_get_variant(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_get_string(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[CChar];
+    length : Pointer[CULong]) : Pointer[CChar];
 
 external g_variant_dup_string(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[CChar];
+    length : Pointer[CULong]) : Pointer[CChar];
 
 external g_variant_get_strv(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_variant_dup_strv(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_variant_get_bytestring(
-    value : Pointer[GVariant]) Pointer[CChar];
+    value : Pointer[GVariant]) : Pointer[CChar];
 
 external g_variant_dup_bytestring(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[CChar];
+    length : Pointer[CULong]) : Pointer[CChar];
 
 external g_variant_get_bytestring_array(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_variant_dup_bytestring_array(
     value : Pointer[GVariant],
-    length : Pointer[CULong]) Pointer[Pointer[CChar]];
+    length : Pointer[CULong]) : Pointer[Pointer[CChar]];
 
 external g_variant_new_maybe(
     child_type : Pointer[GVariantType],
-    child : Pointer[GVariant]) Pointer[GVariant];
+    child : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_new_array(
     child_type : Pointer[GVariantType],
     children : Pointer[Pointer[GVariant]],
-    n_children : CULong) Pointer[GVariant];
+    n_children : CULong) : Pointer[GVariant];
 
 external g_variant_new_tuple(
     children : Pointer[Pointer[GVariant]],
-    n_children : CULong) Pointer[GVariant];
+    n_children : CULong) : Pointer[GVariant];
 
 external g_variant_new_dict_entry(
     key : Pointer[GVariant],
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_get_maybe(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_n_children(
-    value : Pointer[GVariant]) CULong;
+    value : Pointer[GVariant]) : CULong;
 
 external g_variant_get_child(
     value : Pointer[GVariant],
     index_ : CULong,
     format_string : Pointer[CChar],
-    ...);
+    ..);
 
 external g_variant_get_child_value(
     value : Pointer[GVariant],
-    index_ : CULong) Pointer[GVariant];
+    index_ : CULong) : Pointer[GVariant];
 
 external g_variant_get_fixed_array(
     value : Pointer[GVariant],
     n_elements : Pointer[CULong],
-    element_size : CULong) gconstpointer;
+    element_size : CULong) : gconstpointer;
 
 external g_variant_get_size(
-    value : Pointer[GVariant]) CULong;
+    value : Pointer[GVariant]) : CULong;
 
 external g_variant_get_data(
-    value : Pointer[GVariant]) gconstpointer;
+    value : Pointer[GVariant]) : gconstpointer;
 
 external g_variant_store(
     value : Pointer[GVariant],
@@ -6671,28 +6671,28 @@ external g_variant_store(
 
 external g_variant_print(
     value : Pointer[GVariant],
-    type_annotate : Int) Pointer[CChar];
+    type_annotate : Int) : Pointer[CChar];
 
 external g_variant_print_string(
     value : Pointer[GVariant],
     string : Pointer[GString],
-    type_annotate : Int) Pointer[GString];
+    type_annotate : Int) : Pointer[GString];
 
 external g_variant_hash(
-    value : gconstpointer) UInt;
+    value : gconstpointer) : UInt;
 
 external g_variant_equal(
     one : gconstpointer,
-    two : gconstpointer) Int;
+    two : gconstpointer) : Int;
 
 external g_variant_get_normal_form(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_is_normal_form(
-    value : Pointer[GVariant]) Int;
+    value : Pointer[GVariant]) : Int;
 
 external g_variant_byteswap(
-    value : Pointer[GVariant]) Pointer[GVariant];
+    value : Pointer[GVariant]) : Pointer[GVariant];
 
 external g_variant_new_from_data(
     type : Pointer[GVariantType],
@@ -6700,7 +6700,7 @@ external g_variant_new_from_data(
     size : CULong,
     trusted : Int,
     notify : GDestroyNotify,
-    user_data : gpointer) Pointer[GVariant];
+    user_data : gpointer) : Pointer[GVariant];
 
 alias GVariantIter = Struct__GVariantIter;
 
@@ -6709,33 +6709,33 @@ record Struct__GVariantIter (
 );
 
 external g_variant_iter_new(
-    value : Pointer[GVariant]) Pointer[GVariantIter];
+    value : Pointer[GVariant]) : Pointer[GVariantIter];
 
 external g_variant_iter_init(
     iter : Pointer[GVariantIter],
-    value : Pointer[GVariant]) CULong;
+    value : Pointer[GVariant]) : CULong;
 
 external g_variant_iter_copy(
-    iter : Pointer[GVariantIter]) Pointer[GVariantIter];
+    iter : Pointer[GVariantIter]) : Pointer[GVariantIter];
 
 external g_variant_iter_n_children(
-    iter : Pointer[GVariantIter]) CULong;
+    iter : Pointer[GVariantIter]) : CULong;
 
 external g_variant_iter_free(
     iter : Pointer[GVariantIter]);
 
 external g_variant_iter_next_value(
-    iter : Pointer[GVariantIter]) Pointer[GVariant];
+    iter : Pointer[GVariantIter]) : Pointer[GVariant];
 
 external g_variant_iter_next(
     iter : Pointer[GVariantIter],
     format_string : Pointer[CChar],
-    ...) Int;
+    ..) : Int;
 
 external g_variant_iter_loop(
     iter : Pointer[GVariantIter],
     format_string : Pointer[CChar],
-    ...) Int;
+    ..) : Int;
 
 alias GVariantBuilder = Struct__GVariantBuilder;
 
@@ -6747,23 +6747,23 @@ alias G_VARIANT_PARSE_ERROR_FAILED = 0;
 
 alias GVariantParseError = Int;
 
-external g_variant_parser_get_error_quark() UInt;
+external g_variant_parser_get_error_quark() : UInt;
 
 external g_variant_builder_new(
-    type : Pointer[GVariantType]) Pointer[GVariantBuilder];
+    type : Pointer[GVariantType]) : Pointer[GVariantBuilder];
 
 external g_variant_builder_unref(
     builder : Pointer[GVariantBuilder]);
 
 external g_variant_builder_ref(
-    builder : Pointer[GVariantBuilder]) Pointer[GVariantBuilder];
+    builder : Pointer[GVariantBuilder]) : Pointer[GVariantBuilder];
 
 external g_variant_builder_init(
     builder : Pointer[GVariantBuilder],
     type : Pointer[GVariantType]);
 
 external g_variant_builder_end(
-    builder : Pointer[GVariantBuilder]) Pointer[GVariant];
+    builder : Pointer[GVariantBuilder]) : Pointer[GVariant];
 
 external g_variant_builder_clear(
     builder : Pointer[GVariantBuilder]);
@@ -6782,26 +6782,26 @@ external g_variant_builder_add_value(
 external g_variant_builder_add(
     builder : Pointer[GVariantBuilder],
     format_string : Pointer[CChar],
-    ...);
+    ..);
 
 external g_variant_builder_add_parsed(
     builder : Pointer[GVariantBuilder],
     format : Pointer[CChar],
-    ...);
+    ..);
 
 external g_variant_new(
     format_string : Pointer[CChar],
-    ...) Pointer[GVariant];
+    ..) : Pointer[GVariant];
 
 external g_variant_get(
     value : Pointer[GVariant],
     format_string : Pointer[CChar],
-    ...);
+    ..);
 
 external g_variant_new_va(
     format_string : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    app : Pointer[va_list]) Pointer[GVariant];
+    app : Pointer[va_list]) : Pointer[GVariant];
 
 external g_variant_get_va(
     value : Pointer[GVariant],
@@ -6814,16 +6814,16 @@ external g_variant_parse(
     text : Pointer[CChar],
     limit : Pointer[CChar],
     endptr : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Pointer[GVariant];
+    error : Pointer[Pointer[GError]]) : Pointer[GVariant];
 
 external g_variant_new_parsed(
     format : Pointer[CChar],
-    ...) Pointer[GVariant];
+    ..) : Pointer[GVariant];
 
 external g_variant_new_parsed_va(
     format : Pointer[CChar],
-    app : Pointer[va_list]) Pointer[GVariant];
+    app : Pointer[va_list]) : Pointer[GVariant];
 
 external g_variant_compare(
     one : gconstpointer,
-    two : gconstpointer) Int;
+    two : gconstpointer) : Int;

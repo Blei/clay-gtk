@@ -3,7 +3,7 @@ import gobject.*;
 import gstreamer.*;
 import glib.*;
 
-private external watchBus(bus: Pointer[GstBus], message: Pointer[GstMessage], data: gpointer) gboolean {
+private external watchBus(bus: Pointer[GstBus], message: Pointer[GstMessage], data: gpointer) : gboolean {
 
     var msgType = message^.type;
     println(String(gst_message_type_get_name(msgType)));
@@ -45,8 +45,7 @@ private var playbin = null(GstElement);
 
 private var playing = false;
 
-main() {
-    var argc, argv = ...getArgcArgv();
+main(argc, argv) {
     gtk_init(&argc, &argv);
     gst_init(&argc, &argv);
 

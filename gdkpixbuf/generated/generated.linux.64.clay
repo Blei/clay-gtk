@@ -28,7 +28,7 @@ alias GdkColorspace = Int;
 
 alias GdkPixbuf = Opaque;
 
-alias GdkPixbufDestroyNotify = CCodePointer[(Pointer[CUChar],RawPointer),()];
+alias GdkPixbufDestroyNotify = CCodePointer[[Pointer[CUChar],RawPointer],[]];
 
 alias GDK_PIXBUF_ERROR_CORRUPT_IMAGE = 0;
 alias GDK_PIXBUF_ERROR_INSUFFICIENT_MEMORY = 1;
@@ -39,73 +39,73 @@ alias GDK_PIXBUF_ERROR_FAILED = 5;
 
 alias GdkPixbufError = Int;
 
-external gdk_pixbuf_error_quark() UInt;
+external gdk_pixbuf_error_quark() : UInt;
 
-external gdk_pixbuf_get_type() CULong;
+external gdk_pixbuf_get_type() : CULong;
 
 external gdk_pixbuf_ref(
-    pixbuf : Pointer[GdkPixbuf]) Pointer[GdkPixbuf];
+    pixbuf : Pointer[GdkPixbuf]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_unref(
     pixbuf : Pointer[GdkPixbuf]);
 
 external gdk_pixbuf_get_colorspace(
-    pixbuf : Pointer[GdkPixbuf]) GdkColorspace;
+    pixbuf : Pointer[GdkPixbuf]) : GdkColorspace;
 
 external gdk_pixbuf_get_n_channels(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_get_has_alpha(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_get_bits_per_sample(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_get_pixels(
-    pixbuf : Pointer[GdkPixbuf]) Pointer[CUChar];
+    pixbuf : Pointer[GdkPixbuf]) : Pointer[CUChar];
 
 external gdk_pixbuf_get_width(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_get_height(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_get_rowstride(
-    pixbuf : Pointer[GdkPixbuf]) Int;
+    pixbuf : Pointer[GdkPixbuf]) : Int;
 
 external gdk_pixbuf_new(
     colorspace : GdkColorspace,
     has_alpha : Int,
     bits_per_sample : Int,
     width : Int,
-    height : Int) Pointer[GdkPixbuf];
+    height : Int) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_copy(
-    pixbuf : Pointer[GdkPixbuf]) Pointer[GdkPixbuf];
+    pixbuf : Pointer[GdkPixbuf]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_subpixbuf(
     src_pixbuf : Pointer[GdkPixbuf],
     src_x : Int,
     src_y : Int,
     width : Int,
-    height : Int) Pointer[GdkPixbuf];
+    height : Int) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_file(
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_file_at_size(
     filename : Pointer[CChar],
     width : Int,
     height : Int,
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_file_at_scale(
     filename : Pointer[CChar],
     width : Int,
     height : Int,
     preserve_aspect_ratio : Int,
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_data(
     data : Pointer[CUChar],
@@ -116,16 +116,16 @@ external gdk_pixbuf_new_from_data(
     height : Int,
     rowstride : Int,
     destroy_fn : GdkPixbufDestroyNotify,
-    destroy_fn_data : gpointer) Pointer[GdkPixbuf];
+    destroy_fn_data : gpointer) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_xpm_data(
-    data : Pointer[Pointer[CChar]]) Pointer[GdkPixbuf];
+    data : Pointer[Pointer[CChar]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_inline(
     data_length : Int,
     data : Pointer[CUChar],
     copy_pixels : Int,
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_fill(
     pixbuf : Pointer[GdkPixbuf],
@@ -136,7 +136,7 @@ external gdk_pixbuf_save(
     filename : Pointer[CChar],
     type : Pointer[CChar],
     error : Pointer[Pointer[GError]],
-    ...) Int;
+    ..) : Int;
 
 external gdk_pixbuf_savev(
     pixbuf : Pointer[GdkPixbuf],
@@ -144,9 +144,9 @@ external gdk_pixbuf_savev(
     type : Pointer[CChar],
     option_keys : Pointer[Pointer[CChar]],
     option_values : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
-alias GdkPixbufSaveFunc = CCodePointer[(Pointer[CChar],CULong,Pointer[Pointer[Struct__GError]],RawPointer),(Int)];
+alias GdkPixbufSaveFunc = CCodePointer[[Pointer[CChar],CULong,Pointer[Pointer[Struct__GError]],RawPointer],[Int]];
 
 external gdk_pixbuf_save_to_callback(
     pixbuf : Pointer[GdkPixbuf],
@@ -154,7 +154,7 @@ external gdk_pixbuf_save_to_callback(
     user_data : gpointer,
     type : Pointer[CChar],
     error : Pointer[Pointer[GError]],
-    ...) Int;
+    ..) : Int;
 
 external gdk_pixbuf_save_to_callbackv(
     pixbuf : Pointer[GdkPixbuf],
@@ -163,7 +163,7 @@ external gdk_pixbuf_save_to_callbackv(
     type : Pointer[CChar],
     option_keys : Pointer[Pointer[CChar]],
     option_values : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external gdk_pixbuf_save_to_buffer(
     pixbuf : Pointer[GdkPixbuf],
@@ -171,7 +171,7 @@ external gdk_pixbuf_save_to_buffer(
     buffer_size : Pointer[CULong],
     type : Pointer[CChar],
     error : Pointer[Pointer[GError]],
-    ...) Int;
+    ..) : Int;
 
 external gdk_pixbuf_save_to_bufferv(
     pixbuf : Pointer[GdkPixbuf],
@@ -180,12 +180,12 @@ external gdk_pixbuf_save_to_bufferv(
     type : Pointer[CChar],
     option_keys : Pointer[Pointer[CChar]],
     option_values : Pointer[Pointer[CChar]],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external gdk_pixbuf_new_from_stream(
     stream : Pointer[GInputStream],
     cancellable : Pointer[GCancellable],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_new_from_stream_at_scale(
     stream : Pointer[GInputStream],
@@ -193,7 +193,7 @@ external gdk_pixbuf_new_from_stream_at_scale(
     height : Int,
     preserve_aspect_ratio : Int,
     cancellable : Pointer[GCancellable],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbuf];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_save_to_stream(
     pixbuf : Pointer[GdkPixbuf],
@@ -201,14 +201,14 @@ external gdk_pixbuf_save_to_stream(
     type : Pointer[CChar],
     cancellable : Pointer[GCancellable],
     error : Pointer[Pointer[GError]],
-    ...) Int;
+    ..) : Int;
 
 external gdk_pixbuf_add_alpha(
     pixbuf : Pointer[GdkPixbuf],
     substitute_color : Int,
     r : CUChar,
     g : CUChar,
-    b : CUChar) Pointer[GdkPixbuf];
+    b : CUChar) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_copy_area(
     src_pixbuf : Pointer[GdkPixbuf],
@@ -227,11 +227,11 @@ external gdk_pixbuf_saturate_and_pixelate(
     pixelate : Int);
 
 external gdk_pixbuf_apply_embedded_orientation(
-    src : Pointer[GdkPixbuf]) Pointer[GdkPixbuf];
+    src : Pointer[GdkPixbuf]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_get_option(
     pixbuf : Pointer[GdkPixbuf],
-    key : Pointer[CChar]) Pointer[CChar];
+    key : Pointer[CChar]) : Pointer[CChar];
 
 alias GDK_INTERP_NEAREST = 0;
 alias GDK_INTERP_TILES = 1;
@@ -297,7 +297,7 @@ external gdk_pixbuf_scale_simple(
     src : Pointer[GdkPixbuf],
     dest_width : Int,
     dest_height : Int,
-    interp_type : GdkInterpType) Pointer[GdkPixbuf];
+    interp_type : GdkInterpType) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_composite_color_simple(
     src : Pointer[GdkPixbuf],
@@ -307,75 +307,75 @@ external gdk_pixbuf_composite_color_simple(
     overall_alpha : Int,
     check_size : Int,
     color1 : UInt,
-    color2 : UInt) Pointer[GdkPixbuf];
+    color2 : UInt) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_rotate_simple(
     src : Pointer[GdkPixbuf],
-    angle : GdkPixbufRotation) Pointer[GdkPixbuf];
+    angle : GdkPixbufRotation) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_flip(
     src : Pointer[GdkPixbuf],
-    horizontal : Int) Pointer[GdkPixbuf];
+    horizontal : Int) : Pointer[GdkPixbuf];
 
 alias GdkPixbufAnimation = Opaque;
 
 alias GdkPixbufAnimationIter = Opaque;
 
-external gdk_pixbuf_animation_get_type() CULong;
+external gdk_pixbuf_animation_get_type() : CULong;
 
 external gdk_pixbuf_animation_new_from_file(
     filename : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbufAnimation];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbufAnimation];
 
 external gdk_pixbuf_animation_ref(
-    animation : Pointer[GdkPixbufAnimation]) Pointer[GdkPixbufAnimation];
+    animation : Pointer[GdkPixbufAnimation]) : Pointer[GdkPixbufAnimation];
 
 external gdk_pixbuf_animation_unref(
     animation : Pointer[GdkPixbufAnimation]);
 
 external gdk_pixbuf_animation_get_width(
-    animation : Pointer[GdkPixbufAnimation]) Int;
+    animation : Pointer[GdkPixbufAnimation]) : Int;
 
 external gdk_pixbuf_animation_get_height(
-    animation : Pointer[GdkPixbufAnimation]) Int;
+    animation : Pointer[GdkPixbufAnimation]) : Int;
 
 external gdk_pixbuf_animation_is_static_image(
-    animation : Pointer[GdkPixbufAnimation]) Int;
+    animation : Pointer[GdkPixbufAnimation]) : Int;
 
 external gdk_pixbuf_animation_get_static_image(
-    animation : Pointer[GdkPixbufAnimation]) Pointer[GdkPixbuf];
+    animation : Pointer[GdkPixbufAnimation]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_animation_get_iter(
     animation : Pointer[GdkPixbufAnimation],
-    start_time : Pointer[GTimeVal]) Pointer[GdkPixbufAnimationIter];
+    start_time : Pointer[GTimeVal]) : Pointer[GdkPixbufAnimationIter];
 
-external gdk_pixbuf_animation_iter_get_type() CULong;
+external gdk_pixbuf_animation_iter_get_type() : CULong;
 
 external gdk_pixbuf_animation_iter_get_delay_time(
-    iter : Pointer[GdkPixbufAnimationIter]) Int;
+    iter : Pointer[GdkPixbufAnimationIter]) : Int;
 
 external gdk_pixbuf_animation_iter_get_pixbuf(
-    iter : Pointer[GdkPixbufAnimationIter]) Pointer[GdkPixbuf];
+    iter : Pointer[GdkPixbufAnimationIter]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_animation_iter_on_currently_loading_frame(
-    iter : Pointer[GdkPixbufAnimationIter]) Int;
+    iter : Pointer[GdkPixbufAnimationIter]) : Int;
 
 external gdk_pixbuf_animation_iter_advance(
     iter : Pointer[GdkPixbufAnimationIter],
-    current_time : Pointer[GTimeVal]) Int;
+    current_time : Pointer[GTimeVal]) : Int;
 
 alias GdkPixbufSimpleAnim = Opaque;
 
 alias GdkPixbufSimpleAnimClass = Opaque;
 
-external gdk_pixbuf_simple_anim_get_type() CULong;
+external gdk_pixbuf_simple_anim_get_type() : CULong;
 
-external gdk_pixbuf_simple_anim_iter_get_type() CULong;
+external gdk_pixbuf_simple_anim_iter_get_type() : CULong;
 
 external gdk_pixbuf_simple_anim_new(
     width : Int,
     height : Int,
-    rate : Float) Pointer[GdkPixbufSimpleAnim];
+    rate : Float) : Pointer[GdkPixbufSimpleAnim];
 
 external gdk_pixbuf_simple_anim_add_frame(
     animation : Pointer[GdkPixbufSimpleAnim],
@@ -386,49 +386,49 @@ external gdk_pixbuf_simple_anim_set_loop(
     loop : Int);
 
 external gdk_pixbuf_simple_anim_get_loop(
-    animation : Pointer[GdkPixbufSimpleAnim]) Int;
+    animation : Pointer[GdkPixbufSimpleAnim]) : Int;
 
 alias GdkPixbufFormat = Opaque;
 
-external gdk_pixbuf_format_get_type() CULong;
+external gdk_pixbuf_format_get_type() : CULong;
 
-external gdk_pixbuf_get_formats() Pointer[GSList];
+external gdk_pixbuf_get_formats() : Pointer[GSList];
 
 external gdk_pixbuf_format_get_name(
-    format : Pointer[GdkPixbufFormat]) Pointer[CChar];
+    format : Pointer[GdkPixbufFormat]) : Pointer[CChar];
 
 external gdk_pixbuf_format_get_description(
-    format : Pointer[GdkPixbufFormat]) Pointer[CChar];
+    format : Pointer[GdkPixbufFormat]) : Pointer[CChar];
 
 external gdk_pixbuf_format_get_mime_types(
-    format : Pointer[GdkPixbufFormat]) Pointer[Pointer[CChar]];
+    format : Pointer[GdkPixbufFormat]) : Pointer[Pointer[CChar]];
 
 external gdk_pixbuf_format_get_extensions(
-    format : Pointer[GdkPixbufFormat]) Pointer[Pointer[CChar]];
+    format : Pointer[GdkPixbufFormat]) : Pointer[Pointer[CChar]];
 
 external gdk_pixbuf_format_is_writable(
-    format : Pointer[GdkPixbufFormat]) Int;
+    format : Pointer[GdkPixbufFormat]) : Int;
 
 external gdk_pixbuf_format_is_scalable(
-    format : Pointer[GdkPixbufFormat]) Int;
+    format : Pointer[GdkPixbufFormat]) : Int;
 
 external gdk_pixbuf_format_is_disabled(
-    format : Pointer[GdkPixbufFormat]) Int;
+    format : Pointer[GdkPixbufFormat]) : Int;
 
 external gdk_pixbuf_format_set_disabled(
     format : Pointer[GdkPixbufFormat],
     disabled : Int);
 
 external gdk_pixbuf_format_get_license(
-    format : Pointer[GdkPixbufFormat]) Pointer[CChar];
+    format : Pointer[GdkPixbufFormat]) : Pointer[CChar];
 
 external gdk_pixbuf_get_file_info(
     filename : Pointer[CChar],
     width : Pointer[Int],
-    height : Pointer[Int]) Pointer[GdkPixbufFormat];
+    height : Pointer[Int]) : Pointer[GdkPixbufFormat];
 
 external gdk_pixbuf_format_copy(
-    format : Pointer[GdkPixbufFormat]) Pointer[GdkPixbufFormat];
+    format : Pointer[GdkPixbufFormat]) : Pointer[GdkPixbufFormat];
 
 external gdk_pixbuf_format_free(
     format : Pointer[GdkPixbufFormat]);
@@ -444,23 +444,23 @@ alias GdkPixbufLoaderClass = Struct__GdkPixbufLoaderClass;
 
 record Struct__GdkPixbufLoaderClass (
     parent_class : GObjectClass,
-    size_prepared : CCodePointer[(Pointer[Struct__GdkPixbufLoader],Int,Int),()],
-    area_prepared : CCodePointer[(Pointer[Struct__GdkPixbufLoader]),()],
-    area_updated : CCodePointer[(Pointer[Struct__GdkPixbufLoader],Int,Int,Int,Int),()],
-    closed : CCodePointer[(Pointer[Struct__GdkPixbufLoader]),()],
+    size_prepared : CCodePointer[[Pointer[Struct__GdkPixbufLoader],Int,Int],[]],
+    area_prepared : CCodePointer[[Pointer[Struct__GdkPixbufLoader]],[]],
+    area_updated : CCodePointer[[Pointer[Struct__GdkPixbufLoader],Int,Int,Int,Int],[]],
+    closed : CCodePointer[[Pointer[Struct__GdkPixbufLoader]],[]],
 );
 
-external gdk_pixbuf_loader_get_type() CULong;
+external gdk_pixbuf_loader_get_type() : CULong;
 
-external gdk_pixbuf_loader_new() Pointer[GdkPixbufLoader];
+external gdk_pixbuf_loader_new() : Pointer[GdkPixbufLoader];
 
 external gdk_pixbuf_loader_new_with_type(
     image_type : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbufLoader];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbufLoader];
 
 external gdk_pixbuf_loader_new_with_mime_type(
     mime_type : Pointer[CChar],
-    error : Pointer[Pointer[GError]]) Pointer[GdkPixbufLoader];
+    error : Pointer[Pointer[GError]]) : Pointer[GdkPixbufLoader];
 
 external gdk_pixbuf_loader_set_size(
     loader : Pointer[GdkPixbufLoader],
@@ -471,27 +471,27 @@ external gdk_pixbuf_loader_write(
     loader : Pointer[GdkPixbufLoader],
     buf : Pointer[CUChar],
     count : CULong,
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external gdk_pixbuf_loader_get_pixbuf(
-    loader : Pointer[GdkPixbufLoader]) Pointer[GdkPixbuf];
+    loader : Pointer[GdkPixbufLoader]) : Pointer[GdkPixbuf];
 
 external gdk_pixbuf_loader_get_animation(
-    loader : Pointer[GdkPixbufLoader]) Pointer[GdkPixbufAnimation];
+    loader : Pointer[GdkPixbufLoader]) : Pointer[GdkPixbufAnimation];
 
 external gdk_pixbuf_loader_close(
     loader : Pointer[GdkPixbufLoader],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 external gdk_pixbuf_loader_get_format(
-    loader : Pointer[GdkPixbufLoader]) Pointer[GdkPixbufFormat];
+    loader : Pointer[GdkPixbufLoader]) : Pointer[GdkPixbufFormat];
 
-external gdk_pixbuf_alpha_mode_get_type() CULong;
+external gdk_pixbuf_alpha_mode_get_type() : CULong;
 
-external gdk_colorspace_get_type() CULong;
+external gdk_colorspace_get_type() : CULong;
 
-external gdk_pixbuf_error_get_type() CULong;
+external gdk_pixbuf_error_get_type() : CULong;
 
-external gdk_interp_type_get_type() CULong;
+external gdk_interp_type_get_type() : CULong;
 
-external gdk_pixbuf_rotation_get_type() CULong;
+external gdk_pixbuf_rotation_get_type() : CULong;

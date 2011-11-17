@@ -17,20 +17,20 @@ alias PANGO_COVERAGE_EXACT = 3;
 
 alias PangoCoverageLevel = Int;
 
-external pango_coverage_new() Pointer[PangoCoverage];
+external pango_coverage_new() : Pointer[PangoCoverage];
 
 external pango_coverage_ref(
-    coverage : Pointer[PangoCoverage]) Pointer[PangoCoverage];
+    coverage : Pointer[PangoCoverage]) : Pointer[PangoCoverage];
 
 external pango_coverage_unref(
     coverage : Pointer[PangoCoverage]);
 
 external pango_coverage_copy(
-    coverage : Pointer[PangoCoverage]) Pointer[PangoCoverage];
+    coverage : Pointer[PangoCoverage]) : Pointer[PangoCoverage];
 
 external pango_coverage_get(
     coverage : Pointer[PangoCoverage],
-    index_ : Int) PangoCoverageLevel;
+    index_ : Int) : PangoCoverageLevel;
 
 external pango_coverage_set(
     coverage : Pointer[PangoCoverage],
@@ -48,7 +48,7 @@ external pango_coverage_to_bytes(
 
 external pango_coverage_from_bytes(
     bytes : Pointer[CUChar],
-    n_bytes : Int) Pointer[PangoCoverage];
+    n_bytes : Int) : Pointer[PangoCoverage];
 
 alias PangoLogAttr = Struct__PangoLogAttr;
 
@@ -65,10 +65,10 @@ alias PangoRectangle = Struct__PangoRectangle;
 alias PangoGlyph = UInt;
 
 external pango_units_from_double(
-    d : Double) Int;
+    d : Double) : Int;
 
 external pango_units_to_double(
-    i : Int) Double;
+    i : Int) : Double;
 
 record Struct__PangoRectangle (
     x : Int,
@@ -106,10 +106,10 @@ record Struct__PangoMatrix (
     y0 : Double,
 );
 
-external pango_matrix_get_type() CULong;
+external pango_matrix_get_type() : CULong;
 
 external pango_matrix_copy(
-    matrix : Pointer[PangoMatrix]) Pointer[PangoMatrix];
+    matrix : Pointer[PangoMatrix]) : Pointer[PangoMatrix];
 
 external pango_matrix_free(
     matrix : Pointer[PangoMatrix]);
@@ -151,7 +151,7 @@ external pango_matrix_transform_pixel_rectangle(
     rect : Pointer[PangoRectangle]);
 
 external pango_matrix_get_font_scale_factor(
-    matrix : Pointer[PangoMatrix]) Double;
+    matrix : Pointer[PangoMatrix]) : Double;
 
 alias PangoScriptIter = Opaque;
 
@@ -238,11 +238,11 @@ alias PANGO_SCRIPT_LYDIAN = 77;
 alias PangoScript = Int;
 
 external pango_script_for_unichar(
-    ch : UInt) PangoScript;
+    ch : UInt) : PangoScript;
 
 external pango_script_iter_new(
     text : Pointer[CChar],
-    length : Int) Pointer[PangoScriptIter];
+    length : Int) : Pointer[PangoScriptIter];
 
 external pango_script_iter_get_range(
     iter : Pointer[PangoScriptIter],
@@ -251,57 +251,57 @@ external pango_script_iter_get_range(
     script : Pointer[PangoScript]);
 
 external pango_script_iter_next(
-    iter : Pointer[PangoScriptIter]) Int;
+    iter : Pointer[PangoScriptIter]) : Int;
 
 external pango_script_iter_free(
     iter : Pointer[PangoScriptIter]);
 
 alias PangoLanguage = Opaque;
 
-external pango_language_get_type() CULong;
+external pango_language_get_type() : CULong;
 
 external pango_language_from_string(
-    language : Pointer[CChar]) Pointer[PangoLanguage];
+    language : Pointer[CChar]) : Pointer[PangoLanguage];
 
 external pango_language_to_string(
-    language : Pointer[PangoLanguage]) Pointer[CChar];
+    language : Pointer[PangoLanguage]) : Pointer[CChar];
 
 external pango_language_get_sample_string(
-    language : Pointer[PangoLanguage]) Pointer[CChar];
+    language : Pointer[PangoLanguage]) : Pointer[CChar];
 
-external pango_language_get_default() Pointer[PangoLanguage];
+external pango_language_get_default() : Pointer[PangoLanguage];
 
 external pango_language_matches(
     language : Pointer[PangoLanguage],
-    range_list : Pointer[CChar]) Int;
+    range_list : Pointer[CChar]) : Int;
 
 external pango_language_includes_script(
     language : Pointer[PangoLanguage],
-    script : PangoScript) Int;
+    script : PangoScript) : Int;
 
 external pango_language_get_scripts(
     language : Pointer[PangoLanguage],
-    num_scripts : Pointer[Int]) Pointer[PangoScript];
+    num_scripts : Pointer[Int]) : Pointer[PangoScript];
 
 external pango_script_get_sample_language(
-    script : PangoScript) Pointer[PangoLanguage];
+    script : PangoScript) : Pointer[PangoLanguage];
 
 external pango_gravity_to_rotation(
-    gravity : PangoGravity) Double;
+    gravity : PangoGravity) : Double;
 
 external pango_gravity_get_for_matrix(
-    matrix : Pointer[PangoMatrix]) PangoGravity;
+    matrix : Pointer[PangoMatrix]) : PangoGravity;
 
 external pango_gravity_get_for_script(
     script : PangoScript,
     base_gravity : PangoGravity,
-    hint : PangoGravityHint) PangoGravity;
+    hint : PangoGravityHint) : PangoGravity;
 
 external pango_gravity_get_for_script_and_width(
     script : PangoScript,
     wide : Int,
     base_gravity : PangoGravity,
-    hint : PangoGravityHint) PangoGravity;
+    hint : PangoGravityHint) : PangoGravity;
 
 alias PANGO_BIDI_TYPE_L = 0;
 alias PANGO_BIDI_TYPE_LRE = 1;
@@ -326,7 +326,7 @@ alias PANGO_BIDI_TYPE_ON = 18;
 alias PangoBidiType = Int;
 
 external pango_bidi_type_for_unichar(
-    ch : UInt) PangoBidiType;
+    ch : UInt) : PangoBidiType;
 
 alias PANGO_DIRECTION_LTR = 0;
 alias PANGO_DIRECTION_RTL = 1;
@@ -339,15 +339,15 @@ alias PANGO_DIRECTION_NEUTRAL = 6;
 alias PangoDirection = Int;
 
 external pango_unichar_direction(
-    ch : UInt) PangoDirection;
+    ch : UInt) : PangoDirection;
 
 external pango_find_base_dir(
     text : Pointer[CChar],
-    length : Int) PangoDirection;
+    length : Int) : PangoDirection;
 
 external pango_get_mirror_char(
     ch : UInt,
-    mirrored_ch : Pointer[UInt]) Int;
+    mirrored_ch : Pointer[UInt]) : Int;
 
 alias PangoFontDescription = Opaque;
 
@@ -400,22 +400,22 @@ alias PANGO_FONT_MASK_GRAVITY = 64;
 
 alias PangoFontMask = Int;
 
-external pango_font_description_get_type() CULong;
+external pango_font_description_get_type() : CULong;
 
-external pango_font_description_new() Pointer[PangoFontDescription];
+external pango_font_description_new() : Pointer[PangoFontDescription];
 
 external pango_font_description_copy(
-    desc : Pointer[PangoFontDescription]) Pointer[PangoFontDescription];
+    desc : Pointer[PangoFontDescription]) : Pointer[PangoFontDescription];
 
 external pango_font_description_copy_static(
-    desc : Pointer[PangoFontDescription]) Pointer[PangoFontDescription];
+    desc : Pointer[PangoFontDescription]) : Pointer[PangoFontDescription];
 
 external pango_font_description_hash(
-    desc : Pointer[PangoFontDescription]) UInt;
+    desc : Pointer[PangoFontDescription]) : UInt;
 
 external pango_font_description_equal(
     desc1 : Pointer[PangoFontDescription],
-    desc2 : Pointer[PangoFontDescription]) Int;
+    desc2 : Pointer[PangoFontDescription]) : Int;
 
 external pango_font_description_free(
     desc : Pointer[PangoFontDescription]);
@@ -433,59 +433,59 @@ external pango_font_description_set_family_static(
     family : Pointer[CChar]);
 
 external pango_font_description_get_family(
-    desc : Pointer[PangoFontDescription]) Pointer[CChar];
+    desc : Pointer[PangoFontDescription]) : Pointer[CChar];
 
 external pango_font_description_set_style(
     desc : Pointer[PangoFontDescription],
     style : PangoStyle);
 
 external pango_font_description_get_style(
-    desc : Pointer[PangoFontDescription]) PangoStyle;
+    desc : Pointer[PangoFontDescription]) : PangoStyle;
 
 external pango_font_description_set_variant(
     desc : Pointer[PangoFontDescription],
     variant_ : PangoVariant);
 
 external pango_font_description_get_variant(
-    desc : Pointer[PangoFontDescription]) PangoVariant;
+    desc : Pointer[PangoFontDescription]) : PangoVariant;
 
 external pango_font_description_set_weight(
     desc : Pointer[PangoFontDescription],
     weight : PangoWeight);
 
 external pango_font_description_get_weight(
-    desc : Pointer[PangoFontDescription]) PangoWeight;
+    desc : Pointer[PangoFontDescription]) : PangoWeight;
 
 external pango_font_description_set_stretch(
     desc : Pointer[PangoFontDescription],
     stretch : PangoStretch);
 
 external pango_font_description_get_stretch(
-    desc : Pointer[PangoFontDescription]) PangoStretch;
+    desc : Pointer[PangoFontDescription]) : PangoStretch;
 
 external pango_font_description_set_size(
     desc : Pointer[PangoFontDescription],
     size : Int);
 
 external pango_font_description_get_size(
-    desc : Pointer[PangoFontDescription]) Int;
+    desc : Pointer[PangoFontDescription]) : Int;
 
 external pango_font_description_set_absolute_size(
     desc : Pointer[PangoFontDescription],
     size : Double);
 
 external pango_font_description_get_size_is_absolute(
-    desc : Pointer[PangoFontDescription]) Int;
+    desc : Pointer[PangoFontDescription]) : Int;
 
 external pango_font_description_set_gravity(
     desc : Pointer[PangoFontDescription],
     gravity : PangoGravity);
 
 external pango_font_description_get_gravity(
-    desc : Pointer[PangoFontDescription]) PangoGravity;
+    desc : Pointer[PangoFontDescription]) : PangoGravity;
 
 external pango_font_description_get_set_fields(
-    desc : Pointer[PangoFontDescription]) PangoFontMask;
+    desc : Pointer[PangoFontDescription]) : PangoFontMask;
 
 external pango_font_description_unset_fields(
     desc : Pointer[PangoFontDescription],
@@ -504,54 +504,54 @@ external pango_font_description_merge_static(
 external pango_font_description_better_match(
     desc : Pointer[PangoFontDescription],
     old_match : Pointer[PangoFontDescription],
-    new_match : Pointer[PangoFontDescription]) Int;
+    new_match : Pointer[PangoFontDescription]) : Int;
 
 external pango_font_description_from_string(
-    str : Pointer[CChar]) Pointer[PangoFontDescription];
+    str : Pointer[CChar]) : Pointer[PangoFontDescription];
 
 external pango_font_description_to_string(
-    desc : Pointer[PangoFontDescription]) Pointer[CChar];
+    desc : Pointer[PangoFontDescription]) : Pointer[CChar];
 
 external pango_font_description_to_filename(
-    desc : Pointer[PangoFontDescription]) Pointer[CChar];
+    desc : Pointer[PangoFontDescription]) : Pointer[CChar];
 
-external pango_font_metrics_get_type() CULong;
+external pango_font_metrics_get_type() : CULong;
 
 external pango_font_metrics_ref(
-    metrics : Pointer[PangoFontMetrics]) Pointer[PangoFontMetrics];
+    metrics : Pointer[PangoFontMetrics]) : Pointer[PangoFontMetrics];
 
 external pango_font_metrics_unref(
     metrics : Pointer[PangoFontMetrics]);
 
 external pango_font_metrics_get_ascent(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_descent(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_approximate_char_width(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_approximate_digit_width(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_underline_position(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_underline_thickness(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_strikethrough_position(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 external pango_font_metrics_get_strikethrough_thickness(
-    metrics : Pointer[PangoFontMetrics]) Int;
+    metrics : Pointer[PangoFontMetrics]) : Int;
 
 alias PangoFontFamily = Opaque;
 
 alias PangoFontFace = Opaque;
 
-external pango_font_family_get_type() CULong;
+external pango_font_family_get_type() : CULong;
 
 external pango_font_family_list_faces(
     family : Pointer[PangoFontFamily],
@@ -559,18 +559,18 @@ external pango_font_family_list_faces(
     n_faces : Pointer[Int]);
 
 external pango_font_family_get_name(
-    family : Pointer[PangoFontFamily]) Pointer[CChar];
+    family : Pointer[PangoFontFamily]) : Pointer[CChar];
 
 external pango_font_family_is_monospace(
-    family : Pointer[PangoFontFamily]) Int;
+    family : Pointer[PangoFontFamily]) : Int;
 
-external pango_font_face_get_type() CULong;
+external pango_font_face_get_type() : CULong;
 
 external pango_font_face_describe(
-    face : Pointer[PangoFontFace]) Pointer[PangoFontDescription];
+    face : Pointer[PangoFontFace]) : Pointer[PangoFontDescription];
 
 external pango_font_face_get_face_name(
-    face : Pointer[PangoFontFace]) Pointer[CChar];
+    face : Pointer[PangoFontFace]) : Pointer[CChar];
 
 external pango_font_face_list_sizes(
     face : Pointer[PangoFontFace],
@@ -578,28 +578,28 @@ external pango_font_face_list_sizes(
     n_sizes : Pointer[Int]);
 
 external pango_font_face_is_synthesized(
-    face : Pointer[PangoFontFace]) Int;
+    face : Pointer[PangoFontFace]) : Int;
 
-external pango_font_get_type() CULong;
+external pango_font_get_type() : CULong;
 
 external pango_font_describe(
-    font : Pointer[PangoFont]) Pointer[PangoFontDescription];
+    font : Pointer[PangoFont]) : Pointer[PangoFontDescription];
 
 external pango_font_describe_with_absolute_size(
-    font : Pointer[PangoFont]) Pointer[PangoFontDescription];
+    font : Pointer[PangoFont]) : Pointer[PangoFontDescription];
 
 external pango_font_get_coverage(
     font : Pointer[PangoFont],
-    language : Pointer[PangoLanguage]) Pointer[PangoCoverage];
+    language : Pointer[PangoLanguage]) : Pointer[PangoCoverage];
 
 external pango_font_find_shaper(
     font : Pointer[PangoFont],
     language : Pointer[PangoLanguage],
-    ch : UInt) Pointer[PangoEngineShape];
+    ch : UInt) : Pointer[PangoEngineShape];
 
 external pango_font_get_metrics(
     font : Pointer[PangoFont],
-    language : Pointer[PangoLanguage]) Pointer[PangoFontMetrics];
+    language : Pointer[PangoLanguage]) : Pointer[PangoFontMetrics];
 
 external pango_font_get_glyph_extents(
     font : Pointer[PangoFont],
@@ -608,7 +608,7 @@ external pango_font_get_glyph_extents(
     logical_rect : Pointer[PangoRectangle]);
 
 external pango_font_get_font_map(
-    font : Pointer[PangoFont]) Pointer[PangoFontMap];
+    font : Pointer[PangoFont]) : Pointer[PangoFontMap];
 
 alias PangoColor = Struct__PangoColor;
 
@@ -618,20 +618,20 @@ record Struct__PangoColor (
     blue : UShort,
 );
 
-external pango_color_get_type() CULong;
+external pango_color_get_type() : CULong;
 
 external pango_color_copy(
-    src : Pointer[PangoColor]) Pointer[PangoColor];
+    src : Pointer[PangoColor]) : Pointer[PangoColor];
 
 external pango_color_free(
     color : Pointer[PangoColor]);
 
 external pango_color_parse(
     color : Pointer[PangoColor],
-    spec : Pointer[CChar]) Int;
+    spec : Pointer[CChar]) : Int;
 
 external pango_color_to_string(
-    color : Pointer[PangoColor]) Pointer[CChar];
+    color : Pointer[PangoColor]) : Pointer[CChar];
 
 alias PangoAttribute = Struct__PangoAttribute;
 
@@ -697,15 +697,15 @@ record Struct__PangoAttribute (
     end_index : UInt,
 );
 
-alias PangoAttrFilterFunc = CCodePointer[(Pointer[Struct__PangoAttribute],RawPointer),(Int)];
+alias PangoAttrFilterFunc = CCodePointer[[Pointer[Struct__PangoAttribute],RawPointer],[Int]];
 
-alias PangoAttrDataCopyFunc = CCodePointer[(RawPointer),(RawPointer)];
+alias PangoAttrDataCopyFunc = CCodePointer[[RawPointer],[RawPointer]];
 
 record Struct__PangoAttrClass (
     type : PangoAttrType,
-    copy : CCodePointer[(Pointer[Struct__PangoAttribute]),(Pointer[Struct__PangoAttribute])],
-    destroy : CCodePointer[(Pointer[Struct__PangoAttribute]),()],
-    equal : CCodePointer[(Pointer[Struct__PangoAttribute],Pointer[Struct__PangoAttribute]),(Int)],
+    copy : CCodePointer[[Pointer[Struct__PangoAttribute]],[Pointer[Struct__PangoAttribute]]],
+    destroy : CCodePointer[[Pointer[Struct__PangoAttribute]],[]],
+    equal : CCodePointer[[Pointer[Struct__PangoAttribute],Pointer[Struct__PangoAttribute]],[Int]],
 );
 
 record Struct__PangoAttrString (
@@ -754,119 +754,119 @@ record Struct__PangoAttrFontDesc (
 );
 
 external pango_attr_type_register(
-    name : Pointer[CChar]) PangoAttrType;
+    name : Pointer[CChar]) : PangoAttrType;
 
 external pango_attr_type_get_name(
-    type : PangoAttrType) Pointer[CChar];
+    type : PangoAttrType) : Pointer[CChar];
 
 external pango_attribute_init(
     attr : Pointer[PangoAttribute],
     klass : Pointer[PangoAttrClass]);
 
 external pango_attribute_copy(
-    attr : Pointer[PangoAttribute]) Pointer[PangoAttribute];
+    attr : Pointer[PangoAttribute]) : Pointer[PangoAttribute];
 
 external pango_attribute_destroy(
     attr : Pointer[PangoAttribute]);
 
 external pango_attribute_equal(
     attr1 : Pointer[PangoAttribute],
-    attr2 : Pointer[PangoAttribute]) Int;
+    attr2 : Pointer[PangoAttribute]) : Int;
 
 external pango_attr_language_new(
-    language : Pointer[PangoLanguage]) Pointer[PangoAttribute];
+    language : Pointer[PangoLanguage]) : Pointer[PangoAttribute];
 
 external pango_attr_family_new(
-    family : Pointer[CChar]) Pointer[PangoAttribute];
+    family : Pointer[CChar]) : Pointer[PangoAttribute];
 
 external pango_attr_foreground_new(
     red : UShort,
     green : UShort,
-    blue : UShort) Pointer[PangoAttribute];
+    blue : UShort) : Pointer[PangoAttribute];
 
 external pango_attr_background_new(
     red : UShort,
     green : UShort,
-    blue : UShort) Pointer[PangoAttribute];
+    blue : UShort) : Pointer[PangoAttribute];
 
 external pango_attr_size_new(
-    size : Int) Pointer[PangoAttribute];
+    size : Int) : Pointer[PangoAttribute];
 
 external pango_attr_size_new_absolute(
-    size : Int) Pointer[PangoAttribute];
+    size : Int) : Pointer[PangoAttribute];
 
 external pango_attr_style_new(
-    style : PangoStyle) Pointer[PangoAttribute];
+    style : PangoStyle) : Pointer[PangoAttribute];
 
 external pango_attr_weight_new(
-    weight : PangoWeight) Pointer[PangoAttribute];
+    weight : PangoWeight) : Pointer[PangoAttribute];
 
 external pango_attr_variant_new(
-    variant_ : PangoVariant) Pointer[PangoAttribute];
+    variant_ : PangoVariant) : Pointer[PangoAttribute];
 
 external pango_attr_stretch_new(
-    stretch : PangoStretch) Pointer[PangoAttribute];
+    stretch : PangoStretch) : Pointer[PangoAttribute];
 
 external pango_attr_font_desc_new(
-    desc : Pointer[PangoFontDescription]) Pointer[PangoAttribute];
+    desc : Pointer[PangoFontDescription]) : Pointer[PangoAttribute];
 
 external pango_attr_underline_new(
-    underline : PangoUnderline) Pointer[PangoAttribute];
+    underline : PangoUnderline) : Pointer[PangoAttribute];
 
 external pango_attr_underline_color_new(
     red : UShort,
     green : UShort,
-    blue : UShort) Pointer[PangoAttribute];
+    blue : UShort) : Pointer[PangoAttribute];
 
 external pango_attr_strikethrough_new(
-    strikethrough : Int) Pointer[PangoAttribute];
+    strikethrough : Int) : Pointer[PangoAttribute];
 
 external pango_attr_strikethrough_color_new(
     red : UShort,
     green : UShort,
-    blue : UShort) Pointer[PangoAttribute];
+    blue : UShort) : Pointer[PangoAttribute];
 
 external pango_attr_rise_new(
-    rise : Int) Pointer[PangoAttribute];
+    rise : Int) : Pointer[PangoAttribute];
 
 external pango_attr_scale_new(
-    scale_factor : Double) Pointer[PangoAttribute];
+    scale_factor : Double) : Pointer[PangoAttribute];
 
 external pango_attr_fallback_new(
-    enable_fallback : Int) Pointer[PangoAttribute];
+    enable_fallback : Int) : Pointer[PangoAttribute];
 
 external pango_attr_letter_spacing_new(
-    letter_spacing : Int) Pointer[PangoAttribute];
+    letter_spacing : Int) : Pointer[PangoAttribute];
 
 external pango_attr_shape_new(
     ink_rect : Pointer[PangoRectangle],
-    logical_rect : Pointer[PangoRectangle]) Pointer[PangoAttribute];
+    logical_rect : Pointer[PangoRectangle]) : Pointer[PangoAttribute];
 
 external pango_attr_shape_new_with_data(
     ink_rect : Pointer[PangoRectangle],
     logical_rect : Pointer[PangoRectangle],
     data : gpointer,
     copy_func : PangoAttrDataCopyFunc,
-    destroy_func : GDestroyNotify) Pointer[PangoAttribute];
+    destroy_func : GDestroyNotify) : Pointer[PangoAttribute];
 
 external pango_attr_gravity_new(
-    gravity : PangoGravity) Pointer[PangoAttribute];
+    gravity : PangoGravity) : Pointer[PangoAttribute];
 
 external pango_attr_gravity_hint_new(
-    hint : PangoGravityHint) Pointer[PangoAttribute];
+    hint : PangoGravityHint) : Pointer[PangoAttribute];
 
-external pango_attr_list_get_type() CULong;
+external pango_attr_list_get_type() : CULong;
 
-external pango_attr_list_new() Pointer[PangoAttrList];
+external pango_attr_list_new() : Pointer[PangoAttrList];
 
 external pango_attr_list_ref(
-    list : Pointer[PangoAttrList]) Pointer[PangoAttrList];
+    list : Pointer[PangoAttrList]) : Pointer[PangoAttrList];
 
 external pango_attr_list_unref(
     list : Pointer[PangoAttrList]);
 
 external pango_attr_list_copy(
-    list : Pointer[PangoAttrList]) Pointer[PangoAttrList];
+    list : Pointer[PangoAttrList]) : Pointer[PangoAttrList];
 
 external pango_attr_list_insert(
     list : Pointer[PangoAttrList],
@@ -889,10 +889,10 @@ external pango_attr_list_splice(
 external pango_attr_list_filter(
     list : Pointer[PangoAttrList],
     func : PangoAttrFilterFunc,
-    data : gpointer) Pointer[PangoAttrList];
+    data : gpointer) : Pointer[PangoAttrList];
 
 external pango_attr_list_get_iterator(
-    list : Pointer[PangoAttrList]) Pointer[PangoAttrIterator];
+    list : Pointer[PangoAttrList]) : Pointer[PangoAttrIterator];
 
 external pango_attr_iterator_range(
     iterator : Pointer[PangoAttrIterator],
@@ -900,17 +900,17 @@ external pango_attr_iterator_range(
     end : Pointer[Int]);
 
 external pango_attr_iterator_next(
-    iterator : Pointer[PangoAttrIterator]) Int;
+    iterator : Pointer[PangoAttrIterator]) : Int;
 
 external pango_attr_iterator_copy(
-    iterator : Pointer[PangoAttrIterator]) Pointer[PangoAttrIterator];
+    iterator : Pointer[PangoAttrIterator]) : Pointer[PangoAttrIterator];
 
 external pango_attr_iterator_destroy(
     iterator : Pointer[PangoAttrIterator]);
 
 external pango_attr_iterator_get(
     iterator : Pointer[PangoAttrIterator],
-    type : PangoAttrType) Pointer[PangoAttribute];
+    type : PangoAttrType) : Pointer[PangoAttribute];
 
 external pango_attr_iterator_get_font(
     iterator : Pointer[PangoAttrIterator],
@@ -919,7 +919,7 @@ external pango_attr_iterator_get_font(
     extra_attrs : Pointer[Pointer[GSList]]);
 
 external pango_attr_iterator_get_attrs(
-    iterator : Pointer[PangoAttrIterator]) Pointer[GSList];
+    iterator : Pointer[PangoAttrIterator]) : Pointer[GSList];
 
 external pango_parse_markup(
     markup_text : Pointer[CChar],
@@ -928,7 +928,7 @@ external pango_parse_markup(
     attr_list : Pointer[Pointer[PangoAttrList]],
     text : Pointer[Pointer[CChar]],
     accel_char : Pointer[UInt],
-    error : Pointer[Pointer[GError]]) Int;
+    error : Pointer[Pointer[GError]]) : Int;
 
 alias PangoAnalysis = Struct__PangoAnalysis;
 
@@ -953,12 +953,12 @@ record Struct__PangoItem (
     analysis : PangoAnalysis,
 );
 
-external pango_item_get_type() CULong;
+external pango_item_get_type() : CULong;
 
-external pango_item_new() Pointer[PangoItem];
+external pango_item_new() : Pointer[PangoItem];
 
 external pango_item_copy(
-    item : Pointer[PangoItem]) Pointer[PangoItem];
+    item : Pointer[PangoItem]) : Pointer[PangoItem];
 
 external pango_item_free(
     item : Pointer[PangoItem]);
@@ -966,7 +966,7 @@ external pango_item_free(
 external pango_item_split(
     orig : Pointer[PangoItem],
     split_index : Int,
-    split_offset : Int) Pointer[PangoItem];
+    split_offset : Int) : Pointer[PangoItem];
 
 record Struct__PangoLogAttr (
     is_line_break : UInt,
@@ -1005,18 +1005,18 @@ external pango_get_log_attrs(
     log_attrs : Pointer[PangoLogAttr],
     attrs_len : Int);
 
-external pango_fontset_get_type() CULong;
+external pango_fontset_get_type() : CULong;
 
 alias PangoFontset = Opaque;
 
-alias PangoFontsetForeachFunc = CCodePointer[(OpaquePointer,OpaquePointer,RawPointer),(Int)];
+alias PangoFontsetForeachFunc = CCodePointer[[OpaquePointer,OpaquePointer,RawPointer],[Int]];
 
 external pango_fontset_get_font(
     fontset : Pointer[PangoFontset],
-    wc : UInt) Pointer[PangoFont];
+    wc : UInt) : Pointer[PangoFont];
 
 external pango_fontset_get_metrics(
-    fontset : Pointer[PangoFontset]) Pointer[PangoFontMetrics];
+    fontset : Pointer[PangoFontset]) : Pointer[PangoFontMetrics];
 
 external pango_fontset_foreach(
     fontset : Pointer[PangoFontset],
@@ -1025,21 +1025,21 @@ external pango_fontset_foreach(
 
 alias PangoContext = Opaque;
 
-external pango_font_map_get_type() CULong;
+external pango_font_map_get_type() : CULong;
 
 external pango_font_map_create_context(
-    fontmap : Pointer[PangoFontMap]) Pointer[PangoContext];
+    fontmap : Pointer[PangoFontMap]) : Pointer[PangoContext];
 
 external pango_font_map_load_font(
     fontmap : Pointer[PangoFontMap],
     context : Pointer[PangoContext],
-    desc : Pointer[PangoFontDescription]) Pointer[PangoFont];
+    desc : Pointer[PangoFontDescription]) : Pointer[PangoFont];
 
 external pango_font_map_load_fontset(
     fontmap : Pointer[PangoFontMap],
     context : Pointer[PangoContext],
     desc : Pointer[PangoFontDescription],
-    language : Pointer[PangoLanguage]) Pointer[PangoFontset];
+    language : Pointer[PangoLanguage]) : Pointer[PangoFontset];
 
 external pango_font_map_list_families(
     fontmap : Pointer[PangoFontMap],
@@ -1048,16 +1048,16 @@ external pango_font_map_list_families(
 
 alias PangoContextClass = Opaque;
 
-external pango_context_get_type() CULong;
+external pango_context_get_type() : CULong;
 
-external pango_context_new() Pointer[PangoContext];
+external pango_context_new() : Pointer[PangoContext];
 
 external pango_context_set_font_map(
     context : Pointer[PangoContext],
     font_map : Pointer[PangoFontMap]);
 
 external pango_context_get_font_map(
-    context : Pointer[PangoContext]) Pointer[PangoFontMap];
+    context : Pointer[PangoContext]) : Pointer[PangoFontMap];
 
 external pango_context_list_families(
     context : Pointer[PangoContext],
@@ -1066,27 +1066,27 @@ external pango_context_list_families(
 
 external pango_context_load_font(
     context : Pointer[PangoContext],
-    desc : Pointer[PangoFontDescription]) Pointer[PangoFont];
+    desc : Pointer[PangoFontDescription]) : Pointer[PangoFont];
 
 external pango_context_load_fontset(
     context : Pointer[PangoContext],
     desc : Pointer[PangoFontDescription],
-    language : Pointer[PangoLanguage]) Pointer[PangoFontset];
+    language : Pointer[PangoLanguage]) : Pointer[PangoFontset];
 
 external pango_context_get_metrics(
     context : Pointer[PangoContext],
     desc : Pointer[PangoFontDescription],
-    language : Pointer[PangoLanguage]) Pointer[PangoFontMetrics];
+    language : Pointer[PangoLanguage]) : Pointer[PangoFontMetrics];
 
 external pango_context_set_font_description(
     context : Pointer[PangoContext],
     desc : Pointer[PangoFontDescription]);
 
 external pango_context_get_font_description(
-    context : Pointer[PangoContext]) Pointer[PangoFontDescription];
+    context : Pointer[PangoContext]) : Pointer[PangoFontDescription];
 
 external pango_context_get_language(
-    context : Pointer[PangoContext]) Pointer[PangoLanguage];
+    context : Pointer[PangoContext]) : Pointer[PangoLanguage];
 
 external pango_context_set_language(
     context : Pointer[PangoContext],
@@ -1097,31 +1097,31 @@ external pango_context_set_base_dir(
     direction : PangoDirection);
 
 external pango_context_get_base_dir(
-    context : Pointer[PangoContext]) PangoDirection;
+    context : Pointer[PangoContext]) : PangoDirection;
 
 external pango_context_set_base_gravity(
     context : Pointer[PangoContext],
     gravity : PangoGravity);
 
 external pango_context_get_base_gravity(
-    context : Pointer[PangoContext]) PangoGravity;
+    context : Pointer[PangoContext]) : PangoGravity;
 
 external pango_context_get_gravity(
-    context : Pointer[PangoContext]) PangoGravity;
+    context : Pointer[PangoContext]) : PangoGravity;
 
 external pango_context_set_gravity_hint(
     context : Pointer[PangoContext],
     hint : PangoGravityHint);
 
 external pango_context_get_gravity_hint(
-    context : Pointer[PangoContext]) PangoGravityHint;
+    context : Pointer[PangoContext]) : PangoGravityHint;
 
 external pango_context_set_matrix(
     context : Pointer[PangoContext],
     matrix : Pointer[PangoMatrix]);
 
 external pango_context_get_matrix(
-    context : Pointer[PangoContext]) Pointer[PangoMatrix];
+    context : Pointer[PangoContext]) : Pointer[PangoMatrix];
 
 external pango_itemize(
     context : Pointer[PangoContext],
@@ -1129,7 +1129,7 @@ external pango_itemize(
     start_index : Int,
     length : Int,
     attrs : Pointer[PangoAttrList],
-    cached_iter : Pointer[PangoAttrIterator]) Pointer[GList];
+    cached_iter : Pointer[PangoAttrIterator]) : Pointer[GList];
 
 external pango_itemize_with_base_dir(
     context : Pointer[PangoContext],
@@ -1138,7 +1138,7 @@ external pango_itemize_with_base_dir(
     start_index : Int,
     length : Int,
     attrs : Pointer[PangoAttrList],
-    cached_iter : Pointer[PangoAttrIterator]) Pointer[GList];
+    cached_iter : Pointer[PangoAttrIterator]) : Pointer[GList];
 
 alias PangoGlyphGeometry = Struct__PangoGlyphGeometry;
 
@@ -1173,16 +1173,16 @@ record Struct__PangoGlyphString (
     space : Int,
 );
 
-external pango_glyph_string_new() Pointer[PangoGlyphString];
+external pango_glyph_string_new() : Pointer[PangoGlyphString];
 
 external pango_glyph_string_set_size(
     string : Pointer[PangoGlyphString],
     new_len : Int);
 
-external pango_glyph_string_get_type() CULong;
+external pango_glyph_string_get_type() : CULong;
 
 external pango_glyph_string_copy(
-    string : Pointer[PangoGlyphString]) Pointer[PangoGlyphString];
+    string : Pointer[PangoGlyphString]) : Pointer[PangoGlyphString];
 
 external pango_glyph_string_free(
     string : Pointer[PangoGlyphString]);
@@ -1194,7 +1194,7 @@ external pango_glyph_string_extents(
     logical_rect : Pointer[PangoRectangle]);
 
 external pango_glyph_string_get_width(
-    glyphs : Pointer[PangoGlyphString]) Int;
+    glyphs : Pointer[PangoGlyphString]) : Int;
 
 external pango_glyph_string_extents_range(
     glyphs : Pointer[PangoGlyphString],
@@ -1236,43 +1236,43 @@ external pango_shape(
     glyphs : Pointer[PangoGlyphString]);
 
 external pango_reorder_items(
-    logical_items : Pointer[GList]) Pointer[GList];
+    logical_items : Pointer[GList]) : Pointer[GList];
 
-external pango_attr_type_get_type() CULong;
+external pango_attr_type_get_type() : CULong;
 
-external pango_underline_get_type() CULong;
+external pango_underline_get_type() : CULong;
 
-external pango_bidi_type_get_type() CULong;
+external pango_bidi_type_get_type() : CULong;
 
-external pango_direction_get_type() CULong;
+external pango_direction_get_type() : CULong;
 
-external pango_coverage_level_get_type() CULong;
+external pango_coverage_level_get_type() : CULong;
 
-external pango_style_get_type() CULong;
+external pango_style_get_type() : CULong;
 
-external pango_variant_get_type() CULong;
+external pango_variant_get_type() : CULong;
 
-external pango_weight_get_type() CULong;
+external pango_weight_get_type() : CULong;
 
-external pango_stretch_get_type() CULong;
+external pango_stretch_get_type() : CULong;
 
-external pango_font_mask_get_type() CULong;
+external pango_font_mask_get_type() : CULong;
 
-external pango_gravity_get_type() CULong;
+external pango_gravity_get_type() : CULong;
 
-external pango_gravity_hint_get_type() CULong;
+external pango_gravity_hint_get_type() : CULong;
 
-external pango_alignment_get_type() CULong;
+external pango_alignment_get_type() : CULong;
 
-external pango_wrap_mode_get_type() CULong;
+external pango_wrap_mode_get_type() : CULong;
 
-external pango_ellipsize_mode_get_type() CULong;
+external pango_ellipsize_mode_get_type() : CULong;
 
-external pango_render_part_get_type() CULong;
+external pango_render_part_get_type() : CULong;
 
-external pango_script_get_type() CULong;
+external pango_script_get_type() : CULong;
 
-external pango_tab_align_get_type() CULong;
+external pango_tab_align_get_type() : CULong;
 
 alias PangoGlyphItem = Struct__PangoGlyphItem;
 
@@ -1281,15 +1281,15 @@ record Struct__PangoGlyphItem (
     glyphs : Pointer[PangoGlyphString],
 );
 
-external pango_glyph_item_get_type() CULong;
+external pango_glyph_item_get_type() : CULong;
 
 external pango_glyph_item_split(
     orig : Pointer[PangoGlyphItem],
     text : Pointer[CChar],
-    split_index : Int) Pointer[PangoGlyphItem];
+    split_index : Int) : Pointer[PangoGlyphItem];
 
 external pango_glyph_item_copy(
-    orig : Pointer[PangoGlyphItem]) Pointer[PangoGlyphItem];
+    orig : Pointer[PangoGlyphItem]) : Pointer[PangoGlyphItem];
 
 external pango_glyph_item_free(
     glyph_item : Pointer[PangoGlyphItem]);
@@ -1297,7 +1297,7 @@ external pango_glyph_item_free(
 external pango_glyph_item_apply_attrs(
     glyph_item : Pointer[PangoGlyphItem],
     text : Pointer[CChar],
-    list : Pointer[PangoAttrList]) Pointer[GSList];
+    list : Pointer[PangoAttrList]) : Pointer[GSList];
 
 external pango_glyph_item_letter_space(
     glyph_item : Pointer[PangoGlyphItem],
@@ -1323,10 +1323,10 @@ record Struct__PangoGlyphItemIter (
     end_char : Int,
 );
 
-external pango_glyph_item_iter_get_type() CULong;
+external pango_glyph_item_iter_get_type() : CULong;
 
 external pango_glyph_item_iter_copy(
-    orig : Pointer[PangoGlyphItemIter]) Pointer[PangoGlyphItemIter];
+    orig : Pointer[PangoGlyphItemIter]) : Pointer[PangoGlyphItemIter];
 
 external pango_glyph_item_iter_free(
     iter : Pointer[PangoGlyphItemIter]);
@@ -1334,18 +1334,18 @@ external pango_glyph_item_iter_free(
 external pango_glyph_item_iter_init_start(
     iter : Pointer[PangoGlyphItemIter],
     glyph_item : Pointer[PangoGlyphItem],
-    text : Pointer[CChar]) Int;
+    text : Pointer[CChar]) : Int;
 
 external pango_glyph_item_iter_init_end(
     iter : Pointer[PangoGlyphItemIter],
     glyph_item : Pointer[PangoGlyphItem],
-    text : Pointer[CChar]) Int;
+    text : Pointer[CChar]) : Int;
 
 external pango_glyph_item_iter_next_cluster(
-    iter : Pointer[PangoGlyphItemIter]) Int;
+    iter : Pointer[PangoGlyphItemIter]) : Int;
 
 external pango_glyph_item_iter_prev_cluster(
-    iter : Pointer[PangoGlyphItemIter]) Int;
+    iter : Pointer[PangoGlyphItemIter]) : Int;
 
 alias PangoTabArray = Opaque;
 
@@ -1355,25 +1355,25 @@ alias PangoTabAlign = Int;
 
 external pango_tab_array_new(
     initial_size : Int,
-    positions_in_pixels : Int) Pointer[PangoTabArray];
+    positions_in_pixels : Int) : Pointer[PangoTabArray];
 
 external pango_tab_array_new_with_positions(
     size : Int,
     positions_in_pixels : Int,
     first_alignment : PangoTabAlign,
     first_position : Int,
-    ...) Pointer[PangoTabArray];
+    ..) : Pointer[PangoTabArray];
 
-external pango_tab_array_get_type() CULong;
+external pango_tab_array_get_type() : CULong;
 
 external pango_tab_array_copy(
-    src : Pointer[PangoTabArray]) Pointer[PangoTabArray];
+    src : Pointer[PangoTabArray]) : Pointer[PangoTabArray];
 
 external pango_tab_array_free(
     tab_array : Pointer[PangoTabArray]);
 
 external pango_tab_array_get_size(
-    tab_array : Pointer[PangoTabArray]) Int;
+    tab_array : Pointer[PangoTabArray]) : Int;
 
 external pango_tab_array_resize(
     tab_array : Pointer[PangoTabArray],
@@ -1397,7 +1397,7 @@ external pango_tab_array_get_tabs(
     locations : Pointer[Pointer[Int]]);
 
 external pango_tab_array_get_positions_in_pixels(
-    tab_array : Pointer[PangoTabArray]) Int;
+    tab_array : Pointer[PangoTabArray]) : Int;
 
 alias PangoLayout = Opaque;
 
@@ -1435,23 +1435,23 @@ record Struct__PangoLayoutLine (
     resolved_dir : UInt,
 );
 
-external pango_layout_get_type() CULong;
+external pango_layout_get_type() : CULong;
 
 external pango_layout_new(
-    context : Pointer[PangoContext]) Pointer[PangoLayout];
+    context : Pointer[PangoContext]) : Pointer[PangoLayout];
 
 external pango_layout_copy(
-    src : Pointer[PangoLayout]) Pointer[PangoLayout];
+    src : Pointer[PangoLayout]) : Pointer[PangoLayout];
 
 external pango_layout_get_context(
-    layout : Pointer[PangoLayout]) Pointer[PangoContext];
+    layout : Pointer[PangoLayout]) : Pointer[PangoContext];
 
 external pango_layout_set_attributes(
     layout : Pointer[PangoLayout],
     attrs : Pointer[PangoAttrList]);
 
 external pango_layout_get_attributes(
-    layout : Pointer[PangoLayout]) Pointer[PangoAttrList];
+    layout : Pointer[PangoLayout]) : Pointer[PangoAttrList];
 
 external pango_layout_set_text(
     layout : Pointer[PangoLayout],
@@ -1459,7 +1459,7 @@ external pango_layout_set_text(
     length : Int);
 
 external pango_layout_get_text(
-    layout : Pointer[PangoLayout]) Pointer[CChar];
+    layout : Pointer[PangoLayout]) : Pointer[CChar];
 
 external pango_layout_set_markup(
     layout : Pointer[PangoLayout],
@@ -1478,93 +1478,93 @@ external pango_layout_set_font_description(
     desc : Pointer[PangoFontDescription]);
 
 external pango_layout_get_font_description(
-    layout : Pointer[PangoLayout]) Pointer[PangoFontDescription];
+    layout : Pointer[PangoLayout]) : Pointer[PangoFontDescription];
 
 external pango_layout_set_width(
     layout : Pointer[PangoLayout],
     width : Int);
 
 external pango_layout_get_width(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_height(
     layout : Pointer[PangoLayout],
     height : Int);
 
 external pango_layout_get_height(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_wrap(
     layout : Pointer[PangoLayout],
     wrap : PangoWrapMode);
 
 external pango_layout_get_wrap(
-    layout : Pointer[PangoLayout]) PangoWrapMode;
+    layout : Pointer[PangoLayout]) : PangoWrapMode;
 
 external pango_layout_is_wrapped(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_indent(
     layout : Pointer[PangoLayout],
     indent : Int);
 
 external pango_layout_get_indent(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_spacing(
     layout : Pointer[PangoLayout],
     spacing : Int);
 
 external pango_layout_get_spacing(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_justify(
     layout : Pointer[PangoLayout],
     justify : Int);
 
 external pango_layout_get_justify(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_auto_dir(
     layout : Pointer[PangoLayout],
     auto_dir : Int);
 
 external pango_layout_get_auto_dir(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_alignment(
     layout : Pointer[PangoLayout],
     alignment : PangoAlignment);
 
 external pango_layout_get_alignment(
-    layout : Pointer[PangoLayout]) PangoAlignment;
+    layout : Pointer[PangoLayout]) : PangoAlignment;
 
 external pango_layout_set_tabs(
     layout : Pointer[PangoLayout],
     tabs : Pointer[PangoTabArray]);
 
 external pango_layout_get_tabs(
-    layout : Pointer[PangoLayout]) Pointer[PangoTabArray];
+    layout : Pointer[PangoLayout]) : Pointer[PangoTabArray];
 
 external pango_layout_set_single_paragraph_mode(
     layout : Pointer[PangoLayout],
     setting : Int);
 
 external pango_layout_get_single_paragraph_mode(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_set_ellipsize(
     layout : Pointer[PangoLayout],
     ellipsize : PangoEllipsizeMode);
 
 external pango_layout_get_ellipsize(
-    layout : Pointer[PangoLayout]) PangoEllipsizeMode;
+    layout : Pointer[PangoLayout]) : PangoEllipsizeMode;
 
 external pango_layout_is_ellipsized(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_get_unknown_glyphs_count(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_context_changed(
     layout : Pointer[PangoLayout]);
@@ -1606,7 +1606,7 @@ external pango_layout_xy_to_index(
     x : Int,
     y : Int,
     index_ : Pointer[Int],
-    trailing : Pointer[Int]) Int;
+    trailing : Pointer[Int]) : Int;
 
 external pango_layout_get_extents(
     layout : Pointer[PangoLayout],
@@ -1629,29 +1629,29 @@ external pango_layout_get_pixel_size(
     height : Pointer[Int]);
 
 external pango_layout_get_baseline(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_get_line_count(
-    layout : Pointer[PangoLayout]) Int;
+    layout : Pointer[PangoLayout]) : Int;
 
 external pango_layout_get_line(
     layout : Pointer[PangoLayout],
-    line : Int) Pointer[PangoLayoutLine];
+    line : Int) : Pointer[PangoLayoutLine];
 
 external pango_layout_get_line_readonly(
     layout : Pointer[PangoLayout],
-    line : Int) Pointer[PangoLayoutLine];
+    line : Int) : Pointer[PangoLayoutLine];
 
 external pango_layout_get_lines(
-    layout : Pointer[PangoLayout]) Pointer[GSList];
+    layout : Pointer[PangoLayout]) : Pointer[GSList];
 
 external pango_layout_get_lines_readonly(
-    layout : Pointer[PangoLayout]) Pointer[GSList];
+    layout : Pointer[PangoLayout]) : Pointer[GSList];
 
-external pango_layout_line_get_type() CULong;
+external pango_layout_line_get_type() : CULong;
 
 external pango_layout_line_ref(
-    line : Pointer[PangoLayoutLine]) Pointer[PangoLayoutLine];
+    line : Pointer[PangoLayoutLine]) : Pointer[PangoLayoutLine];
 
 external pango_layout_line_unref(
     line : Pointer[PangoLayoutLine]);
@@ -1660,7 +1660,7 @@ external pango_layout_line_x_to_index(
     line : Pointer[PangoLayoutLine],
     x_pos : Int,
     index_ : Pointer[Int],
-    trailing : Pointer[Int]) Int;
+    trailing : Pointer[Int]) : Int;
 
 external pango_layout_line_index_to_x(
     line : Pointer[PangoLayoutLine],
@@ -1687,49 +1687,49 @@ external pango_layout_line_get_pixel_extents(
 
 alias PangoLayoutIter = Opaque;
 
-external pango_layout_iter_get_type() CULong;
+external pango_layout_iter_get_type() : CULong;
 
 external pango_layout_get_iter(
-    layout : Pointer[PangoLayout]) Pointer[PangoLayoutIter];
+    layout : Pointer[PangoLayout]) : Pointer[PangoLayoutIter];
 
 external pango_layout_iter_copy(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayoutIter];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayoutIter];
 
 external pango_layout_iter_free(
     iter : Pointer[PangoLayoutIter]);
 
 external pango_layout_iter_get_index(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_get_run(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayoutRun];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayoutRun];
 
 external pango_layout_iter_get_run_readonly(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayoutRun];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayoutRun];
 
 external pango_layout_iter_get_line(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayoutLine];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayoutLine];
 
 external pango_layout_iter_get_line_readonly(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayoutLine];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayoutLine];
 
 external pango_layout_iter_at_last_line(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_get_layout(
-    iter : Pointer[PangoLayoutIter]) Pointer[PangoLayout];
+    iter : Pointer[PangoLayoutIter]) : Pointer[PangoLayout];
 
 external pango_layout_iter_next_char(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_next_cluster(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_next_run(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_next_line(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 external pango_layout_iter_get_char_extents(
     iter : Pointer[PangoLayoutIter],
@@ -1761,7 +1761,7 @@ external pango_layout_iter_get_layout_extents(
     logical_rect : Pointer[PangoRectangle]);
 
 external pango_layout_iter_get_baseline(
-    iter : Pointer[PangoLayoutIter]) Int;
+    iter : Pointer[PangoLayoutIter]) : Int;
 
 alias PangoRenderer = Struct__PangoRenderer;
 
@@ -1787,23 +1787,23 @@ record Struct__PangoRenderer (
 
 record Struct__PangoRendererClass (
     parent_class : GObjectClass,
-    draw_glyphs : CCodePointer[(Pointer[Struct__PangoRenderer],OpaquePointer,Pointer[Struct__PangoGlyphString],Int,Int),()],
-    draw_rectangle : CCodePointer[(Pointer[Struct__PangoRenderer],Int,Int,Int,Int,Int),()],
-    draw_error_underline : CCodePointer[(Pointer[Struct__PangoRenderer],Int,Int,Int,Int),()],
-    draw_shape : CCodePointer[(Pointer[Struct__PangoRenderer],Pointer[Struct__PangoAttrShape],Int,Int),()],
-    draw_trapezoid : CCodePointer[(Pointer[Struct__PangoRenderer],Int,Double,Double,Double,Double,Double,Double),()],
-    draw_glyph : CCodePointer[(Pointer[Struct__PangoRenderer],OpaquePointer,UInt,Double,Double),()],
-    part_changed : CCodePointer[(Pointer[Struct__PangoRenderer],Int),()],
-    begin : CCodePointer[(Pointer[Struct__PangoRenderer]),()],
-    end : CCodePointer[(Pointer[Struct__PangoRenderer]),()],
-    prepare_run : CCodePointer[(Pointer[Struct__PangoRenderer],Pointer[Struct__PangoGlyphItem]),()],
-    draw_glyph_item : CCodePointer[(Pointer[Struct__PangoRenderer],Pointer[CChar],Pointer[Struct__PangoGlyphItem],Int,Int),()],
-    _pango_reserved2 : CCodePointer[(),()],
-    _pango_reserved3 : CCodePointer[(),()],
-    _pango_reserved4 : CCodePointer[(),()],
+    draw_glyphs : CCodePointer[[Pointer[Struct__PangoRenderer],OpaquePointer,Pointer[Struct__PangoGlyphString],Int,Int],[]],
+    draw_rectangle : CCodePointer[[Pointer[Struct__PangoRenderer],Int,Int,Int,Int,Int],[]],
+    draw_error_underline : CCodePointer[[Pointer[Struct__PangoRenderer],Int,Int,Int,Int],[]],
+    draw_shape : CCodePointer[[Pointer[Struct__PangoRenderer],Pointer[Struct__PangoAttrShape],Int,Int],[]],
+    draw_trapezoid : CCodePointer[[Pointer[Struct__PangoRenderer],Int,Double,Double,Double,Double,Double,Double],[]],
+    draw_glyph : CCodePointer[[Pointer[Struct__PangoRenderer],OpaquePointer,UInt,Double,Double],[]],
+    part_changed : CCodePointer[[Pointer[Struct__PangoRenderer],Int],[]],
+    begin : CCodePointer[[Pointer[Struct__PangoRenderer]],[]],
+    end : CCodePointer[[Pointer[Struct__PangoRenderer]],[]],
+    prepare_run : CCodePointer[[Pointer[Struct__PangoRenderer],Pointer[Struct__PangoGlyphItem]],[]],
+    draw_glyph_item : CCodePointer[[Pointer[Struct__PangoRenderer],Pointer[CChar],Pointer[Struct__PangoGlyphItem],Int,Int],[]],
+    _pango_reserved2 : CCodePointer[[],[]],
+    _pango_reserved3 : CCodePointer[[],[]],
+    _pango_reserved4 : CCodePointer[[],[]],
 );
 
-external pango_renderer_get_type() CULong;
+external pango_renderer_get_type() : CULong;
 
 external pango_renderer_draw_layout(
     renderer : Pointer[PangoRenderer],
@@ -1880,72 +1880,72 @@ external pango_renderer_set_color(
 
 external pango_renderer_get_color(
     renderer : Pointer[PangoRenderer],
-    part : PangoRenderPart) Pointer[PangoColor];
+    part : PangoRenderPart) : Pointer[PangoColor];
 
 external pango_renderer_set_matrix(
     renderer : Pointer[PangoRenderer],
     matrix : Pointer[PangoMatrix]);
 
 external pango_renderer_get_matrix(
-    renderer : Pointer[PangoRenderer]) Pointer[PangoMatrix];
+    renderer : Pointer[PangoRenderer]) : Pointer[PangoMatrix];
 
 external pango_renderer_get_layout(
-    renderer : Pointer[PangoRenderer]) Pointer[PangoLayout];
+    renderer : Pointer[PangoRenderer]) : Pointer[PangoLayout];
 
 external pango_renderer_get_layout_line(
-    renderer : Pointer[PangoRenderer]) Pointer[PangoLayoutLine];
+    renderer : Pointer[PangoRenderer]) : Pointer[PangoLayoutLine];
 
 external pango_split_file_list(
-    str : Pointer[CChar]) Pointer[Pointer[CChar]];
+    str : Pointer[CChar]) : Pointer[Pointer[CChar]];
 
 external pango_trim_string(
-    str : Pointer[CChar]) Pointer[CChar];
+    str : Pointer[CChar]) : Pointer[CChar];
 
 external pango_read_line(
     stream : Pointer[FILE],
-    str : Pointer[GString]) Int;
+    str : Pointer[GString]) : Int;
 
 external pango_skip_space(
-    pos : Pointer[Pointer[CChar]]) Int;
+    pos : Pointer[Pointer[CChar]]) : Int;
 
 external pango_scan_word(
     pos : Pointer[Pointer[CChar]],
-    out : Pointer[GString]) Int;
+    out : Pointer[GString]) : Int;
 
 external pango_scan_string(
     pos : Pointer[Pointer[CChar]],
-    out : Pointer[GString]) Int;
+    out : Pointer[GString]) : Int;
 
 external pango_scan_int(
     pos : Pointer[Pointer[CChar]],
-    out : Pointer[Int]) Int;
+    out : Pointer[Int]) : Int;
 
 external pango_parse_enum(
     type : CULong,
     str : Pointer[CChar],
     value : Pointer[Int],
     warn : Int,
-    possible_values : Pointer[Pointer[CChar]]) Int;
+    possible_values : Pointer[Pointer[CChar]]) : Int;
 
 external pango_parse_style(
     str : Pointer[CChar],
     style : Pointer[PangoStyle],
-    warn : Int) Int;
+    warn : Int) : Int;
 
 external pango_parse_variant(
     str : Pointer[CChar],
     variant_ : Pointer[PangoVariant],
-    warn : Int) Int;
+    warn : Int) : Int;
 
 external pango_parse_weight(
     str : Pointer[CChar],
     weight : Pointer[PangoWeight],
-    warn : Int) Int;
+    warn : Int) : Int;
 
 external pango_parse_stretch(
     str : Pointer[CChar],
     stretch : Pointer[PangoStretch],
-    warn : Int) Int;
+    warn : Int) : Int;
 
 external pango_quantize_line_geometry(
     thickness : Pointer[Int],
@@ -1954,16 +1954,16 @@ external pango_quantize_line_geometry(
 external pango_log2vis_get_embedding_levels(
     text : Pointer[CChar],
     length : Int,
-    pbase_dir : Pointer[PangoDirection]) Pointer[CUChar];
+    pbase_dir : Pointer[PangoDirection]) : Pointer[CUChar];
 
 external pango_is_zero_width(
-    ch : UInt) Int;
+    ch : UInt) : Int;
 
-external pango_version() Int;
+external pango_version() : Int;
 
-external pango_version_string() Pointer[CChar];
+external pango_version_string() : Pointer[CChar];
 
 external pango_version_check(
     required_major : Int,
     required_minor : Int,
-    required_micro : Int) Pointer[CChar];
+    required_micro : Int) : Pointer[CChar];

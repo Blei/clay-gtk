@@ -65,66 +65,66 @@ external g_type_init_with_debug_flags(
     debug_flags : GTypeDebugFlags);
 
 external g_type_name(
-    type : CULong) Pointer[CChar];
+    type : CULong) : Pointer[CChar];
 
 external g_type_qname(
-    type : CULong) UInt;
+    type : CULong) : UInt;
 
 external g_type_from_name(
-    name : Pointer[CChar]) CULong;
+    name : Pointer[CChar]) : CULong;
 
 external g_type_parent(
-    type : CULong) CULong;
+    type : CULong) : CULong;
 
 external g_type_depth(
-    type : CULong) UInt;
+    type : CULong) : UInt;
 
 external g_type_next_base(
     leaf_type : CULong,
-    root_type : CULong) CULong;
+    root_type : CULong) : CULong;
 
 external g_type_is_a(
     type : CULong,
-    is_a_type : CULong) Int;
+    is_a_type : CULong) : Int;
 
 external g_type_class_ref(
-    type : CULong) gpointer;
+    type : CULong) : gpointer;
 
 external g_type_class_peek(
-    type : CULong) gpointer;
+    type : CULong) : gpointer;
 
 external g_type_class_peek_static(
-    type : CULong) gpointer;
+    type : CULong) : gpointer;
 
 external g_type_class_unref(
     g_class : gpointer);
 
 external g_type_class_peek_parent(
-    g_class : gpointer) gpointer;
+    g_class : gpointer) : gpointer;
 
 external g_type_interface_peek(
     instance_class : gpointer,
-    iface_type : CULong) gpointer;
+    iface_type : CULong) : gpointer;
 
 external g_type_interface_peek_parent(
-    g_iface : gpointer) gpointer;
+    g_iface : gpointer) : gpointer;
 
 external g_type_default_interface_ref(
-    g_type : CULong) gpointer;
+    g_type : CULong) : gpointer;
 
 external g_type_default_interface_peek(
-    g_type : CULong) gpointer;
+    g_type : CULong) : gpointer;
 
 external g_type_default_interface_unref(
     g_iface : gpointer);
 
 external g_type_children(
     type : CULong,
-    n_children : Pointer[UInt]) Pointer[CULong];
+    n_children : Pointer[UInt]) : Pointer[CULong];
 
 external g_type_interfaces(
     type : CULong,
-    n_interfaces : Pointer[UInt]) Pointer[CULong];
+    n_interfaces : Pointer[UInt]) : Pointer[CULong];
 
 external g_type_set_qdata(
     type : CULong,
@@ -133,29 +133,29 @@ external g_type_set_qdata(
 
 external g_type_get_qdata(
     type : CULong,
-    quark : UInt) gpointer;
+    quark : UInt) : gpointer;
 
 external g_type_query(
     type : CULong,
     query : Pointer[GTypeQuery]);
 
-alias GBaseInitFunc = CCodePointer[(RawPointer),()];
+alias GBaseInitFunc = CCodePointer[[RawPointer],[]];
 
-alias GBaseFinalizeFunc = CCodePointer[(RawPointer),()];
+alias GBaseFinalizeFunc = CCodePointer[[RawPointer],[]];
 
-alias GClassInitFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GClassInitFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
-alias GClassFinalizeFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GClassFinalizeFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
-alias GInstanceInitFunc = CCodePointer[(Pointer[Struct__GTypeInstance],RawPointer),()];
+alias GInstanceInitFunc = CCodePointer[[Pointer[Struct__GTypeInstance],RawPointer],[]];
 
-alias GInterfaceInitFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GInterfaceInitFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
-alias GInterfaceFinalizeFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GInterfaceFinalizeFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
-alias GTypeClassCacheFunc = CCodePointer[(RawPointer,Pointer[Struct__GTypeClass]),(Int)];
+alias GTypeClassCacheFunc = CCodePointer[[RawPointer,Pointer[Struct__GTypeClass]],[Int]];
 
-alias GTypeInterfaceCheckFunc = CCodePointer[(RawPointer,RawPointer),()];
+alias GTypeInterfaceCheckFunc = CCodePointer[[RawPointer,RawPointer],[]];
 
 alias G_TYPE_FLAG_CLASSED = 1;
 alias G_TYPE_FLAG_INSTANTIATABLE = 2;
@@ -193,21 +193,21 @@ record Struct__GInterfaceInfo (
 );
 
 record Struct__GTypeValueTable (
-    value_init : CCodePointer[(Pointer[Struct__GValue]),()],
-    value_free : CCodePointer[(Pointer[Struct__GValue]),()],
-    value_copy : CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue]),()],
-    value_peek_pointer : CCodePointer[(Pointer[Struct__GValue]),(RawPointer)],
+    value_init : CCodePointer[[Pointer[Struct__GValue]],[]],
+    value_free : CCodePointer[[Pointer[Struct__GValue]],[]],
+    value_copy : CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue]],[]],
+    value_peek_pointer : CCodePointer[[Pointer[Struct__GValue]],[RawPointer]],
     collect_format : Pointer[CChar],
-    collect_value : CCodePointer[(Pointer[Struct__GValue],UInt,OpaquePointer,UInt),(Pointer[CChar])],
+    collect_value : CCodePointer[[Pointer[Struct__GValue],UInt,OpaquePointer,UInt],[Pointer[CChar]]],
     lcopy_format : Pointer[CChar],
-    lcopy_value : CCodePointer[(Pointer[Struct__GValue],UInt,OpaquePointer,UInt),(Pointer[CChar])],
+    lcopy_value : CCodePointer[[Pointer[Struct__GValue],UInt,OpaquePointer,UInt],[Pointer[CChar]]],
 );
 
 external g_type_register_static(
     parent_type : CULong,
     type_name : Pointer[CChar],
     info : Pointer[GTypeInfo],
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external g_type_register_static_simple(
     parent_type : CULong,
@@ -216,20 +216,20 @@ external g_type_register_static_simple(
     class_init : GClassInitFunc,
     instance_size : UInt,
     instance_init : GInstanceInitFunc,
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external g_type_register_dynamic(
     parent_type : CULong,
     type_name : Pointer[CChar],
     plugin : Pointer[GTypePlugin],
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external g_type_register_fundamental(
     type_id : CULong,
     type_name : Pointer[CChar],
     info : Pointer[GTypeInfo],
     finfo : Pointer[GTypeFundamentalInfo],
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external g_type_add_interface_static(
     instance_type : CULong,
@@ -247,7 +247,7 @@ external g_type_interface_add_prerequisite(
 
 external g_type_interface_prerequisites(
     interface_type : CULong,
-    n_prerequisites : Pointer[UInt]) Pointer[CULong];
+    n_prerequisites : Pointer[UInt]) : Pointer[CULong];
 
 external g_type_class_add_private(
     g_class : gpointer,
@@ -255,7 +255,7 @@ external g_type_class_add_private(
 
 external g_type_instance_get_private(
     instance_ : Pointer[GTypeInstance],
-    private_type : CULong) gpointer;
+    private_type : CULong) : gpointer;
 
 external g_type_add_class_private(
     class_type : CULong,
@@ -263,22 +263,22 @@ external g_type_add_class_private(
 
 external g_type_class_get_private(
     klass : Pointer[GTypeClass],
-    private_type : CULong) gpointer;
+    private_type : CULong) : gpointer;
 
 external g_type_get_plugin(
-    type : CULong) Pointer[GTypePlugin];
+    type : CULong) : Pointer[GTypePlugin];
 
 external g_type_interface_get_plugin(
     instance_type : CULong,
-    interface_type : CULong) Pointer[GTypePlugin];
+    interface_type : CULong) : Pointer[GTypePlugin];
 
-external g_type_fundamental_next() CULong;
+external g_type_fundamental_next() : CULong;
 
 external g_type_fundamental(
-    type_id : CULong) CULong;
+    type_id : CULong) : CULong;
 
 external g_type_create_instance(
-    type : CULong) Pointer[GTypeInstance];
+    type : CULong) : Pointer[GTypeInstance];
 
 external g_type_free_instance(
     instance_ : Pointer[GTypeInstance]);
@@ -303,46 +303,46 @@ external g_type_remove_interface_check(
     check_func : GTypeInterfaceCheckFunc);
 
 external g_type_value_table_peek(
-    type : CULong) Pointer[GTypeValueTable];
+    type : CULong) : Pointer[GTypeValueTable];
 
 external g_type_check_instance(
-    instance_ : Pointer[GTypeInstance]) Int;
+    instance_ : Pointer[GTypeInstance]) : Int;
 
 external g_type_check_instance_cast(
     instance_ : Pointer[GTypeInstance],
-    iface_type : CULong) Pointer[GTypeInstance];
+    iface_type : CULong) : Pointer[GTypeInstance];
 
 external g_type_check_instance_is_a(
     instance_ : Pointer[GTypeInstance],
-    iface_type : CULong) Int;
+    iface_type : CULong) : Int;
 
 external g_type_check_class_cast(
     g_class : Pointer[GTypeClass],
-    is_a_type : CULong) Pointer[GTypeClass];
+    is_a_type : CULong) : Pointer[GTypeClass];
 
 external g_type_check_class_is_a(
     g_class : Pointer[GTypeClass],
-    is_a_type : CULong) Int;
+    is_a_type : CULong) : Int;
 
 external g_type_check_is_value_type(
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external g_type_check_value(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_type_check_value_holds(
     value : Pointer[GValue],
-    type : CULong) Int;
+    type : CULong) : Int;
 
 external g_type_test_flags(
     type : CULong,
-    flags : UInt) Int;
+    flags : UInt) : Int;
 
 external g_type_name_from_instance(
-    instance_ : Pointer[GTypeInstance]) Pointer[CChar];
+    instance_ : Pointer[GTypeInstance]) : Pointer[CChar];
 
 external g_type_name_from_class(
-    g_class : Pointer[GTypeClass]) Pointer[CChar];
+    g_class : Pointer[GTypeClass]) : Pointer[CChar];
 
 external g_value_c_init();
 
@@ -364,7 +364,7 @@ external g_signal_init();
 
 external _g_type_debug_flags : GTypeDebugFlags;
 
-alias GValueTransform = CCodePointer[(Pointer[Struct__GValue],Pointer[Struct__GValue]),()];
+alias GValueTransform = CCodePointer[[Pointer[Struct__GValue],Pointer[Struct__GValue]],[]];
 
 record Struct__GValue (
     g_type : CULong,
@@ -373,14 +373,14 @@ record Struct__GValue (
 
 external g_value_init(
     value : Pointer[GValue],
-    g_type : CULong) Pointer[GValue];
+    g_type : CULong) : Pointer[GValue];
 
 external g_value_copy(
     src_value : Pointer[GValue],
     dest_value : Pointer[GValue]);
 
 external g_value_reset(
-    value : Pointer[GValue]) Pointer[GValue];
+    value : Pointer[GValue]) : Pointer[GValue];
 
 external g_value_unset(
     value : Pointer[GValue]);
@@ -390,22 +390,22 @@ external g_value_set_instance(
     instance_ : gpointer);
 
 external g_value_fits_pointer(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_value_peek_pointer(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
 external g_value_type_compatible(
     src_type : CULong,
-    dest_type : CULong) Int;
+    dest_type : CULong) : Int;
 
 external g_value_type_transformable(
     src_type : CULong,
-    dest_type : CULong) Int;
+    dest_type : CULong) : Int;
 
 external g_value_transform(
     src_value : Pointer[GValue],
-    dest_value : Pointer[GValue]) Int;
+    dest_value : Pointer[GValue]) : Int;
 
 external g_value_register_transform_func(
     src_type : CULong,
@@ -449,10 +449,10 @@ record Struct__GParamSpec (
 record Struct__GParamSpecClass (
     g_type_class : GTypeClass,
     value_type : CULong,
-    finalize : CCodePointer[(Pointer[Struct__GParamSpec]),()],
-    value_set_default : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue]),()],
-    value_validate : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue]),(Int)],
-    values_cmp : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)],
+    finalize : CCodePointer[[Pointer[Struct__GParamSpec]],[]],
+    value_set_default : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue]],[]],
+    value_validate : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue]],[Int]],
+    values_cmp : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]],
     dummy : Array[gpointer,4],
 );
 
@@ -462,7 +462,7 @@ record Struct__GParameter (
 );
 
 external g_param_spec_ref(
-    pspec : Pointer[GParamSpec]) Pointer[GParamSpec];
+    pspec : Pointer[GParamSpec]) : Pointer[GParamSpec];
 
 external g_param_spec_unref(
     pspec : Pointer[GParamSpec]);
@@ -471,11 +471,11 @@ external g_param_spec_sink(
     pspec : Pointer[GParamSpec]);
 
 external g_param_spec_ref_sink(
-    pspec : Pointer[GParamSpec]) Pointer[GParamSpec];
+    pspec : Pointer[GParamSpec]) : Pointer[GParamSpec];
 
 external g_param_spec_get_qdata(
     pspec : Pointer[GParamSpec],
-    quark : UInt) gpointer;
+    quark : UInt) : gpointer;
 
 external g_param_spec_set_qdata(
     pspec : Pointer[GParamSpec],
@@ -490,10 +490,10 @@ external g_param_spec_set_qdata_full(
 
 external g_param_spec_steal_qdata(
     pspec : Pointer[GParamSpec],
-    quark : UInt) gpointer;
+    quark : UInt) : gpointer;
 
 external g_param_spec_get_redirect_target(
-    pspec : Pointer[GParamSpec]) Pointer[GParamSpec];
+    pspec : Pointer[GParamSpec]) : Pointer[GParamSpec];
 
 external g_param_value_set_default(
     pspec : Pointer[GParamSpec],
@@ -501,41 +501,41 @@ external g_param_value_set_default(
 
 external g_param_value_defaults(
     pspec : Pointer[GParamSpec],
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_param_value_validate(
     pspec : Pointer[GParamSpec],
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_param_value_convert(
     pspec : Pointer[GParamSpec],
     src_value : Pointer[GValue],
     dest_value : Pointer[GValue],
-    strict_validation : Int) Int;
+    strict_validation : Int) : Int;
 
 external g_param_values_cmp(
     pspec : Pointer[GParamSpec],
     value1 : Pointer[GValue],
-    value2 : Pointer[GValue]) Int;
+    value2 : Pointer[GValue]) : Int;
 
 external g_param_spec_get_name(
-    pspec : Pointer[GParamSpec]) Pointer[CChar];
+    pspec : Pointer[GParamSpec]) : Pointer[CChar];
 
 external g_param_spec_get_nick(
-    pspec : Pointer[GParamSpec]) Pointer[CChar];
+    pspec : Pointer[GParamSpec]) : Pointer[CChar];
 
 external g_param_spec_get_blurb(
-    pspec : Pointer[GParamSpec]) Pointer[CChar];
+    pspec : Pointer[GParamSpec]) : Pointer[CChar];
 
 external g_value_set_param(
     value : Pointer[GValue],
     param : Pointer[GParamSpec]);
 
 external g_value_get_param(
-    value : Pointer[GValue]) Pointer[GParamSpec];
+    value : Pointer[GValue]) : Pointer[GParamSpec];
 
 external g_value_dup_param(
-    value : Pointer[GValue]) Pointer[GParamSpec];
+    value : Pointer[GValue]) : Pointer[GParamSpec];
 
 external g_value_take_param(
     value : Pointer[GValue],
@@ -550,32 +550,32 @@ alias GParamSpecTypeInfo = Struct__GParamSpecTypeInfo;
 record Struct__GParamSpecTypeInfo (
     instance_size : UShort,
     n_preallocs : UShort,
-    instance_init : CCodePointer[(Pointer[Struct__GParamSpec]),()],
+    instance_init : CCodePointer[[Pointer[Struct__GParamSpec]],[]],
     value_type : CULong,
-    finalize : CCodePointer[(Pointer[Struct__GParamSpec]),()],
-    value_set_default : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue]),()],
-    value_validate : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue]),(Int)],
-    values_cmp : CCodePointer[(Pointer[Struct__GParamSpec],Pointer[Struct__GValue],Pointer[Struct__GValue]),(Int)],
+    finalize : CCodePointer[[Pointer[Struct__GParamSpec]],[]],
+    value_set_default : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue]],[]],
+    value_validate : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue]],[Int]],
+    values_cmp : CCodePointer[[Pointer[Struct__GParamSpec],Pointer[Struct__GValue],Pointer[Struct__GValue]],[Int]],
 );
 
 external g_param_type_register_static(
     name : Pointer[CChar],
-    pspec_info : Pointer[GParamSpecTypeInfo]) CULong;
+    pspec_info : Pointer[GParamSpecTypeInfo]) : CULong;
 
 external _g_param_type_register_static_constant(
     name : Pointer[CChar],
     pspec_info : Pointer[GParamSpecTypeInfo],
-    opt_type : CULong) CULong;
+    opt_type : CULong) : CULong;
 
 external g_param_spec_internal(
     param_type : CULong,
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
-    flags : GParamFlags) gpointer;
+    flags : GParamFlags) : gpointer;
 
 external g_param_spec_pool_new(
-    type_prefixing : Int) Pointer[GParamSpecPool];
+    type_prefixing : Int) : Pointer[GParamSpecPool];
 
 external g_param_spec_pool_insert(
     pool : Pointer[GParamSpecPool],
@@ -590,26 +590,26 @@ external g_param_spec_pool_lookup(
     pool : Pointer[GParamSpecPool],
     param_name : Pointer[CChar],
     owner_type : CULong,
-    walk_ancestors : Int) Pointer[GParamSpec];
+    walk_ancestors : Int) : Pointer[GParamSpec];
 
 external g_param_spec_pool_list_owned(
     pool : Pointer[GParamSpecPool],
-    owner_type : CULong) Pointer[GList];
+    owner_type : CULong) : Pointer[GList];
 
 external g_param_spec_pool_list(
     pool : Pointer[GParamSpecPool],
     owner_type : CULong,
-    n_pspecs_p : Pointer[UInt]) Pointer[Pointer[GParamSpec]];
+    n_pspecs_p : Pointer[UInt]) : Pointer[Pointer[GParamSpec]];
 
 alias GClosure = Struct__GClosure;
 
 alias GClosureNotifyData = Struct__GClosureNotifyData;
 
-alias GCallback = CCodePointer[(),()];
+alias GCallback = CCodePointer[[],[]];
 
-alias GClosureNotify = CCodePointer[(RawPointer,Pointer[Struct__GClosure]),()];
+alias GClosureNotify = CCodePointer[[RawPointer,Pointer[Struct__GClosure]],[]];
 
-alias GClosureMarshal = CCodePointer[(Pointer[Struct__GClosure],Pointer[Struct__GValue],UInt,Pointer[Struct__GValue],RawPointer,RawPointer),()];
+alias GClosureMarshal = CCodePointer[[Pointer[Struct__GClosure],Pointer[Struct__GValue],UInt,Pointer[Struct__GValue],RawPointer,RawPointer],[]];
 
 alias GCClosure = Struct__GCClosure;
 
@@ -629,7 +629,7 @@ record Struct__GClosure (
     derivative_flag : UInt,
     in_marshal : UInt,
     is_invalid : UInt,
-    marshal : CCodePointer[(Pointer[Struct__GClosure],Pointer[Struct__GValue],UInt,Pointer[Struct__GValue],RawPointer,RawPointer),()],
+    marshal : CCodePointer[[Pointer[Struct__GClosure],Pointer[Struct__GValue],UInt,Pointer[Struct__GValue],RawPointer,RawPointer],[]],
     data : gpointer,
     notifiers : Pointer[GClosureNotifyData],
 );
@@ -642,19 +642,19 @@ record Struct__GCClosure (
 external g_cclosure_new(
     callback_func : GCallback,
     user_data : gpointer,
-    destroy_data : GClosureNotify) Pointer[GClosure];
+    destroy_data : GClosureNotify) : Pointer[GClosure];
 
 external g_cclosure_new_swap(
     callback_func : GCallback,
     user_data : gpointer,
-    destroy_data : GClosureNotify) Pointer[GClosure];
+    destroy_data : GClosureNotify) : Pointer[GClosure];
 
 external g_signal_type_cclosure_new(
     itype : CULong,
-    struct_offset : UInt) Pointer[GClosure];
+    struct_offset : UInt) : Pointer[GClosure];
 
 external g_closure_ref(
-    closure : Pointer[GClosure]) Pointer[GClosure];
+    closure : Pointer[GClosure]) : Pointer[GClosure];
 
 external g_closure_sink(
     closure : Pointer[GClosure]);
@@ -664,7 +664,7 @@ external g_closure_unref(
 
 external g_closure_new_simple(
     sizeof_closure : UInt,
-    data : gpointer) Pointer[GClosure];
+    data : gpointer) : Pointer[GClosure];
 
 external g_closure_add_finalize_notifier(
     closure : Pointer[GClosure],
@@ -894,9 +894,9 @@ alias GSignalInvocationHint = Struct__GSignalInvocationHint;
 
 alias GSignalCMarshaller = GClosureMarshal;
 
-alias GSignalEmissionHook = CCodePointer[(Pointer[Struct__GSignalInvocationHint],UInt,Pointer[Struct__GValue],RawPointer),(Int)];
+alias GSignalEmissionHook = CCodePointer[[Pointer[Struct__GSignalInvocationHint],UInt,Pointer[Struct__GValue],RawPointer],[Int]];
 
-alias GSignalAccumulator = CCodePointer[(Pointer[Struct__GSignalInvocationHint],Pointer[Struct__GValue],Pointer[Struct__GValue],RawPointer),(Int)];
+alias GSignalAccumulator = CCodePointer[[Pointer[Struct__GSignalInvocationHint],Pointer[Struct__GValue],Pointer[Struct__GValue],RawPointer],[Int]];
 
 alias G_SIGNAL_RUN_FIRST = 1;
 alias G_SIGNAL_RUN_LAST = 2;
@@ -948,7 +948,7 @@ external g_signal_newv(
     c_marshaller : GSignalCMarshaller,
     return_type : CULong,
     n_params : UInt,
-    param_types : Pointer[CULong]) UInt;
+    param_types : Pointer[CULong]) : UInt;
 
 external g_signal_new_valist(
     signal_name : Pointer[CChar],
@@ -960,7 +960,7 @@ external g_signal_new_valist(
     c_marshaller : GSignalCMarshaller,
     return_type : CULong,
     n_params : UInt,
-    args : Pointer[__va_list_tag]) UInt;
+    args : Pointer[__va_list_tag]) : UInt;
 
 external g_signal_new(
     signal_name : Pointer[CChar],
@@ -972,7 +972,7 @@ external g_signal_new(
     c_marshaller : GSignalCMarshaller,
     return_type : CULong,
     n_params : UInt,
-    ...) UInt;
+    ..) : UInt;
 
 external g_signal_new_class_handler(
     signal_name : Pointer[CChar],
@@ -984,7 +984,7 @@ external g_signal_new_class_handler(
     c_marshaller : GSignalCMarshaller,
     return_type : CULong,
     n_params : UInt,
-    ...) UInt;
+    ..) : UInt;
 
 external g_signal_emitv(
     instance_and_params : Pointer[GValue],
@@ -1002,19 +1002,19 @@ external g_signal_emit(
     instance_ : gpointer,
     signal_id : UInt,
     detail : UInt,
-    ...);
+    ..);
 
 external g_signal_emit_by_name(
     instance_ : gpointer,
     detailed_signal : Pointer[CChar],
-    ...);
+    ..);
 
 external g_signal_lookup(
     name : Pointer[CChar],
-    itype : CULong) UInt;
+    itype : CULong) : UInt;
 
 external g_signal_name(
-    signal_id : UInt) Pointer[CChar];
+    signal_id : UInt) : Pointer[CChar];
 
 external g_signal_query(
     signal_id : UInt,
@@ -1022,17 +1022,17 @@ external g_signal_query(
 
 external g_signal_list_ids(
     itype : CULong,
-    n_ids : Pointer[UInt]) Pointer[UInt];
+    n_ids : Pointer[UInt]) : Pointer[UInt];
 
 external g_signal_parse_name(
     detailed_signal : Pointer[CChar],
     itype : CULong,
     signal_id_p : Pointer[UInt],
     detail_p : Pointer[UInt],
-    force_detail_quark : Int) Int;
+    force_detail_quark : Int) : Int;
 
 external g_signal_get_invocation_hint(
-    instance_ : gpointer) Pointer[GSignalInvocationHint];
+    instance_ : gpointer) : Pointer[GSignalInvocationHint];
 
 external g_signal_stop_emission(
     instance_ : gpointer,
@@ -1048,7 +1048,7 @@ external g_signal_add_emission_hook(
     detail : UInt,
     hook_func : GSignalEmissionHook,
     hook_data : gpointer,
-    data_destroy : GDestroyNotify) CULong;
+    data_destroy : GDestroyNotify) : CULong;
 
 external g_signal_remove_emission_hook(
     signal_id : UInt,
@@ -1058,20 +1058,20 @@ external g_signal_has_handler_pending(
     instance_ : gpointer,
     signal_id : UInt,
     detail : UInt,
-    may_be_blocked : Int) Int;
+    may_be_blocked : Int) : Int;
 
 external g_signal_connect_closure_by_id(
     instance_ : gpointer,
     signal_id : UInt,
     detail : UInt,
     closure : Pointer[GClosure],
-    after : Int) CULong;
+    after : Int) : CULong;
 
 external g_signal_connect_closure(
     instance_ : gpointer,
     detailed_signal : Pointer[CChar],
     closure : Pointer[GClosure],
-    after : Int) CULong;
+    after : Int) : CULong;
 
 external g_signal_connect_data(
     instance_ : gpointer,
@@ -1079,7 +1079,7 @@ external g_signal_connect_data(
     c_handler : GCallback,
     data : gpointer,
     destroy_data : GClosureNotify,
-    connect_flags : GConnectFlags) CULong;
+    connect_flags : GConnectFlags) : CULong;
 
 external g_signal_handler_block(
     instance_ : gpointer,
@@ -1095,7 +1095,7 @@ external g_signal_handler_disconnect(
 
 external g_signal_handler_is_connected(
     instance_ : gpointer,
-    handler_id : CULong) Int;
+    handler_id : CULong) : Int;
 
 external g_signal_handler_find(
     instance_ : gpointer,
@@ -1104,7 +1104,7 @@ external g_signal_handler_find(
     detail : UInt,
     closure : Pointer[GClosure],
     func : gpointer,
-    data : gpointer) CULong;
+    data : gpointer) : CULong;
 
 external g_signal_handlers_block_matched(
     instance_ : gpointer,
@@ -1113,7 +1113,7 @@ external g_signal_handlers_block_matched(
     detail : UInt,
     closure : Pointer[GClosure],
     func : gpointer,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_signal_handlers_unblock_matched(
     instance_ : gpointer,
@@ -1122,7 +1122,7 @@ external g_signal_handlers_unblock_matched(
     detail : UInt,
     closure : Pointer[GClosure],
     func : gpointer,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_signal_handlers_disconnect_matched(
     instance_ : gpointer,
@@ -1131,7 +1131,7 @@ external g_signal_handlers_disconnect_matched(
     detail : UInt,
     closure : Pointer[GClosure],
     func : gpointer,
-    data : gpointer) UInt;
+    data : gpointer) : UInt;
 
 external g_signal_override_class_closure(
     signal_id : UInt,
@@ -1149,13 +1149,13 @@ external g_signal_chain_from_overridden(
 
 external g_signal_chain_from_overridden_handler(
     instance_ : gpointer,
-    ...);
+    ..);
 
 external g_signal_accumulator_true_handled(
     ihint : Pointer[GSignalInvocationHint],
     return_accu : Pointer[GValue],
     handler_return : Pointer[GValue],
-    dummy : gpointer) Int;
+    dummy : gpointer) : Int;
 
 external g_signal_handlers_destroy(
     instance_ : gpointer);
@@ -1173,13 +1173,13 @@ alias GInitiallyUnownedClass = Struct__GObjectClass;
 
 alias GObjectConstructParam = Struct__GObjectConstructParam;
 
-alias GObjectGetPropertyFunc = CCodePointer[(Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]),()];
+alias GObjectGetPropertyFunc = CCodePointer[[Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]],[]];
 
-alias GObjectSetPropertyFunc = CCodePointer[(Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]),()];
+alias GObjectSetPropertyFunc = CCodePointer[[Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]],[]];
 
-alias GObjectFinalizeFunc = CCodePointer[(Pointer[Struct__GObject]),()];
+alias GObjectFinalizeFunc = CCodePointer[[Pointer[Struct__GObject]],[]];
 
-alias GWeakNotify = CCodePointer[(RawPointer,Pointer[Struct__GObject]),()];
+alias GWeakNotify = CCodePointer[[RawPointer,Pointer[Struct__GObject]],[]];
 
 record Struct__GObject (
     g_type_instance : GTypeInstance,
@@ -1190,14 +1190,14 @@ record Struct__GObject (
 record Struct__GObjectClass (
     g_type_class : GTypeClass,
     construct_properties : Pointer[GSList],
-    constructor : CCodePointer[(CULong,UInt,Pointer[Struct__GObjectConstructParam]),(Pointer[Struct__GObject])],
-    set_property : CCodePointer[(Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]),()],
-    get_property : CCodePointer[(Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]),()],
-    dispose : CCodePointer[(Pointer[Struct__GObject]),()],
-    finalize : CCodePointer[(Pointer[Struct__GObject]),()],
-    dispatch_properties_changed : CCodePointer[(Pointer[Struct__GObject],UInt,Pointer[Pointer[Struct__GParamSpec]]),()],
-    notify : CCodePointer[(Pointer[Struct__GObject],Pointer[Struct__GParamSpec]),()],
-    constructed : CCodePointer[(Pointer[Struct__GObject]),()],
+    constructor : CCodePointer[[CULong,UInt,Pointer[Struct__GObjectConstructParam]],[Pointer[Struct__GObject]]],
+    set_property : CCodePointer[[Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]],[]],
+    get_property : CCodePointer[[Pointer[Struct__GObject],UInt,Pointer[Struct__GValue],Pointer[Struct__GParamSpec]],[]],
+    dispose : CCodePointer[[Pointer[Struct__GObject]],[]],
+    finalize : CCodePointer[[Pointer[Struct__GObject]],[]],
+    dispatch_properties_changed : CCodePointer[[Pointer[Struct__GObject],UInt,Pointer[Pointer[Struct__GParamSpec]]],[]],
+    notify : CCodePointer[[Pointer[Struct__GObject],Pointer[Struct__GParamSpec]],[]],
+    constructed : CCodePointer[[Pointer[Struct__GObject]],[]],
     flags : CULong,
     pdummy : Array[gpointer,6],
 );
@@ -1207,7 +1207,7 @@ record Struct__GObjectConstructParam (
     value : Pointer[GValue],
 );
 
-external g_initially_unowned_get_type() CULong;
+external g_initially_unowned_get_type() : CULong;
 
 external g_object_class_install_property(
     oclass : Pointer[GObjectClass],
@@ -1216,11 +1216,11 @@ external g_object_class_install_property(
 
 external g_object_class_find_property(
     oclass : Pointer[GObjectClass],
-    property_name : Pointer[CChar]) Pointer[GParamSpec];
+    property_name : Pointer[CChar]) : Pointer[GParamSpec];
 
 external g_object_class_list_properties(
     oclass : Pointer[GObjectClass],
-    n_properties : Pointer[UInt]) Pointer[Pointer[GParamSpec]];
+    n_properties : Pointer[UInt]) : Pointer[Pointer[GParamSpec]];
 
 external g_object_class_override_property(
     oclass : Pointer[GObjectClass],
@@ -1238,48 +1238,48 @@ external g_object_interface_install_property(
 
 external g_object_interface_find_property(
     g_iface : gpointer,
-    property_name : Pointer[CChar]) Pointer[GParamSpec];
+    property_name : Pointer[CChar]) : Pointer[GParamSpec];
 
 external g_object_interface_list_properties(
     g_iface : gpointer,
-    n_properties_p : Pointer[UInt]) Pointer[Pointer[GParamSpec]];
+    n_properties_p : Pointer[UInt]) : Pointer[Pointer[GParamSpec]];
 
-external g_object_get_type() CULong;
+external g_object_get_type() : CULong;
 
 external g_object_new(
     object_type : CULong,
     first_property_name : Pointer[CChar],
-    ...) gpointer;
+    ..) : gpointer;
 
 external g_object_newv(
     object_type : CULong,
     n_parameters : UInt,
-    parameters : Pointer[GParameter]) gpointer;
+    parameters : Pointer[GParameter]) : gpointer;
 
 external g_object_new_valist(
     object_type : CULong,
     first_property_name : Pointer[CChar],
-    var_args : Pointer[__va_list_tag]) Pointer[GObject];
+    var_args : Pointer[__va_list_tag]) : Pointer[GObject];
 
 external g_object_set(
     object : gpointer,
     first_property_name : Pointer[CChar],
-    ...);
+    ..);
 
 external g_object_get(
     object : gpointer,
     first_property_name : Pointer[CChar],
-    ...);
+    ..);
 
 external g_object_connect(
     object : gpointer,
     signal_spec : Pointer[CChar],
-    ...) gpointer;
+    ..) : gpointer;
 
 external g_object_disconnect(
     object : gpointer,
     signal_spec : Pointer[CChar],
-    ...);
+    ..);
 
 external g_object_set_valist(
     object : Pointer[GObject],
@@ -1316,13 +1316,13 @@ external g_object_thaw_notify(
     object : Pointer[GObject]);
 
 external g_object_is_floating(
-    object : gpointer) Int;
+    object : gpointer) : Int;
 
 external g_object_ref_sink(
-    object : gpointer) gpointer;
+    object : gpointer) : gpointer;
 
 external g_object_ref(
-    object : gpointer) gpointer;
+    object : gpointer) : gpointer;
 
 external g_object_unref(
     object : gpointer);
@@ -1345,7 +1345,7 @@ external g_object_remove_weak_pointer(
     object : Pointer[GObject],
     weak_pointer_location : Pointer[gpointer]);
 
-alias GToggleNotify = CCodePointer[(RawPointer,Pointer[Struct__GObject],Int),()];
+alias GToggleNotify = CCodePointer[[RawPointer,Pointer[Struct__GObject],Int],[]];
 
 external g_object_add_toggle_ref(
     object : Pointer[GObject],
@@ -1359,7 +1359,7 @@ external g_object_remove_toggle_ref(
 
 external g_object_get_qdata(
     object : Pointer[GObject],
-    quark : UInt) gpointer;
+    quark : UInt) : gpointer;
 
 external g_object_set_qdata(
     object : Pointer[GObject],
@@ -1374,11 +1374,11 @@ external g_object_set_qdata_full(
 
 external g_object_steal_qdata(
     object : Pointer[GObject],
-    quark : UInt) gpointer;
+    quark : UInt) : gpointer;
 
 external g_object_get_data(
     object : Pointer[GObject],
-    key : Pointer[CChar]) gpointer;
+    key : Pointer[CChar]) : gpointer;
 
 external g_object_set_data(
     object : Pointer[GObject],
@@ -1393,7 +1393,7 @@ external g_object_set_data_full(
 
 external g_object_steal_data(
     object : Pointer[GObject],
-    key : Pointer[CChar]) gpointer;
+    key : Pointer[CChar]) : gpointer;
 
 external g_object_watch_closure(
     object : Pointer[GObject],
@@ -1401,32 +1401,32 @@ external g_object_watch_closure(
 
 external g_cclosure_new_object(
     callback_func : GCallback,
-    object : Pointer[GObject]) Pointer[GClosure];
+    object : Pointer[GObject]) : Pointer[GClosure];
 
 external g_cclosure_new_object_swap(
     callback_func : GCallback,
-    object : Pointer[GObject]) Pointer[GClosure];
+    object : Pointer[GObject]) : Pointer[GClosure];
 
 external g_closure_new_object(
     sizeof_closure : UInt,
-    object : Pointer[GObject]) Pointer[GClosure];
+    object : Pointer[GObject]) : Pointer[GClosure];
 
 external g_value_set_object(
     value : Pointer[GValue],
     v_object : gpointer);
 
 external g_value_get_object(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
 external g_value_dup_object(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
 external g_signal_connect_object(
     instance_ : gpointer,
     detailed_signal : Pointer[CChar],
     c_handler : GCallback,
     gobject : gpointer,
-    connect_flags : GConnectFlags) CULong;
+    connect_flags : GConnectFlags) : CULong;
 
 external g_object_force_floating(
     object : Pointer[GObject]);
@@ -1444,11 +1444,11 @@ external g_value_set_object_take_ownership(
 
 external g_object_compat_control(
     what : CULong,
-    data : gpointer) CULong;
+    data : gpointer) : CULong;
 
 alias GBinding = Opaque;
 
-alias GBindingTransformFunc = CCodePointer[(OpaquePointer,Pointer[Struct__GValue],Pointer[Struct__GValue],RawPointer),(Int)];
+alias GBindingTransformFunc = CCodePointer[[OpaquePointer,Pointer[Struct__GValue],Pointer[Struct__GValue],RawPointer],[Int]];
 
 alias G_BINDING_DEFAULT = 0;
 alias G_BINDING_BIDIRECTIONAL = 1;
@@ -1457,31 +1457,31 @@ alias G_BINDING_INVERT_BOOLEAN = 4;
 
 alias GBindingFlags = Int;
 
-external g_binding_flags_get_type() CULong;
+external g_binding_flags_get_type() : CULong;
 
-external g_binding_get_type() CULong;
+external g_binding_get_type() : CULong;
 
 external g_binding_get_flags(
-    binding : Pointer[GBinding]) GBindingFlags;
+    binding : Pointer[GBinding]) : GBindingFlags;
 
 external g_binding_get_source(
-    binding : Pointer[GBinding]) Pointer[GObject];
+    binding : Pointer[GBinding]) : Pointer[GObject];
 
 external g_binding_get_target(
-    binding : Pointer[GBinding]) Pointer[GObject];
+    binding : Pointer[GBinding]) : Pointer[GObject];
 
 external g_binding_get_source_property(
-    binding : Pointer[GBinding]) Pointer[CChar];
+    binding : Pointer[GBinding]) : Pointer[CChar];
 
 external g_binding_get_target_property(
-    binding : Pointer[GBinding]) Pointer[CChar];
+    binding : Pointer[GBinding]) : Pointer[CChar];
 
 external g_object_bind_property(
     source : gpointer,
     source_property : Pointer[CChar],
     target : gpointer,
     target_property : Pointer[CChar],
-    flags : GBindingFlags) Pointer[GBinding];
+    flags : GBindingFlags) : Pointer[GBinding];
 
 external g_object_bind_property_full(
     source : gpointer,
@@ -1492,7 +1492,7 @@ external g_object_bind_property_full(
     transform_to : GBindingTransformFunc,
     transform_from : GBindingTransformFunc,
     user_data : gpointer,
-    notify : GDestroyNotify) Pointer[GBinding];
+    notify : GDestroyNotify) : Pointer[GBinding];
 
 external g_object_bind_property_with_closures(
     source : gpointer,
@@ -1501,15 +1501,15 @@ external g_object_bind_property_with_closures(
     target_property : Pointer[CChar],
     flags : GBindingFlags,
     transform_to : Pointer[GClosure],
-    transform_from : Pointer[GClosure]) Pointer[GBinding];
+    transform_from : Pointer[GClosure]) : Pointer[GBinding];
 
-alias GBoxedCopyFunc = CCodePointer[(RawPointer),(RawPointer)];
+alias GBoxedCopyFunc = CCodePointer[[RawPointer],[RawPointer]];
 
-alias GBoxedFreeFunc = CCodePointer[(RawPointer),()];
+alias GBoxedFreeFunc = CCodePointer[[RawPointer],[]];
 
 external g_boxed_copy(
     boxed_type : CULong,
-    src_boxed : gconstpointer) gpointer;
+    src_boxed : gconstpointer) : gpointer;
 
 external g_boxed_free(
     boxed_type : CULong,
@@ -1524,15 +1524,15 @@ external g_value_set_static_boxed(
     v_boxed : gconstpointer);
 
 external g_value_get_boxed(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
 external g_value_dup_boxed(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
 external g_boxed_type_register_static(
     name : Pointer[CChar],
     boxed_copy : GBoxedCopyFunc,
-    boxed_free : GBoxedFreeFunc) CULong;
+    boxed_free : GBoxedFreeFunc) : CULong;
 
 external g_value_take_boxed(
     value : Pointer[GValue],
@@ -1542,35 +1542,35 @@ external g_value_set_boxed_take_ownership(
     value : Pointer[GValue],
     v_boxed : gconstpointer);
 
-external g_closure_get_type() CULong;
+external g_closure_get_type() : CULong;
 
-external g_value_get_type() CULong;
+external g_value_get_type() : CULong;
 
-external g_value_array_get_type() CULong;
+external g_value_array_get_type() : CULong;
 
-external g_date_get_type() CULong;
+external g_date_get_type() : CULong;
 
-external g_strv_get_type() CULong;
+external g_strv_get_type() : CULong;
 
-external g_gstring_get_type() CULong;
+external g_gstring_get_type() : CULong;
 
-external g_hash_table_get_type() CULong;
+external g_hash_table_get_type() : CULong;
 
-external g_array_get_type() CULong;
+external g_array_get_type() : CULong;
 
-external g_byte_array_get_type() CULong;
+external g_byte_array_get_type() : CULong;
 
-external g_ptr_array_get_type() CULong;
+external g_ptr_array_get_type() : CULong;
 
-external g_variant_type_get_gtype() CULong;
+external g_variant_type_get_gtype() : CULong;
 
-external g_regex_get_type() CULong;
+external g_regex_get_type() : CULong;
 
-external g_error_get_type() CULong;
+external g_error_get_type() : CULong;
 
-external g_date_time_get_type() CULong;
+external g_date_time_get_type() : CULong;
 
-external g_variant_get_gtype() CULong;
+external g_variant_get_gtype() : CULong;
 
 alias GStrv = Pointer[Pointer[CChar]];
 
@@ -1611,49 +1611,49 @@ record Struct__GFlagsValue (
 
 external g_enum_get_value(
     enum_class : Pointer[GEnumClass],
-    value : Int) Pointer[GEnumValue];
+    value : Int) : Pointer[GEnumValue];
 
 external g_enum_get_value_by_name(
     enum_class : Pointer[GEnumClass],
-    name : Pointer[CChar]) Pointer[GEnumValue];
+    name : Pointer[CChar]) : Pointer[GEnumValue];
 
 external g_enum_get_value_by_nick(
     enum_class : Pointer[GEnumClass],
-    nick : Pointer[CChar]) Pointer[GEnumValue];
+    nick : Pointer[CChar]) : Pointer[GEnumValue];
 
 external g_flags_get_first_value(
     flags_class : Pointer[GFlagsClass],
-    value : UInt) Pointer[GFlagsValue];
+    value : UInt) : Pointer[GFlagsValue];
 
 external g_flags_get_value_by_name(
     flags_class : Pointer[GFlagsClass],
-    name : Pointer[CChar]) Pointer[GFlagsValue];
+    name : Pointer[CChar]) : Pointer[GFlagsValue];
 
 external g_flags_get_value_by_nick(
     flags_class : Pointer[GFlagsClass],
-    nick : Pointer[CChar]) Pointer[GFlagsValue];
+    nick : Pointer[CChar]) : Pointer[GFlagsValue];
 
 external g_value_set_enum(
     value : Pointer[GValue],
     v_enum : Int);
 
 external g_value_get_enum(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_value_set_flags(
     value : Pointer[GValue],
     v_flags : UInt);
 
 external g_value_get_flags(
-    value : Pointer[GValue]) UInt;
+    value : Pointer[GValue]) : UInt;
 
 external g_enum_register_static(
     name : Pointer[CChar],
-    const_static_values : Pointer[GEnumValue]) CULong;
+    const_static_values : Pointer[GEnumValue]) : CULong;
 
 external g_flags_register_static(
     name : Pointer[CChar],
-    const_static_values : Pointer[GFlagsValue]) CULong;
+    const_static_values : Pointer[GFlagsValue]) : CULong;
 
 external g_enum_complete_type_info(
     g_enum_type : CULong,
@@ -1861,7 +1861,7 @@ external g_param_spec_char(
     minimum : CChar,
     maximum : CChar,
     default_value : CChar,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_uchar(
     name : Pointer[CChar],
@@ -1870,14 +1870,14 @@ external g_param_spec_uchar(
     minimum : CUChar,
     maximum : CUChar,
     default_value : CUChar,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_boolean(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     default_value : Int,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_int(
     name : Pointer[CChar],
@@ -1886,7 +1886,7 @@ external g_param_spec_int(
     minimum : Int,
     maximum : Int,
     default_value : Int,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_uint(
     name : Pointer[CChar],
@@ -1895,7 +1895,7 @@ external g_param_spec_uint(
     minimum : UInt,
     maximum : UInt,
     default_value : UInt,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_long(
     name : Pointer[CChar],
@@ -1904,7 +1904,7 @@ external g_param_spec_long(
     minimum : CLong,
     maximum : CLong,
     default_value : CLong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_ulong(
     name : Pointer[CChar],
@@ -1913,7 +1913,7 @@ external g_param_spec_ulong(
     minimum : CULong,
     maximum : CULong,
     default_value : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_int64(
     name : Pointer[CChar],
@@ -1922,7 +1922,7 @@ external g_param_spec_int64(
     minimum : CLong,
     maximum : CLong,
     default_value : CLong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_uint64(
     name : Pointer[CChar],
@@ -1931,14 +1931,14 @@ external g_param_spec_uint64(
     minimum : CULong,
     maximum : CULong,
     default_value : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_unichar(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     default_value : UInt,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_enum(
     name : Pointer[CChar],
@@ -1946,7 +1946,7 @@ external g_param_spec_enum(
     blurb : Pointer[CChar],
     enum_type : CULong,
     default_value : Int,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_flags(
     name : Pointer[CChar],
@@ -1954,7 +1954,7 @@ external g_param_spec_flags(
     blurb : Pointer[CChar],
     flags_type : CULong,
     default_value : UInt,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_float(
     name : Pointer[CChar],
@@ -1963,7 +1963,7 @@ external g_param_spec_float(
     minimum : Float,
     maximum : Float,
     default_value : Float,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_double(
     name : Pointer[CChar],
@@ -1972,59 +1972,59 @@ external g_param_spec_double(
     minimum : Double,
     maximum : Double,
     default_value : Double,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_string(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     default_value : Pointer[CChar],
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_param(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     param_type : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_boxed(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     boxed_type : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_pointer(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_value_array(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     element_spec : Pointer[GParamSpec],
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_object(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     object_type : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_override(
     name : Pointer[CChar],
-    overridden : Pointer[GParamSpec]) Pointer[GParamSpec];
+    overridden : Pointer[GParamSpec]) : Pointer[GParamSpec];
 
 external g_param_spec_gtype(
     name : Pointer[CChar],
     nick : Pointer[CChar],
     blurb : Pointer[CChar],
     is_a_type : CULong,
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_variant(
     name : Pointer[CChar],
@@ -2032,7 +2032,7 @@ external g_param_spec_variant(
     blurb : Pointer[CChar],
     type : Pointer[GVariantType],
     default_value : Pointer[GVariant],
-    flags : GParamFlags) Pointer[GParamSpec];
+    flags : GParamFlags) : Pointer[GParamSpec];
 
 external g_param_spec_types : Pointer[CULong];
 
@@ -2040,9 +2040,9 @@ external g_source_set_closure(
     source : Pointer[GSource],
     closure : Pointer[GClosure]);
 
-external g_io_channel_get_type() CULong;
+external g_io_channel_get_type() : CULong;
 
-external g_io_condition_get_type() CULong;
+external g_io_condition_get_type() : CULong;
 
 alias GTypeModule = Struct__GTypeModule;
 
@@ -2058,18 +2058,18 @@ record Struct__GTypeModule (
 
 record Struct__GTypeModuleClass (
     parent_class : GObjectClass,
-    load : CCodePointer[(Pointer[Struct__GTypeModule]),(Int)],
-    unload : CCodePointer[(Pointer[Struct__GTypeModule]),()],
-    reserved1 : CCodePointer[(),()],
-    reserved2 : CCodePointer[(),()],
-    reserved3 : CCodePointer[(),()],
-    reserved4 : CCodePointer[(),()],
+    load : CCodePointer[[Pointer[Struct__GTypeModule]],[Int]],
+    unload : CCodePointer[[Pointer[Struct__GTypeModule]],[]],
+    reserved1 : CCodePointer[[],[]],
+    reserved2 : CCodePointer[[],[]],
+    reserved3 : CCodePointer[[],[]],
+    reserved4 : CCodePointer[[],[]],
 );
 
-external g_type_module_get_type() CULong;
+external g_type_module_get_type() : CULong;
 
 external g_type_module_use(
-    module : Pointer[GTypeModule]) Int;
+    module : Pointer[GTypeModule]) : Int;
 
 external g_type_module_unuse(
     module : Pointer[GTypeModule]);
@@ -2083,7 +2083,7 @@ external g_type_module_register_type(
     parent_type : CULong,
     type_name : Pointer[CChar],
     type_info : Pointer[GTypeInfo],
-    flags : GTypeFlags) CULong;
+    flags : GTypeFlags) : CULong;
 
 external g_type_module_add_interface(
     module : Pointer[GTypeModule],
@@ -2094,22 +2094,22 @@ external g_type_module_add_interface(
 external g_type_module_register_enum(
     module : Pointer[GTypeModule],
     name : Pointer[CChar],
-    const_static_values : Pointer[GEnumValue]) CULong;
+    const_static_values : Pointer[GEnumValue]) : CULong;
 
 external g_type_module_register_flags(
     module : Pointer[GTypeModule],
     name : Pointer[CChar],
-    const_static_values : Pointer[GFlagsValue]) CULong;
+    const_static_values : Pointer[GFlagsValue]) : CULong;
 
 alias GTypePluginClass = Struct__GTypePluginClass;
 
-alias GTypePluginUse = CCodePointer[(OpaquePointer),()];
+alias GTypePluginUse = CCodePointer[[OpaquePointer],[]];
 
-alias GTypePluginUnuse = CCodePointer[(OpaquePointer),()];
+alias GTypePluginUnuse = CCodePointer[[OpaquePointer],[]];
 
-alias GTypePluginCompleteTypeInfo = CCodePointer[(OpaquePointer,CULong,Pointer[Struct__GTypeInfo],Pointer[Struct__GTypeValueTable]),()];
+alias GTypePluginCompleteTypeInfo = CCodePointer[[OpaquePointer,CULong,Pointer[Struct__GTypeInfo],Pointer[Struct__GTypeValueTable]],[]];
 
-alias GTypePluginCompleteInterfaceInfo = CCodePointer[(OpaquePointer,CULong,CULong,Pointer[Struct__GInterfaceInfo]),()];
+alias GTypePluginCompleteInterfaceInfo = CCodePointer[[OpaquePointer,CULong,CULong,Pointer[Struct__GInterfaceInfo]],[]];
 
 record Struct__GTypePluginClass (
     base_iface : GTypeInterface,
@@ -2119,7 +2119,7 @@ record Struct__GTypePluginClass (
     complete_interface_info : GTypePluginCompleteInterfaceInfo,
 );
 
-external g_type_plugin_get_type() CULong;
+external g_type_plugin_get_type() : CULong;
 
 external g_type_plugin_use(
     plugin : Pointer[GTypePlugin]);
@@ -2149,119 +2149,119 @@ record Struct__GValueArray (
 
 external g_value_array_get_nth(
     value_array : Pointer[GValueArray],
-    index_ : UInt) Pointer[GValue];
+    index_ : UInt) : Pointer[GValue];
 
 external g_value_array_new(
-    n_prealloced : UInt) Pointer[GValueArray];
+    n_prealloced : UInt) : Pointer[GValueArray];
 
 external g_value_array_free(
     value_array : Pointer[GValueArray]);
 
 external g_value_array_copy(
-    value_array : Pointer[GValueArray]) Pointer[GValueArray];
+    value_array : Pointer[GValueArray]) : Pointer[GValueArray];
 
 external g_value_array_prepend(
     value_array : Pointer[GValueArray],
-    value : Pointer[GValue]) Pointer[GValueArray];
+    value : Pointer[GValue]) : Pointer[GValueArray];
 
 external g_value_array_append(
     value_array : Pointer[GValueArray],
-    value : Pointer[GValue]) Pointer[GValueArray];
+    value : Pointer[GValue]) : Pointer[GValueArray];
 
 external g_value_array_insert(
     value_array : Pointer[GValueArray],
     index_ : UInt,
-    value : Pointer[GValue]) Pointer[GValueArray];
+    value : Pointer[GValue]) : Pointer[GValueArray];
 
 external g_value_array_remove(
     value_array : Pointer[GValueArray],
-    index_ : UInt) Pointer[GValueArray];
+    index_ : UInt) : Pointer[GValueArray];
 
 external g_value_array_sort(
     value_array : Pointer[GValueArray],
-    compare_func : GCompareFunc) Pointer[GValueArray];
+    compare_func : GCompareFunc) : Pointer[GValueArray];
 
 external g_value_array_sort_with_data(
     value_array : Pointer[GValueArray],
     compare_func : GCompareDataFunc,
-    user_data : gpointer) Pointer[GValueArray];
+    user_data : gpointer) : Pointer[GValueArray];
 
 external g_value_set_char(
     value : Pointer[GValue],
     v_char : CChar);
 
 external g_value_get_char(
-    value : Pointer[GValue]) CChar;
+    value : Pointer[GValue]) : CChar;
 
 external g_value_set_uchar(
     value : Pointer[GValue],
     v_uchar : CUChar);
 
 external g_value_get_uchar(
-    value : Pointer[GValue]) CUChar;
+    value : Pointer[GValue]) : CUChar;
 
 external g_value_set_boolean(
     value : Pointer[GValue],
     v_boolean : Int);
 
 external g_value_get_boolean(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_value_set_int(
     value : Pointer[GValue],
     v_int : Int);
 
 external g_value_get_int(
-    value : Pointer[GValue]) Int;
+    value : Pointer[GValue]) : Int;
 
 external g_value_set_uint(
     value : Pointer[GValue],
     v_uint : UInt);
 
 external g_value_get_uint(
-    value : Pointer[GValue]) UInt;
+    value : Pointer[GValue]) : UInt;
 
 external g_value_set_long(
     value : Pointer[GValue],
     v_long : CLong);
 
 external g_value_get_long(
-    value : Pointer[GValue]) CLong;
+    value : Pointer[GValue]) : CLong;
 
 external g_value_set_ulong(
     value : Pointer[GValue],
     v_ulong : CULong);
 
 external g_value_get_ulong(
-    value : Pointer[GValue]) CULong;
+    value : Pointer[GValue]) : CULong;
 
 external g_value_set_int64(
     value : Pointer[GValue],
     v_int64 : CLong);
 
 external g_value_get_int64(
-    value : Pointer[GValue]) CLong;
+    value : Pointer[GValue]) : CLong;
 
 external g_value_set_uint64(
     value : Pointer[GValue],
     v_uint64 : CULong);
 
 external g_value_get_uint64(
-    value : Pointer[GValue]) CULong;
+    value : Pointer[GValue]) : CULong;
 
 external g_value_set_float(
     value : Pointer[GValue],
     v_float : Float);
 
 external g_value_get_float(
-    value : Pointer[GValue]) Float;
+    value : Pointer[GValue]) : Float;
 
 external g_value_set_double(
     value : Pointer[GValue],
     v_double : Double);
 
 external g_value_get_double(
-    value : Pointer[GValue]) Double;
+    value : Pointer[GValue]) : Double;
 
 external g_value_set_string(
     value : Pointer[GValue],
@@ -2272,26 +2272,26 @@ external g_value_set_static_string(
     v_string : Pointer[CChar]);
 
 external g_value_get_string(
-    value : Pointer[GValue]) Pointer[CChar];
+    value : Pointer[GValue]) : Pointer[CChar];
 
 external g_value_dup_string(
-    value : Pointer[GValue]) Pointer[CChar];
+    value : Pointer[GValue]) : Pointer[CChar];
 
 external g_value_set_pointer(
     value : Pointer[GValue],
     v_pointer : gpointer);
 
 external g_value_get_pointer(
-    value : Pointer[GValue]) gpointer;
+    value : Pointer[GValue]) : gpointer;
 
-external g_gtype_get_type() CULong;
+external g_gtype_get_type() : CULong;
 
 external g_value_set_gtype(
     value : Pointer[GValue],
     v_gtype : CULong);
 
 external g_value_get_gtype(
-    value : Pointer[GValue]) CULong;
+    value : Pointer[GValue]) : CULong;
 
 external g_value_set_variant(
     value : Pointer[GValue],
@@ -2302,16 +2302,16 @@ external g_value_take_variant(
     variant_ : Pointer[GVariant]);
 
 external g_value_get_variant(
-    value : Pointer[GValue]) Pointer[GVariant];
+    value : Pointer[GValue]) : Pointer[GVariant];
 
 external g_value_dup_variant(
-    value : Pointer[GValue]) Pointer[GVariant];
+    value : Pointer[GValue]) : Pointer[GVariant];
 
 external g_pointer_type_register_static(
-    name : Pointer[CChar]) CULong;
+    name : Pointer[CChar]) : CULong;
 
 external g_strdup_value_contents(
-    value : Pointer[GValue]) Pointer[CChar];
+    value : Pointer[GValue]) : Pointer[CChar];
 
 external g_value_take_string(
     value : Pointer[GValue],
