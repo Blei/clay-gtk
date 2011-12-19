@@ -6,3 +6,5 @@ alias GST_SECOND = GstClockTime(1000000000);
 alias GST_MSECOND = GstClockTime(1000000);
 alias GST_USECOND = GstClockTime(1000);
 alias GST_NSECOND = GstClockTime(1);
+
+alias GST_CLOCK_TIME_NONE = wrapCast(GstClockTime, -1);
