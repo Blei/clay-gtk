@@ -3,6 +3,11 @@ import gobject.*;
 import gstreamer.*;
 import glib.*;
 
+import printer.(println,
+                printlnTo);
+import data.strings.(String);
+import io.files.(stderr);
+
 private external watchBus(bus: Pointer[GstBus], message: Pointer[GstMessage], data: gpointer) : gboolean {
 
     var msgType = message^.type;
@@ -11,7 +16,7 @@ private external watchBus(bus: Pointer[GstBus], message: Pointer[GstMessage], da
     if (msgType == GST_MESSAGE_ERROR) {
         var err = null(GError);
         var debugInfo = null(gchar);
-        gst_message_parse_error(message, &err, &debugInfo);
+        gst_message_parse_error(message, @err, @debugInfo);
         println("Error: ", String(err^.message));
         println("debug info: ", String(debugInfo));
         g_error_free(err);
@@ -46,8 +51,8 @@ private var playbin = null(GstElement);
 private var playing = false;
 
 main(argc, argv) {
-    gtk_init(&argc, &argv);
-    gst_init(&argc, &argv);
+    gtk_init(@argc, @argv);
+    gst_init(@argc, @argv);
 
     if (argc != 2) {
         printlnTo(stderr, "Usage: test URI");
