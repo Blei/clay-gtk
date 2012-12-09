@@ -4,6 +4,7 @@ import gobject.generated.*;
 import pango.generated.*;
 import cairo.generated.*;
 import gdkpixbuf.generated.*;
+import gio.generated.*;
 
 alias GdkPoint = Struct__GdkPoint;
 
@@ -16791,13 +16792,52 @@ external (cdecl) gtk_tips_query_set_caller(arg0:Pointer[GtkTipsQuery], arg1:Poin
 
 external (cdecl) gtk_tips_query_set_labels(arg0:Pointer[GtkTipsQuery], arg1:Pointer[gchar], arg2:Pointer[gchar]) : ;
 
+alias Union_Unnamed5 = Union[
+    /* text */ Pointer[gchar],
+    /* pm */ Struct_Unnamed6,
+    /* pt */ Struct_Unnamed7,
+    /* widget */ Pointer[GtkWidget],
+];
+
 alias Union_Unnamed1 = Union[
     /* b */ Array[CChar, 20],
     /* s */ Array[CShort, 10],
     /* l */ Array[CLong, 5],
 ];
 
-alias Enum_Unnamed6 = CUInt;
+alias Union_Unnamed4 = Union[
+    /* pixmap */ GtkImagePixmapData,
+    /* image */ GtkImageImageData,
+    /* pixbuf */ GtkImagePixbufData,
+    /* stock */ GtkImageStockData,
+    /* icon_set */ GtkImageIconSetData,
+    /* anim */ GtkImageAnimationData,
+    /* name */ GtkImageIconNameData,
+    /* gicon */ GtkImageGIconData,
+];
+
+record Struct_Unnamed8 (
+    f : GCallback,
+    d : gpointer,
+);
+
+alias Enum_Unnamed9 = CInt;
+alias GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID = CInt(-1);
+alias GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID = CInt(-2);
+
+record Struct_Unnamed7 (
+    text : Pointer[gchar],
+    spacing : guint8,
+    pixmap : Pointer[GdkPixmap],
+    mask : Pointer[GdkBitmap],
+);
+
+record Struct_Unnamed6 (
+    pixmap : Pointer[GdkPixmap],
+    mask : Pointer[GdkBitmap],
+);
+
+alias Enum_Unnamed10 = CUInt;
 alias GTK_CLIST_IN_DRAG = CUInt(1);
 alias GTK_CLIST_ROW_HEIGHT_SET = CUInt(2);
 alias GTK_CLIST_SHOW_TITLES = CUInt(4);
@@ -16809,21 +16849,10 @@ alias GTK_CLIST_USE_DRAG_ICONS = CUInt(256);
 alias GTK_CLIST_DRAW_DRAG_LINE = CUInt(512);
 alias GTK_CLIST_DRAW_DRAG_RECT = CUInt(1024);
 
-alias Enum_Unnamed7 = CInt;
-alias GTK_TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID = CInt(-1);
-alias GTK_TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID = CInt(-2);
-
 alias Union_Unnamed3 = Union[
     /* long_data */ glong,
     /* double_data */ gdouble,
     /* string_data */ Pointer[gchar],
-];
-
-alias Union_Unnamed5 = Union[
-    /* text */ Pointer[gchar],
-    /* pm */ Struct_Unnamed8,
-    /* pt */ Struct_Unnamed9,
-    /* widget */ Pointer[GtkWidget],
 ];
 
 alias Union_Unnamed2 = Union[
@@ -16839,34 +16868,6 @@ alias Union_Unnamed2 = Union[
     /* string_data */ Pointer[gchar],
     /* object_data */ Pointer[GtkObject],
     /* pointer_data */ gpointer,
-    /* signal_data */ Struct_Unnamed10,
+    /* signal_data */ Struct_Unnamed8,
 ];
-
-alias Union_Unnamed4 = Union[
-    /* pixmap */ GtkImagePixmapData,
-    /* image */ GtkImageImageData,
-    /* pixbuf */ GtkImagePixbufData,
-    /* stock */ GtkImageStockData,
-    /* icon_set */ GtkImageIconSetData,
-    /* anim */ GtkImageAnimationData,
-    /* name */ GtkImageIconNameData,
-    /* gicon */ GtkImageGIconData,
-];
-
-record Struct_Unnamed9 (
-    text : Pointer[gchar],
-    spacing : guint8,
-    pixmap : Pointer[GdkPixmap],
-    mask : Pointer[GdkBitmap],
-);
-
-record Struct_Unnamed8 (
-    pixmap : Pointer[GdkPixmap],
-    mask : Pointer[GdkBitmap],
-);
-
-record Struct_Unnamed10 (
-    f : GCallback,
-    d : gpointer,
-);
 
